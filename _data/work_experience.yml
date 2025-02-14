@@ -1,0 +1,61 @@
+- date: "04/2022 – Present"
+  company: "Consultant"
+  bullets:
+    - Software Architect
+    - Implementing Itsme and OIDC 
+    - Writing blogposts, building out authority
+    - Giving Sessions (Techorama 2024 / Update Conference 2023 ) about testing with OIDC
+    - Certificate Azure Developer Associate
+
+- date: "04/2017 – 04/2022"
+  company: "RecoMatics – Solution Engineer"
+  bullets:
+    - "Analyzing customer needs, creating user stories (agile & waterfall)."
+    - "Maintaining a SaaS product in Azure (Cloud Services, WebAPI, Service Bus)."
+    - "Coaching the product and project teams to improve collaboration."
+    - "Handling DevOps tasks: Azure DevOps, build pipelines, deployment automations."
+    - "Tech stack: .NET Core, TypeScript, React (minor), EF, Dapper, Azure Functions."
+
+- date: "08/2014 – 04/2017"
+  company: "Qite – Senior Software Developer (C#)"
+  bullets:
+    - "Developing & maintaining WebAPI, TypeScript, AngularJS, EF 6.1 solutions."
+    - "WinForms maintenance for planning software (automotive sector)."
+    - "Working in an agile way, focusing on user stories and continuous feedback."
+    - "Azure deployments (database, blob storage) & TFS → TFS Git migration."
+    - "Promoting SOLID, TDD, mocking, and best practices among the team."
+
+- date: "05/2014 – 08/2014"
+  company: "Adam Software – Senior Software Developer (C#)"
+  bullets:
+    - "Proof of concept: WebAPI in a legacy application."
+    - "Introducing NuGet packaging to the build server."
+    - "Created a CQRS POC for large data/video uploads to the cloud."
+    - "Tech: CQRS, EventStore, Unity DI, WebAPI."
+
+- date: "05/2010 – 05/2014"
+  company: "Febelco – Senior Software Developer (C#)"
+  bullets:
+    - "Redeveloping an ERP system (DB2/COBOL/FORTRAN → SQL Server/WCF/.NET)."
+    - "Applying Domain Driven Design, NHibernate, repository/unit-of-work patterns."
+    - "State machine approach for order processing, MSMQ integration."
+    - "Setting up CI with TeamCity, introducing NuGet packaging."
+
+- date: "12/2008 – 05/2010"
+  company: "Ferranti – Implementation Consultant"
+  bullets:
+    - "Working on projects for Essent BE and Brandweer Antwerpen."
+    - "Translating blueprints into functional documents, discussing analysis with customers."
+    - "Overseeing development, testing, and delivery of BI projects."
+    - "Testing, building external interfaces (C#, LINQ, Webservices, DB connections)."
+
+- date: "01/2008 – 12/2008"
+  company: "Ferranti – SQL/X++ Developer"
+  bullets:
+    - "Working on Ferranti’s ERP system and Datawarehouse."
+
+- date: "07/2007 – 12/2007"
+  company: "Fortis Bank – Pay Management Information (BI)"
+  bullets:
+    - "Short-term project focused on business intelligence for Pay Management."
+    - "Collaborating with stakeholders on data analysis and reporting needs."

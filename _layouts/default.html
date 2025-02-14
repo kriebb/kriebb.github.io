@@ -12,9 +12,12 @@
       <nav>
         <ul>
           <li><a href="{{ "/" | relative_url }}">Home</a></li>
-          <li><a href="{{ "/mission-vision" | relative_url }}">Missie & Visie</a></li>
-          <li><a href="{{ "/about" | relative_url }}">Over Mij</a></li>
-          <li><a href="{{ "/services" | relative_url }}">Diensten</a></li>
+          <li><a href="{{ "/mission-vision" | relative_url }}">Mission & Vision</a></li>
+          <li><a href="{{ "/about" | relative_url }}">About me</a></li>
+          <li><a href="{{ "/services" | relative_url }}">Services</a></li>
+          <li><a href="{{ "/resume" | relative_url }}">Resume</a></li>
+          <li><a href="{{ "/work-experience" | relative_url }}">Work Experience</a></li>
+          <li><a href="{{ "/projects" | relative_url }}">Projects</a></li>
           <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
           <li><a href="{{ "/contact" | relative_url }}">Contact</a></li>
         </ul>
@@ -28,5 +31,8 @@
     <footer>
       {%- include footer.html -%}
     </footer>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
   </body>
 </html>

@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<!-- HOME layout kan iets afwijkend zijn, maar hier houden we het simpel -->
-<section>
-  <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
-  <p>Welkom op mijn website!</p>
-  {{ content }}
-</section>
+<section class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to IT KRIEBBELS</h1>
+      <p>{{ site.description }}</p>
+      <a class="btn-cta" href="{{ "/resume" | relative_url }}">Check my Resume</a>
+    </div>
+  </section>

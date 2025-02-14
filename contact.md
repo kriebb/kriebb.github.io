@@ -4,10 +4,10 @@ title: "Contact"
 permalink: "/contact"
 ---
 
-Heb je interesse in mijn diensten of wil je gewoon meer informatie?
 
-- **E-mail**: [jouw.email@example.com](mailto:jouw.email@example.com)
+If you need more information or want to work together, feel free to reach out:
+
+- **Email**: [kristof@riebbels.be](mailto:kristof@riebbels.be)
 - **LinkedIn**: [linkedin.com/in/jouwprofiel](https://www.linkedin.com/in/jouwprofiel)
 
-Of vul hieronder het formulier in (hier kun je eventueel later een integratie toevoegen).
-
+Or fill in the form below (coming soon).

@@ -1,41 +1,348 @@
-/* assets/css/style.css */
+/* Variables */
+:root {
+  --primary-color: #004c8c;    /* Deep Blue */
+  --accent-color: #00b386;     /* Green */
+  --text-color: #333333;
+  --bg-color: #f9f9f9;
+  --light-gray: #efefef;
+  --white: #ffffff;
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
-    background-color: #fafafa;
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER / NAVBAR */
+
+
+header {
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+header nav {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0; /* horizontale padding */
+}
+
+/* Logo of titel links */
+header nav .nav-logo {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Navigatielinks rechts */
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: var(--accent-color);
+}
+
+
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1rem 0;
+}
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
+/* HOMEPAGE HERO SECTION */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 50%,
+    var(--accent-color) 100%
+  );
+  color: var(--white);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.btn-cta {
+  background-color: var(--white);
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.btn-cta:hover {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+/* MAIN CONTENT / PAGE SECTIONS */
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+.page-section {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.page-section h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.page-section p {
+  margin-bottom: 1rem;
+}
+
+/* LISTS */
+ul, ol {
+  margin: 1rem 2rem;
+  padding-left: 1.5rem;
+}
+ul li, ol li {
+  margin-bottom: 0.5rem;
+}
+ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: decimal;
+}
+
+/* TABLES */
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+}
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+table thead {
+  background-color: var(--light-gray);
+}
+thead th {
+  font-weight: 600;
+}
+
+/* HEADINGS SPACING */
+h2, h3, h4, h5, h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+}
+
+/* TIMELINE FOR WORK EXPERIENCE */
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: var(--light-gray);
+  top: 0;
+  bottom: 0;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item .content {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1rem;
+  display: inline-block;
+  position: relative;
+  max-width: 90%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.timeline-item .content ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.timeline-item .content ul li {
+  background-color: var(--light-gray);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.timeline-item .content ul li::before {
+  content: "✓";
+  color: var(--accent-color);
+  font-weight: bold;
+  display: inline-block;
+  width: auto;
+  margin-right: 0.5rem; /* pas aan naar wens */
+  font-size: 1.2rem;
+  position: relative; /* of absolute, afhankelijk van je layout */
+  top: 0.2rem;
+  left: 0;
+}
+
+.timeline-item:nth-child(odd) .content::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid var(--white);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.timeline-item:nth-child(even) .content::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-right: 8px solid var(--white);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.timeline-item .date {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+/* PROJECTS SLIDER (SWIPER) */
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+.swiper-slide {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.swiper-slide h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.swiper-slide p {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Simplest approach; you'd add a burger menu in a real scenario */
   }
-  
-  header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: #2b2b2b;
+  .timeline::before {
+    left: 20px;
   }
-  
-  header nav ul li {
-    display: inline-block;
-    margin-right: 1rem;
+  .timeline-item {
+    width: 100%;
+    margin-left: 40px;
+    text-align: left !important;
   }
-  
-  header nav ul li a {
-    color: #fff;
-    text-decoration: none;
+  .timeline-item:nth-child(even) {
+    left: 0;
   }
-  
-  section {
-    padding: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    margin-top: 1rem;
+  .timeline-item:nth-child(even) .content::after {
+    left: -8px;
+    border-right: none;
+    border-left: 8px solid var(--white);
   }
-  
-  footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #f1f1f1;
-  }
-  
+}

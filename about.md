@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Over Mij"
+title: "About"
 permalink: "/about"
 ---
 
