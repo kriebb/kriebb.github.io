@@ -1,3 +1,27 @@
-theme: jekyll-theme-minimal
-title: Octocat's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: "IT KRIEBBELS"
+description: "Freelance .NET Developer – Krachtige en veilige oplossingen"
+theme: minima
+# Optioneel: voor GitHub Pages
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Site-instellingen
+baseurl: "" # laat leeg voor de root of pas aan als je een projectpagina hebt
+url: "https://kriebb.github.io" # pas aan naar je eigen GitHub Pages link
+
+# Exclude node_modules etc. indien nodig
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+
+# Pagina-navigatie (optioneel)
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
