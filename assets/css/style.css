@@ -20,13 +20,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  margin: 0;
   padding: 0;
 }
 
-/* HEADER / NAVBAR */
-
-
+/* HEADER / NAVBAR (Mobile-first) */
 header {
   background-color: var(--primary-color);
   position: sticky;
@@ -38,15 +35,14 @@ header {
 
 header nav {
   width: 90%;
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0; /* horizontale padding */
+  padding: 1rem 0;
 }
 
-/* Logo of titel links */
+/* Logo on the left */
 header nav .nav-logo {
   color: var(--white);
   font-size: 1.5rem;
@@ -54,58 +50,9 @@ header nav .nav-logo {
   text-decoration: none;
 }
 
-/* Navigatielinks rechts */
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-header nav ul li a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-  color: var(--accent-color);
-}
-
-
-.navbar {
-  background-color: var(--primary-color);
-  padding: 1rem 0;
-}
-.nav-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-logo {
-  color: var(--white);
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-links li a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-.nav-links li a:hover {
-  color: var(--accent-color);
+/* Mobile navigation: by default, hide navigation links (for a potential burger menu) */
+header nav .nav-links {
+  display: none;
 }
 
 /* HOMEPAGE HERO SECTION */
@@ -119,11 +66,11 @@ header nav ul li a:hover {
   padding: 4rem 2rem;
   text-align: center;
 }
-.hero-content h1 {
+.hero-section h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-.hero-content p {
+.hero-section p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -144,7 +91,6 @@ header nav ul li a:hover {
 /* MAIN CONTENT / PAGE SECTIONS */
 main {
   width: 90%;
-  max-width: 1200px;
   margin: 2rem auto;
 }
 .page-section {
@@ -208,7 +154,7 @@ footer {
   color: var(--text-color);
 }
 
-/* TIMELINE FOR WORK EXPERIENCE */
+/* TIMELINE FOR WORK EXPERIENCE (Mobile-first) */
 .timeline {
   position: relative;
   margin: 2rem 0;
@@ -216,7 +162,7 @@ footer {
 .timeline::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 20px;
   width: 2px;
   background: var(--light-gray);
   top: 0;
@@ -224,23 +170,16 @@ footer {
 }
 .timeline-item {
   position: relative;
-  width: 50%;
+  width: 100%;
   padding: 1rem;
+  margin-left: 40px;
+  text-align: left;
   box-sizing: border-box;
-}
-.timeline-item:nth-child(odd) {
-  left: 0;
-  text-align: right;
-}
-.timeline-item:nth-child(even) {
-  left: 50%;
 }
 .timeline-item .content {
   background: var(--white);
   border-radius: 8px;
   padding: 1rem;
-  display: inline-block;
-  position: relative;
   max-width: 90%;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -249,7 +188,6 @@ footer {
   margin: 1rem 0;
   padding: 0;
 }
-
 .timeline-item .content ul li {
   background-color: var(--light-gray);
   border-radius: 6px;
@@ -257,46 +195,15 @@ footer {
   margin-bottom: 0.75rem;
   position: relative;
 }
-
 .timeline-item .content ul li::before {
   content: "✓";
   color: var(--accent-color);
   font-weight: bold;
   display: inline-block;
-  width: auto;
-  margin-right: 0.5rem; /* pas aan naar wens */
+  margin-right: 0.5rem;
   font-size: 1.2rem;
-  position: relative; /* of absolute, afhankelijk van je layout */
+  position: relative;
   top: 0.2rem;
-  left: 0;
-}
-
-.timeline-item:nth-child(odd) .content::after {
-  content: "";
-  position: absolute;
-  top: 20px;
-  right: -8px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid var(--white);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-}
-.timeline-item:nth-child(even) .content::after {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: -8px;
-  width: 0;
-  height: 0;
-  border-right: 8px solid var(--white);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-}
-.timeline-item .date {
-  font-weight: 600;
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
 }
 
 /* PROJECTS SLIDER (SWIPER) */
@@ -324,25 +231,73 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Simplest approach; you'd add a burger menu in a real scenario */
+/* RESPONSIVE ENHANCEMENTS for Larger Screens */
+@media (min-width: 768px) {
+  /* Show navigation links on tablets */
+  header nav .nav-links {
+    display: flex;
+    gap: 1.5rem;
   }
+  header nav {
+    max-width: 1200px;
+  }
+  main {
+    max-width: 1200px;
+  }
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+  
+  /* TIMELINE enhancements for tablet/desktop */
   .timeline::before {
-    left: 20px;
+    left: 50%;
   }
   .timeline-item {
-    width: 100%;
-    margin-left: 40px;
-    text-align: left !important;
+    width: 50%;
+    margin-left: 0;
+  }
+  .timeline-item:nth-child(odd) {
+    text-align: right;
   }
   .timeline-item:nth-child(even) {
-    left: 0;
+    text-align: left;
+  }
+  /* Add connectors for timeline items */
+  .timeline-item:nth-child(odd) .content::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid var(--white);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
   }
   .timeline-item:nth-child(even) .content::after {
+    content: "";
+    position: absolute;
+    top: 20px;
     left: -8px;
-    border-right: none;
-    border-left: 8px solid var(--white);
+    width: 0;
+    height: 0;
+    border-right: 8px solid var(--white);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Further refine container widths for desktop */
+  header nav,
+  main {
+    width: 80%;
+  }
+  /* Enhance hero section padding and typography */
+  .hero-section {
+    padding: 6rem 2rem;
+  }
+  .hero-section h1 {
+    font-size: 3.5rem;
   }
 }
