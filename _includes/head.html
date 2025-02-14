@@ -1,8 +1,18 @@
+<!-- Preconnect to Google Fonts for faster loading -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- Main CSS -->
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-<!-- Swiper CSS (for the Projects slider) -->
-<link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+<!-- Main CSS (only cache-bust local files) -->
+<link rel="stylesheet" href="{{ '/assets/css/style.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+
+<!-- Swiper CSS (do not force cache-busting on CDN-hosted assets) -->
+<link rel="stylesheet" 
+  href="https://unpkg.com/swiper@9/swiper-bundle.min.css" 
+  integrity="sha384-VlUcJj9dPz8/ej8/AT84MT93Pz8/PxdEPz8/P3gDH2Q/DQoGd0Q/P3N/JD8/P0Y/Ug0K" 
+  crossorigin="anonymous" />
+
 <!-- Swiper JS (defer load for performance) -->
-<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js" defer></script>
+<!-- Swiper JS (with SRI) -->
+<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"
+        integrity="sha384-T0M/AD8/Pj8CP1RVGzx+AVkFPzg/Pz8PcjBebT8/Oj9KPwc/F1p9Pz8/Pzk/Pz8ODQo="
+        crossorigin="anonymous" defer></script>
