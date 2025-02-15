@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize Swiper for the Projects page
-    var swiper = new Swiper(".swiper", {
+    return swiper = new Swiper(".swiper", {
       // Optional parameters
       loop: true,
       pagination: {
@@ -24,4 +24,35 @@ document.addEventListener("DOMContentLoaded", function() {
       },
     });
   });
+  document.addEventListener("DOMContentLoaded", function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navbar = document.querySelector('.navbar');
   
+    if (navToggle && navbar) {
+      navToggle.addEventListener('click', () => {
+        navbar.classList.toggle('nav-open');
+      });
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    const darkModeButton = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      darkModeButton.textContent = 'Light Mode';
+    }
+
+    darkModeButton.addEventListener('click', function() {
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        darkModeButton.textContent = 'Light Mode';
+      } else {
+        localStorage.setItem('theme', 'light');
+        darkModeButton.textContent = 'Dark Mode';
+      }
+    });
+  });

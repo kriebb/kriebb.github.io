@@ -1,0 +1,44 @@
+/* 1) Hide everything by default */
+.logo-full,
+.logo-mini {
+  display: none;
+}
+
+/* 2) Light Mode + Large Screen */
+@media (min-width: 768px) {
+  .logo-full.logo-light {
+    display: inline-block;
+  }
+}
+
+/* 3) Light Mode + Small Screen */
+@media (max-width: 767px) {
+  .logo-mini.logo-light {
+    display: inline-block;
+  }
+}
+
+/* 4) Dark Mode Overrides: hide all light logos */
+.dark-mode .logo-light {
+  display: none !important;
+}
+
+/* Start dark logos hidden (we'll show them selectively below) */
+.dark-mode .logo-full.logo-dark,
+.dark-mode .logo-mini.logo-dark {
+  display: none;
+}
+
+/* 5) Dark Mode + Large Screen => Show Full Dark Logo */
+@media (min-width: 768px) {
+  .dark-mode .logo-full.logo-dark {
+    display: inline-block;
+  }
+}
+
+/* 6) Dark Mode + Small Screen => Show Mini Dark Logo */
+@media (max-width: 767px) {
+  .dark-mode .logo-mini.logo-dark {
+    display: inline-block;
+  }
+}

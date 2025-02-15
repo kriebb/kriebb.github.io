@@ -1,0 +1,87 @@
+/* Light Mode Header */
+header {
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.nav-logo img {
+  /* If you have multiple logos (light/dark), they can be hidden or shown based on .dark-mode. */
+  height: 40px;
+}
+
+/* Links (Light Mode) */
+.nav-links {
+  list-style: none;
+  display: none; /* or your default mobile approach */
+  margin: 0;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-links li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
+nav .nav-links {
+  display: none;
+}
+nav.nav-open .nav-links {
+  display: block;
+}
+
+
+/* Dark Mode Header Overrides */
+.dark-mode header {
+  background-color: var(--dark-primary-color); /* Or var(--primary-color) if you changed that above */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .nav-links li a {
+  /* If you want a different link color in dark mode */
+  color: var(--dark-text-color);
+}
+
+.dark-mode .nav-links li a:hover {
+  opacity: 0.8;
+}
+
+/* If you’re swapping logos with classes like .logo-light / .logo-dark, 
+   you can hide/show them here: */
+.logo-dark {
+  display: none;
+}
+.dark-mode .logo-dark {
+  display: inline-block;
+}
+.dark-mode .logo-light {
+  display: none;
+}
+
+/* Media Queries for Desktop, etc. */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+}

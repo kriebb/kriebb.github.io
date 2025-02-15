@@ -3,7 +3,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- Main CSS (only cache-bust local files) -->
+<link rel="stylesheet" href="{{ '/assets/css/body.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/button.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+
+<link rel="stylesheet" href="{{ '/assets/css/header.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+
+<link rel="stylesheet" href="{{ '/assets/css/lists.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/logo.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/page.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/style.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
+
+<!-- Light mode favicon -->
+<link rel="icon" href="/assets/favicon.svg" media="(prefers-color-scheme: light)" type="image/svg" />
+<!-- Dark mode favicon -->
+<link rel="icon" href="/assets/favicon.svg" media="(prefers-color-scheme: dark)" type="image/svg" />
 
 <!-- Swiper CSS (do not force cache-busting on CDN-hosted assets) -->
 <link rel="stylesheet" 
