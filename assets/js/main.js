@@ -1,58 +1,72 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Initialize Swiper for the Projects page
-    return swiper = new Swiper(".swiper", {
-      // Optional parameters
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Swiper for the Projects page
+  return swiper = new Swiper(".swiper", {
+    // Optional parameters
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    // Responsiveness
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+      1024: {
+        slidesPerView: 3,
       },
-      slidesPerView: 1,
-      spaceBetween: 20,
-      // Responsiveness
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
+    },
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navbar = document.querySelector('.navbar');
+
+  if (navToggle && navbar) {
+    navToggle.addEventListener('click', () => {
+      navbar.classList.toggle('nav-open');
     });
-  });
-  document.addEventListener("DOMContentLoaded", function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navbar = document.querySelector('.navbar');
-  
-    if (navToggle && navbar) {
-      navToggle.addEventListener('click', () => {
-        navbar.classList.toggle('nav-open');
-      });
-    }
-  });
-  document.addEventListener('DOMContentLoaded', function() {
-    const darkModeButton = document.getElementById('darkModeToggle');
-    const body = document.body;
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const darkModeButton = document.getElementById('darkModeToggle');
+  const lightModeButton = document.getElementById('lightModeToggle');
 
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
-      body.classList.add('dark-mode');
-      darkModeButton.textContent = 'Light Mode';
-    }
+  const body = document.body;
 
-    darkModeButton.addEventListener('click', function() {
-      body.classList.toggle('dark-mode');
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    darkModeButton.hidden = true;
+    lightModeButton.hidden = false;
+  }
+  else {
+    body.classList.remove('dark-mode');
+    darkModeButton.hidden = false;
+    lightModeButton.hidden = true;
+  }
 
-      if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-        darkModeButton.textContent = 'Light Mode';
-      } else {
-        localStorage.setItem('theme', 'light');
-        darkModeButton.textContent = 'Dark Mode';
-      }
-    });
+  darkModeButton.addEventListener('click', function () {
+    body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+    darkModeButton.hidden = true;
+    lightModeButton.hidden = false;
+
   });
+
+  lightModeButton.addEventListener('click', function () {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+    darkModeButton.hidden = false;
+    lightModeButton.hidden = true;
+  });
+});
+
+AOS.init();
+

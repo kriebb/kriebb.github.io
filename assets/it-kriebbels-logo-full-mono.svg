@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="100" viewBox="0 0 400 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="40" viewBox="0 0 280 40">
   <!-- Shield Icon (Monochrome) -->
   <g id="shieldIconMono">
     <path d="M20,10 L50,10 L60,25 L50,40 L20,40 L10,25 Z" fill="#004c8c"/>
     <text x="25" y="28" font-family="monospace" font-size="12" fill="#ffffff">{ }</text>
   </g>
   <!-- Company Name (Monochrome) -->
-  <text x="80" y="32" font-family="Arial, sans-serif" font-size="28" fill="#004c8c" font-weight="bold">
+  <text x="80" y="32" font-family="Arial, sans-serif" font-size="28" fill="#ffffff" font-weight="bold">
     IT KRIEBBELS
   </text>
 </svg>

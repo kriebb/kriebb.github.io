@@ -1,11 +1,12 @@
-/* Light Mode Header */
+/* Navigation Bar */
+/* General Navbar */
 header {
   background-color: var(--primary-color);
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 999;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+  /* If needed, set a fixed height or just rely on .navbar's padding */
 }
 
 .navbar {
@@ -14,74 +15,142 @@ header {
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.5rem 1rem; /* Reduced top/bottom space */
+  gap: 1rem;           /* Only if you want consistent spacing */
 }
 
-.nav-logo img {
-  /* If you have multiple logos (light/dark), they can be hidden or shown based on .dark-mode. */
-  height: 40px;
+img {
+  max-height: 40px;    /* Ensure a consistent logo size */
+  display: block;
+  margin: 0.5rem 1rem;           /* Remove default margins if any */
+  
 }
 
-/* Links (Light Mode) */
-.nav-links {
-  list-style: none;
-  display: none; /* or your default mobile approach */
-  margin: 0;
+
+/* Hamburger Menu */
+.nav-toggle {
+  display: none; /* Hide by default on desktop */
+  background: none;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  font-size: 2rem;
+  color: var(--white);
   cursor: pointer;
 }
 
-.nav-links li a {
+/* Navigation Links (Default: Hidden on Mobile) */
+.nav-links {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--primary-color);
+  position: absolute;
+  top: 60px; /* Adjust based on header height */
+  left: 0;
+  padding: 1rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+  margin: 1rem 0;
+}
+
+.nav-links a {
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
-.nav-links li a:hover {
+
+.nav-links a:hover {
   color: var(--accent-color);
 }
 
-nav .nav-links {
-  display: none;
+/* When Menu is Open */
+.nav-open .nav-links {
+  display: flex;
 }
-nav.nav-open .nav-links {
-  display: block;
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes it to the right */
+}
+
+.dark-mode-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--white);
+  transition: transform 0.2s ease;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.1);
 }
 
 
-/* Dark Mode Header Overrides */
+/* Dark Mode */
 .dark-mode header {
-  background-color: var(--dark-primary-color); /* Or var(--primary-color) if you changed that above */
+  background-color: var(--dark-primary-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
-.dark-mode .nav-links li a {
-  /* If you want a different link color in dark mode */
+.dark-mode .nav-links {
+  background: var(--dark-primary-color);
+}
+
+.dark-mode .nav-links a {
   color: var(--dark-text-color);
 }
 
-.dark-mode .nav-links li a:hover {
+.dark-mode .nav-links a:hover {
   opacity: 0.8;
 }
 
-/* If you’re swapping logos with classes like .logo-light / .logo-dark, 
-   you can hide/show them here: */
-.logo-dark {
-  display: none;
-}
-.dark-mode .logo-dark {
-  display: inline-block;
-}
-.dark-mode .logo-light {
-  display: none;
-}
-
-/* Media Queries for Desktop, etc. */
+/* Show Menu on Desktop */
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: row;
+    position: static;
+    background: none;
+    width: auto;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 0 1rem;
+  }
+
+  .nav-toggle {
+    display: none; /* Hide hamburger menu on desktop */
+  }
+}
+
+/* Show Hamburger on Mobile */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .dark-mode-btn {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Space between it and hamburger */
+    color: var(--white);
+  }
+
+  header {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Hide header on scroll down */
+  .nav-hidden {
+    transform: translateY(-100%);
   }
 }

@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="{{ '/assets/css/page.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
 <link rel="stylesheet" href="{{ '/assets/css/style.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" />
 
+<link rel="preload" as="image" href="/assets/it-kriebels-logo-full-light.svg">
+<link rel="preload" as="image" href="/assets/it-kriebels-logo-full-dark.svg">
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <!-- Light mode favicon -->
 <link rel="icon" href="/assets/favicon.svg" media="(prefers-color-scheme: light)" type="image/svg" />
 <!-- Dark mode favicon -->

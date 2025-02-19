@@ -8,7 +8,7 @@ Below you’ll find a chronological overview of my professional journey, highlig
 
 <div class="timeline">
   {% for item in site.data.work_experience %}
-  <div class="timeline-item">
+  <div class="timeline-item" data-aos="fade-up">
     <div class="content">
       <div class="date">{{ item.date }}</div>
       <h3>{{ item.company }}</h3>

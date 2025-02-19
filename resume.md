@@ -6,7 +6,12 @@ permalink: "/resume"
 
 # My Resume
 
-> **Privacy Notice**  
+
+- [Projects](projects)
+- [An oveview of my work experience](work-experience)
+- [Services](services)
+
+**Privacy Notice**  
 > I value my privacy and that of my clients. Therefore, personal details like my full address or phone number are not publicly displayed here. If you need additional information, feel free to contact me at [kristof@riebbels.be](mailto:kristof@riebbels.be).
 
 ---

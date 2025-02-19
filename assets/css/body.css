@@ -43,3 +43,17 @@ body {
   background-color: var(--dark-background-color);
   color: var(--dark-text-color);
 }
+
+/* Dark Mode Link Colors */
+.dark-mode a:link,
+.dark-mode a:visited,
+.dark-mode a:active {
+  color: var(--dark-accent-color);
+  text-decoration: none; /* optional */
+  transition: opacity 0.2s ease-in-out; /* smooth hover effect */
+}
+
+/* On hover, reduce opacity slightly */
+.dark-mode a:hover {
+  opacity: 0.8;
+}
