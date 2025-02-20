@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const navToggle = document.querySelector('.nav-toggle');
   const navbar = document.querySelector('.navbar');
@@ -68,5 +69,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-AOS.init();
 

@@ -16,12 +16,12 @@
 <link rel="preload" as="image" href="/assets/it-kriebbels-logo-full-light.svg">
 <link rel="preload" as="image" href="/assets/it-kriebbels-logo-full-dark.svg">
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css" />
 
 <!-- Light mode favicon -->
-<link rel="icon" href="{{ '/assets/favicon.svg?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" media="(prefers-color-scheme: light)" type="image/svg" />
+<link rel="icon" href="/assets/favicon-light.svg" media="(prefers-color-scheme: light)" type="image/svg" />
 <!-- Dark mode favicon -->
-<link rel="icon" href="{{ '/assets/favicon.svg?v={{ site.github.build_revision | default: site.time | date: '%s' }}' | relative_url }}" media="(prefers-color-scheme: dark)" type="image/svg" />
+<link rel="icon" href="/assets/favicon-dark.svg" media="(prefers-color-scheme: dark)" type="image/svg" />
 
 <!-- Swiper CSS (do not force cache-busting on CDN-hosted assets) -->
 <link rel="stylesheet" 
