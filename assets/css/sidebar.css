@@ -1,0 +1,33 @@
+.sidebar {
+    float: left;
+    width: 220px;
+    margin-right: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .sidebar h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #0366d6;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  

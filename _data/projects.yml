@@ -1,0 +1,11 @@
+- title: "RadioPlusScraper"
+  description: "Scrapes Radioplus of VRT, converts to RSS feed using .NET, Docker, Selenium..."
+  link: "https://github.com/kriebb/RadioPlusScraper"
+
+- title: "InvoiceCRM Exercise"
+  description: "Demonstrates DI, DDD, TDD, ASP.NET Core, CosmosDB, functional verticals..."
+  link: "https://github.com/kriebb/AnInvoiceExcercise"
+
+- title: "FileReadingLibrary Exercise"
+  description: "TDD, SOLID, DI & .NET Core with Microsoft default DI..."
+  link: "https://github.com/kriebb/File-Reading-Excercise"

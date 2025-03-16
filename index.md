@@ -3,8 +3,9 @@ layout: home
 title: "Home"
 ---
 
-Welkom bij **IT KRIEBBELS**! Dit is de plek waar ik, Kristof Riebbels, mijn diensten aanbied als freelance .NET developer. Ik streef naar veilige, betrouwbare en overzichtelijke oplossingen, met oog voor jouw wensen.
+Welcome to **IT KRIEBBELS**! I'm Kristof Riebbels, and this is where I offer my services as a freelance .NET developer. My goal is to deliver secure, reliable, and clear solutions tailored to your specific needs.
 
-- Lees meer over [mijn missie & visie](/mission-vision)
-- Ontdek mijn [diensten](/services)
-- Of ga naar de [blog](/blog)
+- Learn more about [my mission & vision](/mission-vision)
+- Explore my [services](/services)
+- View my [resume & experience](/resume)
+- Or check out the [blog](/blog)
