@@ -1,11 +1,15 @@
 - date: "04/2022 – Present"
   company: "Consultant"
   bullets:
-    - Software Architect
-    - Implementing Itsme and OIDC 
-    - Writing blogposts, building out authority
-    - Giving Sessions (Techorama 2024 / Update Conference 2023 ) about testing with OIDC
-    - Certificate Azure Developer Associate
+    - "Software Architect"
+    - "Implementing usage of Auth0 with Itsme in a corporate world"
+    - "Writing blogposts, building out authority"
+    - "Giving Sessions about testing with OIDC (Techorama 2024 / Update Conference 2023 / Visug / Dotnet Friday )"
+    - "Certificate Azure Developer Associate (AZ-204)"
+  extra_details:
+    - "Organizing making CupCakes for rebranding Xpirit to Xebia | Xpirit"
+    - "Organized a chocolate workshop"
+    - "Organized an Epic Shit Easter Egg"   
 
 - date: "04/2017 – 04/2022"
   company: "RecoMatics – Solution Engineer"
@@ -15,6 +19,10 @@
     - "Coaching the product and project teams to improve collaboration."
     - "Handling DevOps tasks: Azure DevOps, build pipelines, deployment automations."
     - "Tech stack: .NET Core, TypeScript, React (minor), EF, Dapper, Azure Functions."
+  extra_details:
+    - "Implemented secure data integrations (SharePoint & Dynamics)"
+    - "Set up CI/CD pipelines with Azure, GitVersion, GitHub"
+    - "Served as a technical interviewer and coach"
 
 - date: "08/2014 – 04/2017"
   company: "Qite – Senior Software Developer (C#)"
@@ -24,6 +32,10 @@
     - "Working in an agile way, focusing on user stories and continuous feedback."
     - "Azure deployments (database, blob storage) & TFS → TFS Git migration."
     - "Promoting SOLID, TDD, mocking, and best practices among the team."
+  extra_details:
+    - "Maintained and optimized legacy WinForms applications"
+    - "Implemented CI/CD pipelines"
+    - "Provided team training (SOLID, TDD, DI)"
 
 - date: "05/2014 – 08/2014"
   company: "Adam Software – Senior Software Developer (C#)"
@@ -40,6 +52,9 @@
     - "Applying Domain Driven Design, NHibernate, repository/unit-of-work patterns."
     - "State machine approach for order processing, MSMQ integration."
     - "Setting up CI with TeamCity, introducing NuGet packaging."
+  extra_details:
+    - "Developed performant WinForms apps (using NHibernate & SQL optimization)"
+    - "Facilitated migration to modern version control systems and automation (TeamCity, Octopus Deploy)"
 
 - date: "12/2008 – 05/2010"
   company: "Ferranti – Implementation Consultant"

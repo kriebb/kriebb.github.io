@@ -181,6 +181,28 @@ table thead {
   margin-bottom: 0.5rem;
 }
 
+/* Style the details element */
+details {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  background-color: #f9f9f9;
+}
+
+/* Style the summary element to make it stand out */
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Optional: Change marker style on open details */
+details[open] summary {
+  color: #007acc;
+}
+
+
 /* DARK MODE */
 .dark-mode .timeline::before {
   background: #444;
@@ -256,6 +278,69 @@ table thead {
   align-items: center;
   padding: 1rem;
 }
+
+.competency-container {
+  /* Flex container or grid */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between cards */
+}
+
+/* Container for all competency or skill "cards" */
+.competency-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Individual card */
+.competency-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1 1 280px; 
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+/* Hover effect */
+.competency-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Card title styling */
+.competency-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+/* Container for each set of items */
+.competency-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Each item container */
+.competency-item {
+  margin: 0;
+}
+
+/* Badge style for each skill/item */
+.competency-badge {
+  display: inline-block;
+  padding: 0.4rem 0.6rem;
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  color: #333;
+  font-size: 0.9rem;
+  white-space: nowrap; /* keep them on one line */
+}
+
 
 /* Dark Mode Swiper Slides */
 .dark-mode .swiper-slide {

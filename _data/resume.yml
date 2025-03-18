@@ -1,0 +1,91 @@
+core_competencies:
+  - category: "Architecture & Principles"
+    items:
+      - "SOLID"
+      - "TDD"
+      - "Clean Code"
+  - category: "Agile Practices"
+    items:
+      - "Certified Scrum Master"
+      - "Team Facilitation"
+      - "Iterative Delivery"
+  - category: "Mentoring & Training"
+    items:
+      - "Coaching"
+      - "Knowledge Sharing"
+  - category: ".NET & Secure Development"
+    items:
+      - "C#"
+      - "ASP.NET Core"
+      - "Web API"
+      - "Azure"
+      - "OIDC"
+      - "Token Management"
+      - "Vulnerability Scanning"
+
+projects:
+  - title: "RadioPlus RSS Feed Generator"
+    link: "https://github.com/kriebb/Radioplus-RSS"
+    description: "Converts VRT's Radioplus website content into RSS feeds. Technologies: .NET Core, Docker, Selenium, Hangfire."
+  - title: "InvoiceCRM Exercise"
+    link: "https://github.com/kriebb/InvoiceCRM-Excercise"
+    description: "A sample CRM invoicing application demonstrating clean architecture, SOLID principles, and testing strategies."
+  - title: "Calculator DI Exercise"
+    link: "https://github.com/kriebb/DI-Calculator-Sample-Excercise"
+    description: "A demonstration of Dependency Injection concepts in .NET Core."
+
+skills:
+  development_and_programming:
+    - category: "Languages & Frameworks"
+      items:
+        - "C#"
+        - ".NET Core"
+        - "ASP.NET Core"
+        - "JavaScript"
+        - "TypeScript"
+    - category: "Web Technologies"
+      items:
+        - "REST APIs"
+        - "JSON"
+        - "XML"
+    - category: "Databases"
+      items:
+        - "SQL Server"
+        - "CosmosDB"
+        - "MongoDB"
+    - category: "Infrastructure"
+      items:
+        - "Azure"
+        - "Docker"
+        - "GitHub Actions"
+        - "CI/CD automation"
+    - category: "Security"
+      items:
+        - "OpenID Connect"
+        - "OAuth tokens"
+        - "Secure software supply chains"
+    - category: "Scripting & Automation"
+      items:
+        - "PowerShell"
+        - "Deployment automation"
+
+education:
+  - "Secondary School Teacher (Handel-Burotica-Informatica), Hogeschool Gent"
+  - "Bachelor's in IT (Mainframe & Software Development), Hogeschool Gent (HOGENT), Schoonmeersen Campus"
+  - "Graduation Project: RFID & PLC Integration — controlling a PLC from a C# application via RFID and Ethernet communication, focusing on reusable and testable code."
+
+certifications:
+  - "Bachelor in Informatics (HoGent, Ghent)"
+  - "Certified Scrum Master (Scrum.org)"
+  - "Certified Azure Developer Associate (Microsoft)"
+
+interests_and_hobbies:
+  - "Sports: Cycling, core stability, hiking, walking"
+  - "Social: Enjoy spending time with my girlfriend, family, and my cats"
+  - "Technologies: Working with Node.js, Python, OpenAI, Mistral, reading"
+
+talk_to_me_about:
+  - "Movies & Series: I'm always up for discussing great films or binge-worthy series—tips are welcome!"
+  - "Quick & Tasty Food: Balancing busy days with fast but delicious meals? Let's exchange some tasty recipes or favorite spots."
+  - "Mental Health & Productivity: Let's chat about staying focused, managing stress, and finding balance—especially important when coding."
+  - "Privacy & Security: Concerned about online privacy? Me too. The more you dive into it, the scarier (but also more fascinating) it gets."
