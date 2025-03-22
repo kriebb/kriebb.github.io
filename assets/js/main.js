@@ -69,4 +69,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const contentArea = document.querySelector('.page-content');
+  const toc = document.getElementById('toc');
+  if (!contentArea || !toc) return;
 
+  // Grab all h2/h3 in .page-content
+  const allHeaders = contentArea.querySelectorAll('h2, h3');
+
+  // Filter out headings inside .swiper-slide OR .competency-card
+  const filteredHeaders = Array.from(allHeaders).filter(header => 
+    !header.closest('.swiper-slide, .competency-card')
+  );
+
+  // Build the TOC only from the filtered set
+  filteredHeaders.forEach(header => {
+    // If the heading doesn’t have an id, create one
+    if (!header.id) {
+      header.id = header.textContent
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]/g, '');
+    }
+
+    const link = document.createElement('a');
+    link.href = `#${header.id}`;
+    link.textContent = header.textContent;
+
+    const listItem = document.createElement('li');
+    listItem.appendChild(link);
+    toc.appendChild(listItem);
+  });
+});

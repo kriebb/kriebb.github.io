@@ -1,34 +1,10 @@
-<link rel="stylesheet" href="{{ '/assets/css/sidebar.css' | relative_url }}">
-
-<div class="sidebar">
-    <h3>On This Page</h3>
+  <aside class="sidebar">
+    <ul><a href="/mission-vision">Mission And Vision</a></ul>
+    <ul><a href="/contactme">Reach out</a></ul>
+    <ul><a href="/work-experience">Work Experience</a></ul>
     <ul id="toc"></ul>
-  </div>
-  
-  <div class="content">
-    {{ content }}
-  </div>
-  
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const contentArea = document.querySelector('.content');
-    const toc = document.getElementById('toc');
-    if (!contentArea || !toc) return;
-  
-    const headers = contentArea.querySelectorAll('h2, h3');
-    headers.forEach(function(header) {
-      if (!header.id) {
-        header.id = header.textContent.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-      }
-      const link = document.createElement('a');
-      link.href = `#${header.id}`;
-      link.textContent = header.textContent;
-  
-      const listItem = document.createElement('li');
-      listItem.appendChild(link);
-  
-      document.getElementById('toc').appendChild(listItem);
-    });
-  });
-  </script>
+  </aside>
+
+
+ 
   

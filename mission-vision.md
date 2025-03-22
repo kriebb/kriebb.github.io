@@ -3,6 +3,7 @@ layout: page
 title: "Mission & Vision"
 permalink: "/mission-vision"
 description: "My professional mission and vision as a freelance .NET developer."
+sidebar: false
 ---
 
 ## Mission

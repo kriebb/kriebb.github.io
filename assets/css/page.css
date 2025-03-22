@@ -45,19 +45,60 @@ main {
   display: none;
 }
 
-.page-content p + h2 {
-  margin-top: 2rem; /* or any spacing you prefer */
-}
-.page-content h2 {
-    color: #0056b3;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 0.4rem;
-    margin-bottom: 1rem;
-}
+/* Enhancing the first paragraph - keeping this as requested */
 .page-content p:first-of-type {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #333;
+  color: var(--dark-background-color);
+  margin-bottom: 1.5rem; /* Add extra space after the intro paragraph */
+}
+
+/* Dark mode version of the first paragraph */
+.dark-mode .page-content p:first-of-type {
+  color: var(--text-color);
+}
+
+/* Consistent styling for section headings */
+.page-content h2 {
+  color: #0056b3;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.4rem;
+  margin-top: 2rem;    /* Consistent spacing before sections */
+  margin-bottom: 1rem; /* Consistent spacing after headings */
+  clear: both;         /* Prevent floating elements from affecting headings */
+}
+
+/* Dark mode headings */
+.dark-mode .page-content h2 {
+  color: var(--text-color);
+  border-bottom: 2px solid #444;
+}
+
+/* Regular paragraph styling */
+.page-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Ensure proper section spacing */
+.page-content section, 
+.competency-container {
+  margin-bottom: 2rem;
+}
+
+/* Adjust list spacing to be consistent */
+.page-content ul {
+  margin-bottom: 1.5rem;
+}
+
+.page-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Fix for Jekyll-generated content */
+.page-content .highlighter-rouge,
+.page-content .highlight {
+  margin-bottom: 1.5rem;
 }
 
 blockquote {
@@ -83,12 +124,7 @@ blockquote {
   color: var(--text-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
-.dark-mode .page-content h2 {
-  color: var(--text-color);
-  border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 0.4rem;
-  margin-bottom: 1rem;
-}
+
 /* Tables (Light Mode) */
 table {
   border-collapse: collapse;
@@ -263,6 +299,10 @@ details[open] summary {
 }
 
 /* Swiper, etc. (Light Mode) */
+.swiper-container-wrapper {
+  position: relative;
+}
+
 .swiper {
   width: 100%;
   height: 300px;
@@ -277,6 +317,30 @@ details[open] summary {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: rgba(255, 255, 255, 0.7); 
+  border-radius: 50%; 
+  padding: 0.5rem;
+  color: #000; 
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.swiper-button-prev {
+  left: 0rem;  /* or 0, or however far you want them outside */
+}
+
+.swiper-button-next {
+  right: 0rem;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .competency-container {

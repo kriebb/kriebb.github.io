@@ -3,6 +3,7 @@ layout: page
 title: "About"
 permalink: "/about"
 description: "Introduces who you are as a professional, highlighting expertise, passion, and personal mission to build trust and connection."
+sidebar: false
 ---
 
 I’m **Kristof Riebbels**, a .NET developer passionate about secure and maintainable code. 

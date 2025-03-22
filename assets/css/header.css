@@ -6,7 +6,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  /* If needed, set a fixed height or just rely on .navbar's padding */
+  height: 120px; /* or however tall your header is */
 }
 
 .navbar {
@@ -17,15 +17,14 @@ header {
   margin: 0 auto;
   padding: 0.5rem 1rem; /* Reduced top/bottom space */
   gap: 1rem;           /* Only if you want consistent spacing */
+  height: 60px;
 }
 
 img {
   max-height: 40px;    /* Ensure a consistent logo size */
   display: block;
   margin: 0.5rem 1rem;           /* Remove default margins if any */
-  
 }
-
 
 /* Hamburger Menu */
 .nav-toggle {
@@ -79,19 +78,37 @@ img {
   margin-left: auto; /* Pushes it to the right */
 }
 
-.dark-mode-btn {
+/* Explicitly ensure hidden attribute works as expected */
+[hidden] {
+  display: none !important;
+}
+
+/* Theme toggle buttons */
+.dark-mode-btn, .light-mode-btn {
   background: none;
   border: none;
-  font-size: 1.5rem;
   cursor: pointer;
   color: var(--white);
   transition: transform 0.2s ease;
+  width: 24px;
+  height: 24px;
+  display: inline-flex; /* Changed from flex to avoid conflict with hidden */
+  align-items: center;
+  justify-content: center;
 }
 
-.dark-mode-btn:hover {
+/* Specifically adjust the sun icon to match the visual weight of the moon */
+.dark-mode-btn {
+  font-size: 1.5rem;
+}
+
+.light-mode-btn {
+  font-size: 1.7rem; /* Slightly larger to compensate for optical differences */
+}
+
+.dark-mode-btn:hover, .light-mode-btn:hover {
   transform: scale(1.1);
 }
-
 
 /* Dark Mode */
 .dark-mode header {
@@ -121,11 +138,11 @@ img {
     width: auto;
     padding: 0;
   }
-
+  
   .nav-links li {
     margin: 0 1rem;
   }
-
+  
   .nav-toggle {
     display: none; /* Hide hamburger menu on desktop */
   }
@@ -136,19 +153,19 @@ img {
   .nav-toggle {
     display: block;
   }
+  
   .dark-mode-btn {
     font-size: 1.2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px; /* Space between it and hamburger */
-    color: var(--white);
   }
-
+  
+  .light-mode-btn {
+    font-size: 1.4rem; /* Slightly larger on mobile too */
+  }
+  
   header {
     transition: transform 0.3s ease-in-out;
   }
-
+  
   /* Hide header on scroll down */
   .nav-hidden {
     transform: translateY(-100%);

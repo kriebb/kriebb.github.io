@@ -3,9 +3,7 @@ layout: page
 ---
 
     {{ content }}
-    <link rel="stylesheet" 
-    href="/assets/css/contacts.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}">
-    
+
     <section class="contact-section" >
     <form id="contact-form" action="https://formspree.io/f/xeoaokrq" method="POST" >
            <!-- Name -->
@@ -54,5 +52,7 @@ layout: page
 
     </section>
       <script src="https://www.google.com/recaptcha/enterprise.js?render=6LftWvYqAAAAAJlhdPC6YRyCLIRl6PpHQ0KrkItR"></script>
-      <script src="/assets/js/contacts.js?v={{ site.github.build_revision | default: site.time | date: '%s' }}"></script>
+      <script src="/assets/js/contactme.js?v={{ site.github.build_revision | default: site.time | date: '%s' }}"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+      <link rel="stylesheet" 
+      href="/assets/css/contactme.css?v={{ site.github.build_revision | default: site.time | date: '%s' }}">

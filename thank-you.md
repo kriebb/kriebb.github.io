@@ -2,6 +2,7 @@
 layout: page
 title: "Thank You"
 permalink: "/thank-you"
+sidebar: false
 ---
 
 # Thank You!
