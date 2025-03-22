@@ -58,6 +58,29 @@ main {
   color: var(--text-color);
 }
 
+/* Fix for links to appear as buttons */
+.dark-mode .page-content a,
+.dark-mode .main-content a {
+  color: #00b386; /* Use your accent color */
+  text-decoration: none;
+}
+.dark-mode .page-content a:hover,
+.dark-mode .main-content a:hover {
+  color: #00d9a3; /* Lighter version of accent color */
+  text-decoration: underline;
+}
+
+
+.dark-mode .page-content a[href^="http"]:hover,
+.dark-mode .page-content a[href^="/"]:hover,
+.dark-mode .main-content a[href^="http"]:hover,
+.dark-mode .main-content a[href^="/"]:hover {
+  background-color: #00b386;
+  color: #fff;
+  text-decoration: none;
+}
+
+
 /* Consistent styling for section headings */
 .page-content h2 {
   color: #0056b3;
@@ -69,9 +92,11 @@ main {
 }
 
 /* Dark mode headings */
-.dark-mode .page-content h2 {
-  color: var(--text-color);
-  border-bottom: 2px solid #444;
+.dark-mode .page-content h2,
+.dark-mode .main-content h2 {
+  color: #00b386;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
 }
 
 /* Regular paragraph styling */
@@ -101,6 +126,7 @@ main {
   margin-bottom: 1.5rem;
 }
 
+/* Light mode blockquote */
 blockquote {
   background-color: #f1f6ff;
   border-left: 4px solid #0056b3;
@@ -109,13 +135,44 @@ blockquote {
   margin: 1.2rem 0;
 }
 
+/* Dark mode blockquote - improved */
 .dark-mode blockquote {
-  background-color: var(--light-gray);
-  color: var(--dark-background-color);
-  border-left: 4px solid var(--white);
+  background-color: rgba(0, 179, 134, 0.1); /* Subtle accent color background */
+  color: #e0e0e0; /* Light text color for readability */
+  border-left: 4px solid #00b386; /* Accent color border */
   padding: 0.8rem 1rem;
   border-radius: 4px;
   margin: 1.2rem 0;
+}
+
+/* Style links inside blockquotes */
+.dark-mode blockquote a {
+  color: #00d9a3; /* Brighter version of accent color */
+  text-decoration: none;
+}
+
+.dark-mode blockquote a:hover {
+  text-decoration: underline;
+}
+
+/* Style emphasized text in blockquotes */
+.dark-mode blockquote em,
+.dark-mode blockquote i {
+  color: #fff;
+  font-style: italic;
+}
+
+/* Style strong text in blockquotes */
+.dark-mode blockquote strong,
+.dark-mode blockquote b {
+  color: #fff;
+  font-weight: 600;
+}
+
+.dark-mode .page-content strong,
+.dark-mode .main-content strong {
+  color: #00b386;
+  font-weight: 600;
 }
 
 /* Dark Mode Page Sections */
@@ -483,7 +540,41 @@ details[open] summary {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+/* Dark mode compentency card */
 
+.dark-mode .competency-card {
+  background-color: #2a2a2a; /* Darker than the main background */
+  border: 1px solid #444;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+/* Make headers stand out in dark mode */
+.dark-mode .competency-title {
+  color: #00b386; /* Using your accent color from variables */
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+/* Improve badges in dark mode */
+.dark-mode .competency-badge {
+  background-color: #3a3a3a; /* Slightly lighter than card background */
+  color: #e0e0e0; /* Light gray, but not pure white */
+  border: 1px solid #555;
+  padding: 0.3rem 0.6rem;
+  font-weight: 500;
+}
+
+/* Add hover effect to badges */
+.dark-mode .competency-badge:hover {
+  background-color: #444;
+  transition: background-color 0.2s ease;
+}
+
+/* Fix card container in dark mode */
+.dark-mode .competency-container {
+  gap: 1.2rem; /* Slightly more space between cards */
+}
 /* Footer (Light Mode) */
 footer {
   text-align: center;

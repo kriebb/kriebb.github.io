@@ -54,3 +54,89 @@
     color: #d9534f; /* or another color if you like */
   }
   
+  /* Contact Form Dark Mode Improvements */
+
+/* Form container */
+.dark-mode #contact-form,
+.dark-mode .contact-section form {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+}
+
+/* Form labels */
+.dark-mode #contact-form label,
+.dark-mode .contact-section form label {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Form inputs and textarea */
+.dark-mode #contact-form input,
+.dark-mode #contact-form textarea,
+.dark-mode .contact-section form input,
+.dark-mode .contact-section form textarea {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #e0e0e0;
+  padding: 0.75rem;
+}
+
+.dark-mode #contact-form input:focus,
+.dark-mode #contact-form textarea:focus,
+.dark-mode .contact-section form input:focus,
+.dark-mode .contact-section form textarea:focus {
+  border-color: #00b386; /* Your accent color */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 179, 134, 0.2);
+}
+
+/* Submit button */
+.dark-mode #contact-form button[type="submit"],
+.dark-mode .contact-section form button[type="submit"],
+.dark-mode .btn-submit {
+  background-color: #00b386; /* Accent color for button */
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.dark-mode #contact-form button[type="submit"]:hover,
+.dark-mode .contact-section form button[type="submit"]:hover,
+.dark-mode .btn-submit:hover {
+  background-color: #009e75; /* Slightly darker on hover */
+}
+
+/* Informational text */
+.dark-mode #contact-form p,
+.dark-mode .contact-section form p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.dark-mode #contact-form a,
+.dark-mode .contact-section form a {
+  color: #00b386;
+  text-decoration: none;
+}
+
+.dark-mode #contact-form a:hover,
+.dark-mode .contact-section form a:hover {
+  text-decoration: underline;
+}
+
+/* Form status message */
+.dark-mode #form-status {
+  color: #ff6b6b; /* Error color */
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.dark-mode #form-status.success {
+  color: #2ecc71; /* Success color */
+}
