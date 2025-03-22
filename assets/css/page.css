@@ -300,39 +300,83 @@ details[open] summary {
 
 /* Swiper, etc. (Light Mode) */
 .swiper-container-wrapper {
-  position: relative;
+  margin: 2rem 0;
+  padding: 0;
 }
 
 .swiper {
   width: 100%;
-  height: 300px;
-  margin-bottom: 2rem;
+  padding-bottom: 40px; /* Space for pagination */
 }
 .swiper-slide {
   background-color: var(--white);
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  border-top: 4px solid var(--accent-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.swiper-slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Card content */
+.swiper-slide h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.swiper-slide h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.swiper-slide h3 a:hover {
+  color: var(--accent-color);
+}
+
+.swiper-slide p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Navigation arrows */
 .swiper-button-prev,
 .swiper-button-next {
-  background-color: rgba(255, 255, 255, 0.7); 
-  border-radius: 50%; 
-  padding: 0.5rem;
-  color: #000; 
-  transition: background-color 0.3s ease;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  background-color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  color: var(--primary-color);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 18px;
+  font-weight: bold;
 }
 .swiper-button-prev {
   left: 0rem;  /* or 0, or however far you want them outside */
+}
+/* Pagination bullets */
+.swiper-pagination-bullet {
+  background: var(--primary-color);
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--accent-color);
 }
 
 .swiper-button-next {
@@ -376,10 +420,7 @@ details[open] summary {
 
 /* Card title styling */
 .competency-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-  color: #333;
+  scroll-margin-top: 70px;
 }
 
 /* Container for each set of items */
@@ -406,10 +447,41 @@ details[open] summary {
 }
 
 
-/* Dark Mode Swiper Slides */
+/* Dark mode adjustments */
 .dark-mode .swiper-slide {
-  background-color: #2a2a2a;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  background-color: var(--dark-primary-color);
+  border-top-color: var(--accent-color);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .swiper-slide h3 {
+  color: var(--dark-text-color);
+}
+
+.dark-mode .swiper-button-prev,
+.dark-mode .swiper-button-next {
+  background-color: var(--dark-primary-color);
+  color: var(--dark-text-color);
+}
+/* Equal height cards */
+.swiper-slide {
+  height: 200px; /* Fixed height */
+}
+
+/* For non-swiper project cards (if you have any) */
+.project-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-top: 4px solid var(--accent-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer (Light Mode) */
@@ -430,5 +502,9 @@ footer {
 @media (min-width: 768px) {
   main {
     max-width: 1200px;
+  }
+  .swiper-slide {
+    height: auto;
+    min-height: 180px;
   }
 }

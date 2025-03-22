@@ -2,28 +2,35 @@
 /* General Navbar */
 header {
   background-color: var(--primary-color);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 999;
-  height: 120px; /* or however tall your header is */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
-  padding: 0.5rem 1rem; /* Reduced top/bottom space */
-  gap: 1rem;           /* Only if you want consistent spacing */
-  height: 60px;
+  width: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 img {
-  max-height: 40px;    /* Ensure a consistent logo size */
+  max-height: 40px;
   display: block;
-  margin: 0.5rem 1rem;           /* Remove default margins if any */
+  margin: 0;
 }
 
 /* Hamburger Menu */
@@ -36,30 +43,23 @@ img {
   cursor: pointer;
 }
 
-/* Navigation Links (Default: Hidden on Mobile) */
+/* Navigation Links (Default: Visible on Desktop) */
 .nav-links {
+  display: flex;
   list-style: none;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background: var(--primary-color);
-  position: absolute;
-  top: 60px; /* Adjust based on header height */
-  left: 0;
-  padding: 1rem 0;
-  transition: all 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li {
+  margin: 0 1rem;
 }
 
-.nav-links li {
-  margin: 1rem 0;
-}
 
 .nav-links a {
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
@@ -67,15 +67,11 @@ img {
   color: var(--accent-color);
 }
 
-/* When Menu is Open */
-.nav-open .nav-links {
-  display: flex;
-}
-
+/* Nav Actions (Theme Toggle, etc.) */
 .nav-actions {
   display: flex;
   align-items: center;
-  margin-left: auto; /* Pushes it to the right */
+  margin-left: auto;
 }
 
 /* Explicitly ensure hidden attribute works as expected */
@@ -92,22 +88,25 @@ img {
   transition: transform 0.2s ease;
   width: 24px;
   height: 24px;
-  display: inline-flex; /* Changed from flex to avoid conflict with hidden */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-left: 0.5rem;
+  padding: 0.3rem;
 }
 
-/* Specifically adjust the sun icon to match the visual weight of the moon */
 .dark-mode-btn {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .light-mode-btn {
-  font-size: 1.7rem; /* Slightly larger to compensate for optical differences */
+  font-size: 1.4rem;
 }
 
 .dark-mode-btn:hover, .light-mode-btn:hover {
   transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 /* Dark Mode */
@@ -116,54 +115,60 @@ img {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
-.dark-mode .nav-links {
-  background: var(--dark-primary-color);
-}
-
 .dark-mode .nav-links a {
   color: var(--dark-text-color);
 }
 
 .dark-mode .nav-links a:hover {
+  color: var(--accent-color);
   opacity: 0.8;
 }
 
-/* Show Menu on Desktop */
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    background: none;
-    width: auto;
-    padding: 0;
-  }
-  
-  .nav-links li {
-    margin: 0 1rem;
-  }
-  
-  .nav-toggle {
-    display: none; /* Hide hamburger menu on desktop */
-  }
+.dark-mode .nav-toggle,
+.dark-mode .dark-mode-btn,
+.dark-mode .light-mode-btn {
+  color: var(--dark-text-color);
 }
 
-/* Show Hamburger on Mobile */
+/* Mobile Navigation */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
+    order: 1;
   }
   
-  .dark-mode-btn {
-    font-size: 1.2rem;
+  .nav-logo {
+    order: 2;
+    margin: 0 auto;
   }
   
-  .light-mode-btn {
-    font-size: 1.4rem; /* Slightly larger on mobile too */
+  .nav-actions {
+    order: 3;
   }
   
-  header {
-    transition: transform 0.3s ease-in-out;
+  .nav-links {
+    display: none; /* Hidden by default on mobile */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  
+  .nav-links li {
+    margin: 0.7rem 0;
+  }
+  
+  /* When menu is open */
+  .nav-open .nav-links {
+    display: flex;
+  }
+  
+  .dark-mode .nav-links {
+    background-color: var(--dark-primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
   
   /* Hide header on scroll down */
