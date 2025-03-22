@@ -1,79 +1,35 @@
-/* _sass/components/_logo.scss */
-
-/* Container for logo */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0.5rem;
-  position: relative;
-  z-index: 10;
-}
-/* Logo sizing and positioning */
+/* Remove all existing logo display rules and replace with this */
 .logo-full, .logo-mini {
-  display: none; /* Hide all by default */
+  display: none !important;
   max-height: 40px;
-  width: auto;
-}
-/* Hide all logos by default */
-.logo-full,
-.logo-mini {
-  display: none;
 }
 
-/* LIGHT MODE */
-/* Show full logo on desktop in light mode */
+/* Light theme specific rules */
 @media (min-width: 768px) {
   .logo-full.logo-light {
-    display: block;
+    display: block !important;
   }
 }
 
-/* Show mini logo on mobile in light mode */
 @media (max-width: 767px) {
   .logo-mini.logo-light {
-    display: block;
+    display: block !important;
   }
 }
 
-/* DARK MODE */
-/* Hide all light mode logos in dark mode */
+/* Dark theme specific rules */
 .dark-mode .logo-light {
   display: none !important;
 }
-/* Dark Mode - Desktop */
-.dark-mode .logo-full.logo-dark {
-  display: none;
-}
-/* Show full dark logo on desktop in dark mode */
+
 @media (min-width: 768px) {
   .dark-mode .logo-full.logo-dark {
-    display: block;
+    display: block !important;
   }
 }
-/* Dark Mode - Mobile */
-.dark-mode .logo-mini.logo-dark {
-  display: none;
-}
-/* Show mini dark logo on mobile in dark mode */
+
 @media (max-width: 767px) {
   .dark-mode .logo-mini.logo-dark {
-    display: block;
+    display: block !important;
   }
-}
-header .nav-logo {
-  margin-right: 1rem;
-}
-
-/* Text logo styling */
-/* Logo text styling if needed */
-.logo-text {
-  display: inline-block;
-  margin-left: 0.5rem;
-  color: white;
-  font-weight: bold;
-}
-
-.dark-mode .logo-text {
-  color: #ffffff;
 }

@@ -37,45 +37,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // Theme toggle function for assets/js/main.js
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Get references to buttons
+document.addEventListener('DOMContentLoaded', function () {
   const darkModeButton = document.getElementById('darkModeToggle');
   const lightModeButton = document.getElementById('lightModeToggle');
-  
-  // Check if buttons exist before adding event listeners
-  if (!darkModeButton || !lightModeButton) return;
-
-  // Get the body element
   const body = document.body;
-  
-  // Check saved theme preference
+
+  // Check for saved theme
   const storedTheme = localStorage.getItem('theme');
-  
-  // Set initial state based on saved preference
   if (storedTheme === 'dark') {
     body.classList.add('dark-mode');
-    darkModeButton.hidden = true; // Hide dark mode button
-    lightModeButton.hidden = false; // Show light mode button
-  } else {
-    body.classList.remove('dark-mode');
-    darkModeButton.hidden = false; // Show dark mode button
-    lightModeButton.hidden = true; // Hide light mode button
   }
 
-  // Add click event for dark mode button
-  darkModeButton.addEventListener('click', function() {
+  // Add click handlers
+  darkModeButton.addEventListener('click', function () {
     body.classList.add('dark-mode');
     localStorage.setItem('theme', 'dark');
-    darkModeButton.hidden = true; // Hide dark mode button
-    lightModeButton.hidden = false; // Show light mode button
   });
 
-  // Add click event for light mode button
-  lightModeButton.addEventListener('click', function() {
+  lightModeButton.addEventListener('click', function () {
     body.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light');
-    darkModeButton.hidden = false; // Show dark mode button
-    lightModeButton.hidden = true; // Hide light mode button
   });
 });
 

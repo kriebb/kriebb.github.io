@@ -1,0 +1,53 @@
+/* Theme Toggle Button Fix */
+/* Default state: show dark mode button only */
+.dark-mode-btn {
+    display: inline-flex !important;
+  }
+  .light-mode-btn {
+    display: none !important;
+  }
+  
+  /* Dark mode state: hide dark button, show light button */
+  .dark-mode .dark-mode-btn {
+    display: none !important;
+  }
+  .dark-mode .light-mode-btn {
+    display: inline-flex !important;
+  }
+  
+  /* Logo Display Fix */
+  /* Reset - hide all logos by default */
+  .logo-full, .logo-mini {
+    display: none !important;
+  }
+  
+  /* Light theme desktop */
+  @media (min-width: 768px) {
+    .logo-full.logo-light {
+      display: block !important;
+    }
+  }
+  
+  /* Light theme mobile */
+  @media (max-width: 767px) {
+    .logo-mini.logo-light {
+      display: block !important;
+    }
+  }
+  
+  /* Dark theme logos */
+  .dark-mode .logo-light {
+    display: none !important;
+  }
+  
+  @media (min-width: 768px) {
+    .dark-mode .logo-full.logo-dark {
+      display: block !important;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .dark-mode .logo-mini.logo-dark {
+      display: block !important;
+    }
+  }
