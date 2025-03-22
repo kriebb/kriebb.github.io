@@ -7,7 +7,7 @@
     --muted-color: #aaaaaa;
     
     // Brand colors
-    --primary-color: #333333;
+    --primary-color: #1e1e1e; // Override primary color in dark mode
     --accent-color: #00b386;
     --accent-light: #00d9a3;
     --accent-dark: #009e75;
@@ -45,9 +45,15 @@
     --blockquote-border: #00b386;
     --blockquote-color: #e0e0e0;
 
+    .nav-links a {
+        color: white;
+      }
+      .nav-toggle {
+        color: white;
+      }
 }
 
-// Additional dark mode overrides if needed
 .dark-mode {
-    // Apply anything that can't be handled with variables here
+    // Other dark mode variables...
+    // This gets used as the header background
   }
