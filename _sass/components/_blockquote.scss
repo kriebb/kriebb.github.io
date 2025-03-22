@@ -1,27 +1,43 @@
+/* Blockquote Styles */
 blockquote {
-    background-color: var(--blockquote-bg);
-    border-left: 4px solid var(--blockquote-border);
-    padding: 0.8rem 1rem;
-    border-radius: 4px;
-    margin: 1.2rem 0;
-    color: var(--blockquote-color);
-  }
-  
-  blockquote a {
-    color: var(--accent-color);
-    text-decoration: none;
-  }
-  
-  blockquote a:hover {
-    text-decoration: underline;
-  }
-  
-  blockquote em,
-  blockquote i {
-    font-style: italic;
-  }
-  
-  blockquote strong,
-  blockquote b {
-    font-weight: 600;
-  }
+  background-color: var(--blockquote-bg);
+  border-left: 4px solid var(--blockquote-border);
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  margin: 1.2rem 0;
+  color: var(--blockquote-color);
+}
+
+blockquote p {
+  margin-bottom: 0.5rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+blockquote a:hover {
+  text-decoration: underline;
+}
+
+blockquote em,
+blockquote i {
+  font-style: italic;
+}
+
+blockquote strong,
+blockquote b {
+  font-weight: 600;
+}
+
+blockquote cite {
+  display: block;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+  text-align: right;
+}

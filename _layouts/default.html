@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | {{ site.title }}</title>
-    {%- seo -%} <!-- Jekyll SEO Tag plugin, als geactiveerd -->
+    <title>{{ page.title | default: site.title }}</title>
+    {%- seo -%}
     {%- include head.html -%}
   </head>
   <body>
     <header>
-      <a href="/" class="nav-logo" >
+      <a href="/" class="nav-logo">
         <!-- Full Light Logo -->
         <img src="/assets/it-kriebbels-logo-full-light.svg" alt="IT KRIEBBELS" class="logo-full logo-light" />
         <!-- Full Dark Logo -->
@@ -22,17 +22,16 @@
       </a>
 
       <nav class="navbar">
-
-       <button class="nav-toggle" aria-label="Toggle navigation" type="button">☰</button>
+        <button class="nav-toggle" aria-label="Toggle navigation" type="button">☰</button>
 
         <ul class="nav-links">
-
           <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
           <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
           <li><a href="{{ '/contactme' | relative_url }}">Contact</a></li>
           <li><a href="{{ '/about' | relative_url }}">About</a></li>
         </ul>
+        
         <div class="nav-actions">
           <button id="darkModeToggle" class="dark-mode-btn" hidden aria-label="Toggle dark mode">
             <i class="fas fa-moon"></i>
@@ -42,23 +41,19 @@
           </button>
         </div>
       </nav>
-
     </header>
 
-  <div class="layout-container">
-    {% if page.sidebar | false %}
-      {%- include sidebar.html -%}
-    {% endif %}
-    <main class="main-content">
-      {{ content }}
-    </main>
-  </div>
-
+    <div class="layout-container">
+      {% if page.sidebar %}
+        {%- include sidebar.html -%}
+      {% endif %}
+      <main class="main-content">
+        {{ content }}
+      </main>
+    </div>
 
     <footer>
       {%- include footer.html -%}
     </footer>
-
-
   </body>
 </html>

@@ -1,29 +1,32 @@
 ---
 ---
 
-// Abstracts
-@import "abstracts/variables";
-@import "abstracts/mixins";
-@import "abstracts/vendors";
-// Base styles
+/* Base */
 @import "base/reset";
 @import "base/typography";
 @import "base/utilities";
 
-// Layout components
-@import "layout/header";
-@import "layout/footer";
-@import "layout/navigation";
-@import "layout/sidebar";
-@import "layout/grid";
+/* Abstracts */
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/vendors";
 
-// UI components
+/* Layouts */
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/sidebar";
+@import "layouts/grid";
+
+/* Components */
+@import "components/competence";
 @import "components/buttons";
 @import "components/cards";
-@import "components/competence";
 @import "components/forms";
 @import "components/timeline";
+@import "components/blockquote";
+@import "components/hero";
+@import "components/logo";
 
-// Themes
+/* Themes */
 @import "themes/light";
 @import "themes/dark";

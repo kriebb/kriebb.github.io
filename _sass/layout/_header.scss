@@ -1,0 +1,150 @@
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 60px;
+  }
+  
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .nav-logo img {
+    max-height: 40px;
+    display: block;
+    margin: 0;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 1rem;
+  }
+  
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent-color);
+  }
+  
+  /* Navigation Toggle */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+  
+/* Theme Toggle Buttons */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  
+/* Base style for toggle buttons */
+.dark-mode-btn, .light-mode-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  /* Explicitly ensure hidden attribute works correctly */
+[hidden] {
+    display: none !important;
+  }
+  .dark-mode-btn {
+    font-size: 1.2rem;
+  }
+  
+  .light-mode-btn {
+    font-size: 1.4rem;
+  }
+  /* Fix for button visibility */
+.dark-mode-btn:not([hidden]),
+.light-mode-btn:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Hover effects */
+.dark-mode-btn:hover, .light-mode-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  /* Mobile Navigation */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+      order: 1;
+    }
+    
+    .nav-logo {
+      order: 2;
+      margin: 0 auto;
+    }
+    
+    .nav-actions {
+      order: 3;
+    }
+    
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links li {
+      margin: 0.7rem 0;
+    }
+    
+    .nav-open .nav-links {
+      display: flex;
+    }
+  }
