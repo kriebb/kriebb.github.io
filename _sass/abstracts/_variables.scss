@@ -1,0 +1,64 @@
+$white: #ffffff;
+$black: #000000;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$blue: #004c8c;
+$green: #00b386;
+$dark-green: #009e75;
+$light-green: #00d9a3;
+
+// Theme colors - Light mode (default)
+:root {
+  // Base colors
+  --background-color: #{$white};
+  --text-color: #{$gray-800};
+  --heading-color: #{$gray-900};
+  --muted-color: #{$gray-600};
+  
+  // Brand colors
+  --primary-color: #{$blue};
+  --accent-color: #{$green};
+  --accent-light: #{$light-green};
+  --accent-dark: #{$dark-green};
+  
+  // UI Elements
+  --border-color: #{$gray-300};
+  --border-color-dark: #{$gray-400};
+  --light-gray: #{$gray-100};
+  --white: #{$white};
+  
+  // Components
+  --card-bg: #{$white};
+  --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  
+  // Badge
+  --badge-bg: #{$gray-200};
+  --badge-color: #{$gray-800};
+  --badge-bg-hover: #{$gray-300};
+  
+  // Form elements
+  --input-bg: #{$gray-100};
+  --input-border: #{$gray-300};
+  --input-color: #{$gray-800};
+  --input-focus-border: #{$green};
+  
+  // Button
+  --button-primary-bg: #{$blue};
+  --button-primary-color: #{$white};
+  --button-secondary-bg: #{$gray-200};
+  --button-secondary-color: #{$gray-800};
+  
+  // Blockquote
+  --blockquote-bg: #f1f6ff;
+  --blockquote-border: #{$blue};
+  --blockquote-color: #{$gray-800};
+}

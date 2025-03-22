@@ -1,0 +1,53 @@
+// Dark theme variables
+.dark-mode {
+    // Base colors
+    --background-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --heading-color: #f0f0f0;
+    --muted-color: #aaaaaa;
+    
+    // Brand colors
+    --primary-color: #333333;
+    --accent-color: #00b386;
+    --accent-light: #00d9a3;
+    --accent-dark: #009e75;
+    
+    // UI Elements
+    --border-color: #444444;
+    --border-color-dark: #555555;
+    --light-gray: #2a2a2a;
+    --white: #2a2a2a;
+    
+    // Components
+    --card-bg: #2a2a2a;
+    --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    
+    // Badge
+    --badge-bg: #3a3a3a;
+    --badge-color: #e0e0e0;
+    --badge-bg-hover: #444444;
+    
+    // Form elements
+    --input-bg: #333333;
+    --input-border: #555555;
+    --input-color: #e0e0e0;
+    --input-focus-border: #00b386;
+    
+    // Button
+    --button-primary-bg: #00b386;
+    --button-primary-color: #ffffff;
+    --button-secondary-bg: #333333;
+    --button-secondary-color: #e0e0e0;
+    
+    // Blockquote
+    --blockquote-bg: rgba(0, 179, 134, 0.1);
+    --blockquote-border: #00b386;
+    --blockquote-color: #e0e0e0;
+
+}
+
+// Additional dark mode overrides if needed
+.dark-mode {
+    // Apply anything that can't be handled with variables here
+  }

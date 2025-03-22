@@ -7,14 +7,14 @@
 {% endcomment %}
 
 {% if include.section == "core_competences" %}
-  <div class="competency-container">
-    {% for competency_group in site.data.resume.core_competencies %}
-      <div class="competency-card">
-        <h3 class="competency-title">{{ competency_group.category }}</h3>
-        <div class="competency-items">
-          {% for item in competency_group.items %}
-            <div class="competency-item">
-              <span class="competency-badge">{{ item }}</span>
+  <div class="competence-container">
+    {% for competence_group in site.data.resume.core_competencies %}
+      <div class="competence-card">
+        <h3 class="competence-title">{{ competence_group.category }}</h3>
+        <div class="competence-items">
+          {% for item in competence_group.items %}
+            <div class="competence-item">
+              <span class="competence-badge">{{ item }}</span>
             </div>
           {% endfor %}
         </div>
@@ -25,14 +25,14 @@
   <br/>
 
 {% elsif include.section == "development_and_programming" %}
-  <div class="competency-container">
+  <div class="competence-container">
     {% for category_obj in site.data.resume.skills.development_and_programming %}
-      <div class="competency-card">
-        <h3 class="competency-title">{{ category_obj.category }}</h3>
-        <div class="competency-items">
+      <div class="competence-card">
+        <h3 class="competence-title">{{ category_obj.category }}</h3>
+        <div class="competence-items">
           {% for item in category_obj.items %}
-            <div class="competency-item">
-              <span class="competency-badge">{{ item }}</span>
+            <div class="competence-item">
+              <span class="competence-badge">{{ item }}</span>
             </div>
           {% endfor %}
         </div>

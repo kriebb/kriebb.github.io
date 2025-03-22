@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", function() {
   // Grab all h2/h3 in .page-content
   const allHeaders = contentArea.querySelectorAll('h2, h3');
 
-  // Filter out headings inside .swiper-slide OR .competency-card
+  // Filter out headings inside .swiper-slide OR .competence-card
   const filteredHeaders = Array.from(allHeaders).filter(header => 
-    !header.closest('.swiper-slide, .competency-card')
+    !header.closest('.swiper-slide, .competence-card')
   );
 
   // Build the TOC only from the filtered set

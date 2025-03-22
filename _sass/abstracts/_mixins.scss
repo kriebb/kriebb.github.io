@@ -1,0 +1,47 @@
+// Transitions
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+  }
+  
+  // Flexbox
+  @mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+  
+  // Media queries
+  @mixin mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+  
+  // Border radius
+  @mixin rounded($radius: 4px) {
+    border-radius: $radius;
+  }
+  
+  // Box shadow
+  @mixin shadow($level: 1) {
+    @if $level == 1 {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    } @else if $level == 2 {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    } @else if $level == 3 {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+  }

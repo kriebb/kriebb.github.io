@@ -1,0 +1,78 @@
+// Form container
+#contact-form, 
+.contact-section form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--card-bg);
+}
+
+// Form groups
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+// Labels
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+// Inputs and textareas
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--input-color);
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--input-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 179, 134, 0.1);
+}
+
+// Submit button
+form button[type="submit"],
+.btn-submit {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+form button[type="submit"]:hover,
+.btn-submit:hover {
+  background-color: var(--accent-dark);
+}
+
+// Form info text
+form p {
+  margin-top: 1rem;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+// Form status
+#form-status {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #d9534f; /* Error color */
+}
+
+#form-status.success {
+  color: var(--accent-color);
+}

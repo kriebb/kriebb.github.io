@@ -7,7 +7,9 @@ highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
+sass:
+  sass_dir: _sass
+  style: compressed
 # Site-instellingen
 baseurl: "" # laat leeg voor de root of pas aan als je een projectpagina hebt
 url: "https://kriebb.github.io" # pas aan naar je eigen GitHub Pages link
