@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: site.title }}</title>
-    {%- seo -%}
     {%- include head.html -%}
   </head>
   <body>
@@ -17,8 +13,8 @@
         
         <!-- Minimal Light Logo -->
         <img src="/assets/it-kriebbels-logo-min.svg" alt="IT KRIEBBELS" class="logo-mini logo-light" />
-        <!-- Minimal Dark Logo -->
-        <img src="/assets/it-kriebbels-logo-min.svg" alt="IT KRIEBBELS" class="logo-mini logo-dark" />
+        <!-- Minimal Dark Logo (updated path) -->
+        <img src="/assets/it-kriebbels-logo-min-dark.svg" alt="IT KRIEBBELS" class="logo-mini logo-dark" />
       </a>
 
       <nav class="navbar">
@@ -27,7 +23,7 @@
         <ul class="nav-links">
           <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
-          <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
+          <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
           <li><a href="{{ '/contactme' | relative_url }}">Contact</a></li>
           <li><a href="{{ '/about' | relative_url }}">About</a></li>
         </ul>
@@ -55,5 +51,26 @@
     <footer>
       {%- include footer.html -%}
     </footer>
+
+    <!-- Scripts -->
+    <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+    
+    <!-- Defer non-critical scripts -->
+    <script src="https://unpkg.com/swiper@9.2.4/swiper-bundle.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS only after the page has loaded
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            once: true, // Whether animation should happen only once
+            offset: 120, // Offset (in px) from the original trigger point
+            delay: 0, // Values from 0 to 3000, with step 50ms
+            duration: 800 // Values from 0 to 3000, with step 50ms
+          });
+        }
+      });
+    </script>
   </body>
 </html>

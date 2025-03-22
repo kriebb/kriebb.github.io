@@ -1,0 +1,87 @@
+name: Generate Resume PDF
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default branch
+    paths:
+      - '_data/**'
+      - '_layouts/print-resume.html'
+      - 'print-resume.md'
+      - '.github/workflows/generate-pdf.yml'
+      - 'resume.md'
+
+jobs:
+  build_and_pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: |
+          bundle install
+          bundle exec jekyll build
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Start Jekyll server
+        run: |
+          bundle exec jekyll serve --detach
+          sleep 5  # Give Jekyll time to start up
+
+      - name: Generate PDF
+        run: |
+          node -e "
+          const puppeteer = require('puppeteer');
+          
+          (async () => {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            
+            await page.setViewport({ width: 1100, height: 1500 });
+            
+            await page.goto('http://localhost:4000/print-resume/', {
+              waitUntil: 'networkidle2'
+            });
+            
+            // Wait for fonts to load and rendering to complete
+            await page.waitForTimeout(2000);
+          
+            await page.pdf({
+              path: './kristof-riebbels-resume.pdf',
+              format: 'A4',
+              margin: {
+                top: '15mm',
+                bottom: '15mm',
+                left: '15mm',
+                right: '15mm'
+              },
+              printBackground: true,
+              preferCSSPageSize: true
+            });
+          
+            await browser.close();
+            console.log('PDF generated successfully!');
+          })();
+          "
+
+      - name: Commit PDF to repository
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add kristof-riebbels-resume.pdf
+          git commit -m "Update resume PDF" || echo "No changes to commit"
+          git push

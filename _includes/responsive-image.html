@@ -1,0 +1,37 @@
+{% comment %}
+  Responsive image include
+  Usage: 
+  {% include responsive-image.html 
+    path="path/to/image.jpg" 
+    alt="Alt text" 
+    class="additional-classes" 
+  %}
+{% endcomment %}
+
+{% assign base_path = include.path | remove: '.jpg' | remove: '.png' | remove: '.webp' %}
+{% assign extension = include.path | split: '.' | last %}
+
+<picture>
+  {% if extension != 'webp' %}
+  <source 
+    type="image/webp" 
+    srcset="{{ base_path }}-small.webp 480w,
+            {{ base_path }}-medium.webp 768w,
+            {{ base_path }}-large.webp 1400w"
+    sizes="(max-width: 480px) 480px,
+           (max-width: 768px) 768px,
+           1400px">
+  {% endif %}
+  
+  <img 
+    srcset="{{ base_path }}-small.{{ extension }} 480w,
+            {{ base_path }}-medium.{{ extension }} 768w,
+            {{ base_path }}-large.{{ extension }} 1400w"
+    sizes="(max-width: 480px) 480px,
+           (max-width: 768px) 768px,
+           1400px"
+    src="{{ base_path }}-medium.{{ extension }}" 
+    alt="{{ include.alt | default: 'Image' }}" 
+    class="{{ include.class }}"
+    loading="{{ include.loading | default: 'lazy' }}">
+</picture>

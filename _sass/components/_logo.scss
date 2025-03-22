@@ -1,35 +1,47 @@
-/* Remove all existing logo display rules and replace with this */
-.logo-full, .logo-mini {
-  display: none !important;
+/* Logo display rules */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-full, 
+.logo-mini {
+  display: none;
   max-height: 40px;
+  width: auto;
 }
 
-/* Light theme specific rules */
-@media (min-width: 768px) {
-  .logo-full.logo-light {
-    display: block !important;
+/* Light theme rules */
+:root:not(.dark-mode) {
+  @media (min-width: 768px) {
+    .logo-full.logo-light {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .logo-mini.logo-light {
+      display: block;
+    }
   }
 }
 
-@media (max-width: 767px) {
-  .logo-mini.logo-light {
-    display: block !important;
+/* Dark theme rules */
+.dark-mode {
+  .logo-light {
+    display: none;
   }
-}
-
-/* Dark theme specific rules */
-.dark-mode .logo-light {
-  display: none !important;
-}
-
-@media (min-width: 768px) {
-  .dark-mode .logo-full.logo-dark {
-    display: block !important;
+  
+  @media (min-width: 768px) {
+    .logo-full.logo-dark {
+      display: block;
+    }
   }
-}
-
-@media (max-width: 767px) {
-  .dark-mode .logo-mini.logo-dark {
-    display: block !important;
+  
+  @media (max-width: 767px) {
+    .logo-mini.logo-dark {
+      display: block;
+    }
   }
 }

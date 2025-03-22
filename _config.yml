@@ -1,29 +1,58 @@
 title: "IT KRIEBBELS"
-description: "Freelance .NET Developer – Krachtige en veilige oplossingen"
+description: "Freelance .NET Developer – Building secure, clear, and reliable solutions"
+author: "Kristof Riebbels"
+baseurl: "" # For project pages, use "/project-name"
+url: "https://it.kriebbels.me"
+github_username: kriebb
+
+# Build settings
 theme: minima
-# Optioneel: voor GitHub Pages
 markdown: kramdown
 highlighter: rouge
+
+# Jekyll SEO Tag
+lang: en_US
+locale: nl_BE
+social:
+  name: Kristof Riebbels
+  links:
+    - https://github.com/kriebb
+    - https://www.linkedin.com/in/kristofriebbels
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Sass processing
 sass:
   sass_dir: _sass
   style: compressed
-# Site-instellingen
-baseurl: "" # laat leeg voor de root of pas aan als je een projectpagina hebt
-url: "https://kriebb.github.io" # pas aan naar je eigen GitHub Pages link
 
-# Exclude node_modules etc. indien nodig
+# Content settings
+permalink: /blog/:title/
+
+# Exclude these files from production site
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - LICENSE
+  - CNAME
   - node_modules
+  - .git
+  - .github
+  - vendor
 
-# Pagina-navigatie (optioneel)
+# Default front matter for pages
 defaults:
   - scope:
       path: ""
     values:
       layout: "page"
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      permalink: /blog/:title/

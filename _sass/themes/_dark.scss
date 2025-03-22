@@ -7,7 +7,7 @@
     --muted-color: #aaaaaa;
     
     // Brand colors
-    --primary-color: #1e1e1e; // Override primary color in dark mode
+    --primary-color: #1a1a1a; // Dark background for header in dark mode
     --accent-color: #00b386;
     --accent-light: #00d9a3;
     --accent-dark: #009e75;
@@ -16,7 +16,7 @@
     --border-color: #444444;
     --border-color-dark: #555555;
     --light-gray: #2a2a2a;
-    --white: #2a2a2a;
+    --white: #f0f0f0; // This will be used for text on dark backgrounds
     
     // Components
     --card-bg: #2a2a2a;
@@ -44,7 +44,12 @@
     --blockquote-bg: rgba(0, 179, 134, 0.1);
     --blockquote-border: #00b386;
     --blockquote-color: #e0e0e0;
-
+  
+    // Header and navigation
+    --header-bg: #1a1a1a; // Darker background for header
+    --nav-text: #ffffff;  // White text for navigation
+    --nav-hover: #00d9a3; // Bright accent for hover states
+  
     .nav-links a {
         color: white;
       }

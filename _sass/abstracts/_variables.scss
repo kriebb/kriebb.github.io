@@ -1,3 +1,4 @@
+// Base color palette
 $white: #ffffff;
 $black: #000000;
 $gray-100: #f8f9fa;
@@ -15,9 +16,9 @@ $green: #00b386;
 $dark-green: #009e75;
 $light-green: #00d9a3;
 
-// Theme colors - Light mode (default)
+// Theme system - CSS Custom Properties
 :root {
-  // Base colors
+  // Light theme (default)
   --background-color: #{$white};
   --text-color: #{$gray-800};
   --heading-color: #{$gray-900};
@@ -61,4 +62,9 @@ $light-green: #00d9a3;
   --blockquote-bg: #f1f6ff;
   --blockquote-border: #{$blue};
   --blockquote-color: #{$gray-800};
+
+  // Header and navigation
+  --header-bg: #{$blue};
+  --nav-text: #{$white};
+  --nav-hover: #{$green};
 }

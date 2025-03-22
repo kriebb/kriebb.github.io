@@ -26,9 +26,9 @@
 @import "components/blockquote";
 @import "components/hero";
 @import "components/logo";
+@import "components/theme-toggle"; /* New component */
 
-/* Themes */
-@import "themes/light";
+/* Themes - Light theme is default in variables */
 @import "themes/dark";
 
 @import "base/fixes";

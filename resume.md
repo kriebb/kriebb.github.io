@@ -1,19 +1,30 @@
 ---
-layout: page
+layout: resume
 title: "Resume"
 permalink: "/resume"
-description: "My complete professional resume including skills, projects, education, and certifications."
+description: "Kristof Riebbels' professional resume - Expertise in .NET development, software architecture, and secure coding practices."
 sidebar: true
 toc: true
 ---
 
-Below you'll find an overview of my professional journey.
+Below are a few examples of my personal and open-source projects:
+
+
+## Professional Summary
+
+Senior .NET Developer with 17+ years of experience with secure and maintainable solutions. Passionate about clean code, SOLID principles, and test-driven development. Experienced in architecting and implementing cloud-based (Azure) systems.
+
+Key strengths include:
+- .NET Core/C# application development
+- Software architecture and design patterns
+- Test-driven development and quality assurance
+- Authentication/security implementation (OIDC)
+- Mentoring and Agile methodologies
 
 ## Core Competences
 {% include resume.html section="core_competences" %}
 
 ## Projects and Examples
-Below are a few examples of my personal and open-source projects:
 
 {% include projects.html  %}
 

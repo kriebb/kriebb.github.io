@@ -3,6 +3,10 @@ layout: index
 sidebar: false
 ---
 
-Welcome to **IT KRIEBBELS**! I'm Kristof Riebbels, and this is where I offer my services as a freelance .NET developer. 
+# Kristof Riebbels | .NET Developer
 
-My goal is to deliver secure, reliable, and clear solutions tailored to your specific needs.
+**Transforming complexity into clarity**. I'm a freelance .NET developer specializing in secure, maintainable, and reliable custom solutions.
+
+With expertise in C#, ASP.NET Core, and Azure, I help businesses with technical challenges into structured solutions that work consistently and securely, focusing on quality SOLID code.
+
+As a Certified Scrum Master, I bring both technical depth and collaborative skills to every project.

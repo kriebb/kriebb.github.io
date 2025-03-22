@@ -1,0 +1,51 @@
+/* Theme Toggle Button Styles */
+.nav-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dark-mode-btn,
+  .light-mode-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--nav-text);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    
+    &:hover, &:focus {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
+    }
+    
+    &:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+  }
+  
+  /* Control visibility based on theme */
+  :root:not(.dark-mode) {
+    .dark-mode-btn {
+      display: inline-flex;
+    }
+    
+    .light-mode-btn {
+      display: none;
+    }
+  }
+  
+  .dark-mode {
+    .dark-mode-btn {
+      display: none;
+    }
+    
+    .light-mode-btn {
+      display: inline-flex;
+    }
+  }

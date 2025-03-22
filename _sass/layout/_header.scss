@@ -1,6 +1,7 @@
 /* Header Styles */
+/* Header Styles */
 header {
-    background-color: var(--primary-color);
+    background-color: var(--header-bg, var(--primary-color)); // Fall back to primary-color if header-bg not set
     position: fixed;
     top: 0;
     left: 0;
@@ -10,8 +11,7 @@ header {
     display: flex;
     align-items: center;
   }
-
-
+  
   .navbar {
     display: flex;
     align-items: center;
@@ -22,94 +22,30 @@ header {
     height: 60px;
   }
   
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .nav-logo img {
-    max-height: 40px;
-    display: block;
-    margin: 0;
-  }
-  
   /* Navigation Links */
   .nav-links {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
+    
+    li {
+      margin: 0 1rem;
+    }
+    
+    a {
+      color: var(--nav-text, white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
   }
-  
-  .nav-links li {
-    margin: 0 1rem;
-  }
-  
-  .nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links a:hover {
-    color: var(--accent-color);
-  }
-  
-  /* Navigation Toggle */
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--white);
-    cursor: pointer;
-  }
-  
-/* Theme Toggle Buttons */
-.nav-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-/* Base style for toggle buttons */
-.dark-mode-btn, .light-mode-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-  }
-  
-
-
-/* Force display properties */
-.dark-mode-btn {
-    display: inline-flex !important;
-  }
-  
-  .light-mode-btn {
-    display: none !important;
-  }
-  
-  .dark-mode .dark-mode-btn {
-    display: none !important;
-  }
-  
-  .dark-mode .light-mode-btn {
-    display: inline-flex !important;
-  }
-
-/* Hover effects */
-.dark-mode-btn:hover, .light-mode-btn:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  
+    
   /* Mobile Navigation */
   @media (max-width: 768px) {
     .nav-toggle {
@@ -133,14 +69,15 @@ header {
       top: 60px;
       left: 0;
       width: 100%;
-      background-color: var(--primary-color);
+      background-color: var(--header-bg);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       padding: 0.5rem 0;
-    
+      
       li {
         padding: 0.75rem 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
+        margin: 0;
         
         &:last-child {
           border-bottom: none;
@@ -153,12 +90,10 @@ header {
       }
     }
     
-    .nav-links li {
-      margin: 0.7rem 0;
-    }
     .nav-toggle {
-        padding: 0.75rem;
-      }
+      padding: 0.75rem;
+    }
+    
     .nav-open .nav-links {
       display: flex;
     }
