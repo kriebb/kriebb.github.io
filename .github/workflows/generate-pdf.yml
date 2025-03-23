@@ -1,45 +1,37 @@
 name: Jekyll Site CI/CD
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
-
       - name: Install dependencies
         run: bundle install
-
       - name: Build Jekyll site
         run: bundle exec jekyll build
-
       - name: Test with HTMLProofer
         run: |
           gem install html-proofer
           htmlproofer ./_site \
             --allow-hash-href \
-            --check-html \
+            --checks=links,images,scripts \
             --disable-external \
             --assume-extension
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site/
-
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: build
