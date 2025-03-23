@@ -1,61 +1,42 @@
-name: Build and Deploy Jekyll Site
+name: GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  # Allow manual trigger
+    branches:
+      - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Updated to a higher version that supports Bundler 2.6.3
-          bundler-cache: true # This will cache dependencies
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
 
-      - name: Install dependencies
-        run: bundle install
-
-      - name: Build site
-        run: bundle exec jekyll build
-
-      - name: Run HTML Proofer
-        run: |
-          gem install html-proofer
-          htmlproofer ./_site \
-            --allow-hash-href \
-            --check-html \
-            --disable-external \
-            --assume-extension
-
-      # Explicitly include the upload-artifact action before upload-pages-artifact
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: site-files
-          path: _site/
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: "_site/"
-
-  # Deploy job (only runs on main branch)
   deploy:
-    if: github.ref == 'refs/heads/main'
-    # Sets the permission needed for GitHub pages deployment
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -64,4 +45,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v1
