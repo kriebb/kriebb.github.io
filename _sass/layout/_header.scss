@@ -1,4 +1,4 @@
-/* Header Styles - Simplified */
+/* Header Styles - Firefox Stable */
 header {
   background-color: var(--primary-color, #004c8c);
   position: fixed;
@@ -7,41 +7,58 @@ header {
   width: 100%;
   z-index: 999;
   height: 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Use table layout for maximum stability across browsers */
 .navbar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  height: 60px;
   max-width: 1200px;
+  margin: 0 auto;
+  height: 60px;
+  padding: 0 1rem;
+  align-items: center;
 }
 
+/* Logo area */
 .nav-logo {
   display: flex;
   align-items: center;
-  height: 100%;
-  padding: 0.5rem 0;
-  flex: 0 0 auto;
+  width: 180px; /* Fixed width */
+  padding-right: 1rem;
+  z-index: 1; /* Ensure it's above other elements */
+  
+  a {
+    display: block;
+  }
+  
+  img {
+    height: 40px;
+    width: auto;
+  }
 }
 
-/* Navigation Links - Standard flexbox approach */
+/* Nav links - centered */
+.nav-links-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .nav-links {
-  list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
-  flex: 1 1 auto;
-  justify-content: center;
+  list-style: none;
+  align-items: center;
   
   li {
-    margin: 0 0.75rem;
+    margin: 0 0.5rem;
   }
   
   a {
@@ -63,7 +80,31 @@ header {
   }
 }
 
-/* Navigation Toggle */
+/* Actions area - right side */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 80px; /* Fixed width */
+  padding-left: 1rem;
+  z-index: 1; /* Ensure it's above other elements */
+}
+
+/* Theme toggle buttons */
+.dark-mode-btn,
+.light-mode-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--nav-text, white);
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toggle button - mobile only */
 .nav-toggle {
   display: none;
   background: none;
@@ -72,12 +113,7 @@ header {
   color: var(--nav-text, white);
   cursor: pointer;
   padding: 0.5rem;
-  flex: 0 0 auto;
-}
-
-/* Theme toggle */
-.nav-actions {
-  flex: 0 0 auto;
+  margin-left: auto;
 }
 
 /* Dark mode header */
@@ -89,34 +125,44 @@ header {
 @media (max-width: 768px) {
   .navbar {
     position: relative;
+    justify-content: space-between;
+  }
+  
+  .nav-logo {
+    width: auto;
+    flex: 1;
+    justify-content: center;
+    order: 2;
   }
   
   .nav-toggle {
     display: block;
+    width: 40px;
     order: 1;
   }
   
-  .nav-logo {
-    order: 2;
-    margin: 0 auto;
-  }
-  
   .nav-actions {
+    width: 40px;
     order: 3;
   }
   
-  .nav-links {
+  .nav-links-container {
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
-    flex-direction: column;
-    background-color: var(--header-bg, var(--primary-color));
+    justify-content: flex-start;
     display: none;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--header-bg, var(--primary-color));
     
     li {
-      margin: 0;
       width: 100%;
+      margin: 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       
       &:last-child {
@@ -124,13 +170,32 @@ header {
       }
       
       a {
+        width: 100%;
         padding: 0.75rem 1.5rem;
         border-radius: 0;
       }
     }
   }
   
-  .navbar.nav-open .nav-links {
-    display: flex;
+  .navbar.nav-open .nav-links-container {
+    display: block;
+  }
+}
+
+/* Firefox-specific fix */
+@-moz-document url-prefix() {
+  /* Force layout to be stable in Firefox */
+  header, .navbar, .nav-logo, .nav-links-container, .nav-actions, .nav-links, .nav-links li, .nav-links a {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Force dimensions in Firefox */
+  .nav-logo {
+    width: 180px !important;
+  }
+  
+  .nav-actions {
+    width: 80px !important;
   }
 }
