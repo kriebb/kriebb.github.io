@@ -11,27 +11,42 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
+      
       - name: Install dependencies
         run: bundle install
+      
       - name: Build Jekyll site
         run: bundle exec jekyll build
-      - name: Test with HTMLProofer
+      
+      # Install Puppeteer and other required tools for PDF generation
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      
+      - name: Install Puppeteer
+        run: npm install -g puppeteer-cli
+      
+      # Generate PDF from the print-resume page
+      - name: Generate Resume PDF
         run: |
-          gem install html-proofer
-          htmlproofer ./_site \
-            --allow-hash-href true \
-            --checks links,images,scripts \
-            --disable-external true \
-            --assume-extension true
+          mkdir -p ./_site/assets/pdf
+          npx puppeteer print http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume.pdf --paper-format A4 &
+          bundle exec jekyll serve --detach
+          sleep 5  # Give Jekyll server time to start
+          pkill -f "jekyll serve"
+      
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site/
+  
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: build
