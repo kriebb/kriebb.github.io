@@ -24,22 +24,18 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
       
-      # Set up Node and Puppeteer with no-sandbox option
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      # Install wkhtmltopdf for PDF generation
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf
       
-      - name: Install Puppeteer
-        run: npm install -g puppeteer-cli
-      
-      # Start Jekyll server, generate PDF with no-sandbox, and stop server
+      # Start Jekyll server, generate PDF, and stop server
       - name: Generate Resume PDF
         run: |
-          mkdir -p ./_site/assets/pdf
           bundle exec jekyll serve --detach
           sleep 5  # Give Jekyll server time to start
-          npx puppeteer print http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume.pdf --paper-format A4 --no-sandbox
+          wkhtmltopdf http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume.pdf
           pkill -f "jekyll serve" || true
       
       - name: Upload Pages artifact
