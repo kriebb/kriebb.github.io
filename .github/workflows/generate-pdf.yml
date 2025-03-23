@@ -24,10 +24,10 @@ jobs:
         run: |
           gem install html-proofer
           htmlproofer ./_site \
-            --allow-hash-href \
-            --checks=links,images,scripts \
-            --disable-external \
-            --assume-extension
+            --allow-hash-href true \
+            --checks links,images,scripts \
+            --disable-external true \
+            --assume-extension true
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
