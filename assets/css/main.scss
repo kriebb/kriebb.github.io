@@ -1,6 +1,9 @@
 ---
 ---
 
+/* Transition handling - needs to be first */
+@import "base/transitions";
+
 /* Base */
 @import "base/reset";
 @import "base/typography";
@@ -26,9 +29,10 @@
 @import "components/blockquote";
 @import "components/hero";
 @import "components/logo";
-@import "components/theme-toggle"; /* New component */
+@import "components/theme-toggle";
 
 /* Themes - Light theme is default in variables */
 @import "themes/dark";
 
+/* Fixes */
 @import "base/fixes";

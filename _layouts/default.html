@@ -13,19 +13,19 @@
         
         <!-- Minimal Light Logo -->
         <img src="/assets/it-kriebbels-logo-min.svg" alt="IT KRIEBBELS" class="logo-mini logo-light" />
-        <!-- Minimal Dark Logo (updated path) -->
+        <!-- Minimal Dark Logo -->
         <img src="/assets/it-kriebbels-logo-min-dark.svg" alt="IT KRIEBBELS" class="logo-mini logo-dark" />
       </a>
 
       <nav class="navbar">
         <button class="nav-toggle" aria-label="Toggle navigation" type="button">☰</button>
 
-        <ul class="nav-links">
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
-          <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
-          <li><a href="{{ '/contactme' | relative_url }}">Contact</a></li>
-          <li><a href="{{ '/about' | relative_url }}">About</a></li>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+          <li><a href="{{ '/resume' | relative_url }}" {% if page.url contains '/resume' %}class="active"{% endif %}>Resume</a></li>
+          <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>Blog</a></li>
+          <li><a href="{{ '/contactme' | relative_url }}" {% if page.url contains '/contactme' %}class="active"{% endif %}>Contact</a></li>
+          <li><a href="{{ '/about' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About</a></li>
         </ul>
         
         <div class="nav-actions">
@@ -54,6 +54,7 @@
 
     <!-- Scripts -->
     <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+    <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     
     <!-- Defer non-critical scripts -->
@@ -64,10 +65,10 @@
         // Initialize AOS only after the page has loaded
         if (typeof AOS !== 'undefined') {
           AOS.init({
-            once: true, // Whether animation should happen only once
-            offset: 120, // Offset (in px) from the original trigger point
-            delay: 0, // Values from 0 to 3000, with step 50ms
-            duration: 800 // Values from 0 to 3000, with step 50ms
+            once: true,
+            offset: 120,
+            delay: 0,
+            duration: 800
           });
         }
       });

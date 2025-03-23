@@ -25,41 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navbar = document.querySelector('.navbar');
-
-  if (navToggle && navbar) {
-    navToggle.addEventListener('click', () => {
-      navbar.classList.toggle('nav-open');
-    });
-  }
-});
-// Theme toggle function for assets/js/main.js
-
-document.addEventListener('DOMContentLoaded', function () {
-  const darkModeButton = document.getElementById('darkModeToggle');
-  const lightModeButton = document.getElementById('lightModeToggle');
-  const body = document.body;
-
-  // Check for saved theme
-  const storedTheme = localStorage.getItem('theme');
-  if (storedTheme === 'dark') {
-    body.classList.add('dark-mode');
-  }
-
-  // Add click handlers
-  darkModeButton.addEventListener('click', function () {
-    body.classList.add('dark-mode');
-    localStorage.setItem('theme', 'dark');
-  });
-
-  lightModeButton.addEventListener('click', function () {
-    body.classList.remove('dark-mode');
-    localStorage.setItem('theme', 'light');
-  });
-});
-
 document.addEventListener("DOMContentLoaded", function() {
   const contentArea = document.querySelector('.page-content');
   const toc = document.getElementById('toc');

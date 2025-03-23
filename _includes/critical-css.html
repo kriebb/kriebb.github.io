@@ -1,122 +1,115 @@
 <style>
-    /* Critical CSS - essential styles for above-the-fold content */
-    /* Include only essential styles needed for initial rendering */
-    
-    /* Base reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    /* Body and typography base */
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      background-color: #ffffff;
-      color: #343a40;
+  /* Critical CSS to prevent FOUC and flickering */
+  html, body {
+    transition: background-color 0s, color 0s !important;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html.dark-mode, body.dark-mode {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+  }
+  
+  html.dark-mode header, body.dark-mode header {
+    background-color: #1a1a1a !important;
+  }
+  
+  :root:not(.dark-mode) header {
+    background-color: #004c8c !important;
+  }
+  
+  /* Ensure logos display correctly immediately */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 170px;
+  }
+  
+  .logo-full, .logo-mini {
+    display: none;
+    height: 36px;
+    width: auto;
+  }
+  
+  :root:not(.dark-mode) .logo-full.logo-light {
+    display: block;
+  }
+  
+  :root:not(.dark-mode) .logo-mini.logo-light {
+    display: none;
+  }
+  
+  .dark-mode .logo-full.logo-dark {
+    display: block;
+  }
+  
+  .dark-mode .logo-mini.logo-dark {
+    display: none;
+  }
+  
+  @media (max-width: 767px) {
+    :root:not(.dark-mode) .logo-full.logo-light {
+      display: none;
     }
     
-    /* Header styles */
-    header {
-      background-color: #004c8c;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      height: 60px;
-      display: flex;
-      align-items: center;
+    :root:not(.dark-mode) .logo-mini.logo-light {
+      display: block;
     }
     
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 1rem;
-      height: 60px;
+    .dark-mode .logo-full.logo-dark {
+      display: none;
     }
     
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      height: 100%;
+    .dark-mode .logo-mini.logo-dark {
+      display: block;
     }
-    
-    .nav-logo img {
-      max-height: 40px;
-    }
-    
-    .nav-links {
-      list-style: none;
-      display: flex;
-    }
-    
-    .nav-links li {
-      margin: 0 1rem;
-    }
-    
-    .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
-    
-    /* Hero section if used on homepage */
-    .hero-section {
-      background: linear-gradient(135deg, #004c8c 0%, #00b386 100%);
-      color: white;
-      text-align: center;
-      padding: 5rem 2rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-    }
-    
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-    
-    .hero-section h1 {
-      font-size: 2.75rem;
-      margin-bottom: 1.5rem;
-      color: white;
-      font-weight: 700;
-    }
-    
-    /* Layout container */
-    .layout-container {
-      display: flex;
-      margin-top: 60px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 1rem;
-      min-height: calc(100vh - 60px - 60px);
-    }
-    
-    .main-content {
-      flex: 1; 
-      min-width: 0;
-      padding: 2rem;
-      border-radius: 8px;
-    }
-    
-    /* Mobile nav */
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: #ffffff;
-        cursor: pointer;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-    }
-    
-    /* Skip other styles that can be loaded asynchronously */
-    </style>
+  }
+  
+  /* Fixed header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Fixed navigation */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 60px;
+    position: relative;
+  }
+  
+  /* Centered navigation links */
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Fixed elements widths */
+  .nav-toggle {
+    width: 40px;
+  }
+  
+  .nav-actions {
+    width: 50px;
+    margin-left: auto;
+  }
+  </style>

@@ -3,13 +3,24 @@
   display: flex;
   align-items: center;
   height: 100%;
+  padding: 0.5rem 0.75rem;
+  
+  img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    max-width: none;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
 }
 
 .logo-full, 
 .logo-mini {
   display: none;
-  max-height: 40px;
-  width: auto;
 }
 
 /* Light theme rules */
