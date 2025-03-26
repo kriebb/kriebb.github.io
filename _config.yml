@@ -66,7 +66,10 @@ defaults:
 
 # Language settings
 languages: ["en", "nl"]
+# Language settings
 default_lang: "en"
+active_lang: "en"
+
 exclude_from_localization: ["assets", "images", "css", "js", "fonts", "blog", "favicon.ico"]
 
 # Translations directory

@@ -5,12 +5,8 @@ lang: nl
 ref: index
 ---
 
-
 # Kristof Riebbels | .NET Developer
 
-**Transforming complexity into clarity**. I'm a freelance .NET developer specializing in secure, maintainable, and reliable custom solutions.
+**{{ site.data.i18n[site.active_lang].hero.subtitle }}**. {{ site.data.i18n[site.active_lang].hero.description }}
 
-With expertise in C#, ASP.NET Core, and Azure, I help businesses with technical challenges into structured solutions that work consistently and securely, focusing on quality SOLID code.
-
-As a Certified Scrum Master, I bring both technical depth and collaborative skills to every project.
-
+{{ site.data.i18n[site.active_lang].hero.expertise }}

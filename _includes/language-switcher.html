@@ -1,9 +1,13 @@
 <div class="language-switcher">
-  {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
-  {% for page in pages %}
-    {% if page.lang != page.lang %}
-      <a href="{{ page.url }}" class="lang-link {% if page.lang == site.active_lang %}active{% endif %}">
-        {{ site.t[page.lang].icon }} {{ site.t[page.lang].language }}
+  {% assign current_ref = page.ref %}
+  {% assign current_lang = page.lang %}
+  
+  {% assign alternate_pages = site.pages | where:"ref", current_ref %}
+  
+  {% for alternate_page in alternate_pages %}
+    {% if alternate_page.lang != current_lang %}
+      <a href="{{ alternate_page.url }}" class="lang-link">
+        {{ site.t[alternate_page.lang].icon }} {{ site.t[alternate_page.lang].language }}
       </a>
     {% endif %}
   {% endfor %}

@@ -7,7 +7,6 @@ sidebar: false
 lang: en
 ref: about
 ---
-
 {% assign title = site.data.i18n['en'].about.title %}
 {% assign intro = site.data.i18n['en'].about.intro %}
 
@@ -16,8 +15,8 @@ ref: about
 Experimenting with:
 - Azure
 - AI (OpenAI, Mistral )
-- Node.js,Typescript,... 
-- Python, 
+- Node.js,Typescript,...
+- Python,
 - and other technologies.
 
 > {% assign github_text = site.data.i18n['en'].about.github %} {{ github_text }} [GitHub Portfolio](https://github.com/) and let me know what you think. Always open for a review
@@ -37,7 +36,7 @@ Thanks to my ADHD-driven energy and curiosity, I continuously learn and always l
 ## {{ site.data.i18n['en'].about.coaching_title }}
 
 - {{ site.data.i18n['en'].about.coaching_desc }}
-  
+ 
 ## {{ site.data.i18n['en'].about.growth_title }}
 
 - {{ site.data.i18n['en'].about.growth_desc }}

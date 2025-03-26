@@ -20,24 +20,26 @@
           </a>
         </div>
         
-<!-- Replace the existing nav-links section with this updated version -->
-<div class="nav-links-container">
-  <ul class="nav-links" id="nav-links">
-    {% if site.active_lang == "en" %}
-      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.home }}</a></li>
-      <li><a href="{{ '/resume' | relative_url }}" {% if page.url contains '/resume' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.resume }}</a></li>
-      <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.blog }}</a></li>
-      <li><a href="{{ '/contact' | relative_url }}" {% if page.url contains '/contact' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.contact }}</a></li>
-      <li><a href="{{ '/about' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.about }}</a></li>
-    {% else %}
-      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.home }}</a></li>
-      <li><a href="{{ '/cv' | relative_url }}" {% if page.url contains '/cv' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.resume }}</a></li>
-      <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.blog }}</a></li>
-      <li><a href="{{ '/contact' | relative_url }}" {% if page.url contains '/contact' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.contact }}</a></li>
-      <li><a href="{{ '/over-mij' | relative_url }}" {% if page.url contains '/over-mij' %}class="active"{% endif %}>{{ site.data.i18n[site.active_lang].nav.about }}</a></li>
-    {% endif %}
-  </ul>
-</div>
+        <div class="nav-links-container">
+          <ul class="nav-links" id="nav-links">
+            <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>
+              {{ 'nav.home' | translate }}</a></li>
+            
+            <li><a href="{{ '/resume' | relative_url }}" 
+                   {% if page.url contains '/resume' or page.url contains '/cv' %}class="active"{% endif %}>
+              {{ 'nav.resume' | translate }}</a></li>
+            
+            <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>
+              {{ 'nav.blog' | translate }}</a></li>
+            
+            <li><a href="{{ '/contact' | relative_url }}" {% if page.url contains '/contact' %}class="active"{% endif %}>
+              {{ 'nav.contact' | translate }}</a></li>
+            
+            <li><a href="{{ '/about' | relative_url }}" 
+                   {% if page.url contains '/about' or page.url contains '/over-mij' %}class="active"{% endif %}>
+              {{ 'nav.about' | translate }}</a></li>
+          </ul>
+        </div>
         
         <div class="nav-actions">
           <!-- Language Switcher -->

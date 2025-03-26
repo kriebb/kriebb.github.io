@@ -7,7 +7,6 @@ sidebar: false
 lang: nl
 ref: about
 ---
-
 {% assign title = site.data.i18n['nl'].about.title %}
 {% assign intro = site.data.i18n['nl'].about.intro %}
 
@@ -16,8 +15,8 @@ ref: about
 Experimenteren met:
 - Azure
 - AI (OpenAI, Mistral )
-- Node.js,Typescript,... 
-- Python, 
+- Node.js,Typescript,...
+- Python,
 - en andere technologieën.
 
 > {% assign github_text = site.data.i18n['nl'].about.github %} {{ github_text }} [GitHub Portfolio](https://github.com/) en laat me weten wat je ervan vindt. Altijd open voor een review
@@ -37,7 +36,7 @@ Dankzij mijn ADHD-gedreven energie en nieuwsgierigheid leer ik continu en zoek i
 ## {{ site.data.i18n['nl'].about.coaching_title }}
 
 - {{ site.data.i18n['nl'].about.coaching_desc }}
-  
+ 
 ## {{ site.data.i18n['nl'].about.growth_title }}
 
 - {{ site.data.i18n['nl'].about.growth_desc }}
