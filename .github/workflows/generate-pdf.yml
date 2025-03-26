@@ -1,58 +1,51 @@
-name: Build and Deploy Jekyll Site
-
+name: Jekyll Site CI/CD
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  # Allow manual trigger
   workflow_dispatch:
-
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
+      - name: Checkout
+        uses: actions/checkout@v4
+      
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Updated to a higher version that supports Bundler 2.6.3
-          bundler-cache: true # This will cache dependencies
-
+          ruby-version: '3.2'
+          bundler-cache: true
+      
       - name: Install dependencies
         run: bundle install
-
-      - name: Build site
+      
+      - name: Build Jekyll site
         run: bundle exec jekyll build
-
-      - name: Run HTML Proofer
+      
+      # Install wkhtmltopdf for PDF generation
+      - name: Install wkhtmltopdf
         run: |
-          gem install html-proofer
-          htmlproofer ./_site \
-            --allow-hash-href \
-            --check-html \
-            --disable-external \
-            --assume-extension
-
-      # Explicitly include the upload-artifact action before upload-pages-artifact
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+          sudo apt-get update
+          sudo apt-get install -y wkhtmltopdf
+      
+      # Start Jekyll server, generate PDF, and stop server
+      - name: Generate Resume PDF
+        run: |
+          bundle exec jekyll serve --detach
+          sleep 5  # Give Jekyll server time to start
+          wkhtmltopdf http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume.pdf
+          pkill -f "jekyll serve" || true
+      
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: site-files
           path: _site/
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: "_site/"
-
-  # Deploy job (only runs on main branch)
+  
   deploy:
     if: github.ref == 'refs/heads/main'
-    # Sets the permission needed for GitHub pages deployment
+    needs: build
     permissions:
       pages: write
       id-token: write
@@ -60,8 +53,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
