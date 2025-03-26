@@ -1,6 +1,6 @@
 ---
 layout: page
-title: {{ site.data.i18n[site.active_lang].legal.cookies_title }}
+title: Cookie Policy
 permalink: /cookies/
 sidebar: false
 lang: en
@@ -21,20 +21,23 @@ IT KRIEBBELS uses cookies in a very limited way, respecting your privacy. We onl
 
 ### Essential Cookies
 
-These cookies are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies.
+These cookies are necessary for the website to function properly. They enable basic functions like page navigation, language preferences, and theme selection. The website cannot function properly without these cookies.
 
 | Cookie Name | Purpose | Duration |
 |-------------|---------|----------|
 | theme_preference | Remembers your dark/light mode preference | 1 year |
 | jekyll_language | Stores your language preference | 1 year |
 
-### Analytical Cookies
+## Analytics
 
-We use Plausible Analytics, a privacy-friendly analytics service that:
-- Does not use cookies
+For website analytics, we use Cloudflare Web Analytics, which **does not use cookies** and respects your privacy. Unlike traditional analytics tools:
+
+- Cloudflare Web Analytics does not use cookies
+- Does not track users across websites
 - Does not collect any personal data
-- Does not track users across different websites
 - Is fully compliant with GDPR, CCPA, and PECR
+
+This means you can browse our website without any tracking cookies being set. For more information about Cloudflare Web Analytics, please visit [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
 ## Third-party services
 
@@ -55,10 +58,37 @@ Most web browsers allow you to manage your cookie preferences. You can:
 
 Please note that if you choose to block all cookies (including essential cookies), you may not be able to access all or parts of our website.
 
-## Changes to this Cookie Policy
+### How to manage cookies in different browsers
+
+- [Google Chrome](https://support.google.com/chrome/answer/95647)
+- [Microsoft Edge](https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
+- [Mozilla Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
+- [Safari](https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac)
+- [Opera](https://help.opera.com/en/latest/web-preferences/#cookies)
+
+## Do Not Track
+
+Some browsers have a "Do Not Track" feature that signals to websites that you visit that you do not want to have your online activity tracked. We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track browser mechanism is in place.
+
+## GDPR and Your Privacy Rights
+
+Under the EU General Data Protection Regulation (GDPR), you have the right to:
+- Be informed about how your data is used
+- Access your personal data
+- Correct inaccurate data
+- Delete your data
+- Restrict processing of your data
+- Object to data processing
+- Be notified if there is a data breach affecting your information
+
+Because we use minimal cookies that don't collect personal information, and our analytics solution is cookie-less and privacy-focused, your rights under GDPR are already respected when using our website.
+
+## Changes to This Cookie Policy
 
 We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.
 
 ## Contact Us
 
-If you have any questions about this Cookie Policy, please contact us at [kristof@riebbels.be](mailto:kristof@riebbels.be).
+If you have any questions about this Cookie Policy, please contact us at:
+- Email: [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me)
+- Address: Durmen 190, 9240 Zele, Belgium

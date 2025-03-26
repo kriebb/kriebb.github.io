@@ -1,7 +1,7 @@
 ---
 layout: index
 sidebar: false
-lang: en
+lang: nl
 ref: index
 ---
 
@@ -13,3 +13,4 @@ ref: index
 With expertise in C#, ASP.NET Core, and Azure, I help businesses with technical challenges into structured solutions that work consistently and securely, focusing on quality SOLID code.
 
 As a Certified Scrum Master, I bring both technical depth and collaborative skills to every project.
+

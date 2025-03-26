@@ -1,6 +1,6 @@
 ---
 layout: page
-title: {{ site.data.i18n[site.active_lang].legal.privacy_title }}
+title: Privacy Policy
 permalink: /privacy-policy/
 sidebar: false
 lang: en
@@ -27,15 +27,19 @@ When you contact us through our website, we collect:
 
 ### Information Collected Automatically
 
-When you visit our website, we automatically collect:
-- IP address
-- Browser type
-- Device information
+When you visit our website, we collect anonymous usage data using Cloudflare Web Analytics. This service:
+- Does not use cookies
+- Does not track users across different websites
+- Does not collect any personal data
+- Is fully compliant with GDPR, CCPA, and PECR
+
+The anonymous data collected includes:
 - Pages visited
 - Time spent on pages
 - Referring website
-
-We use privacy-friendly analytics (Plausible Analytics) that does not use cookies and respects your privacy.
+- Browser type
+- Device type
+- Approximate location (country level only)
 
 ## How We Use Your Information
 
@@ -73,14 +77,41 @@ To exercise these rights, please contact us at [kristof.it@kriebbels.me](mailto:
 
 ## Cookies
 
-Our website uses only essential cookies necessary for the website to function. We do not use third-party tracking cookies. For more information, please see our [Cookie Policy](/cookies/).
+Our website uses only essential cookies necessary for the website to function. We do not use third-party tracking cookies. The only cookies we use are:
+- Theme preference (to remember your dark/light mode setting)
+- Language preference (to remember your preferred language)
+
+For more information, please see our [Cookie Policy](/cookies/).
 
 ## Third-Party Service Providers
 
 We use the following third-party service providers:
 - hCaptcha for form protection (privacy-friendly alternative to Google reCAPTCHA)
-- Plausible Analytics for website analytics (privacy-friendly, cookie-less analytics)
+- Cloudflare Web Analytics for website analytics (privacy-friendly, cookie-less analytics)
 - Formspree for form submissions (GDPR-compliant form processing)
+
+### Cloudflare Web Analytics
+
+We use Cloudflare Web Analytics to understand website usage patterns without compromising your privacy. Unlike traditional analytics tools:
+- Cloudflare Web Analytics does not use cookies
+- It does not track you across websites
+- It does not collect personal data
+- It does not create user profiles
+- It only provides aggregate metrics about visitors
+
+For more information on how Cloudflare handles data, please visit [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+
+### hCaptcha
+
+We use hCaptcha on our contact form to prevent spam. hCaptcha is a European alternative to reCAPTCHA that respects your privacy. To learn more about hCaptcha's privacy practices, please visit [hCaptcha's Privacy Policy](https://www.hcaptcha.com/privacy).
+
+### Formspree
+
+Our contact form uses Formspree, a GDPR-compliant form processing service. Formspree processes the data you submit through our contact form. To learn more about how Formspree handles your data, please visit [Formspree's Privacy Policy](https://formspree.io/legal/privacy-policy/).
+
+## Children's Privacy
+
+Our website is not intended for children under the age of 16. We do not knowingly collect personal information from children under 16. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.
 
 ## Changes to This Privacy Policy
 
@@ -90,4 +121,4 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 
 If you have any questions about this Privacy Policy, please contact us at:
 - Email: [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me)
-- Address: Durmen 190, 9240 Zele
+- Address: Durmen 190, 9240 Zele, Belgium

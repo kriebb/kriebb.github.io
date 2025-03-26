@@ -1,7 +1,7 @@
 ---
 layout: page
 title: {{ site.data.i18n[site.active_lang].about.title }}
-permalink: /about/
+permalink: /over-mij/
 description: "Introduces who you are as a professional, highlighting expertise, passion, and personal mission to build trust and connection."
 sidebar: false
 lang: nl
@@ -38,3 +38,4 @@ Thanks to my ADHD-driven energy and curiosity, I continuously learn and always l
 ## {{ site.data.i18n[site.active_lang].about.growth_title }}
 
 - {{ site.data.i18n[site.active_lang].about.growth_desc }}
+

@@ -266,40 +266,43 @@
     </div>
   </div>
 
-  <!-- Technical Skills Section -->
-  <div class="section">
-    <h2>Technical Skills</h2>
-    <div class="grid">
-      {% for category_obj in site.data.resume.skills.development_and_programming %}
-      <div class="skill-category">
-        <h3>{{ category_obj.category }}</h3>
-        <ul class="skill-list">
-          {% for item in category_obj.items %}
-          <li class="skill-item">{{ item }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
+<!-- Technical Skills Section -->
+<div class="section">
+  <h2>{{ site.data.i18n[site.active_lang].resume.skills }}</h2>
+  <div class="grid">
+    {% for category_obj in site.data.resume.skills.development_and_programming %}
+    <div class="skill-category">
+      <h3>{{ category_obj.category }}</h3>
+      <ul class="skill-list">
+        {% for item in category_obj.items %}
+        <li class="skill-item">{{ item }}</li>
+        {% endfor %}
+      </ul>
     </div>
+    {% endfor %}
   </div>
+</div>
 
-  <!-- Professional Experience Section -->
-  <div class="section">
-    <h2>Professional Experience</h2>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
-      {% for item in site.data.work_experience %}
-      <div class="experience-item">
-        <div class="date">{{ item.date }}</div>
-        <h3>{{ item.company }}</h3>
-        <ul>
-          {% for bullet in item.bullets limit:1 %}
-            <li>{{ bullet }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+<!-- Professional Experience Section - COMPREHENSIVE -->
+<div class="section">
+  <h2>Professional Experience</h2>
+  {% for item in site.data.work_experience %}
+  <div class="experience-item">
+    <div class="date">{{ item.date }}</div>
+    <h3>{{ item.company }}</h3>
+    <ul>
+      {% for bullet in item.bullets %}
+        <li>{{ bullet }}</li>
       {% endfor %}
-    </div>
+      {% if item.extra_details %}
+        {% for detail in item.extra_details %}
+          <li><em>{{ detail }}</em></li>
+        {% endfor %}
+      {% endif %}
+    </ul>
   </div>
+  {% endfor %}
+</div>
 
   <div class="footer">
     <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | For the most current information, visit <a href="https://it.kriebbels.me">it.kriebbels.me</a></p>
