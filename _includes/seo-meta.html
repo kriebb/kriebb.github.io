@@ -7,8 +7,10 @@
 <!-- Alternate language versions -->
 {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
 {% for alternate in pages %}
-  {% if alternate.lang != page.lang %}
-  <link rel="alternate" hreflang="{{ alternate.lang }}" href="{{ alternate.url | absolute_url }}">
+  {% if page.alternate_urls %}
+    {% for alternate in page.alternate_urls %}
+      <link rel="alternate" hreflang="{{ alternate.lang }}" href="{{ site.url }}{{ alternate.url }}" />
+    {% endfor %}
   {% endif %}
 {% endfor %}
 

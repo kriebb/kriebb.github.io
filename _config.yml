@@ -10,6 +10,13 @@ theme: minima
 markdown: kramdown
 highlighter: rouge
 
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Disable parallel processing
+parallel: false
 # Jekyll SEO Tag
 lang: en_US
 locale: nl_BE

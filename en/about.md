@@ -1,6 +1,6 @@
 ---
 layout: page
-title: {{ site.data.i18n[site.active_lang].about.title }}
+title: About
 permalink: /about/
 description: "Introduces who you are as a professional, highlighting expertise, passion, and personal mission to build trust and connection."
 sidebar: false
@@ -8,7 +8,10 @@ lang: en
 ref: about
 ---
 
-{{ site.data.i18n[site.active_lang].about.intro }}
+{% assign title = site.data.i18n['en'].about.title %}
+{% assign intro = site.data.i18n['en'].about.intro %}
+
+{{ intro }}
 
 Experimenting with:
 - Azure
@@ -17,24 +20,24 @@ Experimenting with:
 - Python, 
 - and other technologies.
 
-> {{ site.data.i18n[site.active_lang].about.github }} [GitHub Portfolio](https://github.com/) and let me know what you think. Always open for a review
+> {% assign github_text = site.data.i18n['en'].about.github %} {{ github_text }} [GitHub Portfolio](https://github.com/) and let me know what you think. Always open for a review
 
-> *{{ site.data.i18n[site.active_lang].about.mission_link }}*
+> *{% assign mission_link = site.data.i18n['en'].about.mission_link %}{{ mission_link }}*
 
 Thanks to my ADHD-driven energy and curiosity, I continuously learn and always look for ways to improve existing processes.
 
-## {{ site.data.i18n[site.active_lang].about.senior_title }}
+## {{ site.data.i18n['en'].about.senior_title }}
 
-- {{ site.data.i18n[site.active_lang].about.senior_desc }}
+- {{ site.data.i18n['en'].about.senior_desc }}
 
-## {{ site.data.i18n[site.active_lang].about.security_title }}
+## {{ site.data.i18n['en'].about.security_title }}
 
-- {{ site.data.i18n[site.active_lang].about.security_desc }}
+- {{ site.data.i18n['en'].about.security_desc }}
 
-## {{ site.data.i18n[site.active_lang].about.coaching_title }}
+## {{ site.data.i18n['en'].about.coaching_title }}
 
-- {{ site.data.i18n[site.active_lang].about.coaching_desc }}
+- {{ site.data.i18n['en'].about.coaching_desc }}
   
-## {{ site.data.i18n[site.active_lang].about.growth_title }}
+## {{ site.data.i18n['en'].about.growth_title }}
 
-- {{ site.data.i18n[site.active_lang].about.growth_desc }}
+- {{ site.data.i18n['en'].about.growth_desc }}
