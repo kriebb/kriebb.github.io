@@ -1,4 +1,6 @@
 ---
+lang: nl
+ref: work-experience
 layout: page
 title: "Work Experience"
 permalink: "/work-experience"
@@ -8,4 +10,5 @@ Below you’ll find a chronological overview with highlights of my roles, used t
 
 {% include timeline.html %}
 
-*For more details on my responsibilities or specific projects, feel free to [contact me](/contactme).*
+*For more details on my responsibilities or specific projects, feel free to [contact me](/contact).*
+

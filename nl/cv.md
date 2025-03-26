@@ -1,10 +1,12 @@
 ---
+lang: nl
 layout: resume
 title: "Resume"
 permalink: "/resume"
 description: "Kristof Riebbels' professional resume - Expertise in .NET development, software architecture, and secure coding practices."
 sidebar: true
 toc: true
+ref: resume
 ---
 
 Below are a few examples of my personal and open-source projects:
@@ -52,3 +54,4 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 {% for topic in site.data.resume.talk_to_me_about %}
 - {{ topic }}
 {% endfor %}
+

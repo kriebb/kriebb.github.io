@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+User-agent: *
+Allow: /
+
+# Don't index redirect pages
+Disallow: /_site/
+Disallow: /assets/
+
+# Don't index duplicate content
+Disallow: /*?lang=*
+
+# Sitemap
 Sitemap: https://it.kriebbels.me/sitemap.xml

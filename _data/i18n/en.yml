@@ -1,0 +1,93 @@
+## English translations
+
+# General
+site_title: "IT KRIEBBELS"
+site_description: "Freelance .NET Developer – Building secure, clear, and reliable solutions"
+switch_lang: "Switch to Dutch"
+
+
+# Navigation
+index:
+  home: "Home"
+
+# Navigation
+nav:
+  home: "Home"
+  resume: "Resume"
+  blog: "Blog"
+  contact: "Contact"
+  about: "About"
+  mission: "Mission & Vision"
+  services: "Services"
+  work_experience: "Work Experience"
+
+# Homepage
+hero:
+  title: "Kristof Riebbels | .NET Developer"
+  subtitle: "Transforming complexity into clarity"
+  description: "I'm a freelance .NET developer specializing in secure, maintainable, and reliable custom solutions."
+  expertise: "With expertise in C#, ASP.NET Core, and Azure, I help businesses with technical challenges into structured solutions that work consistently and securely, focusing on quality SOLID code."
+  cta: "Check my Resume"
+
+# Resume page
+resume:
+  title: "Resume"
+  download: "Download Resume as PDF"
+  summary: "Senior .NET Developer with 17+ years of experience with secure and maintainable solutions. Passionate about clean code, SOLID principles, and test-driven development. Experienced in architecting and implementing cloud-based (Azure) systems."
+  key_strengths: "Key strengths include:"
+  professional_summary: "Professional Summary"
+  core_competences: "Core Competences"
+  projects: "Projects and Examples"
+  skills: "Skills and Expertise"
+  education: "Education and Graduation Project"
+  certifications: "Certifications"
+  interests: "Interests and Hobbies"
+  talk_about: "Talk to Me About"
+
+# About page
+about:
+  title: "About"
+  intro: "I'm Kristof Riebbels, a .NET developer passionate about secure and maintainable code."
+  experimenting: "Experimenting with:"
+  github: "Look at my GitHub page:"
+  mission_link: "Curious about my mission and vision? Check out Mission & Vision."
+  senior_title: "Senior .NET Developer"
+  senior_desc: "dedicated to clean code, SOLID principles, and comprehensive testing. I value simplicity and clarity in every solution."
+  security_title: "Security-minded"
+  security_desc: "embedding security practices (OIDC, token handling, supply-chain security) directly into development to build reliable and thus trustworthy software."
+  coaching_title: "Coaching & Teaching"
+  coaching_desc: "I genuinely enjoy guiding colleagues and clients, breaking down complex challenges into understandable baby steps, and helping others become independently successful."
+  growth_title: "Growth & Learning"
+  growth_desc: "Driven by curiosity (and a bit of ADHD-energy), I'm continuously exploring new technologies and ideas—always aiming to stay ahead and deliver solutions that last."
+
+# Contact page
+contact:
+  title: "Contact Me"
+  intro: "If you need more information or want to work together, feel free to reach out:"
+  location: "Location"
+  location_value: "Belgium (Antwerp/Ghent region)"
+  form_intro: "If you have any questions or want to work together, please fill out the form below. I'll get back to you as soon as possible."
+  form:
+    name: "Name (min 2 chars)"
+    email: "Email (Required)"
+    phone: "Phone (Required)"
+    subject: "Subject (min 2 chars)"
+    message: "Message (min 5 words)"
+    submit: "Submit"
+    note: "Note: This form uses hCaptcha. Your data is sent securely and complies with GDPR regulations."
+  thank_you: "Thank You!"
+  message_sent: "Your message has been sent. I'll get back to you as soon as possible."
+
+# Footer
+footer:
+  copyright: "All rights reserved."
+  privacy: "Privacy Policy"
+  terms: "Terms of Service"
+  cookies: "Cookies"
+
+# Legal pages
+legal:
+  privacy_title: "Privacy Policy"
+  terms_title: "Terms of Service"
+  cookies_title: "Cookie Policy"
+  last_updated: "Last Updated"

@@ -1,4 +1,6 @@
 ---
+lang: en
+ref: blog
 layout: page
 title: "Blog"
 permalink: "/blog"
@@ -12,3 +14,4 @@ sidebar: false
     </li>
   {% endfor %}
 </ul>
+

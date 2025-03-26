@@ -58,9 +58,7 @@
 
 <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 
-<!-- SEO Meta Tags -->
-<meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-<meta name="author" content="{{ site.author }}">
+{% include seo-meta.html %}
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
@@ -82,5 +80,7 @@
 <!-- Favicons -->
 <link rel="icon" href="/assets/favicon-light.svg" media="(prefers-color-scheme: light)" type="image/svg" />
 <link rel="icon" href="/assets/favicon-dark.svg" media="(prefers-color-scheme: dark)" type="image/svg" />
+
+<script defer data-domain="it.kriebbels.me" src="https://plausible.io/js/script.js"></script>
 
 {% seo title=false %}

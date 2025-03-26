@@ -1,0 +1,38 @@
+/* Language Switcher Styles */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  
+  .lang-link {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 0 5px;
+    color: var(--nav-text);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .lang-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .lang-link.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .language-switcher {
+      margin: 0;
+      width: 100%;
+      justify-content: center;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }

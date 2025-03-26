@@ -1,0 +1,14 @@
+---
+layout: index
+sidebar: false
+lang: en
+ref: index
+---
+
+# Kristof Riebbels | .NET Developer
+
+**{{ site.data.i18n[site.active_lang].hero.subtitle }}**. {{ site.data.i18n[site.active_lang].hero.description }}
+
+{{ site.data.i18n[site.active_lang].hero.expertise }}
+
+Als Certified Scrum Master breng ik zowel technische diepgang als samenwerkingsvaardigheden mee naar elk project.

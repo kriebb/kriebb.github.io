@@ -30,9 +30,6 @@ sass:
   sass_dir: _sass
   style: compressed
 
-# Content settings
-permalink: /blog/:title/
-
 # Exclude these files from production site
 exclude:
   - Gemfile
@@ -56,3 +53,27 @@ defaults:
     values:
       layout: "post"
       permalink: /blog/:title/
+
+
+# Add these language settings to your existing _config.yml
+
+# Language settings
+languages: ["en", "nl"]
+default_lang: "en"
+exclude_from_localization: ["assets", "images", "css", "js", "fonts", "blog", "favicon.ico"]
+
+# Translations directory
+translations_dir: _data/i18n
+
+# Additional language-specific settings
+t:
+  en:
+    language: "English"
+    icon: "🇬🇧"
+    locale: en_US
+  nl:
+    language: "Nederlands"
+    icon: "🇳🇱"
+    locale: nl_NL
+
+permalink: /:categories/:title/

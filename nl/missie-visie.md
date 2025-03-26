@@ -1,9 +1,11 @@
 ---
+lang: nl
 layout: page
 title: "Mission & Vision"
 permalink: "/mission-vision"
 description: "My professional mission and vision as a freelance .NET developer."
 sidebar: false
+ref: mission-vision
 ---
 
 ## Mission
@@ -38,3 +40,5 @@ Transparency and reliability are central to my work ethic. I communicate expecta
 ---
 
 For more details about my professional background, visit the [About Me](/about) page, or explore the [Services](/services) I offer.
+
+

@@ -1,0 +1,71 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<section class="contact-section">
+  <form id="contact-form" action="https://formspree.io/f/xeoaokrq" method="POST">
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">{{ site.data.i18n[site.active_lang].contact.form.name }}:</label>
+      <input id="name" name="name" type="text" required />
+    </div>
+
+    <!-- Email (required) -->
+    <div class="form-group">
+      <label for="email">{{ site.data.i18n[site.active_lang].contact.form.email }}:</label>
+      <input id="email" name="email" type="email" required />
+    </div>
+
+    <!-- Phone (required) -->
+    <div class="form-group">
+      <label for="phone">{{ site.data.i18n[site.active_lang].contact.form.phone }}:</label>
+      <input id="phone" name="phone" type="tel" required />
+    </div>
+
+    <!-- Subject (required) -->
+    <div class="form-group">
+      <label for="subject">{{ site.data.i18n[site.active_lang].contact.form.subject }}:</label>
+      <input id="subject" name="subject" type="text" required />
+    </div>
+
+    <!-- Message -->
+    <div class="form-group">
+      <label for="message">{{ site.data.i18n[site.active_lang].contact.form.message }}:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+    </div>
+    
+    <!-- GDPR Consent -->
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
+      <label for="gdpr-consent">
+        {% if site.active_lang == "en" %}
+        I consent to IT KRIEBBELS processing my data as described in the <a href="/privacy-policy/">Privacy Policy</a>.
+        {% else %}
+        Ik geef toestemming aan IT KRIEBBELS om mijn gegevens te verwerken zoals beschreven in het <a href="/privacybeleid/">Privacybeleid</a>.
+        {% endif %}
+      </label>
+    </div>
+    
+    <div id="form-status"></div>
+    
+    <!-- Informational Text -->
+    <p>
+      {{ site.data.i18n[site.active_lang].contact.form.note }}
+    </p>
+    
+    <!-- hCaptcha instead of Google reCaptcha -->
+    <button class="h-captcha btn-submit" 
+            data-sitekey="10000000-ffff-ffff-ffff-000000000001" 
+            data-callback="onSubmit" 
+            data-action="submit">
+      {{ site.data.i18n[site.active_lang].contact.form.submit }}
+    </button>
+  </form>
+</section>
+
+<!-- Replace Google reCaptcha with hCaptcha -->
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+<script src="{{ '/assets/js/contact.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
