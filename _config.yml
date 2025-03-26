@@ -14,7 +14,7 @@ liquid:
   error_mode: warn
   strict_filters: false
   strict_variables: false
-
+safe: false  # Must be false for local custom plugins to load
 # Disable parallel processing
 parallel: false
 # Jekyll SEO Tag

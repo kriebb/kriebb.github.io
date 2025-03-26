@@ -7,8 +7,6 @@ lang: nl
 ref: privacy-policy
 ---
 
-# Privacybeleid
-
 **Laatst bijgewerkt:** {{ site.time | date: "%d %B %Y" }}
 
 ## Introductie

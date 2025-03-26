@@ -7,8 +7,6 @@ lang: nl
 ref: cookies
 ---
 
-# Cookiebeleid
-
 **Laatst bijgewerkt:** {{ site.time | date: "%d %B %Y" }}
 
 ## Wat zijn cookies?

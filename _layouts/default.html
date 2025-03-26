@@ -19,25 +19,26 @@
             <img src="/assets/it-kriebbels-logo-min-dark.svg" alt="IT KRIEBBELS" class="logo-mini logo-dark" />
           </a>
         </div>
-        
+        {% assign active_lang = page.lang | default: site.default_lang | default: "en" %}
+        {% assign t = site.data.i18n[active_lang] %}
         <div class="nav-links-container">
           <ul class="nav-links" id="nav-links">
             <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>
-              {{ 'nav.home' | translate }}</a></li>
+              {{  t.nav.home }}</a></li>
             
             <li><a href="{{ '/resume' | relative_url }}" 
                    {% if page.url contains '/resume' or page.url contains '/cv' %}class="active"{% endif %}>
-              {{ 'nav.resume' | translate }}</a></li>
+              {{  t.nav.resume }}</a></li>
             
             <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>
-              {{ 'nav.blog' | translate }}</a></li>
+              {{  t.nav.blog }}</a></li>
             
             <li><a href="{{ '/contact' | relative_url }}" {% if page.url contains '/contact' %}class="active"{% endif %}>
-              {{ 'nav.contact' | translate }}</a></li>
+              {{  t.nav.contact }}</a></li>
             
             <li><a href="{{ '/about' | relative_url }}" 
                    {% if page.url contains '/about' or page.url contains '/over-mij' %}class="active"{% endif %}>
-              {{ 'nav.about' | translate }}</a></li>
+              {{  t.nav.about }}</a></li>
           </ul>
         </div>
         

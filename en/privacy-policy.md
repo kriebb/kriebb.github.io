@@ -7,8 +7,6 @@ lang: en
 ref: privacy-policy
 ---
 
-# Privacy Policy
-
 **Last Updated:** {{ site.time | date: "%B %d, %Y" }}
 
 ## Introduction

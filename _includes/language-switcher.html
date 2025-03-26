@@ -1,14 +1,9 @@
-<div class="language-switcher">
-  {% assign current_ref = page.ref %}
-  {% assign current_lang = page.lang %}
-  
-  {% assign alternate_pages = site.pages | where:"ref", current_ref %}
-  
-  {% for alternate_page in alternate_pages %}
-    {% if alternate_page.lang != current_lang %}
-      <a href="{{ alternate_page.url }}" class="lang-link">
-        {{ site.t[alternate_page.lang].icon }} {{ site.t[alternate_page.lang].language }}
+{% if page.alternate_urls %}
+  <div class="language-switcher">
+    {% for alt in page.alternate_urls %}
+      <a href="{{ alt.url }}">
+        {{ alt.lang | upcase }}
       </a>
-    {% endif %}
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
+{% endif %}

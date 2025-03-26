@@ -7,8 +7,6 @@ lang: en
 ref: cookies
 ---
 
-# Cookie Policy
-
 **Last Updated:** {{ site.time | date: "%B %d, %Y" }}
 
 ## What are cookies?
