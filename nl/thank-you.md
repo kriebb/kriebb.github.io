@@ -1,14 +1,12 @@
 ---
-lang: nl
 layout: page
 title: "Thank You"
-permalink: "/thank-you"
+permalink: "/Bedankt"
 sidebar: false
 ref: thank-you
 ---
 
-# Thank You!
+# Bedankt!
 
-Your message has been sent. I'll get back to you as soon as possible.
-
+Uw bericht is verzonden. Ik kom spoedig tot feedback.
 

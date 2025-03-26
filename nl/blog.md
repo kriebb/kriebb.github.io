@@ -1,10 +1,9 @@
 ---
-lang: nl
-ref: blog
 layout: page
 title: "Blog"
 permalink: "/blog"
 sidebar: false
+ref: blog
 ---
 
 <ul>
@@ -14,5 +13,4 @@ sidebar: false
     </li>
   {% endfor %}
 </ul>
-
 
