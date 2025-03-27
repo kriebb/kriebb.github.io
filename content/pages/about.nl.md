@@ -7,7 +7,6 @@ sidebar: false
 lang: nl
 ref: about
 pageid: about
-
 ---
 
 {% assign title = site.data.i18n['nl'].about.title %}

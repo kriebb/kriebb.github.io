@@ -1,0 +1,27 @@
+<span class="tech-icon">
+    {% if include.tech == "csharp" %}
+      <i class="fab fa-microsoft" title="C#"></i>
+    {% elsif include.tech == "dotnet" %}
+      <i class="fab fa-microsoft" title=".NET"></i>
+    {% elsif include.tech == "azure" %}
+      <i class="fab fa-microsoft" title="Azure"></i>
+    {% elsif include.tech == "javascript" %}
+      <i class="fab fa-js" title="JavaScript"></i>
+    {% elsif include.tech == "typescript" %}
+      <i class="fab fa-js" title="TypeScript"></i>
+    {% elsif include.tech == "react" %}
+      <i class="fab fa-react" title="React"></i>
+    {% elsif include.tech == "python" %}
+      <i class="fab fa-python" title="Python"></i>
+    {% elsif include.tech == "docker" %}
+      <i class="fab fa-docker" title="Docker"></i>
+    {% elsif include.tech == "git" %}
+      <i class="fab fa-git-alt" title="Git"></i>
+    {% elsif include.tech == "github" %}
+      <i class="fab fa-github" title="GitHub"></i>
+    {% elsif include.tech == "scrum" %}
+      <i class="fas fa-users-cog" title="Scrum"></i>
+    {% else %}
+      <i class="fas fa-code" title="{{ include.tech }}"></i>
+    {% endif %}
+  </span>

@@ -7,40 +7,36 @@ sidebar: false
 lang: nl
 ref: mission-vision
 pageid: mission-vision
+---
+
+## Missie
+Ik help bedrijven bij het bouwen van veilige en duidelijke IT-oplossingen door complexe uitdagingen te vereenvoudigen, met focus op coaching, testen en best practices (zoals SOLID-principes).
+
+## Visie
+Ik geloof in een toekomst waarin (cloud) infrastructuur, (cloud) softwareontwikkeling en (cloud) beveiliging elkaar natuurlijk versterken door continu leren. Mijn freelance werk geeft me de vrijheid om open, transparant en effectief samen te werken met bedrijven die ook waarde hechten aan en hun kwaliteit, integriteit en kennisdeling naar een volgend, haalbaar niveau willen tillen.
+
+## Kernwaarden
+
+### Klantintimiteit
+Ik geef prioriteit aan het begrijpen van de specifieke behoeften en bedrijfscontext van elke klant. Door nauw samen te werken, lever ik oplossingen op maat die echt waarde toevoegen. Deze aanpak zorgt ervoor dat klanten krijgen wat ze echt nodig hebben, niet alleen wat ze denken te willen.
+
+> *Definitie*: Klantintimiteit is een strategie waarbij bedrijven diepe en blijvende relaties met klanten opbouwen door aanbiedingen af te stemmen op hun specifieke behoeften. [Bron: Mind Tools](https://www.mindtools.com/a2957l1/customer-intimacy)
+
+### Mensen Eerst
+Ik hecht grote waarde aan respect, empathie en menselijke verbinding in elke interactie. Effectieve samenwerking komt voort uit oprechte relaties gebouwd op wederzijds respect, vertrouwen en begrip.
+
+> *Inzicht*: Respect als kernwaarde omvat het behandelen van iedereen met waardigheid, het waarderen van hun bijdragen en het ontwikkelen van wederzijds vertrouwde relaties. [Bron: Lucidity](https://getlucidity.com/strategy-resources/top-ten-most-common-company-values/)
+
+### Kennis Eerst
+Continu leren is essentieel. Ik verken actief nieuwe technologieën, best practices en methodologieën. Het delen van deze kennis met klanten en collega's bevordert collectieve groei en continue verbetering.
+
+> *Perspectief*: Kernwaarden zijn fundamentele overtuigingen die gedrag en besluitvorming sturen, als een intern kompas voor het navigeren door keuzes in het leven. [Bron: Science of People](https://www.scienceofpeople.com/core-values/)
+
+### Integriteit
+Transparantie en betrouwbaarheid staan centraal in mijn werkethiek. Ik communiceer verwachtingen duidelijk, kom afspraken na (of communiceer wanneer deze niet op tijd kunnen worden nagekomen) en geef consequent eerlijk, rechtdoorzee advies.
+
+> *Definitie*: Integriteit staat voor eerlijkheid, gezonde morele principes, ethisch gedreven zijn en zich richten op het doen van het juiste. [Bron: Lucidity](https://getlucidity.com/strategy-resources/top-ten-most-common-company-values/)
 
 ---
 
-## Mission
-I help businesses build secure and straightforward IT solutions by simplifying complex challenges, focusing on coaching, testing, and best practices (such as SOLID principles).
-
-## Vision
-I believe in a future where (cloud) infrastructure, (cloud) software development and (cloud) security naturally reinforce each other through continuous learning. My freelance work allows me the freedom to collaborate openly, transparently, and effectively with businesses that also value and want to boost their quality, integrity, and knowledge sharing to a next, feasible level. 
-
-## Core Values
-
-### Customer Intimacy
-I prioritize understanding each client's specific needs and business context. By closely collaborating, I deliver tailored solutions that truly add value. This approach ensures that clients receive what they genuinely need, not just what they think they want.
-
-> *Definition*: Customer intimacy is a strategy where businesses build deep and lasting relationships with customers by tailoring offerings to meet their specific needs. [Source: Mind Tools](https://www.mindtools.com/a2957l1/customer-intimacy)
-
-### People First
-I deeply value respect, empathy, and human connection in every interaction. Effective collaboration stems from genuine relationships built on mutual respect, trust, and understanding.
-
-> *Insight*: Respect as a core value involves treating everyone with dignity, valuing their contributions, and developing mutually trusted relationships. [Source: Lucidity](https://getlucidity.com/strategy-resources/top-ten-most-common-company-values/)
-
-### Knowledge First
-Continuous learning is essential. I actively explore new technologies, best practices, and methodologies. Sharing this knowledge with clients and colleagues fosters collective growth and continuous improvement.
-
-> *Perspective*: Core values are fundamental beliefs that guide behavior and decision-making, serving as an internal compass for navigating life's choices. [Source: Science of People](https://www.scienceofpeople.com/core-values/)
-
-### Integrity
-Transparency and reliability are central to my work ethic. I communicate expectations clearly, uphold commitments ( or communicate when those can not be met in time), and consistently provide honest, straightforward advice.
-
-> *Definition*: Integrity stands for honesty, sound moral principles, being ethically driven, and focusing on doing the right thing. [Source: Lucidity](https://getlucidity.com/strategy-resources/top-ten-most-common-company-values/)
-
-
----
-
-For more details about my professional background, visit the [About Me](/about) page, or explore the [Services](/services) I offer.
-
-
+Voor meer details over mijn professionele achtergrond, bezoek de [Over Mij](/nl/over-mij) pagina, of ontdek de [Diensten](/nl/diensten) die ik aanbied.

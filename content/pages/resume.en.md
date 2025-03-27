@@ -35,7 +35,25 @@ Key strengths include:
 For more projects, visit my [GitHub profile](https://github.com/kriebb).
 
 ## Skills and Expertise
-{% include resume.html section="development_and_programming" %}
+{% for category_obj in site.data.resume[site.active_lang].skills.development_and_programming %}
+<div class="competency-card">
+  <h3 class="competency-title">{{ category_obj.category }}</h3>
+  <div class="competency-items">
+    {% for item in category_obj.items %}
+      <div class="competency-item">
+        {% if item == "C#" %}{% include tech-icon.html tech="csharp" %}{% endif %}
+        {% if item == ".NET Core" %}{% include tech-icon.html tech="dotnet" %}{% endif %}
+        {% if item == "ASP.NET Core" %}{% include tech-icon.html tech="dotnet" %}{% endif %}
+        {% if item == "Azure" %}{% include tech-icon.html tech="azure" %}{% endif %}
+        {% if item == "JavaScript" %}{% include tech-icon.html tech="javascript" %}{% endif %}
+        {% if item == "TypeScript" %}{% include tech-icon.html tech="typescript" %}{% endif %}
+        {% if item contains "Docker" %}{% include tech-icon.html tech="docker" %}{% endif %}
+        <span class="competency-badge">{{ item }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
 
 ## Education and Graduation Project
 {% for edu_item in site.data.resume[site.active_lang].education %}
@@ -44,7 +62,10 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 
 ## Certifications
 {% for cert in site.data.resume[site.active_lang].certifications %}
-- {{ cert }}
+- {% if cert contains "Azure" %}{% include certification-logos.html cert="azure-developer" %}{% endif %}
+  {% if cert contains "Scrum" %}{% include certification-logos.html cert="scrum-master" %}{% endif %}
+  {% if cert contains "Bachelor" %}{% include certification-logos.html cert="bachelor-it" %}{% endif %}
+  {{ cert }}
 {% endfor %}
 
 ## Interests and Hobbies

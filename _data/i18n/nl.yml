@@ -1,26 +1,18 @@
-## Dutch translations
+# Footer
+footer:
+  copyright: "Alle rechten voorbehouden."
+  privacy: "Privacybeleid"
+  terms: "Gebruiksvoorwaarden"
+  cookies: "Cookies"
 
-# General
-site_title: "IT KRIEBBELS"
-site_description: "Freelance .NET Developer – Veilige, duidelijke en betrouwbare oplossingen bouwen"
-switch_lang: "Schakel naar Engels"
+# Legal pages
+legal:
+  privacy_title: "Privacybeleid"
+  terms_title: "Gebruiksvoorwaarden"
+  cookies_title: "Cookiebeleid"
+  last_updated: "Laatst Bijgewerkt"
 
-# Index
-index:
-  home: "Home"
-
-# Navigation
-nav:
-  home: "Home"
-  resume: "CV"
-  blog: "Blog"
-  contact: "Contact"
-  about: "Over Mij"
-  mission: "Missie & Visie"
-  services: "Diensten"
-  work_experience: "Werkervaring"
-
-# Homepage
+# Hero section
 hero:
   title: "Kristof Riebbels | .NET Developer"
   subtitle: "Complexiteit omzetten in duidelijkheid"
@@ -43,76 +35,8 @@ resume:
   interests: "Interesses en Hobby's"
   talk_about: "Praat Met Mij Over"
 
-# About page
-about:
-  title: "Over Mij"
-  intro: "Ik ben Kristof Riebbels, een .NET developer met passie voor veilige en onderhoudbare code."
-  experimenting: "Experimenteren met:"
-  github: "Bekijk mijn GitHub pagina:"
-  mission_link: "Benieuwd naar mijn missie en visie? Bekijk Missie & Visie."
-  senior_title: "Senior .NET Developer"
-  senior_desc: "toegewijd aan clean code, SOLID principes en uitgebreide tests. Ik waardeer eenvoud en duidelijkheid in elke oplossing."
-  security_title: "Veiligheidsbewust"
-  security_desc: "integreer veiligheidspraktijken (OIDC, tokenbeheer, toeleveringsketen-beveiliging) rechtstreeks in de ontwikkeling om betrouwbare en dus vertrouwenwekkende software te bouwen."
-  coaching_title: "Coaching & Onderwijzen"
-  coaching_desc: "Ik geniet ervan om collega's en klanten te begeleiden, complexe uitdagingen op te delen in begrijpelijke stappen, en anderen te helpen om zelfstandig succesvol te worden."
-  growth_title: "Groei & Leren"
-  growth_desc: "Gedreven door nieuwsgierigheid (en een beetje ADHD-energie), verken ik voortdurend nieuwe technologieën en ideeën - altijd met het doel om voorop te blijven en oplossingen te leveren die lang meegaan."
-
-# Contact page
-contact:
-  title: "Neem Contact Op"
-  intro: "Als je meer informatie nodig hebt of wilt samenwerken, neem dan gerust contact op:"
-  location: "Locatie"
-  location_value: "België (regio Antwerpen/Gent)"
-  form_intro: "Als je vragen hebt of wilt samenwerken, vul dan onderstaand formulier in. Ik neem zo snel mogelijk contact met je op."
-  form:
-    name: "Naam (min. 2 tekens)"
-    email: "E-mail (Verplicht)"
-    phone: "Telefoon (Verplicht)"
-    subject: "Onderwerp (min. 2 tekens)"
-    message: "Bericht (min. 5 woorden)"
-    submit: "Versturen"
-    note: "Opmerking: Dit formulier gebruikt hCaptcha. Je gegevens worden veilig verzonden en voldoen aan de AVG-regelgeving."
-  thank_you: "Bedankt!"
-  message_sent: "Je bericht is verzonden. Ik neem zo snel mogelijk contact met je op."
-
-# Footer
-footer:
-  copyright: "Alle rechten voorbehouden."
-  privacy: "Privacybeleid"
-  terms: "Gebruiksvoorwaarden"
-  cookies: "Cookies"
-# Legal pages
-legal:
-  privacy_title: "Privacybeleid"
-  terms_title: "Gebruiksvoorwaarden"
-  cookies_title: "Cookiebeleid"
-  last_updated: "Laatst Bijgewerkt"
-
-  sidebar:
-  sections:
-    main_nav: "Hoofdnavigatie"
-    resources: "Bronnen"
-    on_this_page: "Op Deze Pagina"
-  
-  links:
-    home: "Home"
-    about: "Over Mij"
-    work_experience: "Werkervaring"
-    contact: "Contact"
-    resume: "CV"
-    services: "Diensten"
-    blog: "Blog"
-
-urls:
-  home: "/nl/"
-  about: "/nl/over-mij/"
-  work_experience: "/nl/werkervaring/"
-  contact: "/nl/contact/"
-  resume: "/nl/cv/"
-  services: "/nl/diensten/"
-  blog: "/nl/blog/"
-  mission_vision: "/nl/missie-visie/"
-  privacy_policy: "/nl/privacybeleid/"
-  cookies: "/nl/cookiebeleid/"
+social:
+  linkedin: "LinkedIn Profiel"
+  github: "GitHub Projecten"
+  bluesky: "Volg me op Bluesky"
+  mastodon: "Volg me op Mastodon"

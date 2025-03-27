@@ -106,14 +106,8 @@ sidebar:
     services: "Services"
     blog: "Blog"
 
-urls:
-  home: "/"
-  about: "/about/"
-  work_experience: "/work-experience/"
-  contact: "/contact/"
-  resume: "/resume/"
-  services: "/services/"
-  blog: "/blog/"
-  mission_vision: "/mission-vision/"
-  privacy_policy: "/privacy-policy/"
-  cookies: "/cookies/"
+social:
+  linkedin: "LinkedIn Profile"
+  github: "GitHub Projects"
+  bluesky: "Follow me on Bluesky"
+  mastodon: "Follow me on Mastodon"

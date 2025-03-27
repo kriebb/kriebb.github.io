@@ -7,27 +7,24 @@ sidebar: false
 lang: nl
 ref: services
 pageid: services
-
 ---
 
-As a freelance .NET developer, I specialize in creating software that’s clean, reliable, and secure. I'm also a certified Scrum Master, so I can seamlessly adapt to Agile projects or help you transition smoothly into an Agile workflow.
+Als freelance .NET ontwikkelaar ben ik gespecialiseerd in het maken van software die schoon, betrouwbaar en veilig is. Ik ben ook een gecertificeerde Scrum Master, dus ik kan naadloos aanpassen aan Agile projecten of je helpen om soepel over te stappen naar een Agile werkwijze.
 
-### 1. .NET Development
-- Building software solutions with C#, Azure, and modern software architecture.
-- Improving existing applications through refactoring, SOLID principles, and rigorous testing.
+### 1. .NET Ontwikkeling
+- Bouwen van softwareoplossingen met C#, Azure en moderne software-architectuur.
+- Verbeteren van bestaande applicaties door refactoring, SOLID principes en uitgebreide testing.
 
-### 2. Secure Development
-- Integrating robust security measures (OIDC, secure token management, vulnerability scans).
-- Continuously maintaining high-quality code for secure and dependable applications.
+### 2. Veilige Ontwikkeling
+- Integreren van robuuste veiligheidsmaatregelen (OIDC, veilig tokenbeheer, kwetsbaarheidsscans).
+- Continue handhaving van hoogwaardige code voor veilige en betrouwbare applicaties.
 
-### 3. Coaching and Team Training
-- Training teams on SOLID principles, secure coding practices, Agile methodologies, and testing strategies.
-- Providing personalized workshops and hands-on guidance tailored to your team's needs.
+### 3. Coaching en Team Training
+- Training van teams in SOLID principes, veilige codeerpraktijken, Agile methodologieën en teststrategieën.
+- Bieden van gepersonaliseerde workshops en praktische begeleiding afgestemd op de behoeften van jouw team.
 
-### 4. Agile Project Collaboration
-- Certified Scrum Master experienced in Agile processes, facilitating sprint planning, reviews, retrospectives, and daily stand-ups.
-- Supporting your team in becoming more productive and responsive through clear Agile practices.
+### 4. Agile Project Samenwerking
+- Gecertificeerde Scrum Master met ervaring in Agile processen, faciliteren van sprintplanning, reviews, retrospectives en daily stand-ups.
+- Ondersteunen van jouw team om productiever en responsiever te worden door middel van duidelijke Agile praktijken.
 
-Interested in working together or curious about how Agile can benefit your projects? Feel free to [contact me](/contact).
-
-
+Geïnteresseerd in samenwerking of benieuwd hoe Agile jouw projecten kan verbeteren? [Neem contact met me op](/nl/contact).
