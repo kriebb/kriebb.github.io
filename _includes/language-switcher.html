@@ -1,9 +1,13 @@
-{% if page.alternate_urls %}
-  <div class="language-switcher">
-    {% for alt in page.alternate_urls %}
-      <a href="{{ alt.url }}">
-        {{ alt.lang | upcase }}
-      </a>
-    {% endfor %}
-  </div>
-{% endif %}
+<div class="language-switcher">
+  {% for lang in site.languages %}
+    {% if lang == site.active_lang %}
+      <span class="active">{{ site.lang_names[lang] }}</span>
+    {% else %}
+      {% if lang == site.default_lang %}
+        <a href="{{ page.url | remove_first: '/' | remove_first: site.active_lang | remove_first: '/' | prepend: '/' }}">{{ site.lang_names[lang] }}</a>
+      {% else %}
+        <a href="{{ page.url | remove_first: '/' | remove_first: site.active_lang | remove_first: '/' | prepend: '/' | prepend: lang | prepend: '/' }}">{{ site.lang_names[lang] }}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>

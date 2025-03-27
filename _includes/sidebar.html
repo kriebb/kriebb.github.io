@@ -1,10 +1,29 @@
-  <aside class="sidebar">
-    <ul><a href="/mission-vision">Mission And Vision</a></ul>
-    <ul><a href="/contact">Reach out</a></ul>
-    <ul><a href="/work-experience">Work Experience</a></ul>
-    <ul id="toc"></ul>
-  </aside>
-
-
- 
+<aside class="sidebar">
+  {% for section in site.data.sidebar_structure %}
+    <div class="sidebar-section">
+      <h3>{{ site.data.i18n[site.lang].sidebar.sections[section.section] }}</h3>
+      <ul>
+        {% for item in section.items %}
+          <li>
+            {% assign item_url = item.url %}
+            {% if site.lang != site.default_lang %}
+              {% assign item_url = item.url | prepend: site.lang | prepend: '/' %}
+            {% endif %}
+            
+            <a href="{{ item_url }}" {% if page.url == item_url %}class="active"{% endif %}>
+              {{ site.data.i18n[site.lang].sidebar.links[item.id] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
   
+  <!-- Table of contents (if enabled) -->
+  {% if page.toc %}
+    <div class="sidebar-section">
+      <h3>{{ site.data.i18n[site.lang].sidebar.sections.on_this_page }}</h3>
+      <ul id="toc"></ul>
+    </div>
+  {% endif %}
+</aside>

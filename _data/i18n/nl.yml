@@ -81,12 +81,28 @@ contact:
 footer:
   copyright: "Alle rechten voorbehouden."
   privacy: "Privacybeleid"
+  privacy_url: "/nl/privacybeleid/"
   terms: "Gebruiksvoorwaarden"
   cookies: "Cookies"
-
+  cookies_url: "/nl/cookiebeleid/" 
 # Legal pages
 legal:
   privacy_title: "Privacybeleid"
   terms_title: "Gebruiksvoorwaarden"
   cookies_title: "Cookiebeleid"
   last_updated: "Laatst Bijgewerkt"
+
+  sidebar:
+  sections:
+    main_nav: "Hoofdnavigatie"
+    resources: "Bronnen"
+    on_this_page: "Op Deze Pagina"
+  
+  links:
+    home: "Home"
+    about: "Over Mij"
+    work_experience: "Werkervaring"
+    contact: "Contact"
+    resume: "CV"
+    services: "Diensten"
+    blog: "Blog"

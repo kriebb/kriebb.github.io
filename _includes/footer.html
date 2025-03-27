@@ -1,17 +1,28 @@
-<!-- Legal links and copyright in footer -->
-<div class="footer-container">
-  <p class="copyright">
-    &copy; {{ site.time | date: "%Y" }} {{ site.title }}. {{ site.data.i18n[site.active_lang].footer.copyright }}
-  </p>
-  
-  <div class="legal-links">
-    {% if site.active_lang == "en" %}
-      <a href="/privacy-policy/">{{ site.data.i18n[site.active_lang].footer.privacy }}</a>
-      <a href="/cookies/">{{ site.data.i18n[site.active_lang].footer.cookies }}</a>
-    {% else %}
-      <a href="/privacybeleid/">{{ site.data.i18n[site.active_lang].footer.privacy }}</a>
-      <a href="/cookiebeleid/">{{ site.data.i18n[site.active_lang].footer.cookies }}</a>
-    {% endif %}
-  </div>
-</div>
+<footer>
+  <div class="footer-container">
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/kristofriebbels" aria-label="LinkedIn" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://mastodon.social/@yourhandle" aria-label="Mastodon" target="_blank">
+        <i class="fab fa-mastodon"></i>
+      </a>
+      <a href="https://github.com/kriebb" aria-label="GitHub" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    
+    <p class="copyright">
+      &copy; {{ site.time | date: "%Y" }} {{ site.title }}. {{ site.data.i18n[site.active_lang].footer.copyright }}
+    </p>
+    
+    {% assign url_key = include.url_key %}
+    {% assign text_key = include.text_key %}
 
+    <div class="legal-links">
+      {% include multilingual-link.html url_key="privacy" text_key="footer.privacy" %}
+      {% include multilingual-link.html url_key="cookies" text_key="footer.cookie" %}
+
+    </div>
+  </div>
+</footer>

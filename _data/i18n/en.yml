@@ -82,12 +82,28 @@ contact:
 footer:
   copyright: "All rights reserved."
   privacy: "Privacy Policy"
+  privacy_url: "/privacy-policy/"
   terms: "Terms of Service"
   cookies: "Cookies"
-
+  cookies_url: "/cookies"
 # Legal pages
 legal:
   privacy_title: "Privacy Policy"
   terms_title: "Terms of Service"
   cookies_title: "Cookie Policy"
   last_updated: "Last Updated"
+
+sidebar:
+  sections:
+    main_nav: "Main Navigation"
+    resources: "Resources"
+    on_this_page: "On This Page"
+  
+  links:
+    home: "Home"
+    about: "About"
+    work_experience: "Work Experience"
+    contact: "Contact"
+    resume: "Resume"
+    services: "Services"
+    blog: "Blog"

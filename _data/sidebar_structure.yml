@@ -1,0 +1,19 @@
+- section: main_nav
+  items:
+    - id: home
+      url: "/"
+    - id: about
+      url: "/about/"
+    - id: work_experience
+      url: "/work-experience/"
+    - id: contact
+      url: "/contact/"
+
+- section: resources
+  items:
+    - id: resume
+      url: "/resume/"
+    - id: services
+      url: "/services/"
+    - id: blog
+      url: "/blog/"

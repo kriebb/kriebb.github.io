@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'                     # Improves SEO
   gem 'jekyll-sitemap'                     # Generates sitemap.xml
   gem 'jekyll-feed'                        # Generates RSS feed
+  gem 'jekyll-polyglot'                    # Multilingual support
 end
 # For testing and local development
 group :development, :test do

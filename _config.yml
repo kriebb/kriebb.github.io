@@ -14,7 +14,7 @@ liquid:
   error_mode: warn
   strict_filters: false
   strict_variables: false
-safe: false  # Must be false for local custom plugins to load
+
 # Disable parallel processing
 parallel: false
 # Jekyll SEO Tag
@@ -31,6 +31,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-polyglot
 
 # Sass processing
 sass:
@@ -66,12 +67,14 @@ defaults:
 
 # Language settings
 languages: ["en", "nl"]
-# Language settings
 default_lang: "en"
-active_lang: "en"
-
-exclude_from_localization: ["assets", "images", "css", "js", "fonts", "blog", "favicon.ico"]
-
+exclude_from_localization: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
+parallel_localization: true
+# Language names for UI
+lang_names:
+  en: English
+  nl: Nederlands
+  
 # Translations directory
 translations_dir: _data/i18n
 

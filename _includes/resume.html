@@ -8,7 +8,7 @@
 
 {% if include.section == "core_competences" %}
   <div class="competence-container">
-    {% for competence_group in site.data.resume.core_competencies %}
+    {% for competence_group in site.data.resume[site.lang].core_competencies %}
       <div class="competence-card">
         <h3 class="competence-title">{{ competence_group.category }}</h3>
         <div class="competence-items">
@@ -26,7 +26,7 @@
 
 {% elsif include.section == "development_and_programming" %}
   <div class="competence-container">
-    {% for category_obj in site.data.resume.skills.development_and_programming %}
+    {% for category_obj in site.data.resume[site.lang].skills.development_and_programming %}
       <div class="competence-card">
         <h3 class="competence-title">{{ category_obj.category }}</h3>
         <div class="competence-items">
