@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Privacybeleid
-permalink: /privacybeleid/
+title: Privacy Policy
+permalink: /nl/privacybeleid/
 sidebar: false
 lang: nl
 ref: privacy-policy

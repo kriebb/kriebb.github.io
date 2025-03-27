@@ -3,11 +3,10 @@
     {% if lang == site.active_lang %}
       <span class="active">{{ site.lang_names[lang] }}</span>
     {% else %}
-      {% if lang == site.default_lang %}
-        <a href="{{ page.url | remove_first: '/' | remove_first: site.active_lang | remove_first: '/' | prepend: '/' }}">{{ site.lang_names[lang] }}</a>
-      {% else %}
-        <a href="{{ page.url | remove_first: '/' | remove_first: site.active_lang | remove_first: '/' | prepend: '/' | prepend: lang | prepend: '/' }}">{{ site.lang_names[lang] }}</a>
-      {% endif %}
+      {% assign pages=site.pages | where:"ref", page.ref | where:"lang", lang %}
+      {% for altpage in pages %}
+        <a href="{{ altpage.url }}">{{ site.lang_names[lang] }}</a>
+      {% endfor %}
     {% endif %}
   {% endfor %}
 </div>

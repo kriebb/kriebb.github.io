@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Over Mij
-permalink: /over-mij/
-description: "Introduceert wie je bent als professional, belicht expertise, passie en persoonlijke missie om vertrouwen en verbinding op te bouwen."
+title: About
+permalink: /nl/over-mij/
+description: "Introduces who you are as a professional, highlighting expertise, passion, and personal mission to build trust and connection."
 sidebar: false
 lang: nl
 ref: about

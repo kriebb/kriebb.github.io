@@ -2,10 +2,11 @@
 lang: nl
 layout: page
 title: "Services"
-permalink: "/diensten"
+permalink: "/services"
 description: "Overview of my freelance .NET development services, including Agile approaches and project-based collaboration."
 sidebar: false
 ref: services
+
 ---
 
 As a freelance .NET developer, I specialize in creating software that’s clean, reliable, and secure. I'm also a certified Scrum Master, so I can seamlessly adapt to Agile projects or help you transition smoothly into an Agile workflow.

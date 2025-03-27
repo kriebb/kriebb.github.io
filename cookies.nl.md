@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Cookiebeleid
-permalink: /cookiebeleid/
+title: Cookie Policy
+permalink: /nl/cookiebeleid/
 sidebar: false
 lang: nl
 ref: cookies
