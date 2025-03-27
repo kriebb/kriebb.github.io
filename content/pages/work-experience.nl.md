@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Werkervaring"
-permalink: "work-experience"
+permalink: "/werkervaring/"
 sidebar: true
 lang: nl
 ref: work-experience

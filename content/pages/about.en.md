@@ -25,7 +25,7 @@ Experimenting with:
 
 > *{% assign mission_link = site.data.i18n['en'].about.mission_link %}{{ mission_link }}*
 
-Thanks to my ADHD-driven energy and curiosity, I continuously learn and always look for ways to improve existing processes.
+Thanks to my ADHD-driven energy and curiosity, I continuously learn and always look for ways to improve existing processes. 
 
 ## {{ site.data.i18n['en'].about.senior_title }}
 

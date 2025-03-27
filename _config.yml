@@ -10,6 +10,11 @@ github_username: kriebb
 theme: minima
 markdown: kramdown
 highlighter: rouge
+source: .
+include:
+  - content/pages
+keep_files:
+  - content/index.html
 
 # Jekyll build settings
 liquid:
@@ -81,3 +86,8 @@ defaults:
       permalink: /blog/:title/
 
 permalink: pretty
+
+collections:
+  pages:
+    output: true
+    source: content/pages

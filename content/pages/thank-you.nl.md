@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Bedankt"
-permalink: "/thank-you/"
+permalink: "/bedankt/"
 sidebar: false
 lang: nl
 ref: thank-you

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Diensten"
-permalink: "/nl/services/"
+permalink: "/diensten/"
 description: "Overzicht van mijn freelance .NET ontwikkelingsdiensten, inclusief Agile benaderingen en projectmatige samenwerking."
 sidebar: false
 lang: nl

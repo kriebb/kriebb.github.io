@@ -17,24 +17,34 @@
 
 <div class="language-switcher-container">
   <button class="language-trigger" aria-label="Change language">
-    {% if current_lang == 'en' %}
-      <span class="language-icon">🇬🇧</span>
-      <span class="language-name">English</span>
-    {% else %}
-      <span class="language-icon">🇳🇱</span>
-      <span class="language-name">Nederlands</span>
-    {% endif %}
+    {% for lang_code in site.languages %}
+      {% if lang_code == current_lang %}
+        <span class="language-icon">{{ site.language_data[lang_code].icon }}</span>
+        <span class="language-name">{{ site.language_data[lang_code].name }}</span>
+      {% endif %}
+    {% endfor %}
+    <span class="dropdown-arrow">▼</span>
   </button>
   
   <div class="language-dropdown">
-    <a href="{{ alt_url }}" class="language-option" data-lang="{{ current_lang == 'en' ? 'nl' : 'en' }}">
-      {% if current_lang == 'en' %}
-        <span class="language-icon">🇳🇱</span>
-        <span class="language-name">Nederlands</span>
-      {% else %}
-        <span class="language-icon">🇬🇧</span>
-        <span class="language-name">English</span>
+    {% for lang_code in site.languages %}
+      {% if lang_code != current_lang %}
+        {% if current_ref %}
+          {% assign target_url = site.data.routes.routes[current_ref][lang_code] | default: '/{{ lang_code }}/' %}
+        {% else %}
+          {% if lang_code == site.default_lang %}
+            {% assign target_url = '/' %}
+          {% else %}
+            {% assign target_url = '/{{ lang_code }}/' %}
+          {% endif %}
+        {% endif %}
+        
+        <a href="{{ target_url }}" class="language-option" data-lang="{{ lang_code }}">
+          <span class="language-icon">{{ site.language_data[lang_code].icon }}</span>
+          <span class="language-name">{{ site.language_data[lang_code].name }}</span>
+        </a>
       {% endif %}
-    </a>
+    {% endfor %}
   </div>
+</div>
 </div>

@@ -11,7 +11,10 @@ gem 'base64'
 gem 'minima'
 # For Windows development
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+source 'https://rubygems.org'
 
+gem 'guard'
+gem 'guard-shell'
 # Common plugins
 group :jekyll_plugins do
   gem 'jekyll-sass-converter', "~> 2.2.0"  # Updated version
