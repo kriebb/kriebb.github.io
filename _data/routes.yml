@@ -1,0 +1,40 @@
+routes:
+  home:
+    en: "/"
+    nl: "/nl/"
+  
+  about:
+    en: "/about/"
+    nl: "/nl/over-mij/"
+  
+  work_experience:
+    en: "/work-experience/"
+    nl: "/nl/werkervaring/"
+  
+  contact:
+    en: "/contact/"
+    nl: "/nl/contact/"
+  
+  resume:
+    en: "/resume/"
+    nl: "/nl/cv/"
+  
+  services:
+    en: "/services/"
+    nl: "/nl/diensten/"
+  
+  blog:
+    en: "/blog/"
+    nl: "/nl/blog/"
+  
+  mission_vision:
+    en: "/mission-vision/"
+    nl: "/nl/missie-visie/"
+  
+  privacy_policy:
+    en: "/privacy-policy/"
+    nl: "/nl/privacybeleid/"
+  
+  cookies:
+    en: "/cookies/"
+    nl: "/nl/cookiebeleid/"

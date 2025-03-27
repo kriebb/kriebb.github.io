@@ -81,10 +81,8 @@ contact:
 footer:
   copyright: "Alle rechten voorbehouden."
   privacy: "Privacybeleid"
-  privacy_url: "/nl/privacybeleid/"
   terms: "Gebruiksvoorwaarden"
   cookies: "Cookies"
-  cookies_url: "/nl/cookiebeleid/" 
 # Legal pages
 legal:
   privacy_title: "Privacybeleid"
@@ -106,3 +104,15 @@ legal:
     resume: "CV"
     services: "Diensten"
     blog: "Blog"
+
+urls:
+  home: "/nl/"
+  about: "/nl/over-mij/"
+  work_experience: "/nl/werkervaring/"
+  contact: "/nl/contact/"
+  resume: "/nl/cv/"
+  services: "/nl/diensten/"
+  blog: "/nl/blog/"
+  mission_vision: "/nl/missie-visie/"
+  privacy_policy: "/nl/privacybeleid/"
+  cookies: "/nl/cookiebeleid/"

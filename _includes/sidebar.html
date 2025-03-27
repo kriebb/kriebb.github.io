@@ -5,10 +5,7 @@
       <ul>
         {% for item in section.items %}
           <li>
-            {% assign item_url = item.url %}
-            {% if site.lang != site.default_lang %}
-              {% assign item_url = item.url | prepend: site.lang | prepend: '/' %}
-            {% endif %}
+            {% assign item_url = site.data.i18n[site.lang].urls[item.id] %}
             
             <a href="{{ item_url }}" {% if page.url == item_url %}class="active"{% endif %}>
               {{ site.data.i18n[site.lang].sidebar.links[item.id] }}

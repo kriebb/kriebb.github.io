@@ -1,19 +1,33 @@
 - section: main_nav
   items:
     - id: home
-      url: "/"
+      urls:
+        en: "/"
+        nl: "/nl/"
     - id: about
-      url: "/about/"
+      urls:
+        en: "/about/"
+        nl: "/nl/over-mij/"
     - id: work_experience
-      url: "/work-experience/"
+      urls:
+        en: "/work-experience/"
+        nl: "/nl/werkervaring/"
     - id: contact
-      url: "/contact/"
+      urls:
+        en: "/contact/"
+        nl: "/nl/contact/"
 
 - section: resources
   items:
     - id: resume
-      url: "/resume/"
+      urls:
+        en: "/resume/"
+        nl: "/nl/cv/"
     - id: services
-      url: "/services/"
+      urls:
+        en: "/services/"
+        nl: "/nl/diensten/"
     - id: blog
-      url: "/blog/"
+      urls:
+        en: "/blog/"
+        nl: "/nl/blog/"

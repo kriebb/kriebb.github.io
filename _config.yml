@@ -4,6 +4,7 @@ author: "Kristof Riebbels"
 baseurl: "" # For project pages, use "/project-name"
 url: "https://it.kriebbels.me"
 github_username: kriebb
+host: 0.0.0.0
 
 # Build settings
 theme: minima
@@ -20,8 +21,9 @@ destination: _site
 # Disable parallel processing
 parallel: false
 # Jekyll SEO Tag
-lang: en_US
-locale: nl_BE
+lang: en
+locale: nl
+
 social:
   name: Kristof Riebbels
   links:
@@ -81,9 +83,10 @@ lang_names:
 
 # Jekyll Polyglot settings
 polyglot:
-  permalinks:
-    en: /en/:path/
-    nl: /nl/:path/
+  languages: ["en", "nl"]
+  default_lang: "en"
+  exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
+  permalink: /:lang/:basename
 
 # Translations directory
 translations_dir: _data/i18n
@@ -93,10 +96,10 @@ t:
   en:
     language: "English"
     icon: "🇬🇧"
-    locale: en_US
+    locale: en
   nl:
     language: "Nederlands"
     icon: "🇳🇱"
-    locale: nl_NL
+    locale: nl
 
-permalink: /:categories/:title/
+permalink: /:lang/:title/

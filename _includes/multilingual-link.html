@@ -1,3 +1,4 @@
-<a href="{{ site.baseurl_root }}/{% if site.lang != site.default_lang %}{{ site.lang }}/{% endif %}{{ site.data.i18n[site.lang].urls.privacy }}">
-    {{ site.data.i18n[site.lang].footer.privacy }}
-  </a>
+{% assign url_path = site.data.i18n[site.lang].urls[include.url_key] %}
+<a href="{{ url_path }}">
+  {{ site.data.i18n[site.lang].footer[include.text_key] }}
+</a>

@@ -82,10 +82,8 @@ contact:
 footer:
   copyright: "All rights reserved."
   privacy: "Privacy Policy"
-  privacy_url: "/privacy-policy/"
   terms: "Terms of Service"
   cookies: "Cookies"
-  cookies_url: "/cookies"
 # Legal pages
 legal:
   privacy_title: "Privacy Policy"
@@ -107,3 +105,15 @@ sidebar:
     resume: "Resume"
     services: "Services"
     blog: "Blog"
+
+urls:
+  home: "/"
+  about: "/about/"
+  work_experience: "/work-experience/"
+  contact: "/contact/"
+  resume: "/resume/"
+  services: "/services/"
+  blog: "/blog/"
+  mission_vision: "/mission-vision/"
+  privacy_policy: "/privacy-policy/"
+  cookies: "/cookies/"

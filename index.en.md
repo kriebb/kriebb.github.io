@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: index
 title: Home
-permalink: /en/
+permalink: /
 lang: en
 ref: index
+sidebar: false
 ---
 
 # Kristof Riebbels | .NET Developer

@@ -1,7 +1,7 @@
 ---
 layout: index
 title: Home
-permalink: /nl/
+permalink: /
 lang: nl
 ref: index
 sidebar: false
