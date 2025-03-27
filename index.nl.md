@@ -2,6 +2,8 @@
 layout: index
 sidebar: false
 lang: nl
+title: Home
+permalink: /nl/
 ref: index
 ---
 

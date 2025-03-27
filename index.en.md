@@ -1,6 +1,7 @@
 ---
-layout: index
-sidebar: false
+layout: default
+title: Home
+permalink: /en/
 lang: en
 ref: index
 ---

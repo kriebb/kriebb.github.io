@@ -74,7 +74,13 @@ parallel_localization: true
 lang_names:
   en: English
   nl: Nederlands
-  
+
+# Jekyll Polyglot settings
+polyglot:
+  permalinks:
+    en: /en/:path/
+    nl: /nl/:path/
+    
 # Translations directory
 translations_dir: _data/i18n
 
