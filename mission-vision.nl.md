@@ -1,8 +1,8 @@
 ---
 lang: nl
 layout: page
-title: "Mission & Vision"
-permalink: "/mission-vision"
+title: "Missie and Visie"
+permalink: "/missie-visie"
 description: "My professional mission and vision as a freelance .NET developer."
 sidebar: false
 ref: mission-vision

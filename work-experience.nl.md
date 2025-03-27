@@ -3,7 +3,7 @@ lang: nl
 ref: work-experience
 layout: page
 title: "Work Experience"
-permalink: "/work-experience"
+permalink: "/werk-ervaring"
 ---
 
 Below you’ll find a chronological overview with highlights of my roles, used tech and responsibilities.

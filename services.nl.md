@@ -2,7 +2,7 @@
 lang: nl
 layout: page
 title: "Services"
-permalink: "/services"
+permalink: "/diensten"
 description: "Overview of my freelance .NET development services, including Agile approaches and project-based collaboration."
 sidebar: false
 ref: services

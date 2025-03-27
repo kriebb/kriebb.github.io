@@ -3,6 +3,7 @@ layout: page
 title: "Blog"
 permalink: "/blog"
 sidebar: false
+lang: en
 ref: blog
 ---
 

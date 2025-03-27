@@ -1,9 +1,10 @@
 ---
 layout: page
 title: "Blog"
-permalink: "/blog"
+permalink: "/niewus"
 sidebar: false
 ref: blog
+lang: nl
 ---
 
 <ul>

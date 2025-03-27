@@ -2,7 +2,7 @@
 lang: nl
 layout: resume
 title: "Resume"
-permalink: "/resume"
+permalink: "/cv"
 description: "Kristof Riebbels' professional resume - Expertise in .NET development, software architecture, and secure coding practices."
 sidebar: true
 toc: true

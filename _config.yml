@@ -70,6 +70,8 @@ languages: ["en", "nl"]
 default_lang: "en"
 exclude_from_localization: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
 parallel_localization: true
+# workign with .nl.md and .en.md
+locale_from_file_extension: true
 # Language names for UI
 lang_names:
   en: English
@@ -80,7 +82,7 @@ polyglot:
   permalinks:
     en: /en/:path/
     nl: /nl/:path/
-    
+
 # Translations directory
 translations_dir: _data/i18n
 

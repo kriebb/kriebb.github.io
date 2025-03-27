@@ -1,5 +1,6 @@
 ---
 layout: default
+sidebar: false
 title: Home
 permalink: /en/
 lang: en
