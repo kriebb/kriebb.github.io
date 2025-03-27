@@ -1,17 +1,24 @@
 source "https://rubygems.org"
-# For GitHub Pages compatibility
-gem "github-pages", group: :jekyll_plugins
+
+# Remove the github-pages gem
+# gem "github-pages", group: :jekyll_plugins
+
+# Add Jekyll directly
+gem "jekyll", "~> 4.3.2"
+
 # For Windows development
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
 # Common plugins
 group :jekyll_plugins do
-  gem 'jekyll-sass-converter', "~> 1.5.2"  # GitHub Pages compatible version
-  gem 'jekyll-seo-tag'                     # Improves SEO
-  gem 'jekyll-sitemap'                     # Generates sitemap.xml
-  gem 'jekyll-feed'                        # Generates RSS feed
-  gem 'jekyll-polyglot'                    # Multilingual support
+  gem 'jekyll-sass-converter', "~> 2.2.0"  # Updated version
+  gem 'jekyll-seo-tag'
+  gem 'jekyll-sitemap'
+  gem 'jekyll-feed'
+  gem 'jekyll-polyglot', '~> 1.9.0'        # Latest version
 end
+
 # For testing and local development
 group :development, :test do
-  gem 'html-proofer'                       # Test your rendered HTML files
+  gem 'html-proofer'
 end

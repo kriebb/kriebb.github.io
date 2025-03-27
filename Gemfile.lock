@@ -175,8 +175,6 @@ GEM
     jekyll-mentions (1.6.0)
       html-pipeline (~> 2.3)
       jekyll (>= 3.7, < 5.0)
-    jekyll-multiple-languages-plugin (1.8.0)
-      jekyll (>= 2.0, < 5.0)
     jekyll-optional-front-matter (0.3.2)
       jekyll (>= 3.0, < 5.0)
     jekyll-paginate (1.1.0)
@@ -324,8 +322,7 @@ DEPENDENCIES
   github-pages
   html-proofer
   jekyll-feed
-  jekyll-multiple-languages-plugin
-  jekyll-polyglot (~> 1.5.1)
+  jekyll-polyglot
   jekyll-sass-converter (~> 1.5.2)
   jekyll-seo-tag
   jekyll-sitemap
