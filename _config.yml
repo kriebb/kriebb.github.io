@@ -93,13 +93,13 @@ translations_dir: _data/i18n
 
 # Additional language-specific settings
 t:
-  en:
+  - code: en
     language: "English"
     icon: "🇬🇧"
-    locale: en
-  nl:
+    locale: en_US
+  - code: nl
     language: "Nederlands"
     icon: "🇳🇱"
-    locale: nl
+    locale: nl_NL
 
 permalink: /:lang/:title/
