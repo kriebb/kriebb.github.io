@@ -1,9 +1,19 @@
-<div class="certification-logos">
+<div class="certification-item">
+  <div class="certification-logos">
+    <p>DEBUG: include.cert = {{ include.cert }}</p>
+    <p>DEBUG: include.name = {{ include.name }}</p>
+
     {% if include.cert == "azure-developer" %}
-      <a href="https://learn.microsoft.com/en-gb/users/kristofriebbels-9315/transcript/7o5k5bw3mzgkqnl"><img src="/assets/images/certifications/azure-developer-associate.jpg" alt="Microsoft Certified: Azure Developer Associate" class="cert-logo" /></a>
+      <a href="https://learn.microsoft.com/en-gb/users/kristofriebbels-9315/transcript/7o5k5bw3mzgkqnl">
+        <img src="/assets/images/certifications/azure-developer-associate.jpg" alt="{{ include.name }}" class="cert-logo" />
+      </a>
     {% elsif include.cert == "scrum-master" %}
-      <a href="https://www.credly.com/badges/472a89fa-79ad-48a3-943a-b422b470ef05?source=linked_in_profile"><img src="/assets/images/certifications/certified-scrum-master.png" alt="Certified Scrum Master" class="cert-logo" /></a>
-    {% elsif include.cert == "bachelor-it" %}
-      <img src="/assets/images/certifications/hogent-logo.jpg" alt="Bachelor in IT - HoGent" class="cert-logo" />
+      <a href="https://www.credly.com/badges/472a89fa-79ad-48a3-943a-b422b470ef05?source=linked_in_profile">
+        <img src="/assets/images/certifications/certified-scrum-master.png" alt="{{ include.name }}" class="cert-logo" />
+      </a>
+    {% elsif include.cert == "bachelor" %}
+      <img src="/assets/images/certifications/hogent-logo.jpg" alt="{{ include.name }}" class="cert-logo" />
     {% endif %}
   </div>
+  <span class="certification-name">{{ include.name }}</span>
+</div>

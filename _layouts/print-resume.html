@@ -241,9 +241,9 @@
       <div>
         <h3>Certifications</h3>
         <ul>
-          {% for cert in site.data.resume[site.active_lang].certifications %}
-          <li>{{ cert }}</li>
-          {% endfor %}
+          {% for cert_key in site.data.resume[site.active_lang].certifications %}
+          <li>{{ site.data.resume[site.active_lang].certifications[cert_key] }}</li>
+        {% endfor %}
         </ul>
       </div>
     </div>

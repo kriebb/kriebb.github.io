@@ -61,19 +61,12 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 {% endfor %}
 
 ## Certifications
-{% for cert in site.data.resume[site.active_lang].certifications %}
-  {% if cert contains "Azure" %}
-    {% include certification-logos.html cert="azure-developer" %}
-  {% endif %}
-  {% if cert contains "Scrum" %}
-    {% include certification-logos.html cert="scrum-master" %}
-  {% endif %}
-  {% if cert contains "Bachelor" %}
-    {% include certification-logos.html cert="bachelor-it" %}
-  {% endif %}
-  {{ cert }}
+{% for cert_key in site.data.resume[site.active_lang].certifications %}
+  {% assign cert_name = site.data.resume[site.active_lang].certifications[cert_key] %}
+  <p>DEBUG: cert_key = {{ cert_key }}</p>
+  <p>DEBUG: cert_name = {{ cert_name }}</p>
+  {% include certification-logos.html cert=cert_key name=cert_name %}
 {% endfor %}
-
 
 ## Interests and Hobbies
 {% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}

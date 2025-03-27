@@ -1,16 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize AOS only after the page has loaded
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      once: true,
-      offset: 120,
-      delay: 0,
-      duration: 800
-    });
-  }
-});
-
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    once: true,
+    offset: 120,
+    delay: 0,
+    duration: 800
+  });
+}
 document.addEventListener("DOMContentLoaded", function () {
+  if (typeof Swiper !== 'undefined') {
+
+
   // Initialize Swiper for the Projects page
   return swiper = new Swiper(".swiper", {
     // Optional parameters
@@ -35,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {

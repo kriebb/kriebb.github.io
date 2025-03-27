@@ -87,19 +87,18 @@
       </script>
     <!-- Scripts -->
 
-    {% assign assets = site.data.assets %}
-    {% for asset in assets %}
-      {% if asset.local contains '.css' %}
-        <link rel="stylesheet" href="{{ asset.local }}">
-      {% elsif asset.local contains '.js' %}
-        <script src="{{ asset.local }}" defer></script>
-      {% endif %}
+    {% for script in site.data.assets.scripts %}
+    <script src="{{ script.url }}" {% if script.defer %}defer{% endif %}></script>
     {% endfor %}
-
+    {% for style in site.data.assets.styles %}
+    <link rel="stylesheet" href="{{ style.url }}" onerror="this.onerror=null;this.href='{{ style.local }}';">
+    {% endfor %}
     <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     
     {% include cookie-consent.html %}
+
+    
   </body>
 </html>
