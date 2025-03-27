@@ -1,13 +1,12 @@
 ---
-lang: en
 layout: resume
 title: "Resume"
-permalink: "/resume"
+permalink: "/resume/"
 description: "Kristof Riebbels' professional resume - Expertise in .NET development, software architecture, and secure coding practices."
 sidebar: true
 toc: true
+lang: en
 ref: resume
-
 ---
 
 Below are a few examples of my personal and open-source projects:

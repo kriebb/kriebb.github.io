@@ -1,14 +1,12 @@
 ---
-lang: en
 layout: page
 title: "Mission & Vision"
-permalink: "/mission-vision"
+permalink: "/mission-vision/"
 description: "My professional mission and vision as a freelance .NET developer."
 sidebar: false
+lang: en
 ref: mission-vision
-
 ---
-
 ## Mission
 I help businesses build secure and straightforward IT solutions by simplifying complex challenges, focusing on coaching, testing, and best practices (such as SOLID principles).
 

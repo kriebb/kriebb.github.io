@@ -1,12 +1,11 @@
 ---
 layout: page
-title: Cookie Policy
-permalink: /nl/cookiebeleid/
+title: Cookiebeleid
+permalink: /nl/cookies/
 sidebar: false
 lang: nl
 ref: cookies
 ---
-
 **Laatst bijgewerkt:** {{ site.time | date: "%d %B %Y" }}
 
 ## Wat zijn cookies?

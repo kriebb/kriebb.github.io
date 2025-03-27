@@ -1,10 +1,10 @@
 ---
 layout: index
-sidebar: false
-lang: nl
 title: Home
 permalink: /nl/
+lang: nl
 ref: index
+sidebar: false
 ---
 
 # Kristof Riebbels | .NET Developer

@@ -1,13 +1,11 @@
 ---
 layout: contact
 title: "Contact"
-permalink: "/contact"
+permalink: "/contact/"
 sidebar: false
 lang: en
 ref: contact
-
 ---
-
 
 If you need more information or want to work together, feel free to reach out:
 - **Location**: Belgium (Antwerp/Ghent region)

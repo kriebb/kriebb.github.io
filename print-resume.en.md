@@ -1,7 +1,6 @@
 ---
-lang: en
 layout: print-resume
 permalink: /print-resume/
+lang: en
 ref: print-resume
-
 ---

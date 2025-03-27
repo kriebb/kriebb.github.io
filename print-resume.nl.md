@@ -1,7 +1,6 @@
 ---
-lang: nl
 layout: print-resume
-permalink: /print-resume/
+permalink: /nl/print-resume/
+lang: nl
 ref: print-resume
 ---
-

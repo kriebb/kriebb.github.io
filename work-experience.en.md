@@ -1,8 +1,9 @@
 ---
-lang: en
 layout: page
 title: "Work Experience"
-permalink: "/work-experience"
+permalink: "/work-experience/"
+sidebar: true
+lang: en
 ref: work-experience
 ---
 

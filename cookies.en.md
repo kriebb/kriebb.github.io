@@ -6,7 +6,6 @@ sidebar: false
 lang: en
 ref: cookies
 ---
-
 **Last Updated:** {{ site.time | date: "%B %d, %Y" }}
 
 ## What are cookies?
