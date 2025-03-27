@@ -1,36 +1,37 @@
-about:
-  en: "/about/"
-  nl: "/nl/over-mij/"
-blog:
-  en: "/blog/"
-  nl: "/nl/blog/"
-contact:
-  en: "/contact/"
-  nl: "/nl/contact/"
-cookies:
-  en: "/cookies/"
-  nl: "/nl/nl/cookies/"
-index:
-  en: "/"
-  nl: "/nl/"
-mission-vision:
-  en: "/mission-vision/"
-  nl: "/nl/missie-visie/"
-print-resume:
-  en: "/en/print-resume/"
-  nl: "/nl/print-resume"
-privacy-policy:
-  en: "/privacy-policy/"
-  nl: "/nl/privacy-beleid/"
-resume:
-  en: "/resume/"
-  nl: "/nl/cv/"
-services:
-  en: "/services/"
-  nl: "/nl/diensten/"
-thank-you:
-  en: "/thank-you/"
-  nl: "/nl/bedankt/"
-work-experience:
-  en: "/work-experience/"
-  nl: "/nl/werkervaring/"
+routes:
+  about:
+    en: "/about/"
+    nl: "/nl/over-mij/"
+  blog:
+    en: "/blog/"
+    nl: "/nl/blog/"
+  contact:
+    en: "/contact/"
+    nl: "/nl/contact/"
+  cookies:
+    en: "/cookies/"
+    nl: "/nl/nl/cookies/"
+  index:
+    en: "/"
+    nl: "/nl/"
+  mission-vision:
+    en: "/mission-vision/"
+    nl: "/nl/missie-visie/"
+  print-resume:
+    en: "/en/print-resume/"
+    nl: "/nl/print-resume"
+  privacy-policy:
+    en: "/privacy-policy/"
+    nl: "/nl/privacy-beleid/"
+  resume:
+    en: "/resume/"
+    nl: "/nl/cv/"
+  services:
+    en: "/services/"
+    nl: "/nl/diensten/"
+  thank-you:
+    en: "/thank-you/"
+    nl: "/nl/bedankt/"
+  work-experience:
+    en: "/work-experience/"
+    nl: "/nl/werkervaring/"

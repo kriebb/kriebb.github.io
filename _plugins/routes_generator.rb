@@ -133,7 +133,7 @@ module Jekyll
       
       # Write without YAML frontmatter
       File.open(routes_file, 'w') do |file|
-        file.write(routes['routes'].to_yaml.sub(/^---\n/, ''))
+        file.write(routes.to_yaml.sub(/^---\n/, ''))
       end
     end
   end
