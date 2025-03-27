@@ -1,4 +1,4 @@
-{% assign url_path = site.data.i18n[site.lang].urls[include.url_key] %}
+{% assign url_path = site.data.i18n[site.active_lang].urls[include.url_key] %}
 <a href="{{ url_path }}">
-  {{ site.data.i18n[site.lang].footer[include.text_key] }}
+  {{ site.data.i18n[site.active_lang].footer[include.text_key] }}
 </a>

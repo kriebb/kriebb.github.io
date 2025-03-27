@@ -1,14 +1,14 @@
 <aside class="sidebar">
   {% for section in site.data.sidebar_structure %}
     <div class="sidebar-section">
-      <h3>{{ site.data.i18n[site.lang].sidebar.sections[section.section] }}</h3>
+      <h3>{{ site.data.i18n[site.active_lang].sidebar.sections[section.section] }}</h3>
       <ul>
         {% for item in section.items %}
           <li>
-            {% assign item_url = site.data.i18n[site.lang].urls[item.id] %}
+            {% assign item_url = site.data.i18n[site.active_lang].urls[item.id] %}
             
             <a href="{{ item_url }}" {% if page.url == item_url %}class="active"{% endif %}>
-              {{ site.data.i18n[site.lang].sidebar.links[item.id] }}
+              {{ site.data.i18n[site.active_lang].sidebar.links[item.id] }}
             </a>
           </li>
         {% endfor %}
@@ -19,7 +19,7 @@
   <!-- Table of contents (if enabled) -->
   {% if page.toc %}
     <div class="sidebar-section">
-      <h3>{{ site.data.i18n[site.lang].sidebar.sections.on_this_page }}</h3>
+      <h3>{{ site.data.i18n[site.active_lang].sidebar.sections.on_this_page }}</h3>
       <ul id="toc"></ul>
     </div>
   {% endif %}

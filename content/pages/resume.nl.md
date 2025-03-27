@@ -43,12 +43,12 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 {% endfor %}
 
 ## Certifications
-{% for cert in site.data.resume.certifications[site.active_lang] %}
+{% for cert in site.data.resume[site.active_lang].certifications %}
 - {{ cert }}
 {% endfor %}
 
 ## Interests and Hobbies
-{% for interest in site.data.resume.interests_and_hobbies[site.active_lang] %}
+{% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}
 - {{ interest }}
 {% endfor %}
 

@@ -1,7 +1,7 @@
 <div class="swiper-container-wrapper">
 <div class="swiper">
   <div class="swiper-wrapper">
-    {% for project in site.data.projects[site.lang] %}
+    {% for project in site.data.projects[site.active_lang] %}
     <div class="swiper-slide">
         <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
         
