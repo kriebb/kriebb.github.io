@@ -6,6 +6,8 @@ description: "Overzicht van mijn freelance .NET ontwikkelingsdiensten, inclusief
 sidebar: false
 lang: nl
 ref: services
+pageid: services
+
 ---
 
 As a freelance .NET developer, I specialize in creating software that’s clean, reliable, and secure. I'm also a certified Scrum Master, so I can seamlessly adapt to Agile projects or help you transition smoothly into an Agile workflow.

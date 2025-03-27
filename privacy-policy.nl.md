@@ -5,6 +5,8 @@ permalink: /nl/privacy-policy/
 sidebar: false
 lang: nl
 ref: privacy-policy
+pageid: privacy-policy
+
 ---
 
 **Laatst bijgewerkt:** {{ site.time | date: "%d %B %Y" }}

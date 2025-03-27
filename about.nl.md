@@ -1,12 +1,15 @@
 ---
 layout: page
-title: Over Mij
-permalink: /nl/about/
+title: "Over Mij"
+permalink: "/about/"
 description: "Introduceert wie je bent als professional, belicht expertise, passie en persoonlijke missie om vertrouwen en verbinding op te bouwen."
 sidebar: false
 lang: nl
 ref: about
+ref: pageid
+
 ---
+
 {% assign title = site.data.i18n['nl'].about.title %}
 {% assign intro = site.data.i18n['nl'].about.intro %}
 

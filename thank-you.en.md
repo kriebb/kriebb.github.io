@@ -5,6 +5,8 @@ permalink: "/thank-you/"
 sidebar: false
 lang: en
 ref: thank-you
+pageid: thank-you
+
 ---
 # Thank You!
 

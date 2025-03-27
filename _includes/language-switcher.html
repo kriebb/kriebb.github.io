@@ -1,16 +1,40 @@
+{% assign current_lang = site.active_lang | default: site.default_lang %}
+{% assign current_ref = page.ref %}
+
+{% if current_ref %}
+  {% if current_lang == 'en' %}
+    {% assign alt_url = site.data.routes.routes[current_ref].nl %}
+  {% else %}
+    {% assign alt_url = site.data.routes.routes[current_ref].en %}
+  {% endif %}
+{% else %}
+  {% if current_lang == 'en' %}
+    {% assign alt_url = '/nl/' %}
+  {% else %}
+    {% assign alt_url = '/' %}
+  {% endif %}
+{% endif %}
+
 <div class="language-switcher-container">
-  {% assign current_language = site.t | where: "code", site.active_lang | first %}
-  <button class="language-trigger" aria-label="Select Language">
-    <span class="language-icon">{{ current_language.icon }}</span>
+  <button class="language-trigger" aria-label="Change language">
+    {% if current_lang == 'en' %}
+      <span class="language-icon">🇬🇧</span>
+      <span class="language-name">English</span>
+    {% else %}
+      <span class="language-icon">🇳🇱</span>
+      <span class="language-name">Nederlands</span>
+    {% endif %}
   </button>
   
   <div class="language-dropdown">
-    {% for lang in site.t %}
-      {% if lang.code != site.active_lang %}
-        <a href="#" class="language-option" data-lang="{{ lang.code }}">
-          <span class="language-icon">{{ lang.icon }}</span>
-        </a>
+    <a href="{{ alt_url }}" class="language-option" data-lang="{{ current_lang == 'en' ? 'nl' : 'en' }}">
+      {% if current_lang == 'en' %}
+        <span class="language-icon">🇳🇱</span>
+        <span class="language-name">Nederlands</span>
+      {% else %}
+        <span class="language-icon">🇬🇧</span>
+        <span class="language-name">English</span>
       {% endif %}
-    {% endfor %}
+    </a>
   </div>
 </div>

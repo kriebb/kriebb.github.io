@@ -1,10 +1,12 @@
 ---
 layout: page
 title: "Werkervaring"
-permalink: "/nl/werkervaring/"
+permalink: "work-experience"
 sidebar: true
 lang: nl
 ref: work-experience
+pageid: work-experience
+
 ---
 
 Hieronder vindt u een chronologisch overzicht met hoogtepunten van mijn rollen, gebruikte technologieën en verantwoordelijkheden.

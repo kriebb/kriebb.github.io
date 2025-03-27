@@ -5,6 +5,7 @@ permalink: "/contact/"
 sidebar: false
 lang: en
 ref: contact
+pageid: contacct
 ---
 
 If you need more information or want to work together, feel free to reach out:

@@ -5,6 +5,7 @@ permalink: "/work-experience/"
 sidebar: true
 lang: en
 ref: work-experience
+pageid: work-experience
 ---
 
 Below you’ll find a chronological overview with highlights of my roles, used tech and responsibilities.

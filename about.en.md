@@ -6,6 +6,8 @@ description: "Introduces who you are as a professional, highlighting expertise, 
 sidebar: false
 lang: en
 ref: about
+pageid: about
+
 ---
 {% assign title = site.data.i18n['en'].about.title %}
 {% assign intro = site.data.i18n['en'].about.intro %}

@@ -1,34 +1,41 @@
+# Basic site settings
 title: "IT KRIEBBELS"
 description: "Freelance .NET Developer – Building secure, clear, and reliable solutions"
 author: "Kristof Riebbels"
-baseurl: "" # For project pages, use "/project-name"
+baseurl: ""
 url: "https://it.kriebbels.me"
 github_username: kriebb
-host: 0.0.0.0
 
 # Build settings
 theme: minima
 markdown: kramdown
 highlighter: rouge
 
+# Jekyll build settings
 liquid:
   error_mode: warn
   strict_filters: false
   strict_variables: false
 
 destination: _site
-
-# Disable parallel processing
 parallel: false
-# Jekyll SEO Tag
-lang: en
-locale: nl
 
-social:
-  name: Kristof Riebbels
-  links:
-    - https://github.com/kriebb
-    - https://www.linkedin.com/in/kristofriebbels
+# Multilingual settings - SIMPLIFIED
+languages: ["en", "nl"]
+default_lang: "en"
+exclude_from_localization: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
+locale_from_file_extension: true
+
+# Language details
+language_data:
+  en:
+    name: "English"
+    icon: "🇬🇧"
+    locale: "en_US"
+  nl:
+    name: "Nederlands"
+    icon: "🇳🇱"
+    locale: "nl_NL"
 
 # Plugins
 plugins:
@@ -36,6 +43,13 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-polyglot
+
+# Polyglot settings
+polyglot:
+  languages: ["en", "nl"]
+  default_lang: "en"
+  exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
+  permalink: pretty
 
 # Sass processing
 sass:
@@ -66,40 +80,4 @@ defaults:
       layout: "post"
       permalink: /blog/:title/
 
-
-# Add these language settings to your existing _config.yml
-
-# Language settings
-languages: ["en", "nl"]
-default_lang: "en"
-exclude_from_localization: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
-parallel_localization: true
-# workign with .nl.md and .en.md
-locale_from_file_extension: true
-# Language names for UI
-lang_names:
-  en: English
-  nl: Nederlands
-
-# Jekyll Polyglot settings
-polyglot:
-  languages: ["en", "nl"]
-  default_lang: "en"
-  exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
-  permalink: /:lang/:basename
-
-# Translations directory
-translations_dir: _data/i18n
-
-# Additional language-specific settings
-t:
-  - code: en
-    language: "English"
-    icon: "🇬🇧"
-    locale: en_US
-  - code: nl
-    language: "Nederlands"
-    icon: "🇳🇱"
-    locale: nl_NL
-
-permalink: /:lang/:title/
+permalink: pretty

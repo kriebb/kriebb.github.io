@@ -7,6 +7,8 @@ sidebar: true
 toc: true
 lang: en
 ref: resume
+pageid: resume
+
 ---
 
 Below are a few examples of my personal and open-source projects:

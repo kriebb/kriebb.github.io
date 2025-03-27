@@ -6,6 +6,8 @@ description: "Mijn professionele missie en visie als freelance .NET developer."
 sidebar: false
 lang: nl
 ref: mission-vision
+pageid: mission-vision
+
 ---
 
 ## Mission

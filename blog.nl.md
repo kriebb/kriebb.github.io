@@ -1,10 +1,11 @@
 ---
 layout: page
 title: "Blog"
-permalink: "/nl/blog/"
+permalink: "/blog/"
 sidebar: false
 lang: nl
 ref: blog
+pageid: blog
 ---
 
 <ul>

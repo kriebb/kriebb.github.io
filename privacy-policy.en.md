@@ -5,6 +5,8 @@ permalink: /privacy-policy/
 sidebar: false
 lang: en
 ref: privacy-policy
+pageid: privacy-policy
+
 ---
 
 **Last Updated:** {{ site.time | date: "%B %d, %Y" }}

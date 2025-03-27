@@ -3,6 +3,7 @@
  * To be included in _layouts/default.html before other scripts
  */
 (function() {
+
     /**
      * Gets the translated route for the current page
      * @param {string} currentPath - Current page path

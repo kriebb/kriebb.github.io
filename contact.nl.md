@@ -1,10 +1,11 @@
 ---
 layout: contact
 title: "Contact"
-permalink: "/nl/contact/"
+permalink: "/contact/"
 sidebar: false
 lang: nl
 ref: contact
+pageid: contact
 ---
 
 Als u meer informatie nodig heeft of wilt samenwerken, neem dan gerust contact op:

@@ -72,66 +72,30 @@
       {%- include footer.html -%}
     </footer>
 
-    <script>
-        // Inject site route data from _data/routes.yml
-          window.siteRoutes = {
-            {% for route_pair in site.data.routes.routes %}
-              {{ route_pair[0] }}: {
-                {% for lang_route in route_pair[1] %}
-                  {{ lang_route[0] }}: "{{ lang_route[1] }}",
-                {% endfor %}
-              },
-            {% endfor %}
-          };
-
-           /**
-   * Gets the translated route for the current page
-   * @param {string} currentPath - Current page path
-   * @param {string} targetLang - Target language code
-   * @return {string} The translated path
-   */
-  window.getTranslatedRoute = function(currentPath, targetLang) {
-    // Strip trailing slash
-    const cleanPath = currentPath.replace(/\/$/, '');
-    
-    // Default to home page if we can't determine current page
-    if (!cleanPath || cleanPath === '') {
-      return targetLang === 'en' ? '/' : '/nl/';
-    }
-    
-    // Try to find current route in site routes
-    let currentLang = 'en';
-    let currentRoute = null;
-    
-    // Check if we're on a Dutch page
-    if (cleanPath.startsWith('/nl/')) {
-      currentLang = 'nl';
-    }
-    
-    // If already on target language, no need to change
-    if (currentLang === targetLang) {
-      return currentPath;
-    }
-    
-    // Find which route we're currently on
-    for (const [routeKey, routeObj] of Object.entries(window.siteRoutes)) {
-      if (cleanPath === routeObj[currentLang].replace(/\/$/, '')) {
-        currentRoute = routeKey;
-        break;
+    <script id="site-routes-data" type="application/json">
+      {
+        "routes": {
+        {% for route_pair in site.data.routes.routes %}
+          "{{ route_pair[0] }}": {
+          {% for lang_route in route_pair[1] %}
+            "{{ lang_route[0] }}": "{{ lang_route[1] }}"{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        }
       }
-    }
-    
-    // If we found a match, return the translated route
-    if (currentRoute && window.siteRoutes[currentRoute][targetLang]) {
-      return window.siteRoutes[currentRoute][targetLang];
-    }
-    
-    // Fallback to home page if no match found
-    return targetLang === 'en' ? '/' : '/nl/';
-  };
-})();
-    </script>
+      </script>
     <!-- Scripts -->
+
+    {% assign assets = site.data.assets %}
+    {% for asset in assets %}
+      {% if asset.local contains '.css' %}
+        <link rel="stylesheet" href="{{ asset.local }}">
+      {% elsif asset.local contains '.js' %}
+        <script src="{{ asset.local }}" defer></script>
+      {% endif %}
+    {% endfor %}
+
     <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

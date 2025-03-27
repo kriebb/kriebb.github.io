@@ -1,10 +1,12 @@
 ---
 layout: page
 title: "Bedankt"
-permalink: "/nl/thank-you/"
+permalink: "/thank-you/"
 sidebar: false
 lang: nl
 ref: thank-you
+pageid: thank-you
+
 ---
 # Bedankt!
 

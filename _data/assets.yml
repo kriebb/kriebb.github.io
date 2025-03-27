@@ -1,0 +1,22 @@
+scripts:
+  - name: swiper
+    url: "https://unpkg.com/swiper@9.2.4/swiper-bundle.min.js"
+    local: "/vendor/swiper/js/swiper-bundle.min.js"
+
+  - name: aos
+    url: "https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js"
+    local: "/vendor/aos/js/aos.js"
+
+styles:
+  - name: swiper
+    url: "https://unpkg.com/swiper@9.2.4/swiper-bundle.min.css"
+    local: "/vendor/swiper/css/swiper-bundle.min.css"
+
+  - name: aos
+    url: "https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css"
+    local: "/vendor/swiper/css/aos.css"
+
+fonts:
+  - name: roboto
+    url: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    local: "/vendor/google/fonts/roboto.css"

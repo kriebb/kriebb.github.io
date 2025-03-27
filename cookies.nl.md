@@ -5,6 +5,7 @@ permalink: /nl/cookies/
 sidebar: false
 lang: nl
 ref: cookies
+pageid: cookies
 ---
 **Laatst bijgewerkt:** {{ site.time | date: "%d %B %Y" }}
 

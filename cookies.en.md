@@ -5,6 +5,7 @@ permalink: /cookies/
 sidebar: false
 lang: en
 ref: cookies
+pageid: cookies
 ---
 **Last Updated:** {{ site.time | date: "%B %d, %Y" }}
 
