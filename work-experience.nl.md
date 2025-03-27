@@ -1,15 +1,14 @@
 ---
 layout: page
 title: "Werkervaring"
-permalink: "/nl/work-experience/"
+permalink: "/nl/werkervaring/"
 sidebar: true
 lang: nl
 ref: work-experience
 ---
 
-Below you’ll find a chronological overview with highlights of my roles, used tech and responsibilities.
+Hieronder vindt u een chronologisch overzicht met hoogtepunten van mijn rollen, gebruikte technologieën en verantwoordelijkheden.
 
 {% include timeline.html %}
 
-*For more details on my responsibilities or specific projects, feel free to [contact me](/contact).*
-
+*Voor meer details over mijn verantwoordelijkheden of specifieke projecten, neem gerust [contact](/nl/contact) met mij op.*

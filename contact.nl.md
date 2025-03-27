@@ -7,11 +7,8 @@ lang: nl
 ref: contact
 ---
 
-If you need more information or want to work together, feel free to reach out:
-- **Location**: Belgium (Antwerp/Ghent region)
+Als u meer informatie nodig heeft of wilt samenwerken, neem dan gerust contact op:
+- **Locatie**: België (regio Antwerpen/Gent)
 - **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/kristofriebbels)
-- **Email**: kristof.it@kriebbels.me
-  
-If you have any questions or want to work together, please fill out the form below. I'll get back to you as soon as possible.
 
-
+Als u vragen heeft of wilt samenwerken, vul dan onderstaand formulier in. Ik neem zo snel mogelijk contact met u op.

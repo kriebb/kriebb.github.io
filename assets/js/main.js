@@ -70,83 +70,101 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-const LANGUAGES = [
-  { code: 'en', name: 'English', icon: '🇬🇧' },
-  { code: 'nl', name: 'Nederlands', icon: '🇳🇱' }
-];
 
 document.addEventListener('DOMContentLoaded', function() {
- // Find the language actions area in the navbar
- const navActions = document.querySelector('.nav-actions');
- if (!navActions) return;
+  // Find the language switcher container
+  const languageSwitcher = document.querySelector('.language-switcher-container');
+  if (!languageSwitcher) return;
 
- // Create and append language switcher
- const languageSwitcher = document.querySelector('.language-switcher-container')
+  // Get elements
+  const trigger = languageSwitcher.querySelector('.language-trigger');
+  const dropdown = languageSwitcher.querySelector('.language-dropdown');
+  const langOptions = languageSwitcher.querySelectorAll('.language-option');
 
- // Get elements
- const trigger = languageSwitcher.querySelector('.language-trigger');
- const dropdown = languageSwitcher.querySelector('.language-dropdown');
- const currentLangEl = languageSwitcher.querySelector('.current-lang');
- const langOptions = languageSwitcher.querySelectorAll('.language-option');
+  // Toggle dropdown
+  trigger.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+  });
 
- // Detect current language
- const detectCurrentLanguage = () => {
-   const path = window.location.pathname;
-   const savedLang = localStorage.getItem('preferredLanguage');
-   
-   // Determine current language
-   const detectedLang = path.startsWith('/nl/') ? 'nl' : 'en';
-   return savedLang || detectedLang;
- };
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!languageSwitcher.contains(event.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
 
- // Update current language display
- const updateCurrentLanguage = (langCode) => {
-   const lang = LANGUAGES.find(l => l.code === langCode);
-   if (lang) {
-     currentLangEl.textContent = lang.name;
-     
-     // Highlight active language in dropdown
-     langOptions.forEach(option => {
-       option.classList.toggle('active', option.dataset.lang === langCode);
-     });
-   }
- };
+  // Language selection
+  langOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selectedLang = option.dataset.lang;
+      
+      // Save language preference
+      localStorage.setItem('preferredLanguage', selectedLang);
 
- // Initial language setup
- const currentLang = detectCurrentLanguage();
- updateCurrentLanguage(currentLang);
-
- // Toggle dropdown
- trigger.addEventListener('click', () => {
-   dropdown.classList.toggle('open');
- });
-
- // Close dropdown when clicking outside
- document.addEventListener('click', (event) => {
-   if (!languageSwitcher.contains(event.target)) {
-     dropdown.classList.remove('open');
-   }
- });
-
- // Language selection
- langOptions.forEach(option => {
-   option.addEventListener('click', () => {
-     const selectedLang = option.dataset.lang;
-     
-     // Save language preference
-     localStorage.setItem('preferredLanguage', selectedLang);
-
-     // Get current path
-     const currentPath = window.location.pathname;
-     
-     // Remove existing language prefix
-     const cleanPath = currentPath.replace(/^\/[^\/]+/, '');
-     
-     // Construct new path
-     const newPath = selectedLang === 'en' ? cleanPath : `/${selectedLang}${cleanPath}`;
-     
-     // Redirect
-     window.location.href = newPath;
-   });
- });
+      // Get current path
+      const currentPath = window.location.pathname;
+      
+      // Use route mapping for better language switching
+      const pagePath = getLanguagePath(currentPath, selectedLang);
+      
+      // Redirect
+      window.location.href = pagePath;
+    });
+  });
 });
+
+// Function to get the correct path for the other language
+function getLanguagePath(currentPath, targetLang) {
+  // Remove leading slash and split path segments
+  const path = currentPath.replace(/^\//, '').split('/');
+  
+  // Handle special cases
+  if (path[0] === 'nl') {
+    // Currently on Dutch page, switching to English
+    if (targetLang === 'en') {
+      // Map Dutch pages to English
+      const dutchToEnglish = {
+        'over-mij': 'about',
+        'cv': 'resume',
+        'diensten': 'services',
+        'werkervaring': 'work-experience',
+        'missie-visie': 'mission-vision',
+        'privacybeleid': 'privacy-policy',
+        'cookiebeleid': 'cookies',
+        'bedankt': 'thank-you'
+      };
+      
+      // Get the second segment (the actual page)
+      const dutchPage = path[1] || '';
+      // Get the English equivalent or keep as is if not in mapping
+      const englishPage = dutchToEnglish[dutchPage] || dutchPage;
+      return englishPage ? `/${englishPage}/` : '/';
+    }
+    // Already on Dutch page, no change needed
+    return currentPath;
+  } else {
+    // Currently on English page (or root), switching to Dutch
+    if (targetLang === 'nl') {
+      // Map English pages to Dutch
+      const englishToDutch = {
+        'about': 'over-mij',
+        'resume': 'cv',
+        'services': 'diensten',
+        'work-experience': 'werkervaring',
+        'mission-vision': 'missie-visie',
+        'privacy-policy': 'privacybeleid',
+        'cookies': 'cookiebeleid',
+        'thank-you': 'bedankt'
+      };
+      
+      // Get the first segment (the actual page)
+      const englishPage = path[0] || '';
+      // Get the Dutch equivalent or keep as is if not in mapping
+      const dutchPage = englishToDutch[englishPage] || englishPage;
+      return dutchPage ? `/nl/${dutchPage}/` : '/nl/';
+    }
+    // Already on English page, no change needed
+    return currentPath;
+  }
+}

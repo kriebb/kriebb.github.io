@@ -6,9 +6,9 @@
   
   <div class="language-dropdown">
     {% for lang in site.t %}
-      {% if lang[0] != site.active_lang %}
-        <a href="#" class="language-option" data-lang="{{ lang[0] }}">
-          <span class="language-icon">{{ lang[1].icon }}</span>
+      {% if lang.code != site.active_lang %}
+        <a href="#" class="language-option" data-lang="{{ lang.code }}">
+          <span class="language-icon">{{ lang.icon }}</span>
         </a>
       {% endif %}
     {% endfor %}
