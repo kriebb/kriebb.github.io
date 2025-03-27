@@ -4,8 +4,8 @@
       <span class="active">{{ site.lang_names[lang] }}</span>
     {% else %}
       {% assign pages=site.pages | where:"ref", page.ref | where:"lang", lang %}
-      {% for altpage in pages %}
-        <a href="{{ altpage.url }}">{{ site.lang_names[lang] }}</a>
+      {% for matched_page in pages limit:1 %}
+        <a href="{{ matched_page.url }}" class="lang-link">{{ site.lang_names[lang] }}</a>
       {% endfor %}
     {% endif %}
   {% endfor %}
