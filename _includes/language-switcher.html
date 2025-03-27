@@ -1,12 +1,18 @@
-<div class="language-switcher">
-  {% for lang in site.languages %}
-    {% if lang == site.active_lang %}
-      <span class="active">{{ site.lang_names[lang] }}</span>
-    {% else %}
-      {% assign pages=site.pages | where:"ref", page.ref | where:"lang", lang %}
-      {% for matched_page in pages limit:1 %}
-        <a href="{{ matched_page.url }}" class="lang-link">{{ site.lang_names[lang] }}</a>
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
+<div class="language-switcher-container">
+  {% assign current_language = site.t | where: "code", site.active_lang | first %}
+  <button class="language-trigger" aria-label="Select Language">
+    <span class="language-icon">{{ current_language.icon }}</span>
+    <span class="current-lang">{{ current_language.language }}</span>
+  </button>
+  
+  <div class="language-dropdown">
+    {% for lang in site.t %}
+      {% if lang[0] != site.active_lang %}
+        <a href="#" class="language-option" data-lang="{{ lang[0] }}">
+          <span class="language-icon">{{ lang[1].icon }}</span>
+          {{ lang[1].language }}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
