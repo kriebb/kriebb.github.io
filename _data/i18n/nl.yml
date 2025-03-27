@@ -1,18 +1,26 @@
-# Footer
-footer:
-  copyright: "Alle rechten voorbehouden."
-  privacy: "Privacybeleid"
-  terms: "Gebruiksvoorwaarden"
-  cookies: "Cookies"
+## Nederlandse vertalingen
 
-# Legal pages
-legal:
-  privacy_title: "Privacybeleid"
-  terms_title: "Gebruiksvoorwaarden"
-  cookies_title: "Cookiebeleid"
-  last_updated: "Laatst Bijgewerkt"
+# Algemeen
+site_title: "IT KRIEBBELS"
+site_description: "Freelance .NET Developer – Bouw van veilige, duidelijke en betrouwbare oplossingen"
+switch_lang: "Switch to English"
 
-# Hero section
+# Navigatie
+index:
+  home: "Home"
+
+# Navigatie
+nav:
+  home: "Home"
+  resume: "CV"
+  blog: "Blog"
+  contact: "Contact"
+  about: "Over Mij"
+  mission: "Missie & Visie"
+  services: "Diensten"
+  work_experience: "Werkervaring"
+
+# Homepage
 hero:
   title: "Kristof Riebbels | .NET Developer"
   subtitle: "Complexiteit omzetten in duidelijkheid"
@@ -20,7 +28,7 @@ hero:
   expertise: "Met expertise in C#, ASP.NET Core en Azure help ik bedrijven om technische uitdagingen om te zetten in gestructureerde oplossingen die consistent en veilig werken, met focus op kwaliteitsvolle SOLID code."
   cta: "Bekijk mijn CV"
 
-# Resume page
+# CV pagina
 resume:
   title: "CV"
   download: "Download CV als PDF"
@@ -35,6 +43,71 @@ resume:
   interests: "Interesses en Hobby's"
   talk_about: "Praat Met Mij Over"
 
+# Over mij pagina
+about:
+  title: "Over Mij"
+  intro: "Ik ben Kristof Riebbels, een .NET developer met passie voor veilige en onderhoudbare code."
+  experimenting: "Experimenterend met:"
+  github: "Bekijk mijn GitHub pagina:"
+  mission_link: "Benieuwd naar mijn missie en visie? Bekijk Missie & Visie."
+  senior_title: "Senior .NET Developer"
+  senior_desc: "toegewijd aan clean code, SOLID principes en uitgebreide testing. Ik waardeer eenvoud en duidelijkheid in elke oplossing."
+  security_title: "Beveiligingsgericht"
+  security_desc: "integreert beveiligingspraktijken (OIDC, tokenbeheer, supply-chain beveiliging) direct in de ontwikkeling om betrouwbare en dus vertrouwenswaardige software te bouwen."
+  coaching_title: "Coaching & Lesgeven"
+  coaching_desc: "Ik geniet ervan om collega's en klanten te begeleiden, complexe uitdagingen op te delen in begrijpelijke stappen, en anderen te helpen zelfstandig succesvol te worden."
+  growth_title: "Groei & Leren"
+  growth_desc: "Gedreven door nieuwsgierigheid (en wat ADHD-energie), verken ik voortdurend nieuwe technologieën en ideeën—altijd met het doel om voorop te blijven en duurzame oplossingen te leveren."
+
+# Contact pagina
+contact:
+  title: "Contact"
+  intro: "Als u meer informatie nodig heeft of wilt samenwerken, neem dan gerust contact op:"
+  location: "Locatie"
+  location_value: "België (regio Antwerpen/Gent)"
+  form_intro: "Als u vragen heeft of wilt samenwerken, vul dan onderstaand formulier in. Ik neem zo snel mogelijk contact met u op."
+  form:
+    name: "Naam (min 2 tekens)"
+    email: "E-mail (Verplicht)"
+    phone: "Telefoon (Verplicht)"
+    subject: "Onderwerp (min 2 tekens)"
+    message: "Bericht (min 5 woorden)"
+    submit: "Versturen"
+    note: "Opmerking: Dit formulier gebruikt hCaptcha. Uw gegevens worden veilig verzonden en voldoen aan de AVG-regelgeving."
+  thank_you: "Dank U!"
+  message_sent: "Uw bericht is verzonden. Ik neem zo snel mogelijk contact met u op."
+
+# Footer
+footer:
+  copyright: "Alle rechten voorbehouden."
+  privacy: "Privacybeleid"
+  terms: "Gebruiksvoorwaarden"
+  cookies: "Cookies"
+
+# Juridische pagina's
+legal:
+  privacy_title: "Privacybeleid"
+  terms_title: "Gebruiksvoorwaarden"
+  cookies_title: "Cookiebeleid"
+  last_updated: "Laatst Bijgewerkt"
+
+# Zijbalk
+sidebar:
+  sections:
+    main_nav: "Hoofdnavigatie"
+    resources: "Hulpbronnen"
+    on_this_page: "Op Deze Pagina"
+  
+  links:
+    home: "Home"
+    about: "Over Mij"
+    work_experience: "Werkervaring"
+    contact: "Contact"
+    resume: "CV"
+    services: "Diensten"
+    blog: "Blog"
+
+# Sociale media
 social:
   linkedin: "LinkedIn Profiel"
   github: "GitHub Projecten"

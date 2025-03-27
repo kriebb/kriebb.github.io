@@ -93,6 +93,8 @@
     {% for style in site.data.assets.styles %}
     <link rel="stylesheet" href="{{ style.url }}" onerror="this.onerror=null;this.href='{{ style.local }}';">
     {% endfor %}
+    <script src="{{ '/assets/js/swiper-init.js' | relative_url }}"></script>
+
     <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

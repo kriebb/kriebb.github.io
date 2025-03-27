@@ -10,7 +10,7 @@ routes:
     nl: "/nl/contact/"
   cookies:
     en: "/cookies/"
-    nl: "/nl/nl/cookies/"
+    nl: "/nl/cookies/"
   index:
     en: "/"
     nl: "/nl/"

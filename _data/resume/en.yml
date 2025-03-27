@@ -23,23 +23,6 @@ core_competencies:
       - "Token Management"
       - "Vulnerability Scanning"
 
-projects:
-  - title: "OIDC Mocking using asp.net core"
-    link: "https://github.com/kriebb/MockOpenIdConnectIdpAspnetcore"
-    description: "Repo that is used as POC to show how you can do integration tests with your id- and accesstokens"
-  - title: "Book to speech"
-    link: " https://github.com/kriebb/bookToText"
-    description: "Repo that is used to convert images to text and then to speech for having an audio book experience using OPENAI"
-  - title: "RadioPlus RSS Feed Generator"
-    link: "https://github.com/kriebb/RadioPlusScraper"
-    description: "Converts VRT's Radioplus website content into RSS feeds. Technologies: .NET Core, Docker, Selenium, Hangfire."
-  - title: "InvoiceCRM Exercise"
-    link: "https://github.com/kriebb/AnInvoiceExcercise"
-    description: "A invoicing application demonstrating clean architecture, SOLID principles, and testing strategies."
-  - title: "Calculator DI Exercise"
-    link: "https://github.com/kriebb/DI-Calculator-Sample-Excercise"
-    description: "A demonstration of Dependency Injection concepts in .NET Core."
-
 skills:
   development_and_programming:
     - category: "Languages & Frameworks"

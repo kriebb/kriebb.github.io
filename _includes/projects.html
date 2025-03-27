@@ -1,20 +1,18 @@
-<div class="swiper-container-wrapper">
-<div class="swiper">
-  <div class="swiper-wrapper">
+<div class="projects-section">
+  <button class="custom-swiper-prev" aria-label="Previous slide">
+    <i class="fa fa-chevron-left"></i>
+  </button>
+  
+  <div class="project-cards-container">
     {% for project in site.data.projects[site.active_lang] %}
-    <div class="swiper-slide">
-        <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
-        
-        <p>{{ project.description }}</p>
-
-      </div>
+    <div class="project-card">
+      <h3><a href="{{ project.link }}" target="_blank" rel="noopener">{{ project.title }}</a></h3>
+      <p>{{ project.description }}</p>
+    </div>
     {% endfor %}
   </div>
-
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
-
-</div>
+  
+  <button class="custom-swiper-next" aria-label="Next slide">
+    <i class="fa fa-chevron-right"></i>
+  </button>
 </div>
