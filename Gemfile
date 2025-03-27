@@ -5,7 +5,10 @@ source "https://rubygems.org"
 
 # Add Jekyll directly
 gem "jekyll", "~> 4.3.2"
-
+gem 'csv'
+gem 'logger'
+gem 'base64'
+gem 'minima'
 # For Windows development
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 

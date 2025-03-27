@@ -1,4 +1,4 @@
-name: Jekyll Site CI/CD
+name: Jekyll Site CI/CD with Multilingual PDFs
 on:
   push:
     branches: [ main ]
@@ -30,12 +30,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wkhtmltopdf
       
-      # Start Jekyll server, generate PDF, and stop server
-      - name: Generate Resume PDF
+      # Start Jekyll server, generate PDFs, and stop server
+      - name: Generate Resume PDFs
         run: |
           bundle exec jekyll serve --detach
           sleep 5  # Give Jekyll server time to start
-          wkhtmltopdf http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume.pdf
+          
+          # Generate English PDF
+          wkhtmltopdf http://localhost:4000/en/print-resume/ ./_site/kristof-riebbels-resume-en.pdf
+          
+          # Generate Dutch PDF
+          wkhtmltopdf http://localhost:4000/nl/print-resume/ ./_site/kristof-riebbels-resume-nl.pdf
+          
           pkill -f "jekyll serve" || true
       
       - name: Upload Pages artifact
