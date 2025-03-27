@@ -43,12 +43,13 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 {% endfor %}
 
 ## Certifications
-{% for cert_key in site.data.resume[site.active_lang].certifications %}
-  {% assign cert_name = site.data.resume[site.active_lang].certifications[cert_key] %}
-  <p>DEBUG: cert_key = {{ cert_key }}</p>
-  <p>DEBUG: cert_name = {{ cert_name }}</p>
-  {% include certification-logos.html cert=cert_key name=cert_name %}
-{% endfor %}
+<div class="certification-container">
+  {% for cert_item in site.data.resume[site.active_lang].certifications %}
+    {% assign cert_key = cert_item[0] %}
+    {% assign cert_name = cert_item[1] %}
+    {% include certification-logos.html cert=cert_key name=cert_name %}
+  {% endfor %}
+</div>
 
 
 

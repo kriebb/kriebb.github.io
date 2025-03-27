@@ -22,7 +22,41 @@
 .logo-mini {
   display: none;
 }
+.certification-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
 
+.certification-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  max-width: 200px;
+}
+
+.certification-logos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.cert-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+.certification-name {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
 /* Light theme rules */
 :root:not(.dark-mode) {
   @media (min-width: 768px) {
