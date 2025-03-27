@@ -36,21 +36,21 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 {% include resume.html section="development_and_programming" %}
 
 ## Education and Graduation Project
-{% for edu_item in site.data.resume.education %}
+{% for edu_item in site.data.resume[site.active_lang].education %}
 - {{ edu_item }}
 {% endfor %}
 
 ## Certifications
-{% for cert in site.data.resume.certifications %}
+{% for cert in site.data.resume[site.active_lang].certifications %}
 - {{ cert }}
 {% endfor %}
 
 ## Interests and Hobbies
-{% for interest in site.data.resume.interests_and_hobbies %}
+{% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}
 - {{ interest }}
 {% endfor %}
 
 ## Talk to Me About
-{% for topic in site.data.resume.talk_to_me_about %}
+{% for topic in site.data.resume[site.active_lang].talk_to_me_about %}
 - {{ topic }}
 {% endfor %}
