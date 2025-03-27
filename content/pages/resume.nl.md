@@ -44,8 +44,18 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 
 ## Certifications
 {% for cert in site.data.resume[site.active_lang].certifications %}
-- {{ cert }}
+  {% if cert contains "Azure" %}
+    {% include certification-logos.html cert="azure-developer" %}
+  {% endif %}
+  {% if cert contains "Scrum" %}
+    {% include certification-logos.html cert="scrum-master" %}
+  {% endif %}
+  {% if cert contains "Bachelor" %}
+    {% include certification-logos.html cert="bachelor-it" %}
+  {% endif %}
+  {{ cert }}
 {% endfor %}
+
 
 ## Interests and Hobbies
 {% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}

@@ -1,19 +1,19 @@
 scripts:
   - name: swiper
-    url: "https://unpkg.com/swiper@9.2.4/swiper-bundle.min.js"
+    url: "https://cdn.jsdelivr.net/npm/swiper@9.2.4/swiper-bundle.min.js"
     local: "/vendor/swiper/js/swiper-bundle.min.js"
 
   - name: aos
-    url: "https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js"
+    url: "https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.js"
     local: "/vendor/aos/js/aos.js"
 
 styles:
   - name: swiper
-    url: "https://unpkg.com/swiper@9.2.4/swiper-bundle.min.css"
+    url: "https://cdn.jsdelivr.net/npm/swiper@9.2.4/swiper-bundle.min.css"
     local: "/vendor/swiper/css/swiper-bundle.min.css"
 
   - name: aos
-    url: "https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css"
+    url: "https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.css"
     local: "/vendor/swiper/css/aos.css"
 
 fonts:
