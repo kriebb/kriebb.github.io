@@ -18,7 +18,7 @@ routes:
     en: "/mission-vision/"
     nl: "/nl/missie-visie/"
   print-resume:
-    en: "/en/print-resume/"
+    en: "/print-resume/"
     nl: "/nl/print-resume"
   privacy-policy:
     en: "/privacy-policy/"
