@@ -181,3 +181,54 @@ document.querySelectorAll('.protected-address').forEach(function(element) {
   // Update the element with the clean version
   element.innerHTML = cleanAddress;
 });
+// Add this to your main.js file or create a new toc.js file
+document.addEventListener('DOMContentLoaded', function() {
+  // Generate table of contents if the element exists
+  const tocContainer = document.getElementById('toc');
+  if (!tocContainer) return;
+  
+  // Find the main content area - adjust the selector as needed
+  const mainContent = document.querySelector('.main-content');
+  if (!mainContent) return;
+  
+  // Find only h2 headings in the main content (skip h3 and smaller)
+  const headings = mainContent.querySelectorAll('h2');
+  if (headings.length === 0) return;
+  
+  // Clear existing content
+  tocContainer.innerHTML = '';
+  
+  // Add each heading to the TOC
+  headings.forEach(function(heading, index) {
+    // Create a unique ID if the heading doesn't have one
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+    
+    // Create TOC item
+    const listItem = document.createElement('li');
+    
+    const link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.textContent = heading.textContent;
+    
+    listItem.appendChild(link);
+    tocContainer.appendChild(listItem);
+    
+    // Add click event to smooth scroll
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetHeading = document.getElementById(heading.id);
+      if (targetHeading) {
+        // Smooth scroll to the heading
+        window.scrollTo({
+          top: targetHeading.offsetTop - 80, // Adjust for header height
+          behavior: 'smooth'
+        });
+        
+        // Update URL hash
+        history.pushState(null, null, '#' + heading.id);
+      }
+    });
+  });
+});

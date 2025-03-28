@@ -20,7 +20,9 @@
   {% if page.toc %}
     <div class="sidebar-section">
       <h3>{{ site.data.i18n[site.active_lang].sidebar.sections.on_this_page }}</h3>
-      <ul id="toc"></ul>
+      <ul id="toc">
+        <!-- This will be populated by JavaScript -->
+      </ul>
     </div>
   {% endif %}
 </aside>
