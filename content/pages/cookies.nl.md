@@ -84,5 +84,7 @@ Ons beperkte gebruik van cookies en analytics is ontworpen om volledig te voldoe
 ## Contact met ons opnemen
 
 Als u vragen heeft over dit Cookiebeleid, neem dan contact met ons op via:
-- E-mail: {% include protected-email.html %}
-- Adres: Durmen 190, 9240 Zele, België
+- E-mail: 
+{% include protected-email.html %}
+- Address:
+{% include protected-address.html %}

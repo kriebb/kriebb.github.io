@@ -125,4 +125,4 @@ Als u vragen heeft over dit Privacybeleid, neem dan contact met ons op via:
 - E-mail: 
 {% include protected-email.html %}
 - Adres: 
-Durmen 190, 9240 Zele, België
+{% include protected-address.html %}

@@ -91,4 +91,4 @@ If you have any questions about this Cookie Policy, please contact us at:
 - Email:
 {% include protected-email.html %}
 - Address: 
-Durmen 190, 9240 Zele, Belgium
+{% include protected-address.html %}
