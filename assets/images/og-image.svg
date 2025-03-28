@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004c8c" />
+      <stop offset="100%" stop-color="#00b386" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
+  
+  <!-- Abstract geometric design elements -->
+  <g opacity="0.1" fill="#ffffff">
+    <polygon points="0,315 600,0 1200,315 600,630" />
+    <polygon points="600,100 1000,315 600,530 200,315" />
+  </g>
+  
+  <!-- Profile section (left) -->
+  <g transform="translate(120, 180)">
+    <circle cx="135" cy="135" r="135" fill="#ffffff" />
+    <g transform="translate(80, 80)">
+      <text font-family="monospace" font-size="90" fill="#004c8c" font-weight="bold">{}</text>
+    </g>
+  </g>
+  
+  <!-- Text section (right) -->
+  <g transform="translate(420, 215)">
+    <text font-family="Arial, sans-serif" font-size="64" fill="#ffffff" font-weight="bold">
+      Kristof Riebbels
+    </text>
+    <text font-family="Arial, sans-serif" font-size="40" fill="#ffffff" y="70">
+      .NET Developer
+    </text>
+    <text font-family="Arial, sans-serif" font-size="28" fill="#ffffff" y="130">
+      Secure • Clear • Reliable Solutions
+    </text>
+    
+    <!-- Tech icons -->
+    <g transform="translate(0, 180)">
+      <circle cx="30" cy="30" r="30" fill="#ffffff" opacity="0.9" />
+      <text x="30" y="42" font-family="monospace" font-size="30" text-anchor="middle" fill="#004c8c" font-weight="bold">C#</text>
+      
+      <circle cx="100" cy="30" r="30" fill="#ffffff" opacity="0.9" />
+      <text x="100" y="42" font-family="monospace" font-size="30" text-anchor="middle" fill="#004c8c" font-weight="bold">.NET</text>
+      
+      <circle cx="170" cy="30" r="30" fill="#ffffff" opacity="0.9" />
+      <text x="170" y="42" font-family="monospace" font-size="30" text-anchor="middle" fill="#004c8c">Az</text>
+      
+      <circle cx="240" cy="30" r="30" fill="#ffffff" opacity="0.9" />
+      <text x="240" y="42" font-family="monospace" font-size="30" text-anchor="middle" fill="#004c8c">JS</text>
+    </g>
+  </g>
+</svg>

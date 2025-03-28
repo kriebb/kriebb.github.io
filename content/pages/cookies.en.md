@@ -88,5 +88,7 @@ We may update this Cookie Policy from time to time. We will notify you of any ch
 ## Contact Us
 
 If you have any questions about this Cookie Policy, please contact us at:
-- Email: [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me)
-- Address: Durmen 190, 9240 Zele, Belgium
+- Email:
+{% include protected-email.html %}
+- Address: 
+Durmen 190, 9240 Zele, Belgium

@@ -73,7 +73,8 @@ Under the GDPR, you have the right to:
 - Object to processing
 - Withdraw consent at any time
 
-To exercise these rights, please contact us at [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me).
+To exercise these rights, please contact us at 
+{% include protected-email.html %}.
 
 ## Cookies
 
@@ -120,5 +121,7 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 ## Contact Us
 
 If you have any questions about this Privacy Policy, please contact us at:
-- Email: [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me)
-- Address: Durmen 190, 9240 Zele, Belgium
+- E-mail: 
+{% include protected-email.html %}
+- Address: 
+Durmen 190, 9240 Zele, Belgium

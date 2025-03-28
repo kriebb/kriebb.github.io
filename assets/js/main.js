@@ -121,3 +121,54 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   })});;
+
+/**
+ * Email protection script
+ * Assembles email addresses at runtime to prevent scraping
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Assemble and display protected email addresses
+  document.querySelectorAll('.protected-email').forEach(function(element) {
+    const name = element.getAttribute('data-name');
+    const domain = element.getAttribute('data-domain');
+    
+    if (name && domain) {
+      // Create the email text with a unicode character instead of @
+      const assembledEmail = name + '&#64;' + domain;
+      
+      // If it's a link, set the href attribute
+      if (element.tagName.toLowerCase() === 'a') {
+        element.setAttribute('href', 'mailto:' + name + '@' + domain);
+      }
+      
+      // Set the inner HTML
+      element.innerHTML = assembledEmail;
+      
+      // Add click event for non-link elements
+      if (element.tagName.toLowerCase() !== 'a') {
+        element.style.cursor = 'pointer';
+        element.title = 'Click to email';
+        element.addEventListener('click', function() {
+          window.location.href = 'mailto:' + name + '@' + domain;
+        });
+      }
+    }
+  });
+
+  // Make phone numbers readable but not scrapable
+  document.querySelectorAll('.protected-phone').forEach(function(element) {
+    // Remove hidden spans when displaying to humans
+    const displayedNumber = element.innerHTML;
+    const cleanNumber = displayedNumber.replace(/<span style="display:none">.*?<\/span>/g, '');
+    
+    // Store the clean version for click-to-call
+    const callableNumber = cleanNumber.replace(/\s+/g, '');
+    
+    // Make it clickable
+    element.style.cursor = 'pointer';
+    element.title = 'Click to call';
+    element.addEventListener('click', function() {
+      window.location.href = 'tel:' + callableNumber;
+    });
+  });
+});

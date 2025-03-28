@@ -73,7 +73,9 @@ Onder de AVG (GDPR) heeft u het recht om:
 - Bezwaar te maken tegen verwerking
 - Toestemming op elk moment in te trekken
 
-Om deze rechten uit te oefenen, kunt u contact met ons opnemen via [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me).
+Om deze rechten uit te oefenen, kunt u contact met ons opnemen via 
+{% include protected-email.html %}
+
 
 ## Cookies
 
@@ -120,5 +122,7 @@ We kunnen dit Privacybeleid van tijd tot tijd bijwerken. We zullen u op de hoogt
 ## Contact met ons opnemen
 
 Als u vragen heeft over dit Privacybeleid, neem dan contact met ons op via:
-- E-mail: [kristof.it@kriebbels.me](mailto:kristof.it@kriebbels.me)
-- Adres: Durmen 190, 9240 Zele, België
+- E-mail: 
+{% include protected-email.html %}
+- Adres: 
+Durmen 190, 9240 Zele, België

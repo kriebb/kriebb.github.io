@@ -1,30 +1,30 @@
 <footer>
   <div class="footer-container">
-<div class="footer-social">
-  <a href="https://www.linkedin.com/in/kristofriebbels" aria-label="{{ site.data.i18n[site.active_lang].social.linkedin }}" title="{{ site.data.i18n[site.active_lang].social.linkedin }}" target="_blank" rel="noopener">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://bsky.app/profile/kriebb.bsky.social" aria-label="{{ site.data.i18n[site.active_lang].social.bluesky }}" title="{{ site.data.i18n[site.active_lang].social.bluesky }}" target="_blank" rel="noopener">
-    <i class="fas fa-cloud"></i>
-  </a>
-  <a href="https://mastodon.social/@yourhandle" aria-label="{{ site.data.i18n[site.active_lang].social.mastodon }}" title="{{ site.data.i18n[site.active_lang].social.mastodon }}" target="_blank" rel="noopener">
-    <i class="fab fa-mastodon"></i>
-  </a>
-  <a href="https://github.com/kriebb" aria-label="{{ site.data.i18n[site.active_lang].social.github }}" title="{{ site.data.i18n[site.active_lang].social.github }}" target="_blank" rel="noopener">
-    <i class="fab fa-github"></i>
-  </a>
-</div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/kristofriebbels" aria-label="{{ site.data.i18n[site.active_lang].social.linkedin }}" title="{{ site.data.i18n[site.active_lang].social.linkedin }}" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://bsky.app/profile/kriebb.bsky.social" aria-label="{{ site.data.i18n[site.active_lang].social.bluesky }}" title="{{ site.data.i18n[site.active_lang].social.bluesky }}" target="_blank" rel="noopener">
+        <i class="fas fa-cloud"></i>
+      </a>
+      <a href="https://mastodon.social/@yourhandle" aria-label="{{ site.data.i18n[site.active_lang].social.mastodon }}" title="{{ site.data.i18n[site.active_lang].social.mastodon }}" target="_blank" rel="noopener">
+        <i class="fab fa-mastodon"></i>
+      </a>
+      <a href="https://github.com/kriebb" aria-label="{{ site.data.i18n[site.active_lang].social.github }}" title="{{ site.data.i18n[site.active_lang].social.github }}" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
     
     <p class="copyright">
       &copy; {{ site.time | date: "%Y" }} {{ site.title }}. {{ site.data.i18n[site.active_lang].footer.copyright }}
     </p>
     
     <div class="legal-links">
-      <a href="{{ site.data.routes.privacy-policy[site.active_lang] }}">{{ site.data.i18n[site.active_lang].footer.privacy }}</a>
-      <a href="{{ site.data.routes.cookies[site.active_lang] }}">{{ site.data.i18n[site.active_lang].footer.cookies }}</a>
+      {% assign privacy_path = site.data.routes.routes.privacy-policy[site.active_lang] %}
+      <a href="{{ privacy_path }}">{{ site.data.i18n[site.active_lang].footer.privacy }}</a>
+      
+      {% assign cookies_path = site.data.routes.routes.cookies[site.active_lang] %}
+      <a href="{{ cookies_path }}">{{ site.data.i18n[site.active_lang].footer.cookies }}</a>
     </div>
   </div>
-
-
-
 </footer>

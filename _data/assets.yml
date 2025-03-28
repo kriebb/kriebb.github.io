@@ -19,9 +19,31 @@ styles:
     local: "/vendor/swiper/css/aos.css"
 
 fonts:
+  - name: poppins
+    url: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    local: "/vendor/fonts/poppins.css"
+    critical: true
+    preconnect:
+      - domain: "fonts.googleapis.com"
+        crossorigin: false
+      - domain: "fonts.gstatic.com"
+        crossorigin: true
+
   - name: roboto
     url: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    local: "/vendor/google/fonts/roboto.css"
-  - name: poppins
-    url: https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" 
-   
+    local: "/vendor/fonts/roboto.css"
+    critical: false
+    preconnect: 
+      - domain: "fonts.googleapis.com"
+        crossorigin: false
+      - domain: "fonts.gstatic.com"
+        crossorigin: true
+
+  # Example for other font providers
+  - name: open-sans
+    url: "https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5.0.12/index.css"
+    local: "/vendor/fonts/open-sans.css"
+    critical: false
+    preconnect:
+      - domain: "cdn.jsdelivr.net"
+        crossorigin: false

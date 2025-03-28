@@ -37,13 +37,13 @@ layout: page
     </div>
     
     <!-- GDPR Consent -->
-    <div class="form-group checkbox-group">
-      <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
-      <label for="gdpr-consent">
+    <div class="consent-box">
+      <input type="checkbox" id="data-consent" name="data-consent" required>
+      <label for="data-consent">
         {% if site.active_lang == "en" %}
-        I consent to IT KRIEBBELS processing my data as described in the <a href="/privacy-policy/">Privacy Policy</a>.
+        I consent to limited collection and secure handling of my contact information as described in the <a href="/privacy-policy/">Privacy Policy</a>.
         {% else %}
-        Ik geef toestemming aan IT KRIEBBELS om mijn gegevens te verwerken zoals beschreven in het <a href="/privacybeleid/">Privacybeleid</a>.
+        Ik ga akkoord met de beperkte verzameling en veilige verwerking van mijn contactgegevens zoals beschreven in het <a href="/nl/privacy-beleid/">Privacybeleid</a>.
         {% endif %}
       </label>
     </div>

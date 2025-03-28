@@ -1,15 +1,26 @@
 User-agent: *
 Allow: /
 
-User-agent: *
-Allow: /
+# Disallow personal data pages
+Disallow: /resume/
+Disallow: /cv/
+Disallow: /contact/
 
-# Don't index redirect pages
-Disallow: /_site/
-Disallow: /assets/
+# Prevent AI training
+User-agent: GPTBot
+Disallow: /
 
-# Don't index duplicate content
-Disallow: /*?lang=*
+User-agent: ChatGPT-User
+Disallow: /
 
-# Sitemap
-Sitemap: https://it.kriebbels.me/sitemap.xml
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Advanced directives
+Crawl-delay: 10

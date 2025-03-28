@@ -2,6 +2,10 @@
 <meta name="page-ref" content="{{ page.ref }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="robots" content="noai, noimageai">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="robots" content="noarchive">
+<meta name="googlebot" content="noindex-profile">
 <style>
   /* Force initial header styles to prevent flicker */
   header {
@@ -55,6 +59,58 @@
   }
 </style>
 
+<!-- Collect unique preconnect domains -->
+{% assign preconnect_domains = '' | split: '' %}
+
+{% for font in site.data.fonts %}
+  {% if font.preconnect %}
+    {% for preconnect in font.preconnect %}
+      {% assign domain_info = preconnect.domain | append: '|' | append: preconnect.crossorigin %}
+      {% assign preconnect_domains = preconnect_domains | push: domain_info %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+<!-- Remove duplicates -->
+{% assign unique_domains = '' | split: '' %}
+{% for domain_info in preconnect_domains %}
+  {% unless unique_domains contains domain_info %}
+    {% assign unique_domains = unique_domains | push: domain_info %}
+  {% endunless %}
+{% endfor %}
+
+<!-- Output optimized preconnect tags -->
+{% for domain_info in unique_domains %}
+  {% assign parts = domain_info | split: '|' %}
+  {% assign domain = parts[0] %}
+  {% assign crossorigin = parts[1] %}
+  
+  <link rel="preconnect" href="https://{{ domain }}" {% if crossorigin == 'true' %}crossorigin{% endif %}>
+  {% if crossorigin == 'true' %}
+    <link rel="dns-prefetch" href="https://{{ domain }}">
+  {% endif %}
+{% endfor %}
+
+<!-- Font stylesheets with optimized loading -->
+{% for font in site.data.fonts %}
+  <!-- Preload critical fonts -->
+  {% if font.critical %}
+    <link rel="preload" href="{{ font.url }}" as="style">
+  {% endif %}
+  
+  <!-- Load font stylesheet with fallback -->
+  <link rel="stylesheet" href="{{ font.url }}" 
+        {% if font.critical %}media="print" onload="this.media='all'"{% endif %}
+        onerror="this.onerror=null;this.href='{{ font.local }}';">
+  
+  <!-- Noscript fallback for critical fonts -->
+  {% if font.critical %}
+    <noscript>
+      <link rel="stylesheet" href="{{ font.url }}">
+    </noscript>
+  {% endif %}
+{% endfor %}
+
 <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 
 {% include seo-meta.html %}
@@ -67,9 +123,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- External libraries -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% for font in site.data.fonts %}
-  <link rel="stylesheet" href="{{ font.url }}" onerror="this.onerror=null;this.href='{{ font.local }}';">
+  <link rel="stylesheet" href="{{ font.url }}" onerror="this.onerror=null;this.href='{{ font.url }}';">
 {% endfor %}
 <!-- Preload critical assets -->
 <link rel="preload" as="image" href="/assets/it-kriebbels-logo-full-light.svg">

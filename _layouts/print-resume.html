@@ -227,27 +227,27 @@
   </div>
 
   <!-- Education & Certifications Section -->
-  <div class="section">
+  <div class="certification-section">
     <h2>Education & Certifications</h2>
-    <div class="grid">
-      <div>
-        <h3>Education</h3>
-        <ul>
-          {% for edu_item in site.data.resume[site.active_lang].education %}
-          <li>{{ edu_item }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div>
-        <h3>Certifications</h3>
-        <ul>
-          {% for cert_key in site.data.resume[site.active_lang].certifications %}
-          <li>{{ site.data.resume[site.active_lang].certifications[cert_key] }}</li>
-        {% endfor %}
-        </ul>
-      </div>
+    <div class="certification-grid">
+      {% for cert_key in site.data.resume[site.active_lang].certifications %}
+        {% assign cert_name = site.data.resume[site.active_lang].certifications[cert_key] %}
+        <div class="certification-item-print">
+          <div class="cert-logo-container">
+            {% if cert_key == "azure-developer" %}
+              <img src="{{ site.url }}/assets/images/certifications/azure-developer-associate.jpg" alt="{{ cert_name }}" class="cert-logo-print" />
+            {% elsif cert_key == "scrum-master" %}
+              <img src="{{ site.url }}/assets/images/certifications/certified-scrum-master.png" alt="{{ cert_name }}" class="cert-logo-print" />
+            {% elsif cert_key == "bachelor" %}
+              <img src="{{ site.url }}/assets/images/certifications/hogent-logo.jpg" alt="{{ cert_name }}" class="cert-logo-print" />
+            {% endif %}
+          </div>
+          <div class="cert-name-print">{{ cert_name }}</div>
+        </div>
+      {% endfor %}
     </div>
   </div>
+  
 
   <!-- Core Competencies Section -->
   <div class="section">

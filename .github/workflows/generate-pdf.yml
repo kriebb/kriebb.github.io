@@ -1,3 +1,4 @@
+# .github/workflows/generate-pdf.yml
 name: Jekyll Site CI/CD with Multilingual PDFs
 on:
   push:
@@ -37,7 +38,7 @@ jobs:
           sleep 5  # Give Jekyll server time to start
           
           # Generate English PDF
-          wkhtmltopdf http://localhost:4000/en/print-resume/ ./_site/kristof-riebbels-resume-en.pdf
+          wkhtmltopdf http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume-en.pdf
           
           # Generate Dutch PDF
           wkhtmltopdf http://localhost:4000/nl/print-resume/ ./_site/kristof-riebbels-resume-nl.pdf
