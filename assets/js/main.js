@@ -172,3 +172,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+document.querySelectorAll('.protected-address').forEach(function(element) {
+  // Remove hidden spans when displaying to humans
+  const displayedAddress = element.innerHTML;
+  const cleanAddress = displayedAddress.replace(/<span style="display:none">.*?<\/span>/g, '');
+  
+  // Update the element with the clean version
+  element.innerHTML = cleanAddress;
+});

@@ -64,9 +64,9 @@ education:
   - "Graduation Project: RFID & PLC Integration — controlling a PLC from a C# application via RFID and Ethernet communication, focusing on reusable and testable code."
 
 certifications:
-    azure-developer: "Bachelor in Informatics (HoGent, Ghent)"
+    bachelor: "Bachelor in Informatics (HoGent, Ghent)"
     scrum-master:  "Certified Scrum Master (Scrum.org)"
-    bachelor: "Certified Azure Developer Associate (Microsoft)"
+    azure-developer: "Certified Azure Developer Associate (Microsoft)"
 
 interests_and_hobbies:
   - "Sports: Cycling, core stability, hiking, walking"
