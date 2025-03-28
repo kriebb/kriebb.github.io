@@ -41,7 +41,7 @@ jobs:
           wkhtmltopdf http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume-en.pdf
           
           # Generate Dutch PDF
-          wkhtmltopdf http://localhost:4000/nl/print-resume/ ./_site/kristof-riebbels-resume-nl.pdf
+          wkhtmltopdf http://localhost:4000/nl/print-resume/ ./_site/nl/kristof-riebbels-resume-nl.pdf
           
           pkill -f "jekyll serve" || true
       
