@@ -19,6 +19,9 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
       
+      - name: Unfreeze bundle
+        run: bundle config set frozen false
+
       - name: Install dependencies
         run: bundle install
       
