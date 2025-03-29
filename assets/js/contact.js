@@ -133,3 +133,30 @@ window.onSubmit = function () {
   }
 };
 //TODO: switch to instead of https://github.com/Basharath/FormEasy
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get reference to the consent checkbox and submit button
+  const consentCheckbox = document.getElementById('data-consent');
+  const submitButton = document.querySelector('.btn-submit');
+  
+  // Disable the submit button by default
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-disabled');
+  }
+  
+  // Add event listener to the checkbox
+  if (consentCheckbox && submitButton) {
+    consentCheckbox.addEventListener('change', function() {
+      // Enable/disable the button based on checkbox state
+      submitButton.disabled = !this.checked;
+      
+      if (this.checked) {
+        submitButton.classList.remove('btn-disabled');
+      } else {
+        submitButton.classList.add('btn-disabled');
+      }
+    });
+  }
+});

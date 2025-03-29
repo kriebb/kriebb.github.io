@@ -90,3 +90,14 @@ form .radio-group label {
   margin-bottom: 0;
   font-weight: normal;
 }
+
+.btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* For better accessibility */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
