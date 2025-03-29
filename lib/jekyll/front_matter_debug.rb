@@ -24,7 +24,7 @@ module Jekyll
       begin
         # Method 1: Standard file read
         content = File.read(file)
-       # puts "File Read Method 1 - Total Length: #{content.length}"
+        puts "File Read Method 1 - Total Length: #{content.length}"
        # puts "First 100 characters: #{content[0,100].inspect}"
         
         # Method 2: Read with encoding
@@ -43,7 +43,7 @@ module Jekyll
         
         if front_matter_match
           front_matter_text = front_matter_match[1]
-          # puts "Front Matter Found:"
+           #puts "Front Matter Found:"
           # puts front_matter_text
           
           # Try parsing with different methods
@@ -66,7 +66,7 @@ module Jekyll
         
       rescue => e
         puts "Error reading file: #{e.message}"
-        puts e.backtrace.join("\n")
+        #puts e.backtrace.join("\n")
       end
       
       #puts "=" * 40

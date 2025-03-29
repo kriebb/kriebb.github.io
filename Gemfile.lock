@@ -152,6 +152,7 @@ GEM
     typhoeus (1.4.1)
       ethon (>= 0.9.0)
     unicode-display_width (2.6.0)
+    wdm (0.2.0)
     webrick (1.9.1)
     yell (2.2.2)
     zeitwerk (2.7.2)
@@ -174,6 +175,7 @@ DEPENDENCIES
   jekyll-sitemap
   logger
   minima
+  wdm (>= 0.1.0)
 
 BUNDLED WITH
    2.6.3

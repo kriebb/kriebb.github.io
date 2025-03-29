@@ -54,12 +54,10 @@ layout: page
     <p>
       {{ site.data.i18n[site.active_lang].contact.form.note }}
     </p>
-    
+    <div class="h-captcha" data-sitekey="91229cfa-8ee4-4992-a5dc-4862a4320b06" data-callback="onSubmit" 
+    data-action="submit"></div>
     <!-- hCaptcha instead of Google reCaptcha -->
-    <button class="h-captcha btn-submit" 
-            data-sitekey="10000000-ffff-ffff-ffff-000000000001" 
-            data-callback="onSubmit" 
-            data-action="submit">
+    <button class="btn-submit" >
       {{ site.data.i18n[site.active_lang].contact.form.submit }}
     </button>
   </form>

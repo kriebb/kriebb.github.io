@@ -53,8 +53,9 @@ plugins:
 polyglot:
   languages: ["en", "nl"]
   default_lang: "en"
-  exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
+  exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico", "lib"]  # Add "lib"  
   permalink: pretty
+  parallel_processing: true
 
 # Sass processing
 sass:
