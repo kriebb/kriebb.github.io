@@ -8,7 +8,6 @@ ref: thank-you
 pageid: thank-you
 
 ---
-# Thank You!
 
 Your message has been sent. I'll get back to you as soon as possible.
 
