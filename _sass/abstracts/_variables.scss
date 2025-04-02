@@ -29,7 +29,7 @@ $light-green: #00d9a3;
   --accent-color: #{$green};
   --accent-light: #{$light-green};
   --accent-dark: #{$dark-green};
-  
+  --accent-color-rgb: 0, 179, 134; /* This is the RGB for #00b386 */
   // UI Elements
   --border-color: #{$gray-300};
   --border-color-dark: #{$gray-400};

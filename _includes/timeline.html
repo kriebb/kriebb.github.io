@@ -1,24 +1,40 @@
-<div class="timeline">
+<div class="timeline-container">
   {% for item in site.data.work_experience[site.active_lang] %}
   <div class="timeline-item" data-aos="fade-up">
-    <div class="content">
-      <div class="date">{{ item.date }}</div>
-      <h3>{{ item.company }}</h3>
-      <ul>
+    <div class="timeline-date">
+      <span>{{ item.date }}</span>
+    </div>
+    
+    <div class="timeline-content">
+      <h3 class="company">{{ item.company }}</h3>
+      <ul class="main-bullets">
         {% for bullet in item.bullets %}
           <li>{{ bullet | markdownify }}</li>
         {% endfor %}
-        {% if item.extra_details %}
-            <details>
-              <summary>More details</summary>
-              <ul>
-                    {% for detail in item.extra_details %}
-                      <li>{{ detail | markdownify }}</li>
-                    {% endfor %}
-              </ul>
-            </details>
-        {% endif %}
       </ul>
+      
+      {% if item.client_projects %}
+        <div class="client-projects-section">
+          <h4>Client Projects:</h4>
+          {% for client in item.client_projects %}
+            <div class="client-project-card">
+              <div class="client-name">{{ client.name }}</div>
+              <div class="client-details">{{ client.details | markdownify }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if item.extra_details %}
+        <details>
+          <summary>More details</summary>
+          <ul>
+            {% for detail in item.extra_details %}
+              <li>{{ detail | markdownify }}</li>
+            {% endfor %}
+          </ul>
+        </details>
+      {% endif %}
     </div>
   </div>
   {% endfor %}
