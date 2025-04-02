@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang | default: site.active_lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -234,6 +234,16 @@
       }
     }
   </style>
+  <!-- Meta tags for better PDF generation -->
+  <meta name="pdfkit-page-size" content="A4"/>
+  <meta name="pdfkit-margin-top" content="10mm"/>
+  <meta name="pdfkit-margin-right" content="10mm"/>
+  <meta name="pdfkit-margin-bottom" content="10mm"/>
+  <meta name="pdfkit-margin-left" content="10mm"/>
+  <meta name="pdfkit-disable-javascript" content="false"/>
+  <meta name="pdfkit-disable-external-links" content="false"/>
+  <meta name="pdfkit-disable-internal-links" content="false"/>
+  <meta name="pdfkit-encoding" content="UTF-8"/>
 </head>
 <body>
   <div class="header">

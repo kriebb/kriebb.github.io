@@ -1,5 +1,5 @@
 # .github/workflows/generate-pdf.yml
-name: Jekyll Site CI/CD with Multilingual PDFs
+name: Jekyll Site CI/CD with Searchable Multilingual PDFs
 on:
   push:
     branches: [ main ]
@@ -28,23 +28,62 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
       
-      # Install wkhtmltopdf for PDF generation
+      # Install wkhtmltopdf with patched Qt for better PDF generation
       - name: Install wkhtmltopdf
         run: |
           sudo apt-get update
-          sudo apt-get install -y wkhtmltopdf
+          sudo apt-get install -y wget xfonts-75dpi xfonts-base
+          wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+          sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
+          sudo apt-get install -f
       
-      # Start Jekyll server, generate PDFs, and stop server
-      - name: Generate Resume PDFs
+      # Start Jekyll server, generate PDFs with text searchability, and stop server
+      - name: Generate Searchable Resume PDFs
         run: |
           bundle exec jekyll serve --detach
           sleep 5  # Give Jekyll server time to start
           
-          # Generate English PDF
-          wkhtmltopdf http://localhost:4000/print-resume/ ./_site/kristof-riebbels-resume-en.pdf
+          # Generate English PDF with text searchability
+          wkhtmltopdf \
+            --enable-local-file-access \
+            --javascript-delay 2000 \
+            --no-stop-slow-scripts \
+            --enable-javascript \
+            --enable-external-links \
+            --print-media-type \
+            --encoding utf-8 \
+            --enable-smart-shrinking \
+            --dpi 300 \
+            --page-size A4 \
+            --margin-top 10mm \
+            --margin-right 10mm \
+            --margin-bottom 10mm \
+            --margin-left 10mm \
+            http://localhost:4000/print-resume/ \
+            ./_site/kristof-riebbels-resume-en.pdf
           
-          # Generate Dutch PDF
-          wkhtmltopdf http://localhost:4000/nl/print-resume/ ./_site/nl/kristof-riebbels-resume-nl.pdf
+          # Generate Dutch PDF with text searchability
+          wkhtmltopdf \
+            --enable-local-file-access \
+            --javascript-delay 2000 \
+            --no-stop-slow-scripts \
+            --enable-javascript \
+            --enable-external-links \
+            --print-media-type \
+            --encoding utf-8 \
+            --enable-smart-shrinking \
+            --dpi 300 \
+            --page-size A4 \
+            --margin-top 10mm \
+            --margin-right 10mm \
+            --margin-bottom 10mm \
+            --margin-left 10mm \
+            http://localhost:4000/nl/print-resume/ \
+            ./_site/nl/kristof-riebbels-resume-nl.pdf
+          
+          # Verify that PDFs were created
+          ls -la ./_site/*.pdf
+          ls -la ./_site/nl/*.pdf
           
           pkill -f "jekyll serve" || true
       

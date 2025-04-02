@@ -17,11 +17,19 @@ core_competencies:
     items:
       - "C#"
       - "ASP.NET Core"
+      - "ASP.NET MVC"
       - "Web API"
       - "Azure"
       - "OIDC"
       - "Token Management"
       - "Vulnerability Scanning"
+  - category: ".NET & Azure Ontwikkeling"
+    items:
+      - ".NET 8 (met migratie-ervaring vanaf .NET 6)"
+      - "Azure DevOps ecosysteem"
+      - "CI/CD met YAML pipelines"
+      - "NuGet package ontwikkeling/publicatie"
+      - "Security & SBOM awareness"
 
 skills:
   development_and_programming:
@@ -29,34 +37,56 @@ skills:
       items:
         - "C#"
         - ".NET Core"
+        - ".NET 8"
         - "ASP.NET Core"
+        - "ASP.NET MVC"
         - "JavaScript"
         - "TypeScript"
+        - "CSS/SCSS"
+        - "Jekyll"
     - category: "Web Technologies"
       items:
         - "REST APIs"
         - "JSON"
         - "XML"
+        - "YAML"
     - category: "Databases"
       items:
         - "SQL Server"
         - "CosmosDB"
         - "MongoDB"
+        - "Azure SQL Database"
     - category: "Infrastructure"
       items:
         - "Azure"
         - "Docker"
         - "GitHub Actions"
         - "CI/CD automation"
+    - category: "Azure & DevOps"
+      items:
+        - "Azure DevOps (Repos, Pipelines, Agent Pools, Artifacts)"
+        - "Azure KeyVault"
+        - "Azure Storage Accounts"
+        - "Application Insights"
+        - "CI/CD met YAML"
+        - "NuGet package ontwikkeling"
+        - "Azure Active Directory"
     - category: "Security"
       items:
         - "OpenID Connect"
         - "OAuth tokens"
         - "Secure software supply chains"
+        - "SBOM (Software Bill of Materials)"
     - category: "Scripting & Automation"
       items:
         - "PowerShell"
         - "Deployment automation"
+    - category: "Tools"
+      items:
+        - "Visual Studio"
+        - "Visual Studio Code"
+        - "Rider"
+        - "Resharper" 
 
 education:
   - "Secondary School Teacher (Handel-Burotica-Informatica), Hogeschool Gent"
@@ -71,7 +101,7 @@ certifications:
 interests_and_hobbies:
   - "Sports: Cycling, core stability, hiking, walking"
   - "Social: Enjoy spending time with my girlfriend, family, and my cats"
-  - "Technologies: Working with Node.js, Python, OpenAI, Mistral, reading"
+  - "Technologies: Working with Node.js, Python, OpenAI, Mistral, Claude reading",
 
 talk_to_me_about:
   - "Movies & Series: I'm always up for discussing great films or binge-worthy series—tips are welcome!"

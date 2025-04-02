@@ -4,13 +4,15 @@
   bullets:
     - "Leveren van hulp en met een consultancy-mindset voor beveiligde identiteitsoplossingen en .NET ecosysteem modernisering"
     - "Toepassen van kritisch denken en challengen waar het kan, ( met als doel meerwaarde te geven. )"
+    - "Ontwikkelen met .NET 8, inclusief migratie van .NET 6 omgevingen"
     - "Implementatie van Auth0 (met Itsme integratie) in zakelijke omgevingen, customer-driven, migratie van LDAP"
+    - "Beheren van Azure DevOps omgeving met YAML pipelines, Agent Pools, en Artifacts"
     - "Schrijven van technische autoriteit-opbouwende blogposts over beveiliging en architectuur"
     - "Spreker op branche-evenementen waaronder [Techorama 2024](https://techorama-2024-belgium.sessionize.com/session/596350), [Update Conference 2023](http://www.updateconference.net/cz/2023/schedule/mock-your-openid-connect-provider), [VISUG](https://www.visug.be/Events/92), en [Dotnet Friday](https://dotnetfriday.nl/blogs/2024-02-dotnetfriday/)"
     - "Microsoft Certified: Azure Developer Associate (AZ-204)"
   client_projects:
     - name: "AXA Belgium"
-      details: "Leidde implementatie van Auth0 met Itsme integratie, versterking van hun klantauthenticatie beveiligingspositie"
+      details: "Leidde implementatie van Auth0 met Itsme integratie, versterking van hun klantauthenticatie beveiligingspositie. Werkte met Azure Storage Accounts, KeyVault (één per app-domein/omgevingstype), en Application Insights voor monitoring en logging."
     - name: "Outdoor Group"
       details: "Verbeterde ASP.NET MVC schermen em integratie van nieuwe velden en functionaliteit binnen een bestaand project"
     - name: "KBC"
