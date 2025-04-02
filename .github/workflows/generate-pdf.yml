@@ -32,10 +32,18 @@ jobs:
       - name: Install wkhtmltopdf
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget xfonts-75dpi xfonts-base
+          sudo apt-get install -y wget xfonts-75dpi xfonts-base fontconfig libfontconfig1 libxrender1
+          
+          # Install libssl1.1 from older Ubuntu repository
+          wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+          
+          # Now install wkhtmltopdf
           wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
           sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
-          sudo apt-get install -f
+          
+          # Check if wkhtmltopdf is installed correctly
+          wkhtmltopdf --version
       
       # Start Jekyll server, generate PDFs with text searchability, and stop server
       - name: Generate Searchable Resume PDFs
