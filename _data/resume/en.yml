@@ -87,7 +87,7 @@ skills:
         - "Visual Studio Code"
         - "Rider"
         - "Resharper"
-        
+
 
 education:
   - "Secondary School Teacher (Handel-Burotica-Informatica), Hogeschool Gent"
@@ -95,9 +95,9 @@ education:
   - "Graduation Project: RFID & PLC Integration — controlling a PLC from a C# application via RFID and Ethernet communication, focusing on reusable and testable code."
 
 certifications:
-    bachelor: "Bachelor in Informatics (HoGent, Ghent)"
-    scrum-master:  "Certified Scrum Master (Scrum.org)"
-    azure-developer: "Certified Azure Developer Associate (Microsoft)"
+  bachelor: "Bachelor in Informatics (HoGent, Ghent)"
+  scrum-master:  "Certified Scrum Master (Scrum.org)"
+  azure-developer: "Certified Azure Developer Associate (Microsoft)"
 
 interests_and_hobbies:
   - "Sports: Cycling, core stability, hiking, walking"
