@@ -1,16 +1,19 @@
-<div class="certification-item">
-  <div class="certification-logos">
-    {% if include.cert == "azure-developer" %}
-      <a href="https://learn.microsoft.com/en-gb/users/kristofriebbels-9315/transcript/7o5k5bw3mzgkqnl">
-        <img src="/assets/images/certifications/azure-developer-associate.jpg" alt="{{ include.name }}" class="cert-logo" />
-      </a>
-    {% elsif include.cert == "scrum-master" %}
-      <a href="https://www.credly.com/badges/472a89fa-79ad-48a3-943a-b422b470ef05?source=linked_in_profile">
-        <img src="/assets/images/certifications/certified-scrum-master.png" alt="{{ include.name }}" class="cert-logo" />
-      </a>
-    {% elsif include.cert == "bachelor" %}
-      <img src="/assets/images/certifications/hogent-logo.jpg" alt="{{ include.name }}" class="cert-logo" />
-    {% endif %}
-  </div>
-  <span class="certification-name">{{ include.name }}</span>
+<!-- Certifications - vertical layout -->
+<div class="certification-container-print">
+  {% for cert_item in site.data.resume[site.active_lang].certifications %}
+    {% assign cert_key = cert_item[0] %}
+    {% assign cert_name = cert_item[1] %}
+    <div class="certification-item-print">
+      <div class="cert-logo-container">
+        {% if cert_key == "azure-developer" %}
+          <img src="{{ '/assets/images/certifications/azure-developer-associate.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+        {% elsif cert_key == "scrum-master" %}
+          <img src="{{ '/assets/images/certifications/certified-scrum-master.png' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+        {% elsif cert_key == "bachelor" %}
+          <img src="{{ '/assets/images/certifications/hogent-logo.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+        {% endif %}
+      </div>
+      <div class="cert-name-print">{{ cert_name }}</div>
+    </div>
+  {% endfor %}
 </div>
