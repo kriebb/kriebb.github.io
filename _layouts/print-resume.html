@@ -12,29 +12,32 @@
     /* Base styling */
     body {
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.4;
+      line-height: 1.3;
       color: #333;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 0.75rem;
       background: #f8f8f8;
+      font-size: 10pt; /* Base font size for better printing */
     }
+    
     a {
       color: #00b386;
       text-decoration: none;
     }
     
-    /* Header styling */
+    /* Header styling - more compact */
     .header {
       background: #ffffff;
-      padding: 1.25rem 1rem;
+      padding: 0.75rem;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       border-radius: 4px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 0.25rem;
       color: #004c8c;
     }
@@ -44,76 +47,100 @@
       page-break-after: avoid; 
       break-after: avoid-page;
     }
+    
     h2 {
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      margin-top: 1rem;
       margin-bottom: 0.5rem;
       color: #004c8c;
       border-bottom: 2px solid #00b386;
       padding-bottom: 0.25rem;
     }
+    
     h3 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 0.25rem;
       color: #00b386;
     }
     
     .contact-info {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #666;
       margin-top: 0.5rem;
     }
     
-    /* Section styling */
+    /* Section styling - more compact */
     .section {
       background: #ffffff;
-      padding: 1rem;
-      margin-bottom: 1rem;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
       border-radius: 4px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       page-break-inside: avoid;
       break-inside: avoid;
     }
     
-    /* Grid layout for sections */
-    .grid {
+    /* Multi-column layout */
+    .three-column-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
       page-break-inside: avoid;
       break-inside: avoid;
     }
     
-    /* Experience items */
-    .experience-item {
-      margin-bottom: 1rem;
+    .two-column-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
       page-break-inside: avoid;
       break-inside: avoid;
     }
+    
+    /* Condensed Experience Section */
+    .experience-container {
+      column-count: 1; /* One column by default, changes to 2 when printed */
+      column-gap: 1rem;
+      orphans: 2;
+      widows: 2;
+    }
+    
+    .experience-item {
+      margin-bottom: 0.75rem;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dotted #e0e0e0;
+    }
+    
     .experience-date {
       color: #00b386;
       font-weight: bold;
       margin-bottom: 0.25rem;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      float: right;
     }
+    
     .experience-company {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin: 0.15rem 0;
     }
+    
     .experience-item ul {
       margin: 0.5rem 0;
       padding-left: 1rem;
       list-style: none;
       position: relative;
     }
+    
     .experience-item ul li {
       margin-bottom: 0.3rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       position: relative;
       padding-left: 1rem;
     }
+    
     .experience-item ul li::before {
       content: "•";
       color: #00b386;
@@ -122,120 +149,141 @@
       font-weight: bold;
     }
     
-    /* Client projects styling */
+    /* Client projects styling - more compact */
     .client-projects {
       margin: 0.5rem 0 0.5rem 1rem;
-      border-left: 3px solid #00b386;
-      padding-left: 0.75rem;
+      border-left: 2px solid #00b386;
+      padding-left: 0.5rem;
     }
+    
     .client-projects-heading {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       margin-bottom: 0.25rem;
       color: #004c8c;
     }
+    
     .client-name {
       font-weight: 600;
       color: #00b386;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
     }
+    
     .client-details {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       margin-left: 0.5rem;
       margin-bottom: 0.5rem;
     }
+    
     .more-details-note {
       font-style: italic;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #666;
       margin-top: 0.3rem;
       text-align: right;
     }
     
-    /* Projects styling */
+    /* Projects styling - 3 column */
+    .projects {
+      padding: 0.5rem;
+      border-radius: 3px;
+      background: #fafafa;
+      height: 100%;
+    }
+    
     .projects h3 {
       margin-bottom: 0.15rem;
-      font-size: 1.05rem;
+      font-size: 0.9rem;
     }
+    
     .projects p {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
     }
     
     /* Education & Certifications styling */
     .education-list {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       padding-left: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       list-style-type: disc;
     }
-    /* Certifications: Logos next to each other */
+    
+    /* Certifications: Horizontal layout */
     .certification-container-print {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin: 1rem 0;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
       page-break-inside: avoid;
       break-inside: avoid;
     }
+    
     .certification-item-print {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px;
+      gap: 8px;
+      padding: 5px;
       border: 1px solid #e0e0e0;
       border-radius: 4px;
       background: #fafafa;
       page-break-inside: avoid;
       break-inside: avoid;
+      width: 31%;
     }
+    
     .cert-logo-container {
-      max-width: 60px;
+      max-width: 40px;
     }
+    
     .cert-logo-print {
-      max-height: 50px;
+      max-height: 35px;
       object-fit: contain;
     }
+    
     .cert-name-print {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 500;
     }
     
     /* Core Competencies & Technical Skills */
     .skill-category {
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       page-break-inside: avoid;
       break-inside: avoid;
     }
+    
     .skill-category h3 {
       margin-bottom: 0.25rem;
-      font-size: 1.05rem;
+      font-size: 0.9rem;
       color: #00b386;
     }
+    
     .skill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
       list-style: none;
       margin: 0;
       padding: 0;
       page-break-inside: avoid;
     }
+    
     .skill-list li {
       background-color: #e0f5f0;
       color: #000;
-      padding: 0.3rem 0.6rem;
+      padding: 0.2rem 0.4rem;
       border-radius: 9999px;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       white-space: nowrap;
     }
     
     /* Footer styling */
     .footer {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #666;
       border-top: 1px solid #e0e0e0;
       padding-top: 0.5rem;
@@ -247,34 +295,49 @@
         margin: 10mm;
         size: A4;
       }
+      
       body {
         padding: 0;
         font-size: 9pt;
         background: #fff;
       }
+      
+      .experience-container {
+        column-count: 2; /* Two columns when printed */
+      }
+      
       a {
         text-decoration: none;
         color: #00b386;
       }
+      
       .no-print {
         display: none !important;
       }
+      
       h2, h3 {
         page-break-after: avoid;
       }
-      .section, .experience-item, .certification-item-print, .grid, .skill-category {
+      
+      .section, .experience-item, .certification-item-print, .two-column-grid, .three-column-grid, .skill-category {
         page-break-inside: avoid;
       }
-      /* Add a box around the skill list when printing */
+      
+      /* Optimize space for printing */
+      .section {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
       .skill-list {
         border: 1px solid #e0e0e0;
-        padding: 0.5rem;
+        padding: 0.4rem;
         border-radius: 4px;
       }
-      /* Optionally add a subtle box around each skill item */
+      
       .skill-list li {
         border: 1px solid #ddd;
-        padding: 0.3rem 0.6rem;
+        padding: 0.2rem 0.4rem;
         border-radius: 9999px;
         background-color: #fff;
       }
@@ -299,76 +362,27 @@
     <p>Freelance .NET Developer | Azure Developer Associate | Security-minded | Certified Scrum Master</p>
     <div class="contact-info">
       Belgium (Antwerp/Ghent region) | 
-      <a href="https://www.itkriebbels.be/contact">
-        cv{{ site.time | date: "%m%d" }}.{{ site.time | date: "%Y" }}@kristof.riebbels.be
-      </a>
+      {% include protected-email.html %}
     </div>
   </div>
   
-  <!-- Projects Section -->
+  <!-- Projects Section - Now 3 columns -->
   <div class="section">
     <h2>Projects</h2>
-    <div class="grid">
+    <div class="three-column-grid">
       {% for project in site.data.projects[site.active_lang] limit:6 %}
       <div class="projects">
         <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
-        <p>{{ project.description | truncate: 120 }}</p>
+        <p>{{ project.description | truncate: 100 }}</p>
       </div>
       {% endfor %}
     </div>
   </div>
   
-  <!-- Education & Certifications Section -->
+  <!-- Skills Section - More columns for better space usage -->
   <div class="section">
-    <h2>Education & Certifications</h2>
-    <!-- Education list -->
-    <ul class="education-list">
-      {% for edu_item in site.data.resume[site.active_lang].education %}
-      <li>{{ edu_item }}</li>
-      {% endfor %}
-    </ul>
-    <!-- Certifications: Logos next to each other -->
-    <div class="certification-container-print">
-      {% for cert_item in site.data.resume[site.active_lang].certifications %}
-        {% assign cert_key = cert_item[0] %}
-        {% assign cert_name = cert_item[1] %}
-        <div class="certification-item-print">
-          <div class="cert-logo-container">
-            {% if cert_key == "azure-developer" %}
-              <img src="{{ '/assets/images/certifications/azure-developer-associate.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
-            {% elsif cert_key == "scrum-master" %}
-              <img src="{{ '/assets/images/certifications/certified-scrum-master.png' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
-            {% elsif cert_key == "bachelor" %}
-              <img src="{{ '/assets/images/certifications/hogent-logo.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
-            {% endif %}
-          </div>
-          <div class="cert-name-print">{{ cert_name }}</div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  
-  <!-- Core Competencies Section -->
-  <div class="section">
-    <h2>Core Competencies</h2>
-    <div class="grid">
-      {% for competence_group in site.data.resume[site.active_lang].core_competencies %}
-      <div class="skill-category">
-        <h3>{{ competence_group.category }}</h3>
-        <ul class="skill-list">
-          {% for item in competence_group.items %}
-          <li class="skill-item">{{ item }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-  
-  <!-- Technical Skills Section -->
-  <div class="section">
-    <h2>{{ site.data.i18n[site.active_lang].resume.skills }}</h2>
-    <div class="grid">
+    <h2>Skills & Expertise</h2>
+    <div class="three-column-grid">
       {% for category_obj in site.data.resume[site.active_lang].skills.development_and_programming %}
       <div class="skill-category">
         <h3>{{ category_obj.category }}</h3>
@@ -382,43 +396,114 @@
     </div>
   </div>
   
-  <!-- Professional Experience Section -->
+  <!-- Core Competencies Section -->
   <div class="section">
-    <h2>Professional Experience</h2>
-    {% for item in site.data.work_experience[site.active_lang] %}
-    <div class="experience-item">
-      <div class="experience-date">{{ item.date }}</div>
-      <h3 class="experience-company">{{ item.company }}</h3>
-      <ul>
-        {% for bullet in item.bullets %}
-          <li>{{ bullet | markdownify }}</li>
-        {% endfor %}
-      </ul>
-      {% if item.client_projects %}
-        <div class="client-projects">
-          <div class="client-projects-heading">Client Projects:</div>
-          {% for client in item.client_projects %}
-            <div class="client-name">{{ client.name }}</div>
-            <div class="client-details">{{ client.details | markdownify }}</div>
+    <h2>Core Competencies</h2>
+    <div class="three-column-grid">
+      {% for competence_group in site.data.resume[site.active_lang].core_competencies %}
+      <div class="skill-category">
+        <h3>{{ competence_group.category }}</h3>
+        <ul class="skill-list">
+          {% for item in competence_group.items %}
+          <li class="skill-item">{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <!-- Education & Certifications Section - More compact -->
+  <div class="section">
+    <h2>Education & Certifications</h2>
+    <div class="two-column-grid">
+      <div>
+        <!-- Education list -->
+        <ul class="education-list">
+          {% for edu_item in site.data.resume[site.active_lang].education %}
+          <li>{{ edu_item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <!-- Certifications: Logos next to each other -->
+        <div class="certification-container-print">
+          {% for cert_item in site.data.resume[site.active_lang].certifications %}
+            {% assign cert_key = cert_item[0] %}
+            {% assign cert_name = cert_item[1] %}
+            <div class="certification-item-print">
+              <div class="cert-logo-container">
+                {% if cert_key == "azure-developer" %}
+                  <img src="{{ '/assets/images/certifications/azure-developer-associate.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+                {% elsif cert_key == "scrum-master" %}
+                  <img src="{{ '/assets/images/certifications/certified-scrum-master.png' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+                {% elsif cert_key == "bachelor" %}
+                  <img src="{{ '/assets/images/certifications/hogent-logo.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+                {% endif %}
+              </div>
+              <div class="cert-name-print">{{ cert_name }}</div>
+            </div>
           {% endfor %}
         </div>
-      {% endif %}
-      {% if item.extra_details %}
-        <div class="more-details-note">
-          {% if site.active_lang == "en" %}
-          For more details about this role, visit <a href="https://www.itkriebbels.be">www.itkriebbels.be</a>
-          {% else %}
-          Voor meer details over deze rol, bezoek <a href="https://www.itkriebbels.be">www.itkriebbels.be</a>
-          {% endif %}
-        </div>
-      {% endif %}
+      </div>
     </div>
-    {% endfor %}
+  </div>
+  
+  <!-- Professional Experience Section - Now using columns for print -->
+  <div class="section">
+    <h2>Professional Experience</h2>
+    <div class="experience-container">
+      {% for item in site.data.work_experience[site.active_lang] %}
+      <div class="experience-item">
+        <div class="experience-date">{{ item.date }}</div>
+        <h3 class="experience-company">{{ item.company }}</h3>
+        <ul>
+          {% for bullet in item.bullets limit:3 %}
+            <li>{{ bullet | markdownify }}</li>
+          {% endfor %}
+        </ul>
+        {% if item.client_projects %}
+          <div class="client-projects">
+            <div class="client-projects-heading">Client Projects:</div>
+            {% for client in item.client_projects limit:2 %}
+              <div class="client-name">{{ client.name }}</div>
+              <div class="client-details">{{ client.details | truncate: 120 | markdownify }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if item.extra_details %}
+          <div class="more-details-note">
+            {% if site.active_lang == "en" %}
+            For more details, visit <a href="https://www.itkriebbels.be">www.itkriebbels.be</a>
+            {% else %}
+            Voor meer details, bezoek <a href="https://www.itkriebbels.be">www.itkriebbels.be</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
   </div>
   
   <!-- Footer -->
   <div class="footer">
     <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | For the most current information, visit <a href="https://www.itkriebbels.be">www.itkriebbels.be</a></p>
   </div>
+
+  <!-- Script to process the protected email -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elements = document.getElementsByClassName('protected-email');
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var name = element.getAttribute('data-name');
+        var domain = element.getAttribute('data-domain');
+        if (name && domain) {
+          element.innerHTML = '<a href="mailto:' + name + '@' + domain + '">' + 
+                              name + '@' + domain + '</a>';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
