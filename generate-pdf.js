@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
     
     // Launch browser with proper settings for GitHub Actions
     const browser = await puppeteer.launch({
-      headless: 'new',
+      headless: true, // Use 'true' instead of 'new' for wider compatibility
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     
@@ -18,8 +18,8 @@ const puppeteer = require('puppeteer');
       timeout: 60000
     });
     
-    // Wait for any JavaScript to execute
-    await pageEN.waitForTimeout(2000);
+    // Wait for any JavaScript to execute - using setTimeout instead of waitForTimeout
+    await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Generate PDF
     await pageEN.pdf({
@@ -42,8 +42,8 @@ const puppeteer = require('puppeteer');
       timeout: 60000
     });
     
-    // Wait for any JavaScript to execute
-    await pageNL.waitForTimeout(2000);
+    // Wait for any JavaScript to execute - using setTimeout instead of waitForTimeout
+    await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Generate PDF
     await pageNL.pdf({
