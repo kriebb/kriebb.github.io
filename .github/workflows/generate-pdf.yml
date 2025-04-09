@@ -28,7 +28,29 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
       
-      # Install wkhtmltopdf with patched Qt for better PDF generation
+      - name: Start Jekyll server
+        run: bundle exec jekyll serve --detach
+        
+      - name: Give Jekyll server time to start
+        run: sleep 5
+      
+      # Set up Puppeteer PDF generation
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+        
+      - name: Generate PDFs with Puppeteer
+        run: |
+          node generate-pdf.js
+          # Verify PDFs were created
+          ls -la ./_site/*.pdf || true
+          ls -la ./_site/nl/*.pdf || true
+      
+      # Also generate using wkhtmltopdf as backup/alternative
       - name: Install wkhtmltopdf
         run: |
           sudo apt-get update
@@ -45,12 +67,8 @@ jobs:
           # Check if wkhtmltopdf is installed correctly
           wkhtmltopdf --version
       
-      # Start Jekyll server, generate PDFs with text searchability, and stop server
-      - name: Generate Searchable Resume PDFs
+      - name: Generate PDFs with wkhtmltopdf
         run: |
-          bundle exec jekyll serve --detach
-          sleep 5  # Give Jekyll server time to start
-          
           # Generate English PDF with text searchability
           wkhtmltopdf \
             --enable-local-file-access \
@@ -68,7 +86,7 @@ jobs:
             --margin-bottom 10mm \
             --margin-left 10mm \
             http://localhost:4000/print-resume/ \
-            ./_site/kristof-riebbels-resume-en.pdf
+            ./_site/kristof-riebbels-resume-en-wkhtmltopdf.pdf
           
           # Generate Dutch PDF with text searchability
           wkhtmltopdf \
@@ -87,13 +105,16 @@ jobs:
             --margin-bottom 10mm \
             --margin-left 10mm \
             http://localhost:4000/nl/print-resume/ \
-            ./_site/nl/kristof-riebbels-resume-nl.pdf
-          
-          # Verify that PDFs were created
-          ls -la ./_site/*.pdf
-          ls -la ./_site/nl/*.pdf
-          
-          pkill -f "jekyll serve" || true
+            ./_site/nl/kristof-riebbels-resume-nl-wkhtmltopdf.pdf
+      
+      - name: Stop Jekyll server
+        run: pkill -f "jekyll serve" || true
+      
+      - name: Verify all PDFs 
+        run: |
+          echo "Checking PDF files:"
+          ls -la ./_site/*.pdf || true
+          ls -la ./_site/nl/*.pdf || true
       
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
