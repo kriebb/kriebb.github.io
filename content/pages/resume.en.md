@@ -62,11 +62,7 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 
 ## Certifications
 <div class="certification-container">
-  {% for cert_item in site.data.resume[site.active_lang].certifications %}
-    {% assign cert_key = cert_item[0] %}
-    {% assign cert_name = cert_item[1] %}
     {% include certification-logos.html cert=cert_key name=cert_name %}
-  {% endfor %}
 </div>
 
 ## Interests and Hobbies
