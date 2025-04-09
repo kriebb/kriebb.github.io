@@ -209,12 +209,12 @@
       list-style-type: disc;
     }
     
-    /* Certifications: Horizontal layout */
+    /* Certifications: Improved horizontal layout */
     .certification-container-print {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
       margin: 0.5rem 0;
       page-break-inside: avoid;
       break-inside: avoid;
@@ -224,32 +224,34 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 5px;
-      border: 1px solid #e0e0e0;
       border-radius: 4px;
-      background: #fafafa;
       page-break-inside: avoid;
       break-inside: avoid;
-      width: 31%;
+      flex: 0 0 auto;
     }
     
     .cert-logo-container {
-      max-width: 40px;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .cert-logo-print {
-      max-height: 35px;
+      max-height: 30px;
+      max-width: 30px;
       object-fit: contain;
     }
     
     .cert-name-print {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 500;
     }
     
-    /* Core Competencies & Technical Skills */
+    /* Core Competencies & Technical Skills - Streamlined */
     .skill-category {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       page-break-inside: avoid;
       break-inside: avoid;
     }
@@ -258,12 +260,14 @@
       margin-bottom: 0.25rem;
       font-size: 0.9rem;
       color: #00b386;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.1rem;
     }
     
     .skill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      gap: 0.3rem;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -273,10 +277,17 @@
     .skill-list li {
       background-color: #e0f5f0;
       color: #000;
-      padding: 0.2rem 0.4rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
+      padding: 0.15rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.7rem;
       white-space: nowrap;
+      border: 1px solid #d0e8e0;
+    }
+    
+    /* Compact skills section */
+    .all-skills-container {
+      column-count: 2;
+      column-gap: 1rem;
     }
     
     /* Footer styling */
@@ -304,6 +315,10 @@
       
       .experience-container {
         column-count: 2; /* Two columns when printed */
+      }
+      
+      .all-skills-container {
+        column-count: 3; /* Three columns when printed */
       }
       
       a {
@@ -379,10 +394,10 @@
     </div>
   </div>
   
-  <!-- Skills Section - More columns for better space usage -->
+  <!-- Skills Section - More space efficient -->
   <div class="section">
     <h2>Skills & Expertise</h2>
-    <div class="three-column-grid">
+    <div class="all-skills-container">
       {% for category_obj in site.data.resume[site.active_lang].skills.development_and_programming %}
       <div class="skill-category">
         <h3>{{ category_obj.category }}</h3>
@@ -396,10 +411,10 @@
     </div>
   </div>
   
-  <!-- Core Competencies Section -->
+  <!-- Core Competencies Section - Streamlined -->
   <div class="section">
     <h2>Core Competencies</h2>
-    <div class="three-column-grid">
+    <div class="all-skills-container">
       {% for competence_group in site.data.resume[site.active_lang].core_competencies %}
       <div class="skill-category">
         <h3>{{ competence_group.category }}</h3>
@@ -426,7 +441,8 @@
         </ul>
       </div>
       <div>
-        <!-- Certifications: Logos next to each other -->
+        <h3>Certifications</h3>
+        <!-- Certifications: Horizontal layout -->
         <div class="certification-container-print">
           {% for cert_item in site.data.resume[site.active_lang].certifications %}
             {% assign cert_key = cert_item[0] %}
