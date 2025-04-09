@@ -1,29 +1,23 @@
-const puppeteer = require('puppeteer');
+const { chromium } = require('@playwright/test');
 
 (async () => {
   try {
-    console.log('Starting Puppeteer PDF generation...');
+    console.log('Starting Playwright PDF generation...');
     
-    // Launch browser with proper settings for GitHub Actions
-    const browser = await puppeteer.launch({
-      headless: true, // Use 'true' instead of 'new' for wider compatibility
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+    // Launch browser
+    const browser = await chromium.launch();
     
     // English version
     console.log('Generating English PDF...');
-    const pageEN = await browser.newPage();
-    await pageEN.goto('http://localhost:4000/print-resume/', {
-      waitUntil: 'networkidle0',
-      timeout: 60000
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto('http://localhost:4000/print-resume/', {
+      waitUntil: 'networkidle'
     });
     
-    // Wait for any JavaScript to execute - using setTimeout instead of waitForTimeout
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
     // Generate PDF
-    await pageEN.pdf({
-      path: './_site/kristof-riebbels-resume-en-puppeteer.pdf',
+    await page.pdf({
+      path: './_site/kristof-riebbels-resume-en.pdf',
       format: 'A4',
       printBackground: true,
       margin: {
@@ -34,20 +28,16 @@ const puppeteer = require('puppeteer');
       }
     });
     
-    // Dutch version 
+    // Dutch version
     console.log('Generating Dutch PDF...');
-    const pageNL = await browser.newPage();
-    await pageNL.goto('http://localhost:4000/nl/print-resume/', {
-      waitUntil: 'networkidle0',
-      timeout: 60000
+    const nlPage = await context.newPage();
+    await nlPage.goto('http://localhost:4000/nl/print-resume/', {
+      waitUntil: 'networkidle'
     });
     
-    // Wait for any JavaScript to execute - using setTimeout instead of waitForTimeout
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
     // Generate PDF
-    await pageNL.pdf({
-      path: './_site/nl/kristof-riebbels-resume-nl-puppeteer.pdf',
+    await nlPage.pdf({
+      path: './_site/nl/kristof-riebbels-resume-nl.pdf',
       format: 'A4',
       printBackground: true,
       margin: {
