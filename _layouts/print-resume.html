@@ -111,8 +111,20 @@
     }
 
     .projects p {
-      margin: 0 0 0.1rem 0;
+      margin: 0 0 0.2rem 0;
       font-size: 0.8rem;
+    }
+    
+    .project-links {
+      text-align: right;
+      margin-top: 0.3rem;
+      font-size: 0.75rem;
+    }
+    
+    .read-more-link {
+      color: #00b386;
+      font-weight: 500;
+      text-decoration: underline;
     }
 
     /* Condensed Experience Section */
@@ -197,8 +209,12 @@
       font-style: italic;
       font-size: 0.75rem;
       color: #666;
-      margin-top: 0.3rem;
+      margin-top: 0.5rem;
       text-align: right;
+      padding: 0.2rem 0.4rem;
+      background-color: #f0f9f6;
+      border-radius: 3px;
+      border-left: 2px solid #00b386;
     }
 
     /* Education & Certifications styling */
@@ -395,7 +411,8 @@
     {% for project in site.data.projects[site.active_lang] limit:5 %}
     <div class="projects">
       <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
-      <p>{{ project.description | truncate: 100 }}</p>
+      <p>{{ project.description }}</p>
+      <p class="project-links"><a href="{{ project.link }}" class="read-more-link">View Project Details</a></p>
     </div>
     {% endfor %}
   </div>
@@ -493,16 +510,16 @@
           <div class="client-projects-heading">Client Projects:</div>
           {% for client in item.client_projects limit:2 %}
           <div class="client-name">{{ client.name }}</div>
-          <div class="client-details">{{ client.details | truncate: 120 | markdownify }}</div>
+          <div class="client-details">{{ client.details | markdownify }}</div>
           {% endfor %}
         </div>
         {% endif %}
         {% if item.extra_details %}
         <div class="more-details-note">
           {% if site.active_lang == "en" %}
-          For more details, visit <a href="https://www.itkriebbels.be">www.itkriebbels.be</a>
+          For more details, visit <a href="https://www.itkriebbels.be/experience/{{ item.slug }}">www.itkriebbels.be/experience/{{ item.slug }}</a>
           {% else %}
-          Voor meer details, bezoek <a href="https://www.itkriebbels.be">www.itkriebbels.be</a>
+          Voor meer details, bezoek <a href="https://www.itkriebbels.be/nl/ervaring/{{ item.slug }}">www.itkriebbels.be/nl/ervaring/{{ item.slug }}</a>
           {% endif %}
         </div>
         {% endif %}
@@ -513,9 +530,32 @@
 
   <!-- Footer -->
   <div class="footer">
-    <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | For the most current information, visit <a
-        href="https://www.itkriebbels.be">www.itkriebbels.be</a></p>
+    <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | Full interactive resume at <a href="https://www.itkriebbels.be/interactive-resume">www.itkriebbels.be/interactive-resume</a></p>
+    <p class="qr-container">
+      <img src="{{ '/assets/images/resume-qr.png' | relative_url }}" alt="QR Code to Interactive Resume" class="resume-qr" />
+      <span class="qr-text">Scan for detailed interactive resume</span>
+    </p>
   </div>
+  
+  <style>
+    .resume-qr {
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 0.5rem auto 0.25rem auto;
+    }
+    
+    .qr-container {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    
+    .qr-text {
+      display: block;
+      font-size: 0.7rem;
+      color: #666;
+    }
+  </style>
 
   <!-- Script to process the protected email -->
   <script>
