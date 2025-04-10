@@ -21,6 +21,8 @@
       background: #f8f8f8;
       font-size: 10pt;
       /* Base font size for better printing */
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     a {
@@ -95,18 +97,21 @@
     /* Projects styling - single column */
     .projects {
       padding: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       border-radius: 3px;
       background: #fafafa;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .projects h3 {
+      margin-top: 0.1rem;
       margin-bottom: 0.15rem;
       font-size: 0.9rem;
     }
 
     .projects p {
-      margin: 0;
+      margin: 0 0 0.1rem 0;
       font-size: 0.8rem;
     }
 
@@ -117,11 +122,13 @@
     }
 
     .experience-item {
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       page-break-inside: avoid;
       break-inside: avoid;
       padding-bottom: 0.5rem;
       border-bottom: 1px dotted #e0e0e0;
+      clear: both;
+      overflow: hidden;
     }
 
     .experience-date {
@@ -285,17 +292,27 @@
       @page {
         margin: 10mm;
         size: A4;
+        orphans: 2;
+        widows: 2;
       }
 
       body {
         padding: 0;
         font-size: 9pt;
         background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
       .all-skills-container {
         column-count: 2;
         /* Two columns when printed */
+      }
+
+      .projects {
+        margin-bottom: 0.75rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
 
       a {
@@ -375,7 +392,7 @@
   <!-- Projects Section - Single column -->
   <div class="section">
     <h2>Projects</h2>
-    {% for project in site.data.projects[site.active_lang] limit:6 %}
+    {% for project in site.data.projects[site.active_lang] limit:5 %}
     <div class="projects">
       <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
       <p>{{ project.description | truncate: 100 }}</p>
