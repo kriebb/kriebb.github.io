@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.active_lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }} | {{ page.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/one-pager.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body>
+  <!-- Include the one-pager content -->
+  {%- include one-pager.html -%}
+  
+  <div class="action-buttons">
+    <a href="{{ '/' | relative_url }}" class="back-button">
+      <span class="button-icon"><i class="fas fa-arrow-left"></i></span>
+      Back to Site
+    </a>
+    <button class="print-button" onclick="window.print()">
+      <span class="button-icon"><i class="fas fa-print"></i></span>
+      Print
+    </button>
+  </div>
+  
+  <!-- QR Code script -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Generate QR code pointing to your resume URL
+      const resumeUrl = "{{ site.url }}{{ '/' | relative_url }}resume/";
+      const qrContainer = document.getElementById('qrcode-container');
+      
+      // Generate QR code
+      QRCode.toCanvas(
+        document.createElement('canvas'),
+        resumeUrl,
+        {
+          width: 100,
+          margin: 0,
+          color: {
+            dark: '#004c8c',
+            light: '#ffffff'
+          }
+        },
+        function(error, canvas) {
+          if (error) console.error(error);
+          qrContainer.appendChild(canvas);
+        }
+      );
+    });
+  </script>
+</body>
+</html>

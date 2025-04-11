@@ -1,0 +1,121 @@
+<div class="one-pager">
+    <!-- Left Column -->
+    <div class="profile-section">
+      <div class="profile-header">
+        <div class="profile-image">KR</div>
+        <h2 class="profile-name">{{ site.author }}</h2>
+        <p class="profile-title">{{ site.data.i18n[site.active_lang].site_description }}</p>
+      </div>
+      
+      <div class="contact-info">
+        <div class="section-title">{{ site.data.i18n[site.active_lang].contact.title }}</div>
+        <div class="contact-item">
+          <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+          <span>{{ site.data.i18n[site.active_lang].contact.location_value }}</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+          <span>{% include protected-email.html %}</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon"><i class="fab fa-linkedin"></i></span>
+          <span>linkedin.com/in/kristofriebbels</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon"><i class="fas fa-globe"></i></span>
+          <span>{{ site.url }}</span>
+        </div>
+      </div>
+      
+      <div class="skills-section">
+        <div class="section-title">{{ site.data.one_pager[site.active_lang].key_technologies_title }}</div>
+        <div class="skills-list">
+          {% for skill in site.data.one_pager[site.active_lang].key_technologies %}
+            <span class="skill-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="skills-section">
+        <div class="section-title">{{ site.data.one_pager[site.active_lang].focus_areas_title }}</div>
+        <div class="skills-list">
+          {% for skill in site.data.one_pager[site.active_lang].focus_areas %}
+            <span class="skill-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="qr-section">
+        <div id="qrcode-container" class="qr-code"></div>
+        <p class="qr-text">{{ site.data.one_pager[site.active_lang].scan_resume }}</p>
+      </div>
+    </div>
+    
+    <!-- Right Column -->
+    <div class="content-section">
+      <div class="header">
+        <h1 class="name">{{ site.author }}</h1>
+        <p class="tagline">{{ site.data.i18n[site.active_lang].hero.subtitle }}</p>
+      </div>
+      
+      <div class="about-section">
+        <div class="section-title">{{ site.data.one_pager[site.active_lang].profile_title }}</div>
+        <p class="about-text">
+          {{ site.data.one_pager[site.active_lang].profile_text }}
+        </p>
+      </div>
+      
+      <!-- How I Can Help Section -->
+      <div class="services-section">
+        <div class="section-title">{{ site.data.one_pager[site.active_lang].services_title }}</div>
+        <div class="services-grid">
+          {% for service in site.data.one_pager[site.active_lang].services %}
+          <div class="service-item">
+            <div class="service-title">{{ service.title }}</div>
+            <div class="service-desc">{{ service.description }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="experience-highlights">
+        <div class="section-title">{{ site.data.one_pager[site.active_lang].highlights_title }}</div>
+        {% for highlight in site.data.one_pager[site.active_lang].highlights %}
+          <div class="highlight-item">
+            {{ highlight }}
+          </div>
+        {% endfor %}
+      </div>
+      
+      <div class="core-competencies">
+        {% for competency in site.data.one_pager[site.active_lang].competencies %}
+        <div class="competency-card">
+          <h3 class="competency-title">{{ competency.title }}</h3>
+          <ul class="competency-list">
+            {% for item in competency.items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+      
+      <div class="bottom-section">
+        <div class="certifications">
+          {% for cert in site.data.one_pager[site.active_lang].certifications %}
+          <div class="certification">
+            <div class="cert-logo">
+              <i class="{{ cert.icon }}"></i>
+            </div>
+            <div class="cert-name">{{ cert.name }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        
+        <div class="github-projects">
+          <div>{{ site.data.one_pager[site.active_lang].github_title }}</div>
+          <a href="{{ site.data.one_pager[site.active_lang].github_url }}" class="github-link">{{ site.data.one_pager[site.active_lang].github_text }}</a>
+        </div>
+      </div>
+    </div>
+  </div>

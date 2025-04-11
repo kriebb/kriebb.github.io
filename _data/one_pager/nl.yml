@@ -1,0 +1,92 @@
+## Dutch one-pager data
+
+# Main titles
+profile_title: "Professioneel Profiel"
+key_technologies_title: "Kernvaardigheden"
+focus_areas_title: "Focusgebieden"
+services_title: "Hoe Ik U Kan Helpen"
+highlights_title: "Carrière Hoogtepunten"
+scan_resume: "Scan voor gedetailleerd CV"
+github_title: "Projecten & Code Samples"
+github_url: "https://github.com/kriebb"
+github_text: "github.com/kriebb"
+
+# Profile text
+profile_text: "Senior .NET Ontwikkelaar met meer dan 17 jaar ervaring in het leveren van veilige en onderhoudbare oplossingen. Ik ben gespecialiseerd in het creëren van duidelijke, robuuste software die complexe bedrijfsvereisten elegant afhandelt. Gepassioneerd door clean code, SOLID principes en testgedreven ontwikkeling, breng ik een security-first mentaliteit en een samenwerkende aanpak naar elk project."
+
+# List key technologies
+key_technologies:
+  - "C#"
+  - ".NET 8"
+  - "ASP.NET Core"
+  - "Azure"
+  - "OIDC"
+  - "SQL Server"
+  - "JWT"
+  - "EF Core"
+  - "TypeScript"
+  - "CI/CD"
+
+# List focus areas
+focus_areas:
+  - "Clean Code"
+  - "SOLID"
+  - "TDD"
+  - "Security"
+  - "Architectuur"
+  - "Mentoring"
+  - "Scrum"
+
+# Services offered
+services:
+  - title: ".NET Ontwikkeling"
+    description: "Bouwen van schone, veilige oplossingen met C#, ASP.NET Core en Azure"
+  - title: "Security Implementatie"
+    description: "OIDC, veilig tokenbeheer, kwetsbaarheidsscanning"
+  - title: "Technische Coaching"
+    description: "Code reviews, SOLID principes, TDD en best practices"
+  - title: "Agile Facilitatie"
+    description: "Scrum ceremonies, teamsamenwerking, Agile transformatie"
+
+# Career highlights
+highlights:
+  - "Leidde implementatie van Auth0 met Itsme integratie bij AXA België, versterking van klantauthenticatie beveiliging"
+  - "Spreker op branche-evenementen waaronder Techorama 2024, Update Conference 2023, VISUG en Dotnet Friday"
+  - "Onderhield SaaS-product in Azure (Cloud Services, WebAPI, Service Bus) terwijl ik projectteams coachte"
+  - "Herontwikkelde een ERP-systeem van DB2/COBOL/FORTRAN naar SQL Server/WCF/.NET met Domain Driven Design"
+
+# Core competencies
+competencies:
+  - title: "Architectuur & Ontwikkeling"
+    items:
+      - "Clean Architecture implementatie"
+      - "Full-stack .NET ontwikkeling"
+      - "Microservices & API ontwerp"
+      - "Azure cloud infrastructuur"
+  - title: "Security & Kwaliteit"
+    items:
+      - "OIDC implementatie & tokenbeheer"
+      - "Veilige software supply chains"
+      - "Kwetsbaarheidsscanning integratie"
+      - "Test-Driven Development"
+  - title: "Leiderschap & Coaching"
+    items:
+      - "Team mentoring & kennisdeling"
+      - "Gecertificeerd Scrum Master"
+      - "Code review facilitatie"
+      - "Procesverbetering"
+  - title: "Business Waarde"
+    items:
+      - "Solution engineering & consultancy"
+      - "Legacy systeem modernisering"
+      - "Klantgerichte probleemoplossing"
+      - "Technische autoriteitsopbouw"
+
+# Certifications
+certifications:
+  - icon: "fas fa-users-cog"
+    name: "Certified Scrum Master"
+  - icon: "fab fa-microsoft"
+    name: "Azure Developer Associate"
+  - icon: "fas fa-graduation-cap"
+    name: "Bachelor in Informatica"
