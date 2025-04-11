@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume QR Code Generator</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #343a40;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .qr-container {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      text-align: center;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .qr-image {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: white;
+    }
+    .download-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #004c8c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .download-btn:hover {
+      background-color: #003b6f;
+    }
+    .instructions {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #00b386;
+    }
+    h1 {
+      color: #004c8c;
+    }
+    h2 {
+      color: #00b386;
+    }
+    .url-input {
+      margin: 20px 0;
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    .update-btn {
+      padding: 10px 20px;
+      background-color: #00b386;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+    .update-btn:hover {
+      background-color: #009e75;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Resume QR Code Generator</h1>
+    
+    <div>
+      <input type="text" id="urlInput" class="url-input" value="http://www.itkriebbels.be/resume/" placeholder="Enter your resume URL">
+      <button id="updateQr" class="update-btn">Update QR Code</button>
+    </div>
+    
+    <div class="qr-container">
+      <h2>Your QR Code</h2>
+      <div id="qrCode" class="qr-image">
+        <!-- QR code will be inserted here -->
+      </div>
+      <p>Point to: <span id="qrUrl">http://www.itkriebbels.be/resume/</span></p>
+      <button id="downloadQr" class="download-btn">Download QR Code</button>
+    </div>
+    
+    <div class="instructions">
+      <h3>How to use this QR code on your resume:</h3>
+      <ol>
+        <li>Enter your desired URL (default is your resume page)</li>
+        <li>Click "Update QR Code" if you changed the URL</li>
+        <li>Click "Download QR Code" to save the image</li>
+        <li>Save it as "resume-qr.png" in your project's "/assets/images/" directory</li>
+        <li>Test it by scanning with your phone to ensure it works</li>
+      </ol>
+      <p><strong>Note:</strong> If your Jekyll site isn't live yet, you might want to use a URL that's currently active or test the QR code once your site is deployed.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlInput = document.getElementById('urlInput');
+      const updateBtn = document.getElementById('updateQr');
+      const qrCodeDiv = document.getElementById('qrCode');
+      const qrUrlSpan = document.getElementById('qrUrl');
+      const downloadBtn = document.getElementById('downloadQr');
+      
+      // Generate QR code function
+      function generateQR(url) {
+        qrCodeDiv.innerHTML = ''; // Clear previous QR code
+        qrUrlSpan.textContent = url;
+        
+        QRCode.toCanvas(
+          document.createElement('canvas'), 
+          url, 
+          { 
+            width: 200,
+            color: {
+              dark: '#004c8c',
+              light: '#ffffff'
+            }
+          },
+          function(error, canvas) {
+            if (error) {
+              console.error(error);
+              qrCodeDiv.innerHTML = '<p style="color: red;">Error generating QR code</p>';
+              return;
+            }
+            qrCodeDiv.appendChild(canvas);
+          }
+        );
+      }
+      
+      // Initial QR code generation
+      generateQR(urlInput.value);
+      
+      // Update QR code when button is clicked
+      updateBtn.addEventListener('click', function() {
+        generateQR(urlInput.value);
+      });
+      
+      // Download QR code as image
+      downloadBtn.addEventListener('click', function() {
+        const canvas = qrCodeDiv.querySelector('canvas');
+        if (!canvas) return;
+        
+        // Create a temporary link for download
+        const link = document.createElement('a');
+        link.download = 'resume-qr.png';
+        link.href = canvas.toDataURL('image/png');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    });
+  </script>
+</body>
+</html>

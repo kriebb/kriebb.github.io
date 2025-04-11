@@ -517,9 +517,9 @@
         {% if item.extra_details %}
         <div class="more-details-note">
           {% if site.active_lang == "en" %}
-          For more details, visit <a href="https://www.itkriebbels.be/experience/{{ item.slug }}">www.itkriebbels.be/experience/{{ item.slug }}</a>
+          For more details, visit <a href="https://www.itkriebbels.be/work-experience/{{ item.slug }}">www.itkriebbels.be/experience/{{ item.slug }}</a>
           {% else %}
-          Voor meer details, bezoek <a href="https://www.itkriebbels.be/nl/ervaring/{{ item.slug }}">www.itkriebbels.be/nl/ervaring/{{ item.slug }}</a>
+          Voor meer details, bezoek <a href="https://www.itkriebbels.be/nl/werkervaring/{{ item.slug }}">www.itkriebbels.be/nl/ervaring/{{ item.slug }}</a>
           {% endif %}
         </div>
         {% endif %}
@@ -530,10 +530,10 @@
 
   <!-- Footer -->
   <div class="footer">
-    <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | Full interactive resume at <a href="https://www.itkriebbels.be/interactive-resume">www.itkriebbels.be/interactive-resume</a></p>
+    <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | Full interactive resume at <a href="https://www.itkriebbels.be/resume">www.itkriebbels.be/interactive-resume</a></p>
     <p class="qr-container">
       <img src="{{ '/assets/images/resume-qr.png' | relative_url }}" alt="QR Code to Interactive Resume" class="resume-qr" />
-      <span class="qr-text">Scan for detailed interactive resume</span>
+      <span class="qr-text">Scan for detailed resume</span>
     </p>
   </div>
   
