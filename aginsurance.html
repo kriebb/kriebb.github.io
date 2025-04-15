@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristof Riebbels - .NET Architect</title>
+  <style>
+    /* Common styles for both screen and print */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      margin: 0 auto;
+      padding: 0;
+    }
+    
+    /* Layout containers */
+    .container {
+      max-width: 210mm; /* A4 width */
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header with more visual impact */
+    .header {
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #004c8c;
+    }
+    
+    .header-left {
+      flex: 2;
+    }
+    
+    .header-right {
+      flex: 1;
+      text-align: right;
+      padding-right: 15px;
+    }
+    
+    h1 {
+      color: #004c8c;
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
+    
+    .subtitle {
+      color: #00b386;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .contact-info {
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+    
+    /* Resume sections */
+    .resume-section {
+      margin-bottom: 25px;
+      clear: both;
+    }
+    
+    h2 {
+      color: #004c8c;
+      font-size: 20px;
+      padding-bottom: 5px;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      position: relative;
+      border-bottom: 1px solid #cce9e4;
+    }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: #00b386;
+    }
+    
+    /* Two-column layout for top sections */
+    .two-column {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .column {
+      flex: 1;
+    }
+    
+    /* Experience items */
+    .experience-item {
+      margin-bottom: 18px;
+      position: relative;
+    }
+    
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    .company {
+      font-weight: bold;
+      color: #004c8c;
+    }
+    
+    .date {
+      color: #666;
+    }
+    
+    .role {
+      font-style: italic;
+      color: #00b386;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    
+    /* List styles */
+    ul {
+      margin-top: 5px;
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    
+    ul li {
+      margin-bottom: 4px;
+      position: relative;
+    }
+    
+    ul li::marker {
+      color: #00b386;
+    }
+    
+    /* Skills section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    .skill-category {
+      margin-bottom: 15px;
+    }
+    
+    .skill-category h3 {
+      margin-bottom: 8px;
+      margin-top: 0;
+      color: #004c8c;
+      font-size: 16px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .skill-category h3::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #00b386;
+    }
+    
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .skill-badge {
+      background-color: #e0f5f0;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      display: inline-block;
+      border: 1px solid #cce9e4;
+      color: #00b386;
+    }
+    
+    /* Highlighted text */
+    .highlight {
+      background-color: #e0f5f0;
+      padding: 0 2px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+    
+    /* Project highlights */
+    .project-highlights li {
+      margin-bottom: 8px;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 25px;
+      font-size: 0.9em;
+      text-align: center;
+      color: #666;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    
+    /* Print-specific styles */
+    @media print {
+      /* Basic page setup */
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+      
+      body {
+        width: 100%;
+        max-width: none;
+        font-size: 10.5pt;
+        line-height: 1.4;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+      
+      /* Keep header colors for print */
+      h1 {
+        color: #004c8c !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .subtitle {
+        color: #00b386 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      h2 {
+        color: #004c8c !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      h2::after {
+        background-color: #00b386 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .skill-category h3 {
+        color: #004c8c !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .skill-category h3::after {
+        background-color: #00b386 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .company {
+        color: #004c8c !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .role {
+        color: #00b386 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .skill-badge {
+        background-color: #e0f5f0 !important;
+        color: #00b386 !important;
+        border: 1px solid #cce9e4 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .highlight {
+        background-color: #e0f5f0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      ul li::marker {
+        color: #00b386 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      /* Prevent breaking inside sections */
+      .resume-section, .experience-item, .skill-category {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      
+      /* Prevent breaks after headings */
+      h1, h2, h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      
+      /* Ensure at least 2 lines stay together */
+      p, li {
+        orphans: 2;
+        widows: 2;
+      }
+      
+      /* Force section breaks where needed - customize according to content */
+      .skills-section {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+      
+      /* Reduced spacing for print */
+      .experience-item {
+        margin-bottom: 15px;
+      }
+      
+      .resume-section {
+        margin-bottom: 20px;
+      }
+      
+      /* Other print adjustments */
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <h1>Kristof Riebbels</h1>
+        <p class="subtitle">.NET Architect | Azure Developer Associate | Certified Scrum Master</p>
+        <div class="contact-info">
+          Belgium (Zele) | Email: riebbels.kristof@itkriebbels.be<br>
+          LinkedIn: linkedin.com/in/kristofriebbels
+        </div>
+      </div>
+      <div class="header-right">
+        <!-- For visual balance, could add an image or QR code here in future -->
+      </div>
+    </div>
+    
+    <div class="two-column">
+      <div class="column">
+        <div class="resume-section">
+          <h2>Professional Profile</h2>
+          <p>Still feeling as a Sr. .NET Developer with 17+ years of experience delivering secure and maintainable solutions. Specializing in <span class="highlight">distributed backend architecture</span>, <span class="highlight">Clean Architecture</span>, and <span class="highlight">Domain-Driven Design</span>. Passionate about coaching teams on SOLID principles, test-driven development, and secure coding practices. Experience with <span class="highlight">.NET 8</span>, <span class="highlight">Azure cloud infrastructure</span>, and <span class="highlight">Entity Framework Core</span>.</p>
+        </div>
+        
+        <div class="resume-section project-highlights">
+          <h2>Project Highlights</h2>
+          <ul>
+            <li><strong>AXA Belgium:</strong> Led implementation of integration of serivces with Auth0 / Itsme integration using <span class="highlight">AppServices, APIM, Azure KeyVault, Storage Accounts, Application Insights</span> and even SOAP for a secure distributed architecture</li>
+            <li><strong>OIDC Mocking Framework:</strong> Developed a proof-of-concept for integration testing with id- and access tokens (github.com/kriebb/MockOpenIdConnectIdpAspnetcore). This has been adopted at Axa.</li>
+            <li><strong>ERP System Modernization:</strong> Redeveloped a legacy system (DB2/COBOL/FORTRAN) to SQL Server/WCF/.NET using <span class="highlight">Domain-Driven Design</span> with state machines for order processing</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="resume-section skills-section">
+          <h2>Key Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Architecture & Design</h3>
+              <div class="skill-list">
+                <span class="skill-badge">Clean Architecture</span>
+                <span class="skill-badge">Domain-Driven Design</span>
+                <span class="skill-badge">Microservices</span>
+                <span class="skill-badge">REST APIs</span>
+                <span class="skill-badge">SOLID Principles</span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Backend Technologies</h3>
+              <div class="skill-list">
+                <span class="skill-badge">C#/.NET 8</span>
+                <span class="skill-badge">ASP.NET Core</span>
+                <span class="skill-badge">Entity Framework Core</span>
+                <span class="skill-badge">SQL Server</span>
+                <span class="skill-badge">Azure</span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Security & Integration</h3>
+              <div class="skill-list">
+                <span class="skill-badge">OIDC</span>
+                <span class="skill-badge">Token Management</span>
+                <span class="skill-badge">Supply Chain Security</span>
+                <span class="skill-badge">Vulnerability Scanning</span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Leadership & Soft Skills</h3>
+              <div class="skill-list">
+                <span class="skill-badge">Team Mentoring</span>
+                <span class="skill-badge">Technical Writing</span>
+                <span class="skill-badge">Problem Solving</span>
+                <span class="skill-badge">Certified Scrum Master</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resume-section">
+          <h2>Certifications & Education</h2>
+          <ul>
+            <li>Microsoft Certified: Azure Developer Associate (AZ-204)</li>
+            <li>Certified Scrum Master (Scrum.org)</li>
+            <li>Bachelor in Informatics (HoGent, Ghent)</li>
+            <li>Train the Trainer (Xebia NL)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="resume-section">
+      <h2>Relevant Experience</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="company">Xebia XMS BE</span>
+          <span class="date">04/2022 – Present</span>
+        </div>
+        <div class="role">Software Architect</div>
+        <ul>
+          <li>Developed and deployed architecture for secure identity solutions using <span class="highlight">distributed backend systems</span></li>
+          <li>Implemented Auth0 with Itsme integration in enterprise environments, following <span class="highlight">Clean Architecture</span> principles</li>
+          <li>Developed with <span class="highlight">.NET 8</span>, including migration from .NET 6 environments</li>
+          <li>Created <span class="highlight">technical documentation</span>, collaborated with Security team (favorites are markdown and mermaid) and made presentations for sharing experiences during development</li>
+          <li>Debugged and made Azure DevOps environment working with YAML pipelines, parameter files, ARM templates and artifacts</li>
+          <li>Meetings with security (e.g. SAST, pentests,...) and ensured better practices for the next project</li>
+          <li>Meetings with the DotNet excellence teams and ensured better practices for the next project while challenging the excellence team on certain decisions</li>
+          <li>Meetings with the solution architects ensuring and questioning current practices and better practices for the next project, adapting architectural patterns</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="company">RecoMatics</span>
+          <span class="date">04/2017 – 04/2022</span>
+        </div>
+        <div class="role">Solution Engineer</div>
+        <ul>
+          <li>Maintained a SaaS product in <span class="highlight">Azure</span> (Cloud Services, WebAPI, Service Bus)</li>
+          <li><span class="highlight">Coached product and project teams</span> to improve collaboration and code quality</li>
+          <li>Implemented <span class="highlight">Domain-Driven Design</span> patterns for complex business requirements</li>
+          <li>Used <span class="highlight">Entity Framework Core</span>, Dapper, and Azure Functions for data access and processing</li>
+          <li>Set up CI/CD pipelines with Azure, GitVersion, and GitHub</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="company">Qite</span>
+          <span class="date">08/2014 – 04/2017</span>
+        </div>
+        <div class="role">Still feeling as a Sr. Software Developer (C#)</div>
+        <ul>
+          <li>Implemented <span class="highlight">distributed backend architecture</span> for WebAPI, TypeScript, AngularJS, and EF 6.1 solutions</li>
+          <li>Promoted <span class="highlight">SOLID principles, TDD, and best practices</span> among development teams</li>
+          <li>Implemented <span class="highlight">CI/CD pipelines</span> and provided team training on modern development practices</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer">
+      References available upon request | Full CV at www.itkriebbels.be/resume
+    </div>
+  </div>
+</body>
+</html>

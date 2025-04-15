@@ -17,6 +17,9 @@ routes:
   mission-vision:
     en: "/mission-vision/"
     nl: "/nl/missie-visie/"
+  one-pager:
+    en: "/one-pager/"
+    nl: "/nl/profiel/"
   print-resume:
     en: "/print-resume/"
     nl: "/nl/print-resume"
