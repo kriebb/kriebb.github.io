@@ -42,7 +42,8 @@ resume:
   certifications: "Certificeringen"
   interests: "Interesses en Hobby's"
   talk_about: "Praat Met Mij Over"
-
+  languages: "Talen"
+  
 # Over mij pagina
 about:
   title: "Over Mij"

@@ -65,6 +65,11 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
     {% include certification-logos.html cert=cert_key name=cert_name %}
 </div>
 
+## {{ site.data.i18n[site.active_lang].resume.languages }}
+{% for lang_item in site.data.resume[site.active_lang].languages %}
+- {{ lang_item }}
+{% endfor %}
+
 ## Interests and Hobbies
 {% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}
 - {{ interest }}

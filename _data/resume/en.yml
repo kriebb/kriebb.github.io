@@ -94,6 +94,11 @@ education:
   - "Bachelor's in IT (Mainframe & Software Development), Hogeschool Gent (HOGENT), Schoonmeersen Campus"
   - "Graduation Project: RFID & PLC Integration — controlling a PLC from a C# application via RFID and Ethernet communication, focusing on reusable and testable code."
 
+languages:
+  - "**Dutch**: Main Language"
+  - "**French**: Reading/Listening"
+  - "**English**: Reading/Listening, Writing, Speaking"
+  
 certifications:
   bachelor: "Bachelor in Informatics (HoGent, Ghent)"
   scrum-master:  "Certified Scrum Master (Scrum.org)"
