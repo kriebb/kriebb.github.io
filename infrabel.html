@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristof Riebbels - Senior Software Architect</title>
+  <style>
+    /* Common styles for both screen and print */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      margin: 0 auto;
+      padding: 0;
+      max-width: 210mm; /* A4 width */
+    }
+    
+    /* Layout containers */
+    .container {
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header with more visual impact */
+    .header {
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #004c8c;
+    }
+    
+    .header-left {
+      flex: 2;
+    }
+    
+    .header-right {
+      flex: 1;
+      text-align: right;
+      padding-right: 15px;
+    }
+    
+    h1 {
+      color: #004c8c;
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
+    
+    .subtitle {
+      color: #00b386;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .contact-info {
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+    
+    /* Resume sections */
+    .resume-section {
+      margin-bottom: 25px;
+      clear: both;
+    }
+    
+    h2 {
+      color: #004c8c;
+      font-size: 20px;
+      padding-bottom: 5px;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      position: relative;
+      border-bottom: 1px solid #cce9e4;
+    }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: #00b386;
+    }
+    
+    /* Two-column layout for top sections */
+    .two-column {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .column {
+      flex: 1;
+    }
+    
+    /* Experience items */
+    .experience-item {
+      margin-bottom: 18px;
+      position: relative;
+    }
+    
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    .company {
+      font-weight: bold;
+      color: #004c8c;
+    }
+    
+    .date {
+      color: #666;
+    }
+    
+    .role {
+      font-style: italic;
+      color: #00b386;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    
+    /* List styles */
+    ul {
+      margin-top: 5px;
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    
+    ul li {
+      margin-bottom: 4px;
+      position: relative;
+    }
+    
+    ul li::marker {
+      color: #00b386;
+    }
+    
+    /* Highlighted text */
+    .highlight {
+      background-color: #e0f5f0;
+      padding: 0 2px;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+    
+    /* Project highlights */
+    .project-highlights li {
+      margin-bottom: 8px;
+    }
+    
+    /* Skills matrix table styles */
+    .skills-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.85em;
+      table-layout: fixed;
+    }
+    
+    .skills-matrix-table th {
+      background-color: #004c8c;
+      color: white;
+      padding: 4px 6px;
+      text-align: left;
+      font-size: 0.85em;
+    }
+    
+    .skills-matrix-table td {
+      padding: 3px 5px;
+      border: 1px solid #cce9e4;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    
+    .skills-matrix-table tr:nth-child(even) {
+      background-color: #f2f9f7;
+    }
+    
+    .category-col {
+      width: 22%;
+      font-weight: 600;
+      color: #004c8c;
+    }
+    
+    .basic-col {
+      width: 22%;
+      background-color: #f2f9f7;
+    }
+    
+    .experienced-col {
+      width: 26%;
+      background-color: #e0f5f0;
+    }
+    
+    .advanced-col {
+      width: 30%;
+      background-color: #c9eae2;
+    }
+    
+    .tech-item {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.85em;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 25px;
+      font-size: 0.9em;
+      text-align: center;
+      color: #666;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    
+    /* Print-specific styles */
+    @media print {
+      /* Basic page setup */
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+      
+      body {
+        width: 100%;
+        max-width: none;
+        font-size: 10.5pt;
+        line-height: 1.4;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+      
+      /* Keep colors for print */
+      h1, h2, .subtitle, .company, .role, .skills-matrix-table th, .category-col {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      h2::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .highlight {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      ul li::marker {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .skills-matrix-table th, .skills-matrix-table td {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .basic-col, .experienced-col, .advanced-col {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      /* Prevent breaking inside sections */
+      .resume-section, .experience-item, .skill-category {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      
+      /* Prevent breaks after headings */
+      h1, h2, h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      
+      /* Ensure at least 2 lines stay together */
+      p, li {
+        orphans: 2;
+        widows: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <h1>Kristof Riebbels</h1>
+        <p class="subtitle">Senior Software Architect | Azure Developer Associate | Certified Scrum Master</p>
+        <div class="contact-info">
+          Belgium (Zele) | Email: riebbels.kristof@itkriebbels.be<br>
+          LinkedIn: linkedin.com/in/kristofriebbels | GitHub: github.com/kriebb | www.itkriebbels.be
+        </div>
+      </div>
+      <div class="header-right">
+        <!-- Could add custom logo or image here if needed -->
+      </div>
+    </div>
+    
+    <div class="two-column">
+      <div class="column">
+        <div class="resume-section">
+          <h2>Professional Profile for Infrabel</h2>
+          <p>Senior .NET Developer with 17+ years experience evolving from developer to architect, focusing on maintainable, secure software architectures. At Xebia, I've helped implement <span class="highlight">distributed backend architectures</span> for clients like AXA Belgium, integrating complex systems (Auth0/Itsme/Backend services, EIP, APIM) while maintaining security standards through pentests and security reviews. My approach combines <span class="highlight">collaborative implementation with hands-on expertise</span> - I work with solution architects to bring designs to life, often improving implementations through team collaboration and practical development experience.</p>
+        </div>
+        
+        <div class="resume-section project-highlights">
+          <h2>Project Highlights</h2>
+          <ul>
+            <li><strong>Enterprise Authentication System (AXA Belgium):</strong> Led implementation of Auth0 with Itsme integration using <span class="highlight">distributed backend architecture</span>, Azure AppServices, APIM, and KeyVault. Learned and adapted from multiple security reviews and pentests to continuously improve security standards.</li>
+            <li><strong>OIDC Mocking Framework:</strong> Developed an open-source tool for integration testing with id/access tokens (github.com/kriebb/MockOpenIdConnectIdpAspnetcore) that was adopted at AXA, demonstrating practical solutions over theoretical perfection</li>
+            <li><strong>ERP System Modernization:</strong> Part of team that redesigned legacy system (DB2/COBOL/FORTRAN) to SQL Server/WCF/.NET using <span class="highlight">Domain-Driven Design</span> with state machines for order processing, focusing on delivery rather than getting lost in architectural abstractions</li>
+          </ul>
+        </div>
+
+        <div class="resume-section">
+          <h2>Languages</h2>
+          <ul>
+            <li><strong>Dutch:</strong> Native (C2 level)</li>
+            <li><strong>English:</strong> Professional working proficiency (reading, writing, speaking)</li>
+            <li><strong>French:</strong> Basic proficiency (reading/listening only) - Below B2 level required for position</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="resume-section skills-section">
+          <h2>Skills Matrix for Infrabel Requirements</h2>
+          
+          <table class="skills-matrix-table">
+            <tr>
+              <th class="category-col">Technology<br>Category</th>
+              <th class="basic-col">Basic<br>Knowledge</th>
+              <th class="experienced-col">Experienced</th>
+              <th class="advanced-col">Advanced</th>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Architecture &<br>Development</td>
+              <td class="basic-col">
+                <span class="tech-item">Enterprise Architect</span>
+              </td>
+              <td class="experienced-col">
+                <span class="tech-item">Software Architecture (Implementation)</span>
+                <span class="tech-item">Mermaid Diagrams</span>
+              </td>
+              <td class="advanced-col">
+                <span class="tech-item">C#/.NET (17+ years)</span>
+                <span class="tech-item">OOP Patterns</span>
+                <span class="tech-item">IOC/DI*</span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Services &<br>APIs</td>
+              <td class="basic-col">
+                <span class="tech-item">WebLogic Server</span>
+              </td>
+              <td class="experienced-col">
+                <span class="tech-item">Azure App Service</span>
+                <span class="tech-item">Kestrel</span>
+              </td>
+              <td class="advanced-col">
+                <span class="tech-item">REST APIs</span>
+                <span class="tech-item">SOAP/WCF/WSDL</span>
+                <span class="tech-item">XML/XSD/XSL</span>
+                <span class="tech-item">JSON</span>
+                <span class="tech-item">IIS</span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Messaging &<br>Integration</td>
+              <td class="basic-col">
+                <span class="tech-item">IBM MQ</span>
+                <span class="tech-item">RabbitMQ</span>
+                <span class="tech-item">Hazelcast</span>
+              </td>
+              <td class="experienced-col">
+                <span class="tech-item">Azure Service Bus</span>
+                <span class="tech-item">Redis</span>
+              </td>
+              <td class="advanced-col">
+                <span class="tech-item">MSMQ</span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Data Access</td>
+              <td class="basic-col">
+                <span class="tech-item">DevArt dotConnect</span>
+              </td>
+              <td class="experienced-col">
+                <span class="tech-item">Dapper</span>
+              </td>
+              <td class="advanced-col">
+                <span class="tech-item">Entity Framework Core</span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Testing &<br>Quality</td>
+              <td class="basic-col"></td>
+              <td class="experienced-col"></td>
+              <td class="advanced-col">
+                <span class="tech-item">TDD</span>
+                <span class="tech-item">Unit Testing</span>
+                <span class="tech-item">CI/CD**</span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">DevOps &<br>Infrastructure</td>
+              <td class="basic-col">
+                <span class="tech-item">OpenShift</span>
+                <span class="tech-item">ProGet</span>
+              </td>
+              <td class="experienced-col">
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">SSH</span>
+                <span class="tech-item">TeamCity</span>
+              </td>
+              <td class="advanced-col">
+                <span class="tech-item">Azure DevOps</span>
+                <span class="tech-item">MSBuild</span>
+                <span class="tech-item">Azure Artifacts**</span>
+                <span class="tech-item">Git/GitHub</span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Scheduling &<br>Workflows</td>
+              <td class="basic-col"></td>
+              <td class="experienced-col">
+                <span class="tech-item">Azure Functions</span>
+                <span class="tech-item">Logic Apps</span>
+                <span class="tech-item">Hangfire</span>
+              </td>
+              <td class="advanced-col"></td>
+            </tr>
+            
+            <tr>
+              <td class="category-col">Project<br>Management</td>
+              <td class="basic-col">
+                <span class="tech-item">JIRA</span>
+              </td>
+              <td class="experienced-col">
+                <span class="tech-item">Certified Scrum Master</span>
+              </td>
+              <td class="advanced-col"></td>
+            </tr>
+          </table>
+          
+          <div style="margin-top:5px; font-size:0.8em;">
+            * IOC/DI: Dependency Injection with Autofac, Unity, Microsoft DI
+            <br>** CI/CD: Continuous Integration/Delivery with Azure DevOps, Azure Artifacts, TeamCity
+          </div>
+          
+        </div>
+        
+        <div class="resume-section">
+          <h2>Certifications</h2>
+          <ul>
+            <li>Microsoft Certified: Azure Developer Associate (AZ-204)</li>
+            <li>Certified Scrum Master (Scrum.org)</li>
+            <li>Bachelor in Informatics (HoGent, Ghent)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="resume-section">
+      <h2>Value Proposition for Infrabel</h2>
+      <p>As someone with extensive experience implementing and collaborating on architecture, I bring a combination of <span class="highlight">technical depth and team collaboration skills</span> that would benefit Infrabel's railway management systems:</p>
+      <ul>
+        <li><strong>Collaborative Implementation:</strong> I excel at working with architects and teams to translate architectural designs into effective implementations</li>
+        <li><strong>Security-Focused:</strong> My experience implementing authentication systems ensures security requirements are properly executed</li>
+        <li><strong>Continuous Improvement:</strong> I help identify ways to enhance existing architectures based on practical implementation experience</li>
+        <li><strong>Team Approach:</strong> I believe the way of working must work for a team to ultimately work for the company</li>
+        <li><strong>Pragmatic Implementation:</strong> I balance following architectural guidelines with practical delivery, ensuring systems not only meet design specifications but can be maintained long-term</li>
+      </ul>
+    </div>
+    
+    <div class="resume-section">
+      <h2>Relevant Experience</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="company">Xebia XMS BE</span>
+          <span class="date">04/2022 – Present</span>
+        </div>
+        <div class="role">Software Architect</div>
+        <ul>
+          <li>Implement <span class="highlight">distributed backend architectures</span> for enterprise clients, collaborating on architectural decisions and documenting with Mermaid diagrams</li>
+          <li>Work with solution architects on Auth0/Itsme integration at AXA Belgium, translating architectural decisions into implementations using <span class="highlight">OOP principles and dependency injection</span></li>
+          <li>Collaborate on <span class="highlight">security architecture implementation</span> working with JWT tokens, Azure KeyVault, OAuth flows, and Active Directory</li>
+          <li>Implement workflow scheduling solutions for distributed systems using Azure Functions, Logic Apps, and Service Bus topics/queues</li>
+          <li>Configure CI/CD pipelines in Azure DevOps leveraging MSBuild, Azure Artifacts, and automated testing</li>
+          <li>Implement development standards using IoC/DI containers, unit testing frameworks, and TDD methodologies</li>
+          <li>Configure monitoring solutions with Application Insights following architectural guidelines</li>
+          <li>Follow and improve upon architectural patterns for secure SSH access between environments</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="company">RecoMatics</span>
+          <span class="date">04/2017 – 04/2022</span>
+        </div>
+        <div class="role">Solution Engineer</div>
+        <ul>
+          <li>Collaborated on <span class="highlight">service-oriented architecture implementation</span> for SaaS product using architectural patterns and team feedback</li>
+          <li>Implemented architectural patterns for data access and messaging using <span class="highlight">repository pattern</span>, unit of work, and message queue abstractions</li>
+          <li>Contributed to <span class="highlight">architectural documentation</span> including coding standards, architectural principles, and system integration patterns</li> 
+          <li>Implemented microservices approach for new features following established service boundaries and communication contracts in XSD/JSON Schema</li>
+          <li>Implemented secure token-based authentication flows between SharePoint, Dynamics 365, and custom services</li>
+          <li>Helped develop workflow scheduling implementation using Azure Service Bus topics/subscriptions and Azure Functions</li>
+          <li>Implemented XML/XSL transformation layers for data integration between legacy and modern systems</li>
+          <li>Set up CI/CD pipelines implementing agreed branch policies, quality gates, and deployment strategies</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="company">Febelco</span>
+          <span class="date">05/2010 – 05/2014</span>
+        </div>
+        <div class="role">Senior Software Developer with Architectural Contributions</div>
+        <ul>
+          <li>Contributed to architecture implementation for ERP system modernization, collaborating with team on translating business requirements into technical solutions</li>
+          <li>Implemented N-tier architecture following established patterns for cross-layer communication using DTOs</li>
+          <li>Applied <span class="highlight">dependency injection patterns</span> in implementation, ensuring consistent application of IoC principles</li>
+          <li>Implemented data access architecture using repository and unit of work patterns with NHibernate as the ORM solution</li>
+          <li>Built service communication implementations using <span class="highlight">WCF, contract-first design</span>, and message validation</li>
+          <li>Implemented task scheduling architecture for automated business processes using state machines and MSMQ for reliable message delivery</li>
+          <li>Applied transaction handling patterns across distributed system components</li>
+          <li>Implemented testing architecture following defined unit, integration, and system testing strategies and frameworks</li>
+          <li>Created JSON/XML data transformation implementations for integration with external systems and reporting solutions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>References available upon request | Full CV at www.itkriebbels.be/resume</p>
+    </div>
+  </div>
+</body>
+</html>
