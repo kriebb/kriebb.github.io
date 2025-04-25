@@ -1,28 +1,18 @@
+<!-- jekyll-redirect-from will use this template to implement redirects. This modification to the template helps polyglot redirect accounting for languages -->
+{% assign redirection = page.redirect.to | remove_first: site.url %}
+{% if site.active_lang == site.default_lang %}
+{% assign redirectTo =  site.url | append: redirection %}
+{% else %}
+{% assign redirectTo = site.url | append: "/" | append: site.active_lang | append: redirection  %}
+{% endif %}
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.active_lang | default: 'en' }}">
-<head>
+<html lang="en-US">
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0;url={{ page.redirect_to }}">
-  <link rel="canonical" href="{{ page.redirect_to }}">
-  <title>Redirecting...</title>
-  <script>
-    window.location.href = "{{ page.redirect_to }}";
-  </script>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 { margin-bottom: 1rem; }
-    p { margin-bottom: 1.5rem; }
-    a { color: #004c8c; }
-  </style>
-</head>
-<body>
-  <h1>Redirecting...</h1>
-  <p>This page has moved. If you are not redirected automatically, follow this <a href="{{ page.redirect_to }}">link</a>.</p>
-</body>
+  <title>Redirecting&hellip;</title>
+  <link rel="canonical" {% static_href %}href="{{ redirectTo }}"{% endstatic_href %}>
+  <script>location="{{ redirectTo }}"</script>
+  <meta http-equiv="refresh" content="0; url={{ redirectTo }}">
+  <meta name="robots" content="noindex">
+  <h1>Redirecting&hellip;</h1>
+  <a {% static_href %}href="{{ redirectTo }}"{% endstatic_href %}>Click here if you are not redirected.</a>
 </html>

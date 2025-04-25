@@ -22,6 +22,7 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
   gem 'jekyll-polyglot', '~> 1.9.0'        # Latest version
+  gem 'jekyll-redirect-from'
 end
 
 # For testing and local development

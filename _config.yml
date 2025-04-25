@@ -49,7 +49,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-polyglot
-
+  - jekyll-redirect-from
 # Polyglot settings
 polyglot:
   languages: ["en", "nl"]

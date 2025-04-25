@@ -1,20 +1,6 @@
 {% assign current_lang = site.active_lang | default: site.default_lang %}
 {% assign current_ref = page.ref %}
 
-{% if current_ref %}
-  {% if current_lang == 'en' %}
-    {% assign alt_url = site.data.routes.routes[current_ref].nl %}
-  {% else %}
-    {% assign alt_url = site.data.routes.routes[current_ref].en %}
-  {% endif %}
-{% else %}
-  {% if current_lang == 'en' %}
-    {% assign alt_url = '/nl/' %}
-  {% else %}
-    {% assign alt_url = '/' %}
-  {% endif %}
-{% endif %}
-
 <div class="language-switcher-container">
   <button class="language-trigger" aria-label="Change language">
     {% for lang_code in site.languages %}
@@ -29,10 +15,24 @@
   <div class="language-dropdown">
     {% for lang_code in site.languages %}
       {% if lang_code != current_lang %}
-        <a href="{{ alt_url }}" class="language-option" data-lang="{{ lang_code }}">
-          <span class="language-icon">{{ site.language_data[lang_code].icon }}</span>
-          <span class="language-name">{{ site.language_data[lang_code].name }}</span>
-        </a>
+        {% if current_ref and site.data.routes.routes[current_ref] %}
+          {% assign target_url = site.data.routes.routes[current_ref][lang_code] %}
+          <a class="language-option" 
+             onclick="switchLanguage('{{ target_url }}'); return false;"
+             href="javascript:void(0);"
+             data-lang="{{ lang_code }}">
+            <span class="language-icon">{{ site.language_data[lang_code].icon }}</span>
+            <span class="language-name">{{ site.language_data[lang_code].name }}</span>
+          </a>
+        {% else %}
+          <a class="language-option" 
+             onclick="switchToLanguage('{{ lang_code }}', '{{ site.default_lang }}', '{{ page.url }}'); return false;"
+             href="javascript:void(0);"
+             data-lang="{{ lang_code }}">
+            <span class="language-icon">{{ site.language_data[lang_code].icon }}</span>
+            <span class="language-name">{{ site.language_data[lang_code].name }}</span>
+          </a>
+        {% endif %}
       {% endif %}
     {% endfor %}
   </div>
