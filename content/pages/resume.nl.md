@@ -11,38 +11,38 @@ pageid: resume
 
 ---
 
-Below are a few examples of my personal and open-source projects:
+Hieronder staan enkele voorbeelden van mijn persoonlijke en open-source projecten:
 
 
-## Professional Summary
+## Professioneel Profiel
 
-Senior .NET Developer with 17+ years of experience with secure and maintainable solutions. Passionate about clean code, SOLID principles, and test-driven development. Experienced in architecting and implementing cloud-based (Azure) systems.
+Senior .NET Ontwikkelaar met meer dan 17 jaar ervaring in veilige en onderhoudbare oplossingen. Gepassioneerd door clean code, SOLID principes en test-driven development. Ervaren in het ontwerpen en implementeren van cloud-gebaseerde (Azure) systemen.
 
-Key strengths include:
-- .NET Core/C# application development
-- Software architecture and design patterns
-- Test-driven development and quality assurance
-- Authentication/security implementation (OIDC)
-- Mentoring and Agile methodologies
+Belangrijkste sterke punten:
+- .NET Core/C# applicatieontwikkeling
+- Software architectuur en ontwerppatronen
+- Test-driven development en kwaliteitsborging
+- Authenticatie/beveiliging implementatie (OIDC)
+- Mentoring en Agile methodologieën
 
-## Core Competences
+## Kerncompetenties
 {% include resume.html section="core_competences" %}
 
-## Projects and Examples
+## Projecten en Voorbeelden
 
-{% include projects.html  %}
+{% include projects.html %}
 
-For more projects, visit my [GitHub profile](https://github.com/kriebb).
+Voor meer projecten, bezoek mijn [GitHub profiel](https://github.com/kriebb).
 
-## Skills and Expertise
+## Vaardigheden en Expertise
 {% include resume.html section="development_and_programming" %}
 
-## Education and Graduation Project
+## Opleiding en Afstudeerproject
 {% for edu_item in site.data.resume[site.active_lang].education %}
 - {{ edu_item }}
 {% endfor %}
 
-## Certifications
+## Certificeringen
 <div class="certification-container">
     {% include certification-logos.html %}
 </div>
@@ -52,13 +52,12 @@ For more projects, visit my [GitHub profile](https://github.com/kriebb).
 - {{ lang_item }}
 {% endfor %}
 
-## Interests and Hobbies
+## Interesses en Hobby's
 {% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}
 - {{ interest }}
 {% endfor %}
 
-## Talk to Me About
-{% for topic in site.data.resume.talk_to_me_about[site.active_lang] %}
+## Praat Met Mij Over
+{% for topic in site.data.resume[site.active_lang].talk_to_me_about %}
 - {{ topic }}
 {% endfor %}
-

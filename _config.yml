@@ -3,7 +3,7 @@ title: "IT KRIEBBELS"
 description: "Freelance .NET Developer – Building secure, clear, and reliable solutions"
 author: "Kristof Riebbels"
 baseurl: ""
-url: "http://www.itkriebbels.be"
+url: "http://www.itkriebbels.be" #for polygot
 github_username: kriebb
 
 # Build settings
@@ -30,6 +30,7 @@ languages: ["en", "nl"]
 default_lang: "en"
 exclude_from_localization: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
 locale_from_file_extension: true
+lang_from_path: true
 
 # Language details
 language_data:
@@ -55,13 +56,13 @@ polyglot:
   default_lang: "en"
   exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico", "lib"]  # Add "lib"  
   permalink: pretty
-  parallel_processing: true
-
+  parallel_processing: false #windows compatibility
+  lang_from_path: true
 # Sass processing
 sass:
   sass_dir: _sass
   style: compressed
-
+  sourcemap: never
 # Exclude these files from production site
 exclude:
   - Gemfile
@@ -91,4 +92,3 @@ permalink: pretty
 collections:
   pages:
     output: true
-    source: content/pages

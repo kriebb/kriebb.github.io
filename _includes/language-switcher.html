@@ -29,22 +29,11 @@
   <div class="language-dropdown">
     {% for lang_code in site.languages %}
       {% if lang_code != current_lang %}
-        {% if current_ref %}
-          {% assign target_url = site.data.routes.routes[current_ref][lang_code] | default: '/{{ lang_code }}/' %}
-        {% else %}
-          {% if lang_code == site.default_lang %}
-            {% assign target_url = '/' %}
-          {% else %}
-            {% assign target_url = '/{{ lang_code }}/' %}
-          {% endif %}
-        {% endif %}
-        
-        <a href="{{ target_url }}" class="language-option" data-lang="{{ lang_code }}">
+        <a href="{{ alt_url }}" class="language-option" data-lang="{{ lang_code }}">
           <span class="language-icon">{{ site.language_data[lang_code].icon }}</span>
           <span class="language-name">{{ site.language_data[lang_code].name }}</span>
         </a>
       {% endif %}
     {% endfor %}
   </div>
-</div>
 </div>

@@ -1,78 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {%- include head.html -%}
-  </head>
-  <body>
-    <header>
-      <div class="navbar">
-        <div class="nav-logo">
-          <a href="/">
-            <!-- Full Light Logo -->
-            <img src="/assets/it-kriebbels-logo-full-light.svg" alt="IT KRIEBBELS" class="logo-full logo-light" />
-            <!-- Full Dark Logo -->
-            <img src="/assets/it-kriebbels-logo-full-dark.svg" alt="IT KRIEBBELS" class="logo-full logo-dark" />
-            
-            <!-- Minimal Light Logo -->
-            <img src="/assets/it-kriebbels-logo-min.svg" alt="IT KRIEBBELS" class="logo-mini logo-light" />
-            <!-- Minimal Dark Logo -->
-            <img src="/assets/it-kriebbels-logo-min-dark.svg" alt="IT KRIEBBELS" class="logo-mini logo-dark" />
-          </a>
-        </div>
-        {% assign active_lang = page.lang | default: site.default_lang | default: "en" %}
-        {% assign t = site.data.i18n[active_lang] %}
-        <div class="nav-links-container">
-          <ul class="nav-links" id="nav-links">
-            <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>
-              {{  t.nav.home }}</a></li>
-            
-            <li><a href="{{ '/resume' | relative_url }}" 
-                   {% if page.url contains '/resume' or page.url contains '/cv' %}class="active"{% endif %}>
-              {{  t.nav.resume }}</a></li>
-            
-            <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>
-              {{  t.nav.blog }}</a></li>
-            
-            <li><a href="{{ '/contact' | relative_url }}" {% if page.url contains '/contact' %}class="active"{% endif %}>
-              {{  t.nav.contact }}</a></li>
-            
-            <li><a href="{{ '/about' | relative_url }}" 
-                   {% if page.url contains '/about' or page.url contains '/over-mij' %}class="active"{% endif %}>
-              {{  t.nav.about }}</a></li>
-          </ul>
-        </div>
-        
-        <div class="nav-actions">
-          <!-- Language Switcher -->
-          {% include language-switcher.html %}          
-          <!-- Theme Toggle Buttons -->
-          <button id="darkModeToggle" class="dark-mode-btn" hidden aria-label="Toggle dark mode">
-            <i class="fas fa-moon"></i>
-          </button>
-          <button id="lightModeToggle" class="light-mode-btn" hidden aria-label="Toggle light mode">
-            <i class="fas fa-sun"></i>
-          </button>
-        </div>
-        
-        <!-- Nav toggle should be separate from the other elements -->
-        <button class="nav-toggle" aria-label="Toggle navigation" type="button">☰</button>
+
+<head>
+  {%- include head.html -%}
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="nav-logo">
+        <a href="/">
+          <!-- Full Light Logo -->
+          <img src="/assets/it-kriebbels-logo-full-light.svg" alt="IT KRIEBBELS" class="logo-full logo-light" />
+          <!-- Full Dark Logo -->
+          <img src="/assets/it-kriebbels-logo-full-dark.svg" alt="IT KRIEBBELS" class="logo-full logo-dark" />
+
+          <!-- Minimal Light Logo -->
+          <img src="/assets/it-kriebbels-logo-min.svg" alt="IT KRIEBBELS" class="logo-mini logo-light" />
+          <!-- Minimal Dark Logo -->
+          <img src="/assets/it-kriebbels-logo-min-dark.svg" alt="IT KRIEBBELS" class="logo-mini logo-dark" />
+        </a>
       </div>
-    </header>
+      {% assign active_lang = page.lang | default: site.default_lang | default: "en" %}
+      {% assign t = site.data.i18n[active_lang] %}
+      <!-- This should replace the navigation section in your _layouts/default.html -->
+      <div class="nav-links-container">
+        <ul class="nav-links" id="nav-links">
+          <!-- Home -->
+          <li>
+            {% if site.active_lang == 'en' %}
+            <a href="/" {% if page.url=='/' %}class="active" {% endif %}>
+              {{ site.data.i18n[site.active_lang].nav.home }}
+            </a>
+            {% else %}
+            <a href="/nl/" {% if page.url=='/nl/' %}class="active" {% endif %}>
+              {{ site.data.i18n[site.active_lang].nav.home }}
+            </a>
+            {% endif %}
+          </li>
 
-    <div class="layout-container">
-      {% if page.sidebar %}
-        {%- include sidebar.html -%}
-      {% endif %}
-      <main class="main-content">
-        {{ content }}
-      </main>
+          <!-- Resume/CV -->
+          <li>
+            {% assign resume_url = site.data.routes.routes.resume[site.active_lang] %}
+            <a href="{{ resume_url }}" {% if page.url contains '/resume/' or page.url contains '/cv/' %}class="active"
+              {% endif %}>
+              {{ site.data.i18n[site.active_lang].nav.resume }}
+            </a>
+          </li>
+
+          <!-- Blog -->
+          <li>
+            {% assign blog_url = site.data.routes.routes.blog[site.active_lang] %}
+            <a href="{{ blog_url }}" {% if page.url contains '/blog/' %}class="active" {% endif %}>
+              {{ site.data.i18n[site.active_lang].nav.blog }}
+            </a>
+          </li>
+
+          <!-- Contact -->
+          <li>
+            {% assign contact_url = site.data.routes.routes.contact[site.active_lang] %}
+            <a href="{{ contact_url }}" {% if page.url contains '/contact/' %}class="active" {% endif %}>
+              {{ site.data.i18n[site.active_lang].nav.contact }}
+            </a>
+          </li>
+
+          <!-- About -->
+          <li>
+            {% assign about_url = site.data.routes.routes.about[site.active_lang] %}
+            <a href="{{ about_url }}" {% if page.url contains '/about/' or page.url contains '/over-mij/'
+              %}class="active" {% endif %}>
+              {{ site.data.i18n[site.active_lang].nav.about }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        {% include language-switcher.html %}
+        <!-- Theme Toggle Buttons -->
+        <button id="darkModeToggle" class="dark-mode-btn" hidden aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="lightModeToggle" class="light-mode-btn" hidden aria-label="Toggle light mode">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+
+      <!-- Nav toggle should be separate from the other elements -->
+      <button class="nav-toggle" aria-label="Toggle navigation" type="button">☰</button>
     </div>
+  </header>
 
-    <footer>
-      {%- include footer.html -%}
-    </footer>
+  <div class="layout-container">
+    {% if page.sidebar %}
+    {%- include sidebar.html -%}
+    {% endif %}
+    <main class="main-content">
+      {{ content }}
+    </main>
+  </div>
 
-    <script id="site-routes-data" type="application/json">
+  <footer>
+    {%- include footer.html -%}
+  </footer>
+
+  <script id="site-routes-data" type="application/json">
       {
         "routes": {
         {% for route_pair in site.data.routes.routes %}
@@ -85,23 +118,25 @@
         }
       }
       </script>
-    <!-- Scripts -->
+  <!-- Scripts -->
 
-    {% for script in site.data.assets.scripts %}
-    <script src="{{ script.url }}" {% if script.defer %}defer{% endif %}></script>
-    {% endfor %}
-    {% for style in site.data.assets.styles %}
-    <link rel="stylesheet" href="{{ style.url }}" onerror="this.onerror=null;this.href='{{ style.local }}';">
-    {% endfor %}
-    <script src="{{ '/assets/js/swiper-init.js' | relative_url }}"></script>
-    
-    <script src="{{ '/assets/js/image-popup.js' | relative_url }}" defer></script>
-    <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-    <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-    <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-    
-    {% include cookie-consent.html %}
+  {% for script in site.data.assets.scripts %}
+  <script src="{{ script.url }}" {% if script.defer %}defer{% endif %}></script>
+  {% endfor %}
+  {% for style in site.data.assets.styles %}
+  <link rel="stylesheet" href="{{ style.url }}" onerror="this.onerror=null;this.href='{{ style.local }}';">
+  {% endfor %}
+  <script src="{{ '/assets/js/swiper-init.js' | relative_url }}"></script>
 
-    
-  </body>
+  <script src="{{ '/assets/js/image-popup.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/language-switcher.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+
+  {% include cookie-consent.html %}
+
+
+</body>
+
 </html>
