@@ -12,6 +12,7 @@ header {
   align-items: center;
 }
 
+
 /* Use table layout for maximum stability across browsers */
 .navbar {
   display: flex;
@@ -21,6 +22,7 @@ header {
   height: 60px;
   padding: 0 1rem;
   align-items: center;
+  justify-content: space-between; /* Ensure space between elements */
 }
 
 /* Logo area */
