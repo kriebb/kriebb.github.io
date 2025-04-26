@@ -24,7 +24,7 @@ When extending the user registration process, using Auth0 (an OIDC Provider), it
 
 In this blog post, I will explore difficult ways how to achieve this. Making the `HTTP` request body is tamper-proof is **a** step in protecting data as it moves from one server to another. The use of signatures for `HTTP` request bodies provides a robust mechanism for ensuring data integrity and security in this context. Frameworks like `JOSE` (JSON Object Signing and Encryption) can help in this matter.
 
-A lot of the internet is already protected by using the `HTTPS` protocol, right? Well, `HTTPS` only encrypts the data; it does not guarantee that the content is not tampered with during transit. `HTTPS` provides a secure channel but does not protect against all types of tampering. For instance, if data is decrypted and re-encoded, the integrity may be compromised without detection. In scenarios where sensitive data is transferred – such as through webhooks – signing the request body ensures the data's integrity independently of the transport layer's security.
+A lot of the internet is already protected by using the `HTTPS` protocol, right? Well, `HTTPS` only encrypts the data; it does not guarantee that the content is not tampered with during transit. `HTTPS` provides a secure channel but does not protect against all types of tampering. For instance, if data is decrypted and re-encoded, the integrity may be compromised without detection. In scenarios where sensitive data is transferred ï¿½ such as through webhooks ï¿½ signing the request body ensures the data's integrity independently of the transport layer's security.
 
 `HTTP` request body signatures add a layer of security by allowing the recipient to verify that the body has not been altered in transit. They act as a digital signature, much like those used in emails, ensuring the integrity of the sent content. 
 
@@ -65,7 +65,6 @@ In this section, gain insights into access tokens, particularly within the `JWT`
 
 An **access token** is a credential used to access protected resources. When used in a `JWT` format, it typically contains claims about the user and any permissions granted. These tokens can be JSON Web Signature (`JWS`) or `JSON` Web Encryption (`JWE`) encoded to ensure authenticity and confidentiality, respectively.
 
-[
 ```mermaid
 sequenceDiagram
     participant Client as Client Application
@@ -96,7 +95,6 @@ sequenceDiagram
     Server->>Middleware: Send Response
     Middleware->>Client: Receive Response
 ```
-](https://mermaid.live/edit#pako:eNp1VV1v2jAU_StW9ko3Stu1RVMlIKmqTd1QiTpp4sUkF7hqsDPboU1R__uu4wRMwhyJJNfn3M9DvAsSmUIwDDT8LUAkECJfKb6ZC0Yr58pggjkXhk0yBLpx3TyN8jzDhBuUoot-xDTN4JUrsAzvbQZqiwl0GXYDlEWHoA2KynFtdWj3yxODW26gTqNlPERqbdTundVRz-7uDvAhmyiwwIc4nrIn2w1dO_8pySwt2_GGVekl-_47Zr9GhVmzWL6AYEupmH2VCt-9thxitALOcCWaSGws05K9IjmbKpfxDyi9-ApXa8PkkrU9cFNQW0FoummWcsMZCgMrhaY8kYDrA1FBpBUf0lbJdeMyU9lnX2LFhc6lsiNKioNbu1I4OY7WVnsodrk8vIRCSFSZk8Aor2dQuCxd_APluA8NL6orJ_FaPpVjbMLLRjVU576mYzE4YyeROvi-t98W6s4NpliQ4P83l4Y-5VozXDK9nw1qtuUZpr6KO1GnSiZAzEYPtg3RG5WSGBbSUFu0IxXYUT4BzUhoODHyRrVPkABuYQ8NesEG1IZjSv__nSXOA7OGDcyDIT0uOHkLep79mSvkiwy0BezqcoJc4YarciIzqRzz0-Xoth8NarKHieHN-Lj7anVxY6lSUD5yMLmKbiMPqSGRIm3FvY7Ci8H5KVTX41U4-trve1gD9DFqObzv2-sEqOsvvLCXB81QgA-4qJYHWEph7vkGs9IhHiDbAn0PeY-NqNFZj2kS8pm2emzRZvheT-n8Mn_zNrlS8nUNPPUQnwew8SCCZDt-WR3PIYxGYQvTHlYn_8pRtw_R-ObmutWHeI3JiyB9O9DA5mz3P-big2TICyNnpUiCoVEF9IIip-9YcxQ1RkjRSPXojqvq1OoFdHL8kZIgS55p-PgHSf46VA)
 
 An **ID token** contains information about the user when access is granted. This is always in a `JWT` format. 
 
@@ -119,7 +117,7 @@ The **JSON Object Signing and Encryption** (JOSE) framework offers a suite of te
 
 `JOSE` enables you to sign and encrypt HTTP request bodies, ensuring integrity and confidentiality.
 
-[
+
 ```mermaid
 graph TD;
     JWT --> JWS;
@@ -127,7 +125,6 @@ graph TD;
     JWS --> JWS_Signed_Data;
     JWE --> JWE_Encrypted_Data;
 ```
-](https://mermaid.live/edit#pako:eNptk21rwjAQx79Kyd7WoVXnw2BQbWQM9qqywSjI2Z422CYliZtO_O5LW5Ws9fIi4e53_4S73InEIkEyJVsJReosg-eIO8bePpdOp_Ni9rDloTdPeGVWIdtyTFYBaLhF6ZVfUR7LY6GvAHFJjjIHlpiLTyUeEZ1ijhGZmuMalDm5lv8DJIN1hqoETrV-RArJcpDHuciErDMfBv6kS71LssUs8aBtblFZm5sJmaC0SW8-pBNqkQpjwZPGvSMa9L3ePaqtOAz8p27XYjVKzRqCi2657kBtvaBfLgvNGEcb6FdmARvB9QJylh1r4hWzb9QsBtfxTaEz11HAVUehZJtGWsh-L13qDYqDFQQpxU-KkFjEo4e5hXChcbbb_u9DQP2gwTSb1Xp_JdSuA52Nx6NGHZYpi3cclaohr3xzGT9H_Gy-Iey1CI88JlMt9-iSfZGAxoCBGYecTDeQKePFhGkh3-tBqebFJQXwLyGuzPkPp639yA)
 
 ## Understanding the Versatility of JSON Web Tokens
 
@@ -218,7 +215,7 @@ The following steps outline the process:
 
 #### Example HTTP Request
 
-[
+
 ```mermaid
 sequenceDiagram
     participant Client
@@ -229,7 +226,6 @@ sequenceDiagram
     Server->>Server: Verifies JWT Signature (using public key / shared secret)
     Server-->>Client: Success/Failure Response
 ```
-](https://mermaid.live/edit#pako:eNptlFFv2yAQx78KYi-b5C5p0q6tHyolsaNo0raotjpp8svZviQoGDzAXd0o3304JBK1Cy_o-N3_juPgQAtZIg2pxr8NigIjBlsFVSaIHTUowwpWgzBkwRkKM7QnqF5QObtjrh4f3SIka4WWRbIypn7qIuizwk9pkEjrSC5owraCbBjyUhPQ5PvvlDBBclm2PW0XMCSrNF2T9a8kJSOo2Ug3ecXO6g7x2GdUzGo72S4SmMam9bnRTGxJ3eScFWSPLRkRvbMJl0RjodB8eafnHSxpigK1Hi2B8U7pCXUthUYa0ApVBay0NT103hk1O6wwo6Fd5qDtKvDsz6AY5Bx1BxxcuIzWilWg2oXkUjnPTzezh3E8OTt7TIqvxueWpzHk5lKVqHxysriNH2KPtGeWouzFvYuj6eT6I2qoeBvNvo3HHmvQNkpPcDnu5gfQUC-adtNDORPoA9PT8ICNFGYJFeOtI1bIX9D2KgRkZgvNA6JB6Cvd9UPPLWFv51u6vqlfvU1QSv7bIZQe8XWClYcI287z_fb9PUTxLOox_csa5H8SGtYhnt_f3_XqkO5YsRe2CR006XLu9o-ZONo2hMbIpBUFDY1qMKBNXYK5PG8aboBra8WSGal-uD_g9BUE1D7rP1JemON_9h5PoA)
 
 An example use case could be a secure data submission where JSON payload (representing a transaction) is signed using `JWT` technology before it is sent to prevent unauthorized changes. The National Register Number (`nrn`) is the real identification of the user.
 
@@ -301,7 +297,7 @@ To decrypt a `JWE` token, follow these steps:
 3. Decrypt the Payload:
     - Using the `CEK`, decrypt the `JWE` ciphertext to extract the original payload.
 
-[
+
 ```mermaid
 sequenceDiagram
     participant Client
@@ -314,7 +310,7 @@ sequenceDiagram
     Client ->> Client: Decrypt JWE Ciphertext
     Client ->> Client: Extract Original Payload
 ```
-](https://mermaid.live/edit#pako:eNp9lG9vmzAQxr-K5b3ZJLKlSbu20RQpAaJu1dRpqTZp4o0DR7AKNjs7bWiU777jTysX2pk3xv7dPQ93xgce6wT4jBv4uwMVQyDFFkURKUajFGhlLEuhLPNzCcoO19eA94Dtesuw0XzeTWfsJ4iE2QzYt98hu6IXQPZlg5_m7GtCgEwrFqoYq9JKrdgi32qUNuv0lbbAUG4zy3T6nLILlJD0eUe_tVXr03cZywJ4Fkk1Ng5qR502pbqGqk3SRrLRy68wpVYJeyCtJtbXytZSjndKwN774fWH_3mnfXazsUIqSN6sWee1KZkvywzQwt6-iYd7iyK27IbUpBI5-yGqXIuEe7wALIRMqL-HOjzi1IkCIj6j6UYYmnnO-i-BUmxyMDVwaPUiXqIsBFa-zjW2ke9OF5fjcNIFO8wt2XS5VTOG3FIjnQOXnPhn4WXokAZiKnhP9zwMppOT16hhxrNg8Xk8dlhLZZS9hKtx_bwCDfMF0_px0Jx66ALTZjhASmdkJQqZVy1xBfk90H8jPLagQuceM0KZkQGUaS9sLR-7Lp2clntnUyDqh4x-I4f4OIHCQeqDt7zbvuxDEC6CHtNv1sB_k2hYh3B5cXHeq8NtJuM7Bca00KT2XO8fI3WkYyh2Vq8rFfOZxR14fFcmwj5dNXyWitzQKiTSavze3kfNteRxumL-aP3EHP8BMjp9qQ)
+
 
 ### `JWS` Verification
 
@@ -342,7 +338,6 @@ The concept of signing involves creating a digital signature for the body of a `
 
   - Server-side Verification: The server uses the public key to verify the received signature and the integrity of the request body.
 
-[
 ```mermaid
 sequenceDiagram
     participant Client
@@ -363,7 +358,6 @@ sequenceDiagram
     Server ->> Server: Use Public Key to Verify Signature
     Server ->> Server: Confirm Integrity and Authenticity
 ```
-](https://mermaid.live/edit#pako:eNp1lG9v2jAQxr-Klb3oG9go_R9NlQKEMU2TUMOqaeKNSQ44NbGzs0ObVf3usxMKJmmSFxjf73l8vnP86sUyAc_3FPwtQMQwQb4hni0FM0_OSWOMOReajVMEodvzEdAOaCnqiJAamDQTe943cV3kPvsGAoib4EMUsB9QsjlHqjU1yfr39wfRCT0n3NmxUX1d0Zd7LhI2lkSgcikSFBs2L1YpxhZoOdbpGUfcwf5PbepIOlPXkLNzn00lsZDHW_Zgi6R0Z9pjnsZFanONZsHw6prNuNpWOcv1u5iNZFJ2OkS4EUxvoVKyQpndVfpGHTr1gdY2UWvDdUHgWMyAJ2ZzZ4fYGZNURc5-9-e8TCVP-sdgZyUjMPWfLRbzw46eUW9Zbf9ezH2lXd0DaEKwXTgktyaZHYSnPTiuZn_7ChNgj0C4xphrlN3L_FLgNJdpWcvK47Kd0rEUa6SMfRcaNoS6ZPaoBYXph7DnXZdez8uAMo6J-WRerdHSM9EMlp5vhiuuzKjnzD9yQr5KQVngtV556eWEGadyLFNJtfLTZXA3CId7scMs4EW73LR62txIkqmiSw7HV-Fd6JAKYvO9NNa9CScXw_OPqLbj1SS4HgwcVoO5BxqG04F9P4DafpML-zpoigJc4KJ6HGAthZ7yDNOyJmaQ7sC0hvdYYAqd9pjiQvWV7XhDFuG_fZfOL_MXJ8iJ5PPWHEKH-DyEzEHssRw9bU77MAmDSYNpNquVf2XUrkM4ur29adRhscX4SYBSNTS0Odv421K8mWPICy2jUsSer6mAnlfkibkb9re35695qswsJKgl_ayv-Oqm73nm1v4j5Tvz9h9uau9G)
 
 ```http
 

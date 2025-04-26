@@ -154,14 +154,6 @@ Let me illustrate the above using some real use cases.
 
 Suppose I have an [ASP.NET](http://ASP.NET) Core application that uses `IOptions` to access configurations related to the database connection string, cache settings, and other application settings. Since `IOptions` is cached for the lifetime of the application, it is useful when I need to access these configuration settings multiple times throughout the lifetime of the application. The mermaid diagram below illustrates this.
 
-
-
-
-
-
-
-
-![dependency_injection_sequence_diagram.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/dependency_injection_sequence_diagram.png)
 ```mermaid
 sequenceDiagram
     participant BusinessLogicService
@@ -187,13 +179,6 @@ sequenceDiagram
 
 When I have a long-lived scoped service such as a request-scope service, I would need to use `IOptionsSnapshot`. For instance, suppose I have a request-scope service that provides caching for API responses, and I configure the cache duration using `IOptionsSnapshot`. In this case, `IOptionsSnapshot` ensures that the cache expiration time is updated in real-time as soon as the configuration value gets updated, making it more suitable for long-lived scoped services like request-scope services. The mermaid diagram below illustrates this.
 
-
-
-
-
-
-
-![dotnet_optionssnapshot_sequence_diagram.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/dotnet_optionssnapshot_sequence_diagram.png)
 ```mermaid
 sequenceDiagram
     participant BusinessLogicService(Scoped Service)
@@ -224,7 +209,66 @@ sequenceDiagram
 
 Suppose I have an application where I need to monitor changes to the configuration data and perform actions based on the changes. In this case, I would use `IOptionsMonitor`. For example, imagine that I have an email notification service in my application, and I have set the `MySettings` section in the Azure AppService AppSettings. If at some point I need to change the values of the `MySettings` section, it triggers change notifications, which the `IOptionsMonitor` listens to and subsequently performs necessary actions like reconnecting to the new server. The mermaid diagram below illustrates this and shows the difference with the IOptionSnapshot as well.
 
-[![dotnet_options_lifecycle_sequence.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/dotnet_options_lifecycle_sequence.png)](https://mermaid.live/view#pako:eNq1VsFu2zAM_RXCpxZoDrsaRYCu3boATQrUaHfxRZGZRIMjeRKdISv675MtO3YsOV3bLZcY8tPjI59I-TniKsMojgz-LFFyvBFsrdk2lWB_BdMkuCiYJLgqCmCm_jv7BDNpiFn4uQ-8VnIl1hV25h5LzUgomUof-7k0QqIxd2oteIJ6JzhWO4PrZwlXBWZNyCHV7L6oophEsiLZKKoFDNYu5_sEiYRcm6kv5suWiXyhSKwErxX3BI2-O0ssW46k5HkowVbBXElBSvdFNUvHmhyDVISgdqircsdwo0giwfzpOlwYYWCpVEXRElQuTabTxovYbhN55vlRIRknsWM2nHvnKxjL_EjWaHmstIfHxWK2uPWZQ7kcsQZ2t4mNq5plOabD5MbgA1hI0QAycG-Y0-B1DIfj4ZDD8zB5JRn5Azm9cmbabhg1oYrhCXuoGt4QfFWq4eqY3qgyQZnZnmX6ieVlU7BcqQIeTbim8EvQxuvOLn7rcviEfCNqxTOtxQ5Nt9PzySf3zWoxNpN6wsRwudRT-C7yHJYIGrnaFiVZ2gyUBLR793a1ltDxBhPtl74L08o_NZ8u4E4YQgkrawDfMLnu5_nukKfsPozOyXjxh16fYukNoFvb0rw_fUA5dMiXdtNjkdmaG2iIISvROePKAULC1e9SY3Ve2uzrR1fCjrq5kibh0lyHdDXB390TbtGKb6yrxHJ__L5hSr3a4qcmdaK2SBtbFbiXTtu-Y83wX0n4_1PG2ZL1D-CHWvCj_aCRSi0DugLF9WeSg9nE2se_tqIHHL-1eqD2eh-RdLjOootoi9qGzuxH4XOFTyPa4BbTKLaPGa5YmVMapfLFQllJKtlLHsWkS7yIyroKzTekW3z5A7KhopM)
+```mermaid
+sequenceDiagram
+    participant App as App (1 Instance)
+    participant Config as IConfiguration
+
+    participant BusinessLogicService as BusinessLogicService (Scoped)
+        participant IOptionsSnapShot as IOptionsSnapShot<MySettings>
+    participant EmailNotificationService as EmailNotificationService (Singleton)
+
+    participant IOptionsMonitor as IOptionsMonitor<MySettings>
+
+    note over App: Dotnet MVC BusinessLogicService is booting
+
+    App ->> Config: Build IConfiguration
+    activate Config
+
+    note over EmailNotificationService: Dotnet MVC EmailNotificationService is RUNNING
+
+    note over BusinessLogicService: Dotnet MVC  is RUNNING
+
+    App ->> EmailNotificationService: Idle
+
+    activate EmailNotificationService
+    activate BusinessLogicService
+    activate IOptionsMonitor
+    note over IOptionsMonitor: Singleton
+    IOptionsMonitor -->> EmailNotificationService: Injects IOptionsMonitor<MySettings>
+        EmailNotificationService ->> IOptionsMonitor: Request FooSetting
+        IOptionsMonitor -->> EmailNotificationService: Sends BarValue
+    loop Use BusinessLogicService with IOptionsSnapShot
+        App ->> BusinessLogicService: HttRequest arrives
+        activate IOptionsSnapShot
+        note over IOptionsSnapShot: Scoped: <br> Will be recomputated on every request
+        BusinessLogicService ->> IOptionsSnapShot: Request IOptionsSnapShot<MySettings>, Listen for changes
+              BusinessLogicService ->> IOptionsSnapShot: Request FooSetting
+        IOptionsSnapShot -->> BusinessLogicService: Sends BarValue
+
+        IOptionsSnapShot ->> Config: Get configuration options
+        note over Config: Updates Options due <br> change in Azure AppService AppSettings
+        Config -->> IOptionsSnapShot: Configuration options Update
+        IOptionsMonitor -->> EmailNotificationService: Notifies changes in configuration
+        activate EmailNotificationService
+        EmailNotificationService ->> EmailNotificationService: DoSomething On Notify
+        deactivate EmailNotificationService
+        EmailNotificationService ->> IOptionsMonitor: Request FooSetting
+        IOptionsMonitor -->> EmailNotificationService: Sends UpdatedBarValue
+
+
+        BusinessLogicService ->> IOptionsSnapShot: Request FooSetting
+        IOptionsSnapShot -->> BusinessLogicService: returns UpdatedBarValue
+        deactivate IOptionsSnapShot
+
+    end
+
+    deactivate EmailNotificationService
+    deactivate BusinessLogicService
+    deactivate Config
+    deactivate IOptionsMonitor
+```
+
 
 ### IOptions StartupValidation Checkup in Azure Portal
 

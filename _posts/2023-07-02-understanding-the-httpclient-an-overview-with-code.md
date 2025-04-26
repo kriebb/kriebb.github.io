@@ -68,7 +68,6 @@ In the .NET Framework, the `HttpClient` creates HTTP requests. Behind the scenes
 
 Let us take a look at the sequence diagram:
 
-[
 ```mermaid
 sequenceDiagram
     participant Application
@@ -88,13 +87,11 @@ sequenceDiagram
     HttpWebRequest-->>HttpClient: Receive response
     HttpClient-->>Application: Return response
 ```
-](https://mermaid.live/edit#pako:eNqNUj1PwzAQ_SuWJ5DaoUUdyFAJlYGFpRlYsrj2a7GU2Ma-VEJV_zsXnJIKDOIGy_b7uPP5TlJ7A1nJhLceTuPRqkNUXeMER1CRrLZBORIPIbRWK7Le_QSfiMKmtXBUxl6w2w4JUgGvEY-Izeh6lWa-Xk--ldhEKIKwLpHiQi-CCE0iHnY3i_vFTCyXd7ysVrcZHGLyGA2nYgqmgwLO5M2f0hqcNx9EiD6An4T0L6EzF-VEnxgsyT0pUTMyL9huoWGPYHoK3iUUrb_19HfNWD3zr35kEFAf3RdfzmSH2ClreIROg7qR9IoOjax4a7BXfUuNbNyZqaonX787LSuKPWayD4abP06crPaqTXwLY8nH5zyWn9N5_gBhuOrz)
 
 The HttpClient has been completely reworked to address the limitations. The new `HttpClient` is a [cross-platform](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.socketshttphandler?view=net-7.0) implementation. It uses the new `HttpMessageHandler`. That `HttpMessageHandler` provides an efficient and performant way to make HTTP requests.
 
 Let's take a look at the updated sequence diagram to understand the changes.
 
-[
 ```mermaid
 sequenceDiagram
     participant Client as Application
@@ -124,7 +121,6 @@ sequenceDiagram
     Server -->> HttpClient: Receive Request
 
 ```
-](https://mermaid.live/edit#pako:eNqVkz1PwzAQhv-K5QmkdGhRBzIUoQKCoR0a2LIczjVYSpzgXApV1f_OhbhJW7cVeEgs-7l7z_exkapIUIayws8ajcIHDamFPDaCVwmWtNIlGBLTTCP_oBL3ZZlpBaQL42NPoKiw64Z7JipbK3fo0z1yaHCCBJNkaHfYDKsKUnSnPh6hXTHd4O02drG2_geTiYspFFOLQOiJN8uiImHT96vh7TAQo9ENf8bj650v54KduTh6Z_txoUmO-U78hdOpSK86k7sWhYzEvKCjyz6y89Jz_LqEd8oRcbrE43epuVqvOu-izSr8g2znZ4H1_wzOCvtpauvBTyvMUqe19avUlbO_CMVb5YN7nca06LIWsSy_gZu_2pGu0xqs7Z1TlGuwwYGzBSps0nCe3IvSg2UgORk56ITncdMYx5I-MMdYhrxNcAl1RrGMzZZRqKmI1kbJkGyNgazLhMvvxleGS-A6BhITzbmctTP-O-rbH47PUdw)
 
 In the image above, the HttpClient does not rely on the class HttpWebRequest. I The sequencediagram shows that there is a difference between setting up the Httpclient and using the `HttpClient`. The `HttpClient` uses the [HttpMessageHandler](https://github.com/dotnet/runtime/blob/release/7.0/src/libraries/Microsoft.Extensions.Http/src/DefaultHttpClientFactory.cs) to handle the http requests. There is no more overhead of creating a new instance for each request. This results in improved performance!
 

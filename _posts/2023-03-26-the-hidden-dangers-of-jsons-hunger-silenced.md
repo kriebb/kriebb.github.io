@@ -60,13 +60,6 @@ In the section titled "AuthorizationHeader," you'll discover a brief overview hi
 Since JWT is also in JSON format, it's crucial to ensure that your configuration is set up correctly. If not, the same attack could be applied to a JWT. Having a robust method for signing your token is of paramount importance.
 
 
-
-
-
-
-
-
-![jwt_token_validation_sequence.png](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/jwt_token_validation_sequence.png)
 ```mermaid
 sequenceDiagram
     participant JwtBearerHandler
@@ -88,14 +81,6 @@ Keep in mind that once the signature is verified, the payload can be considered 
 
 After conducting some research, I struggled to find a reliable source that explains the process of transitioning from an HTTP request to an HTTP response. However, by setting breakpoints, I managed to create the following sequence diagram to illustrate the process.
 
-
-
-
-
-
-
-
-![aspnet_core_request_lifecycle_diagram.png](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/aspnet_core_request_lifecycle_diagram.png)
 ```mermaid
 sequenceDiagram
     participant Client

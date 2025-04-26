@@ -48,14 +48,6 @@ The use of a subdomain is essential because it allows the entire system to ident
 
 Once you have your forwarding email setup you can provide any alias email directly to the commercial website. The alias does not need to exist. SimpleLogin will create one, link it to you default mailbox and will forward you the mailbox. It replaces the sender with the alias.
 
-
-
-
-
-
-
-
-![simplelogin_email_forwarding_flow.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/simplelogin_email_forwarding_flow.png)
 ```mermaid
 sequenceDiagram
     participant CommercialWebsite
@@ -93,13 +85,6 @@ Now you need to define where that SimpleLogin needs to forward the email. Click 
 To get an overview, this is what you need to do.
 
 
-
-
-
-
-
-
-![simplelogin_alias_creation_flow.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/simplelogin_alias_creation_flow.png)
 ```mermaid
 sequenceDiagram
     participant User
@@ -241,14 +226,6 @@ To: commercialwebsite.1234.dummy007@simplelogin.com
 
 It will tell you that the email journey starts from the Commercial Website, passes through SimpleLogin, and finally is delivered to John Doe's Gmail account. Security checks (DKIM, SPF, DMARC) are performed by SimpleLogin and Gmail during the process.
 
-
-
-
-
-
-
-
-![email_forwarding_sequence_diagram.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_forwarding_sequence_diagram.png)
 ```mermaid
 sequenceDiagram
     participant CommercialWebsite

@@ -133,7 +133,6 @@ From here on, I will focus only on the JWT tokens and the OAuth2 and OpenIDConne
 
 To understand how claims are processed within an ASP.NET Core application, let's take a helicopter overview of the journey of an HTTP request. Read more about Middleware: [ASP.NET](http://ASP.NET) [Core Middleware | Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-7.0)
 
-[
 ```mermaid
 sequenceDiagram
     participant User
@@ -169,7 +168,6 @@ sequenceDiagram
         end
 
 ```
-](https://mermaid.live/edit#pako:eNq9VT1v2zAQ_SsHTi3gAC3aSYMBo04RDymM2kYXLSx5jolQpEqe4qRB_nuPkg3rw1bdpZxI6fHd3XtH8lUor1FkIuKvCp3CuZEPQRa5Ax6lDGSUKaUj2EQMw68_UNIOw1cfUMlIX7yj4K09B51VjHS8lGS8uzdaW9zLgEPk2j-iWySmWKJK6PNsPpjffyW7IypTWvhM-YEnlXIznV7MPYO79XoJ35MkkZo9F8FMdKky5pGO512mS-hRottnClIRLOZASR1gYpgphTE2HxruNKQlWJkHJ6kKyNG0Sb7C2hQIixgrDPDNEzxJa_Rp12hmnFotWsaVMKuDjWthUUPAWHoXEd59_vAx0Xd-vz-FQcug2t8IGlPvabBeSWtfrsxlOm05msGK2BFQVpoignF1mrAMxiX7bS_wnik7qoEvJVtzdehhZ2ZHcw-EZti2bWMWrtZ93bXsPxpw1GIYfFjbzWhLHjIJaPEpHbTGg14kp_NWnfXyCpkvHO4Mlhi2PhQg2wBQO1SPsXsCNu6IwTNdfoY8FduT-MTQ0fcT8C3wkzei63f27N9jjtxCy-AVcvC9oV33DjmOsVtphHjuIVK13V5L1pKmkaFnqZiIAkMhjeaX5DX9zAVTFZiLjKcat7KylIvcvTGUZfWrF6dERqHCiahKzU16eHhEtpWs5ESgNny075vXqX6k3v4AVJNIQw)
 
 Imagine a scenario where you have a `WeatherForecastController` in your application. Upon receiving an HTTP request, the middleware pipeline kicks in and performs tasks, such as authentication and authorization. The middleware responsible for handling authentication will extract and validate the ID token and access token from the request's headers or cookies.
 
@@ -448,11 +446,11 @@ I do like to mention the following sources that I may not explicitly mention in 
 
 [User claims in](https://damienbod.com/2019/11/01/user-claims-in-asp-net-core-using-openid-connect-authentication/) [ASP.NET](http://ASP.NET) [Core using OpenID Connect Authentication | Software Engineering (](https://damienbod.com/2019/11/01/user-claims-in-asp-net-core-using-openid-connect-authentication/)[damienbod.com](http://damienbod.com)[)](https://damienbod.com/2019/11/01/user-claims-in-asp-net-core-using-openid-connect-authentication/)
 
-[Introducing the OpenIddict client | Kévin Chalet's blog (](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)[kevinchalet.com](http://kevinchalet.com)[)](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)
+[Introducing the OpenIddict client | Kï¿½vin Chalet's blog (](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)[kevinchalet.com](http://kevinchalet.com)[)](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)
 
 [Adding custom claims to a user during authentication with](https://joonasw.net/view/adding-custom-claims-aspnet-core-2) [ASP.NET](http://ASP.NET) [Core 2.0 - Joonas W's blog](https://joonasw.net/view/adding-custom-claims-aspnet-core-2)
 
-[aspnetcore/src/Components at main · dotnet/aspnetcore · GitHub](https://github.com/dotnet/aspnetcore/tree/main/src/Components)
+[aspnetcore/src/Components at main ï¿½ dotnet/aspnetcore ï¿½ GitHub](https://github.com/dotnet/aspnetcore/tree/main/src/Components)
 
 # Outro
 
