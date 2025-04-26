@@ -2,8 +2,8 @@
 .blog-container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 60px auto 0; /* Add top margin to account for fixed header */
+    padding: 1rem;
 }
 
 .blog-grid {
@@ -12,7 +12,11 @@
   gap: 2rem;
   margin-top: 2rem;
 }
-
+@media (max-width: 768px) {
+  .blog-container {
+    margin-top: 60px; /* Adjust for mobile header height */
+  }
+}
 @media (min-width: 768px) {
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
