@@ -2,66 +2,113 @@
 layout: default
 ---
 
-<div class="blog-container">
-  <header class="blog-header">
-    <h1 class="blog-title">{{ page.title }}</h1>
-    <div class="blog-subtitle">Thoughts on .NET development, security, and professional growth</div>
+<div class="blog-container{% if page.sidebar %} with-sidebar{% endif %}">
+  <div class="blog-main">
+    <!-- Blog Header -->
+    <header class="blog-header">
+      <h1 class="blog-title">{{ page.title }}</h1>
+      <p class="blog-subtitle">Thoughts on .NET development, security, and professional growth</p>
+    </header>
     
     <!-- Search Box -->
     <div class="search-container">
       <input type="text" id="blog-search" placeholder="{{ site.data.i18n[site.active_lang].blog.search_placeholder | default: 'Search posts...' }}">
     </div>
-  </header>
-  
-  <!-- Tag Filters -->
-  <div class="tag-filters">
-    <span class="tag-filter active" data-tag="all">All</span>
-    {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
-    {% for tag in all_tags limit:12 %}
-      <span class="tag-filter" data-tag="{{ tag | slugify }}">{{ tag }}</span>
-    {% endfor %}
-  </div>
-  
-  <div class="blog-grid">
-    {% comment %}
-    First try to get posts filtered by current language.
-    If none are found, display all posts (they might not have lang attribute)
-    {% endcomment %}
     
-    {% assign lang_posts = site.posts | where: "lang", site.active_lang %}
-    {% if lang_posts.size > 0 %}
-      {% assign posts_to_display = lang_posts %}
-    {% else %}
-      {% assign posts_to_display = site.posts %}
-    {% endif %}
-    
-    {% for post in posts_to_display %}
-    <article class="blog-card">
-      <div class="blog-card-image">
-        {% if post.cover %}
-        <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">
-        {% else %}
-        <img src="/assets/images/blog/default-cover.jpg" alt="{{ post.title }}">
-        {% endif %}
-        <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
+    <!-- Tag Section with Title -->
+    <div class="tag-section">
+      <h3 class="tag-section-header">Filter by Topic</h3>
+      <div class="tag-cloud">
+        <!-- All Tags Option -->
+        <a href="#" class="tag-item active" data-tag="all">
+          All
+          <span class="tag-count">{{ site.posts | size }}</span>
+        </a>
+        
+        <!-- Generate Tags with Post Counts -->
+        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
+        {% for tag in all_tags %}
+          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+          {% assign size_class = "tag-size-1" %}
+          {% assign post_count = tag_posts | size %}
+          
+          {% if post_count > 10 %}
+            {% assign size_class = "tag-size-5" %}
+          {% elsif post_count > 7 %}
+            {% assign size_class = "tag-size-4" %}
+          {% elsif post_count > 5 %}
+            {% assign size_class = "tag-size-3" %}
+          {% elsif post_count > 3 %}
+            {% assign size_class = "tag-size-2" %}
+          {% endif %}
+          
+          <a href="#" class="tag-item {{ size_class }}" data-tag="{{ tag | slugify }}">
+            {{ tag }}
+            <span class="tag-count">{{ post_count }}</span>
+          </a>
+        {% endfor %}
       </div>
-      <div class="blog-card-content">
-        <h2 class="blog-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        {% if post.tags.size > 0 %}
-        <div class="blog-tags">
-          {% for tag in post.tags limit:3 %}
-          <a href="/tag/{{ tag | slugify }}/" class="blog-tag">#{{ tag }}</a>
-          {% endfor %}
-        </div>
-        {% endif %}
-        <div class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</div>
-        <a href="{{ post.url | relative_url }}" class="read-more">{{ site.data.i18n[site.active_lang].blog.read_more | default: 'Read more' }}</a>
-      </div>
-    </article>
-    {% else %}
-    <div class="no-posts">
-      <p>No posts found. Please check back later.</p>
     </div>
-    {% endfor %}
+    
+    <!-- Blog Grid -->
+    <div class="blog-grid">
+      {% assign lang_posts = site.posts | where: "lang", site.active_lang %}
+      {% if lang_posts.size > 0 %}
+        {% assign posts_to_display = lang_posts %}
+      {% else %}
+        {% assign posts_to_display = site.posts %}
+      {% endif %}
+      
+      {% for post in posts_to_display %}
+      <article class="blog-card">
+        <div class="blog-card-image">
+          {% if post.cover %}
+          <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">
+          {% else %}
+          <img src="/assets/images/blog/default-cover.jpg" alt="{{ post.title }}">
+          {% endif %}
+          <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </div>
+        <div class="blog-card-content">
+          <h2 class="blog-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          {% if post.tags.size > 0 %}
+          <div class="blog-tags">
+            {% for tag in post.tags limit:3 %}
+            <a href="/tag/{{ tag | slugify }}/" class="blog-tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <div class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</div>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read more</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
   </div>
+  
+  {% if page.sidebar %}
+  <!-- Optional Sidebar Layout -->
+  <aside class="blog-sidebar">
+    <div class="sidebar-section">
+      <h3 class="sidebar-title">Topics</h3>
+      <div class="sidebar-tag-cloud">
+        <!-- All Tags Option -->
+        <a href="#" class="tag-item active" data-tag="all">
+          All Posts
+          <span class="tag-count">{{ site.posts | size }}</span>
+        </a>
+        
+        <!-- Generate Tags with Post Counts -->
+        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
+        {% for tag in all_tags %}
+          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+          <a href="#" class="tag-item" data-tag="{{ tag | slugify }}">
+            {{ tag }}
+            <span class="tag-count">{{ tag_posts | size }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </aside>
+  {% endif %}
 </div>
