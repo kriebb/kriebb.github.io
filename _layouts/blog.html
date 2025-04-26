@@ -2,34 +2,24 @@
 layout: default
 ---
 
-<div style="height:60px; background:#004c8c; color:white; display:flex; align-items:center; justify-content:center; width:100%;">
-    Temporary Header - If you see this, it's a CSS issue
-  </div>
 <div class="blog-container">
   <header class="blog-header">
     <h1 class="blog-title">{{ page.title }}</h1>
-    <p class="blog-subtitle">{{ page.subtitle | default: page.description }}</p>
+    <div class="blog-subtitle">Thoughts on .NET development, security, and professional growth</div>
     
     <!-- Search Box -->
     <div class="search-container">
       <input type="text" id="blog-search" placeholder="{{ site.data.i18n[site.active_lang].blog.search_placeholder | default: 'Search posts...' }}">
     </div>
-    
-    <!-- Tag Filters -->
-    <div class="tag-filters">
-      <span class="tag-filter active">All</span>
-      {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
-      {% for tag in all_tags limit:8 %}
-        <span class="tag-filter">{{ tag }}</span>
-      {% endfor %}
-    </div>
   </header>
   
-  <!-- Debug information -->
-  <div class="debug-info" style="display: none;">
-    <p>Current language: {{ site.active_lang }}</p>
-    <p>Total posts: {{ site.posts.size }}</p>
-    <p>Posts in current language: {{ site.posts | where: "lang", site.active_lang | size }}</p>
+  <!-- Tag Filters -->
+  <div class="tag-filters">
+    <span class="tag-filter active" data-tag="all">All</span>
+    {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
+    {% for tag in all_tags limit:12 %}
+      <span class="tag-filter" data-tag="{{ tag | slugify }}">{{ tag }}</span>
+    {% endfor %}
   </div>
   
   <div class="blog-grid">
@@ -65,7 +55,7 @@ layout: default
         </div>
         {% endif %}
         <div class="blog-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</div>
-        <a href="{{ post.url | relative_url }}" class="read-more">Read more</a>
+        <a href="{{ post.url | relative_url }}" class="read-more">{{ site.data.i18n[site.active_lang].blog.read_more | default: 'Read more' }}</a>
       </div>
     </article>
     {% else %}
