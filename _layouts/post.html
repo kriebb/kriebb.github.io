@@ -3,28 +3,32 @@ layout: default
 ---
 
 <article class="single-post">
-  <div class="single-post-header">
-    <h1 class="single-post-title">{{ page.title }}</h1>
-    
-    <div class="single-post-meta">
-      <span class="single-post-date">
-        <i class="far fa-calendar-alt"></i> {{ page.date | date: "%B %d, %Y" }}
-      </span>
+  <!-- Hero section with cover image as background -->
+  <div class="post-hero" {% if page.cover %}style="background-image: url('{{ page.cover | relative_url }}');"{% endif %}>
+    <div class="post-hero-content">
+      <h1 class="post-title">{{ page.title }}</h1>
       
-      {% if page.tags.size > 0 %}
-        <div class="single-post-tags">
-          {% for tag in page.tags %}
-            <a href="/tag/{{ tag | slugify }}/" class="blog-tag">#{{ tag }}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
-    </div>
-    
-    {% if page.cover %}
-      <div class="cover-image-container">
-        <img src="{{ page.cover | relative_url }}" alt="Cover image for {{ page.title }}" />
+      <div class="post-meta">
+        <span class="post-date">
+          <i class="far fa-calendar-alt"></i> {{ page.date | date: "%B %d, %Y" }}
+        </span>
+        
+        <!-- Reading time indicator -->
+        <span class="reading-time">
+          {% assign words = content | number_of_words %}
+          {% assign reading_time = words | divided_by: 180 | plus: 1 %}
+          <i class="far fa-clock"></i> {{ reading_time }} min read
+        </span>
+        
+        {% if page.tags.size > 0 %}
+          <div class="post-tags">
+            {% for tag in page.tags %}
+              <a href="/tag/{{ tag | slugify }}/" class="post-tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
+    </div>
   </div>
   
   <div class="single-post-content">
@@ -65,161 +69,3 @@ layout: default
     </div>
   </div>
 </article>
-
-<style>
-  .post-navigation {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
-  }
-  
-  .post-nav-links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .prev-post, .next-post {
-    flex: 0 0 48%;
-    color: var(--accent-color);
-    text-decoration: none;
-    padding: 1rem;
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .prev-post:hover, .next-post:hover {
-    background-color: var(--light-gray);
-    transform: translateY(-3px);
-    box-shadow: var(--card-hover-shadow);
-  }
-  
-  .next-post {
-    text-align: right;
-    justify-content: flex-end;
-  }
-  
-  .related-posts {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
-  }
-  
-  .related-posts h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .related-posts-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .related-posts-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  .related-post-card {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    height: 100%;
-  }
-  
-  .related-post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--card-hover-shadow);
-  }
-  
-  .related-post-image {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
-  
-  .related-post-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .related-post-card:hover .related-post-image img {
-    transform: scale(1.05);
-  }
-  
-  .related-post-content {
-    padding: 1rem;
-  }
-  
-  .related-post-content h4 {
-    color: var(--heading-color);
-    margin: 0 0 0.5rem 0;
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .related-post-date {
-    font-size: 0.8rem;
-    color: var(--muted-color);
-  }
-  
-  /* Make post content more readable */
-  .single-post-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Improve code block readability */
-  .single-post-content pre code {
-    display: block;
-    padding: 1rem;
-    overflow-x: auto;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1.5;
-  }
-  
-  /* Improve blockquote styling */
-  .single-post-content blockquote {
-    border-left: 4px solid var(--accent-color);
-    padding: 0.5rem 0 0.5rem 1.5rem;
-    margin: 2rem 0;
-    font-style: italic;
-    color: var(--text-color);
-    background-color: var(--light-gray);
-    border-radius: 0 8px 8px 0;
-  }
-  
-  /* Improve image display */
-  .single-post-content img {
-    display: block;
-    max-width: 100%;
-    margin: 2rem auto;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
-  /* Add caption styling */
-  .single-post-content img + em {
-    display: block;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--muted-color);
-    margin-top: -1rem;
-    margin-bottom: 2rem;
-  }
-</style>

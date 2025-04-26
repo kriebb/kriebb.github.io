@@ -112,3 +112,8 @@ social:
   github: "GitHub Projects"
   bluesky: "Follow me on Bluesky"
   mastodon: "Follow me on Mastodon"
+
+blog:
+  search_placeholder: "Search posts..."
+  all: "All"
+  read_more: "Read more"

@@ -1,0 +1,61 @@
+/* Mermaid diagram styling */
+.mermaid {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    text-align: center;
+    overflow-x: auto;
+    
+    svg {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Dark mode support */
+  .dark-mode .mermaid {
+    background-color: var(--card-bg);
+    
+    .label {
+      color: var(--text-color);
+    }
+    
+    .node rect, .node circle, .node ellipse, .node polygon, .node path {
+      fill: var(--card-bg);
+      stroke: var(--accent-color);
+    }
+    
+    .edgePath .path {
+      stroke: var(--text-color);
+    }
+    
+    .cluster rect {
+      fill: var(--light-gray) !important;
+      stroke: var(--border-color) !important;
+    }
+  }
+  
+  /* Code highlighting improvements */
+  .highlight {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    
+    pre {
+      padding: 1.2rem;
+      overflow-x: auto;
+      margin: 0;
+    }
+    
+    code {
+      font-family: 'Fira Code', monospace, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono';
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+  
+  .dark-mode .highlight {
+    background-color: #2d2d2d;
+  }

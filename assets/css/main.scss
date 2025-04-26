@@ -19,10 +19,11 @@
 @import "layout/footer";
 @import "layout/sidebar";
 @import "layout/grid";
-@import "layout/blog";
+
 /* Components */
 @import "components/cover";
-
+@import "components/blog";
+@import "components/blog-index";
 @import "components/competence";
 @import "components/buttons";
 @import "components/cards";

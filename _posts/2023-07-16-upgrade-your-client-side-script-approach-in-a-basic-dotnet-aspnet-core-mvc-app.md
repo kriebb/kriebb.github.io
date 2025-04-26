@@ -393,7 +393,7 @@ Below I give an overview of the sources I used to write this.
 
 [Semantic Versioning 2.0.0 | Semantic Versioning (](https://semver.org/)[semver.org](http://semver.org)[)](https://semver.org/)
 
-[Add nuspec and build file (#77) · aspnet/jquery-validation-unobtrusive@6c2113e (](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)[github.com](http://github.com)[)](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)
+[Add nuspec and build file (#77) ï¿½ aspnet/jquery-validation-unobtrusive@6c2113e (](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)[github.com](http://github.com)[)](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)
 
 [https://jspm.org/](https://jspm.org/)
 

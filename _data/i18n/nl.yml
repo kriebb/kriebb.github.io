@@ -114,3 +114,8 @@ social:
   github: "GitHub Projecten"
   bluesky: "Volg me op Bluesky"
   mastodon: "Volg me op Mastodon"
+
+blog:
+  search_placeholder: "Zoek berichten..."
+  all: "Alle"
+  read_more: "Lees meer"

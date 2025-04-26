@@ -9,6 +9,11 @@ scripts:
     local: "/vendor/aos/js/aos.js"
     defer: true
 
+  - name: mermaid
+    url: "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+    local: "/vendor/mermaid/js/mermaid.js"
+    defer: true
+
 styles:
   - name: swiper
     url: "https://cdn.jsdelivr.net/npm/swiper@9.2.4/swiper-bundle.min.css"
