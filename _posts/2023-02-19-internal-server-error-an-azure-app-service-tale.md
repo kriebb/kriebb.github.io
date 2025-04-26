@@ -1,15 +1,15 @@
-﻿---
+---
 date: 2023-02-19
 title: "Internal Server Error: An Azure App Service tale"
 datePublished: Sun Feb 19 2023 19:38:10 GMT+0000 (Coordinated Universal Time)
 cuid: clebsk12u000309l91hml8did
 slug: internal-server-error-an-azure-app-service-tale
-cover: /assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/2023-02-19-internal-server-error-an-azure-app-service-tale.cover.jpeg
+cover: /assets/images/blog/internal-server-error-an-azure-app-service-tale/2023-02-19-internal-server-error-an-azure-app-service-tale.cover.jpeg
 tags: programming-blogs, azure, debuggingfeb
 
 ---
 
-## Previously on…
+## Previously on�
 
 When you read my posts, you do know by now I am working with Rest APIs and OAuth2, with some DevOps in between. In another post, I talk about branching etiquette. There you can read that the customer is also using an environment-based branching strategy.
 
@@ -19,7 +19,7 @@ At my customer, we are at the point we start to redeploy our existing APIs using
 
 The setup described below, has been setup on a Continuous Deployment pipeline using ARM templates. There is a convention that the DevOps team follows: each application is deployed in its virtual directory, using the application name
 
-# How it begins…
+# How it begins�
 
 Below I will describe first how to get in a situation similar to the one that I debugged. Afterwards, I will explain how I debugged that situation.
 
@@ -157,7 +157,7 @@ The following are the sources I used to mimic the situation:
     
 * [Visual Studio publish profiles (.pubxml) for](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/visual-studio-publish-profiles?view=aspnetcore-7.0) [ASP.NET](http://ASP.NET) [Core app deployment | Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/visual-studio-publish-profiles?view=aspnetcore-7.0)
     
-* [Deploy a .NET 6 Web Application to an Azure App Service by the command line - DEV Community 👩‍💻👨‍💻](https://dev.to/kasuken/deploy-a-net-6-web-application-to-an-azure-app-service-by-the-command-line-533j)
+* [Deploy a .NET 6 Web Application to an Azure App Service by the command line - DEV Community ??????????](https://dev.to/kasuken/deploy-a-net-6-web-application-to-an-azure-app-service-by-the-command-line-533j)
     
 
 The following sources I have used to help me debug the situation.

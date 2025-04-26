@@ -1,11 +1,11 @@
-﻿---
+---
 date: 2023-02-26
 title: "How to know if your data is leaked?"
 datePublished: Sun Feb 26 2023 08:40:49 GMT+0000 (Coordinated Universal Time)
 cuid: clel55n0o000509mf2q7x87o1
 slug: how-to-know-if-your-data-is-leaked
 canonical: https://dotnet.kriebbels.me/when-two-factor-authentication-is-useless
-cover: /assets/images/blog/2023-02-26-how-to-know-if-your-data-is-leaked/2023-02-26-how-to-know-if-your-data-is-leaked.cover.jpeg
+cover: /assets/images/blog/how-to-know-if-your-data-is-leaked/2023-02-26-how-to-know-if-your-data-is-leaked.cover.jpeg
 tags: security, privacy, scam, openid-connect, databreach
 
 ---

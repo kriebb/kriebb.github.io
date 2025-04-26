@@ -1,10 +1,10 @@
-﻿---
+---
 date: 2023-01-15
 title: "How fears can make me stronger"
 datePublished: Sun Jan 15 2023 06:17:58 GMT+0000 (Coordinated Universal Time)
 cuid: clcwzk5nv000208l47sf30s4q
 slug: how-fears-can-make-me-stronger
-cover: /assets/images/blog/2023-01-15-how-fears-can-make-me-stronger/2023-01-15-how-fears-can-make-me-stronger.cover.jpeg
+cover: /assets/images/blog/how-fears-can-make-me-stronger/2023-01-15-how-fears-can-make-me-stronger.cover.jpeg
 tags: psychology, retro, 2022, consultancy
 
 ---
@@ -41,7 +41,7 @@ It is easier to talk to someone that is "down to earth". Knowing that the other 
 
 # **Fear of losing the business**
 
-[![giant_hand_flicking_businessman.png](../assets/images/blog/2023-01-15-how-fears-can-make-me-stronger/giant_hand_flicking_businessman.png)](http://questfusion.com/fear-of-losing-control/)
+[![giant_hand_flicking_businessman.png](../assets/images/blog/how-fears-can-make-me-stronger/giant_hand_flicking_businessman.png)](http://questfusion.com/fear-of-losing-control/)
 
 [Fear of losing control](http://questfusion.com/fear-of-losing-control/), somewhat fits this fear as well. The blog post I linked gives you more information about that.
 

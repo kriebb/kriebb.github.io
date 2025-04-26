@@ -1,10 +1,10 @@
-ï»¿---
+---
 date: 2023-03-19
 title: "The Hidden Dangers of JSON"
 datePublished: Sun Mar 19 2023 11:17:36 GMT+0000 (Coordinated Universal Time)
 cuid: clffb05o2000b09meebgabb7c
 slug: the-hidden-dangers-of-json
-cover: /assets/images/blog/2023-03-19-the-hidden-dangers-of-json/2023-03-19-the-hidden-dangers-of-json.cover.jpeg
+cover: /assets/images/blog/the-hidden-dangers-of-json/2023-03-19-the-hidden-dangers-of-json.cover.jpeg
 tags: owasp, json, security, hacker, dotnet
 
 ---
@@ -103,7 +103,7 @@ I deleted the code that was in here. There is a better solution. I mentioned it 
 
 I am still not satisfied with my search for this vulnerability. It was stated by the security team that it is very important to validate your properties as well. I am not discussing that. But I want to understand what mechanisms are in play to abuse that. One thing that comes to mind is using `JsonConvert.DeserializeObject` method on a string property of the input object.
 
-I am also not convinced yet, that adding validation on your properties using attributes will mitigate the problem. A good read for this would be the following article by Microsoft: [runtime/ThreatModel.md at main Â· dotnet/runtime Â· GitHub](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/docs/ThreatModel.md)
+I am also not convinced yet, that adding validation on your properties using attributes will mitigate the problem. A good read for this would be the following article by Microsoft: [runtime/ThreatModel.md at main · dotnet/runtime · GitHub](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/docs/ThreatModel.md)
 
 ## Outro
 

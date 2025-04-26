@@ -1,9 +1,9 @@
-﻿---
+---
 date: 2023-05-21
 title: "Advancing Towards the AZ-204 Certification: Victories and Hurdles"
 seoTitle: "AZ-204 Impact: Personal Story & Effects"
 slug: advancing-towards-the-az-204-certification-victories-and-hurdles
-cover: /assets/images/blog/2023-05-21-advancing-towards-the-az-204-certification-victories-and-hurdles/2023-05-21-advancing-towards-the-az-204-certification-victories-and-hurdles.cover.jpeg
+cover: /assets/images/blog/advancing-towards-the-az-204-certification-victories-and-hurdles/2023-05-21-advancing-towards-the-az-204-certification-victories-and-hurdles.cover.jpeg
 tags: azure, certification, az204, failure, journey
 
 ---
@@ -26,7 +26,7 @@ Getting started with something can be quite difficult. I know what I want to ach
 
 I make it easier to achieve my goals by breaking them down into smaller, achievable steps that allow me to take gradual progress towards the final objective. This may lead me to work more than just focusing on the end goal alone. However, if getting started seems like a challenge, I take the initial smaller steps to invest myself in the larger goal.
 
-[![FIw1JlsXEAAH8mn](../assets/images/blog/2023-05-21-advancing-towards-the-az-204-certification-victories-and-hurdles/FIw1JlsXEAAH8mn)](https://twitter.com/AlexOsterwalder/status/1480616819996213249)
+[![FIw1JlsXEAAH8mn](../assets/images/blog/advancing-towards-the-az-204-certification-victories-and-hurdles/FIw1JlsXEAAH8mn)](https://twitter.com/AlexOsterwalder/status/1480616819996213249)
 
 # Getting a certificate is challenging.
 
@@ -36,7 +36,7 @@ Unfortunately, I scored only 22%, indicating my strategy had failed. I felt lost
 
 [There are 4 steps to master something](https://en.wikipedia.org/wiki/Four_stages_of_competence). Below I have an image, borrowed from [a website called "ZenTools"](http://www.zen-tools.net) that shows the different kinds of learning stages.
 
-[![four_stages_of_learning_pyramid.jpg](../assets/images/blog/2023-05-21-advancing-towards-the-az-204-certification-victories-and-hurdles/four_stages_of_learning_pyramid.jpg)](https://www.zen-tools.net/stages-of-learning.html)
+[![four_stages_of_learning_pyramid.jpg](../assets/images/blog/advancing-towards-the-az-204-certification-victories-and-hurdles/four_stages_of_learning_pyramid.jpg)](https://www.zen-tools.net/stages-of-learning.html)
 
 [According to Wikipedia](https://en.wikipedia.org/wiki/Four_stages_of_competence), the process of learning a new skill can be divided into four stages. Let me assess my situation using this learning model.
 
@@ -73,7 +73,7 @@ I talked to my coach [Kristien](https://www.mypersonalcoach.be/) about this topi
 
 # Let\`s go! Setting a deadline...
 
-![generate-an-image-that-visually-represents-a-deadl.jpg](../assets/images/blog/2023-05-21-advancing-towards-the-az-204-certification-victories-and-hurdles/generate-an-image-that-visually-represents-a-deadl.jpg)
+![generate-an-image-that-visually-represents-a-deadl.jpg](../assets/images/blog/advancing-towards-the-az-204-certification-victories-and-hurdles/generate-an-image-that-visually-represents-a-deadl.jpg)
 
 With a lot of self-doubts, I bought a seat to take an exam at home. Microsoft offered me to buy access to the MeasureUp test exam as well. I can recommend everybody to do this. Those test exams are more difficult than the ones on Whizlabs. I just took the test exam and score 55%. To pass the Microsoft exams I need 70%. MeasureUp works in the same way as Whizlabs. The difference is that Whizlabs offers more videos and education around the topic. MeasureUp explains why an answer is good and why it is bad. I visited the links they provide for each answer. I started doing that because I did not understand some answers and felt insecure about some topics. Then it hits me, I think I figured out how to study for the exam.
 

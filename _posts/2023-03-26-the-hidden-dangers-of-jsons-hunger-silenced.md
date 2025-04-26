@@ -1,10 +1,10 @@
-﻿---
+---
 date: 2023-03-26
 title: "The hidden dangers of JSONs: Hunger silenced"
 datePublished: Sun Mar 26 2023 08:20:34 GMT+0000 (Coordinated Universal Time)
 cuid: clfp4rg1400000al3bqxud8ia
 slug: the-hidden-dangers-of-jsons-hunger-silenced
-cover: /assets/images/blog/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced.cover.jpeg
+cover: /assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced.cover.jpeg
 tags: json, security, validation, pentesting, sast
 
 ---
@@ -31,7 +31,7 @@ Naturally, being me, I couldn't just be content and let it be. I felt compelled 
 
 # Did you know...
 
-* The word "[serialization](https://www.etymonline.com/word/serial?ref=etymonline_crossreference)" originated from the Latin word "seriēs," which means "a sequence or succession." It is used in computer science to refer to the process of converting an object into a sequence of bytes or characters so that it can be stored, transmitted or reconstructed later. The term "[serialization](https://en.wikipedia.org/wiki/Serialization)" is used because the process involves converting an object's internal state into a serial sequence of data that can be read or written in sequence.
+* The word "[serialization](https://www.etymonline.com/word/serial?ref=etymonline_crossreference)" originated from the Latin word "series," which means "a sequence or succession." It is used in computer science to refer to the process of converting an object into a sequence of bytes or characters so that it can be stored, transmitted or reconstructed later. The term "[serialization](https://en.wikipedia.org/wiki/Serialization)" is used because the process involves converting an object's internal state into a serial sequence of data that can be read or written in sequence.
     
 * The term "deserialization" is a logical extension of "serialization," which refers to the process of converting a programming object or structure into a format that can be transmitted over a network or stored in a file
     
@@ -66,7 +66,7 @@ Since JWT is also in JSON format, it's crucial to ensure that your configuration
 
 
 
-![jwt_token_validation_sequence.png](../assets/images/blog/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced/jwt_token_validation_sequence.png)
+![jwt_token_validation_sequence.png](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/jwt_token_validation_sequence.png)
 ```mermaid
 sequenceDiagram
     participant JwtBearerHandler
@@ -95,7 +95,7 @@ After conducting some research, I struggled to find a reliable source that expla
 
 
 
-![aspnet_core_request_lifecycle_diagram.png](../assets/images/blog/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced/aspnet_core_request_lifecycle_diagram.png)
+![aspnet_core_request_lifecycle_diagram.png](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/aspnet_core_request_lifecycle_diagram.png)
 ```mermaid
 sequenceDiagram
     participant Client
@@ -117,7 +117,7 @@ When you create a custom validation attribute and examine the stack trace, you'l
 
 To safeguard your server from a JSON attack, this point in the process is too late.
 
-![visual_studio_debugger_validationcontext.png](../assets/images/blog/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced/visual_studio_debugger_validationcontext.png)
+![visual_studio_debugger_validationcontext.png](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/visual_studio_debugger_validationcontext.png)
 
 ### Whitelist your models
 
@@ -237,7 +237,7 @@ public record TempCRange(double Min, double Max);
 
 In the `JsonSerialiserSettingsProvider,` you can notice the following comment about the type handling issue.
 
-![json_net_typenamehandling_none.png](../assets/images/blog/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced/json_net_typenamehandling_none.png)
+![json_net_typenamehandling_none.png](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/json_net_typenamehandling_none.png)
 
 You need to set up your program to set the `TypeNameHandling` to `All` to ensure the attack could be done. Note, you want to set it to `None` when you try to protect yourself against an attack.
 
@@ -261,7 +261,7 @@ In my earlier post, I suggested using some sort of middleware to assist with JSO
 
 All my approaches seem to have failed to execute such an attack. I want to stress though that I am not a pentester. It seemed fun to try out this attack because it seemed simple enough. I sat on my peak of "Mount Stupid".
 
-[![dunning_kruger_effect_chart.jpg](../assets/images/blog/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced/dunning_kruger_effect_chart.jpg)](https://understandinginnovation.blog/2015/07/03/the-dunning-kruger-effect-in-innovation/)
+[![dunning_kruger_effect_chart.jpg](../assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/dunning_kruger_effect_chart.jpg)](https://understandinginnovation.blog/2015/07/03/the-dunning-kruger-effect-in-innovation/)
 
 The JSON.NET nuget-package that I have consumed, seems to have scars. Such an attack can now be mitigated. It is a whole new world that opens and I am liking it.
 

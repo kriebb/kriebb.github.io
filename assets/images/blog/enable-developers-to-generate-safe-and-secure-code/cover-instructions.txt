@@ -1,0 +1,13 @@
+Cover Image Instructions for: Enable developers to generate safe and secure code
+=========================================
+
+1. Create an image with dimensions: 1200x630px
+2. Use these theme colors:
+   - Primary: #004c8c
+   - Secondary: #00b386
+   - Background: #f5f5f5
+3. Include this title text: Enable developers to generate safe and secure code
+4. Suggested icon: newspaper
+5. Tags: 
+
+Save the final image as: 2025-04-19-enable-developers-to-generate-safe-and-secure-code.cover.jpeg

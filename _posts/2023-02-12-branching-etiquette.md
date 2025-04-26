@@ -1,10 +1,10 @@
-ï»¿---
+---
 date: 2023-02-12
 title: "Branching Etiquette"
 datePublished: Sun Feb 12 2023 18:27:59 GMT+0000 (Coordinated Universal Time)
 cuid: cle1pyszg000809lg0kuo0swx
 slug: branching-etiquette
-cover: /assets/images/blog/2023-02-12-branching-etiquette/2023-02-12-branching-etiquette.cover.jpeg
+cover: /assets/images/blog/branching-etiquette/2023-02-12-branching-etiquette.cover.jpeg
 tags: git, devops, hooks, git-branch, git-hooks
 
 ---
@@ -37,11 +37,11 @@ Below I define two sections that are needed to understand the script I wrote: Gi
 
 ### **Installing a Hook**
 
-> To enable a hook script, put a file in the `hooks` subdirectory of your .git directory that is named appropriately (without any extension) and is executable. From that point forward, it should be called. Weâ€™ll cover most of the major hook filenames here.
+> To enable a hook script, put a file in the `hooks` subdirectory of your .git directory that is named appropriately (without any extension) and is executable. From that point forward, it should be called. We’ll cover most of the major hook filenames here.
 
 #### **Pre-Commit hook**
 
-> The `pre-commit` hook is run first, before you even type in a commit message. Itâ€™s used to inspect the snapshot thatâ€™s about to be committed, to see if youâ€™ve forgotten something, to make sure tests run, or to examine whatever you need to inspect in the code. Exiting non-zero from this hook aborts the commit, although you can bypass it with `git commit --no-verify`
+> The `pre-commit` hook is run first, before you even type in a commit message. It’s used to inspect the snapshot that’s about to be committed, to see if you’ve forgotten something, to make sure tests run, or to examine whatever you need to inspect in the code. Exiting non-zero from this hook aborts the commit, although you can bypass it with `git commit --no-verify`
 
 ## Scripting Languages
 

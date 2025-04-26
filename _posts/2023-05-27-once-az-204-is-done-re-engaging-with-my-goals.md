@@ -6,7 +6,7 @@ seoDescription: "Boost blogging motivation post-AZ-204 using Transactional Analy
 datePublished: Sat May 27 2023 18:38:52 GMT+0000 (Coordinated Universal Time)
 cuid: cli6c5epo000109l75myn3b3k
 slug: once-az-204-is-done-re-engaging-with-my-goals
-cover: /assets/images/blog/2023-05-27-once-az-204-is-done-re-engaging-with-my-goals/2023-05-27-once-az-204-is-done-re-engaging-with-my-goals.cover.png
+cover: /assets/images/blog/once-az-204-is-done-re-engaging-with-my-goals/2023-05-27-once-az-204-is-done-re-engaging-with-my-goals.cover.jpg
 tags: self-care, atomichabits, transactionalanalysis
 
 ---

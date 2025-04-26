@@ -1,11 +1,11 @@
-ï»¿---
+---
 date: 2023-06-17
 title: "Dive into Code: Unleashing the DotNet 6 Configuration Management"
 seoDescription: "Master DotNet 6 Config Management: Create IConfiguration, use default sources and how to add custom sources like Azure KeyVault and Azure AppConfiguration"
 datePublished: Sat Jun 17 2023 13:48:43 GMT+0000 (Coordinated Universal Time)
 cuid: clj0215vw00020amfb8p0cw9u
 slug: dive-into-code-unleashing-the-dotnet-6-configuration-management
-cover: /assets/images/blog/2023-06-17-dive-into-code-unleashing-the-dotnet-6-configuration-management/2023-06-17-dive-into-code-unleashing-the-dotnet-6-configuration-management.cover.jpeg
+cover: /assets/images/blog/dive-into-code-unleashing-the-dotnet-6-configuration-management/2023-06-17-dive-into-code-unleashing-the-dotnet-6-configuration-management.cover.jpeg
 tags: code, dotnet, configuration, azure-key-vault, configuration-management
 
 ---
@@ -290,7 +290,7 @@ The `OptionsBuilder<TOptions>.Bind()` method is equivalent to the `Configure<TOp
 
 The `Configure<>` method was available in an earlier version of DotNet Core. The `AddOptions<>` way of working came in a later version of DotNet. The `AddOptions<>`\-method offers additional methods using the builder pattern, like `ValidateOnStart()` and `ValidateDataAnnotations()`
 
-Read here for more information: [Question: AddOptions&lt;T&gt;() vs. Multiple Configure&lt;T&gt;(â€¦) Â· Issue #514 Â· dotnet/extensions (](https://github.com/dotnet/extensions/issues/514)[github.com](http://github.com)[)](https://github.com/dotnet/extensions/issues/514)
+Read here for more information: [Question: AddOptions&lt;T&gt;() vs. Multiple Configure&lt;T&gt;(…) · Issue #514 · dotnet/extensions (](https://github.com/dotnet/extensions/issues/514)[github.com](http://github.com)[)](https://github.com/dotnet/extensions/issues/514)
 
 # What\`s next?
 

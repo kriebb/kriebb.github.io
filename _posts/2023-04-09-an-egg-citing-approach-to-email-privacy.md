@@ -5,7 +5,7 @@ datePublished: Sun Apr 09 2023 15:57:02 GMT+0000 (Coordinated Universal Time)
 cuid: clg9l8edz00080amef2ltazup
 slug: an-egg-citing-approach-to-email-privacy
 canonical: https://dotnet.kriebbels.me/an-egg-citing-approach-to-email-privacy
-cover: /assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/2023-04-09-an-egg-citing-approach-to-email-privacy.cover.png
+cover: /assets/images/blog/an-egg-citing-approach-to-email-privacy/2023-04-09-an-egg-citing-approach-to-email-privacy.cover.png
 tags: email, privacy, smtp, bitwarden, simplelogin
 
 ---
@@ -36,11 +36,11 @@ What simple login does, is create relationships between an alias and your email 
 
 As a user, you can have multiple mailboxes. When you first signup, a [mailbox](https://simplelogin.io/docs/mailbox/add-mailbox/) will be created. That will also be your default mailbox. I do not have multiple ones at the time of writing.
 
-![default_mailbox_tooltip.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/default_mailbox_tooltip.png)
+![default_mailbox_tooltip.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/default_mailbox_tooltip.png)
 
 When you want to use aliases on an e.g. commercial website, you can create subdomains for your alias. It can look like 'commercialwebsite.1234@johndoe.simplelogin.com'. The part 'commercialwebsite.1234' can be whatever you want it can be!
 
-![create_new_subdomain_form.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/create_new_subdomain_form.png)
+![create_new_subdomain_form.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/create_new_subdomain_form.png)
 
 The use of a subdomain is essential because it allows the entire system to identify the default mailbox designated to receive emails. However, I opted to have my custom domain name. To get started, you do not need to spend money to get started with SimpleLogin.io.
 
@@ -55,7 +55,7 @@ Once you have your forwarding email setup you can provide any alias email direct
 
 
 
-![simplelogin_email_forwarding_flow.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/simplelogin_email_forwarding_flow.png)
+![simplelogin_email_forwarding_flow.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/simplelogin_email_forwarding_flow.png)
 ```mermaid
 sequenceDiagram
     participant CommercialWebsite
@@ -80,15 +80,15 @@ However, it is really that simple. Before you can send an email, create a contac
 
 Press on Create Custom Alias
 
-![aliases_dashboard_30_count.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/aliases_dashboard_30_count.png)
+![aliases_dashboard_30_count.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/aliases_dashboard_30_count.png)
 
 I create an alias with the name: test.perjurer933@simplelogin.com
 
-![email_alias_setup_screen.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_alias_setup_screen.png)
+![email_alias_setup_screen.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_alias_setup_screen.png)
 
 Now you need to define where that SimpleLogin needs to forward the email. Click on contacts and fill in the name of your contact: info@commercialcompany.com.
 
-![email_address_entry_field.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_address_entry_field.png)
+![email_address_entry_field.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_address_entry_field.png)
 
 To get an overview, this is what you need to do.
 
@@ -99,7 +99,7 @@ To get an overview, this is what you need to do.
 
 
 
-![simplelogin_alias_creation_flow.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/simplelogin_alias_creation_flow.png)
+![simplelogin_alias_creation_flow.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/simplelogin_alias_creation_flow.png)
 ```mermaid
 sequenceDiagram
     participant User
@@ -140,7 +140,7 @@ I set this up using an existing domain and a subdomain. I needed to make the fol
 
 When you are not familiar with DNS settings, this can overwhelm you. I love the functionality that SimpleLogin offers to easily verify each step that you undertake.
 
-![domain_verification_txt_record.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/domain_verification_txt_record.png)
+![domain_verification_txt_record.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/domain_verification_txt_record.png)
 
 I do not own johndoe.com, so I cannot verify this step.
 
@@ -150,17 +150,17 @@ Configure the DNS records and check out the SimpleLogin page for a smooth experi
 
 Once you follow the Custom Domain configuration, your dns records looks like the following.
 
-![email_dns_records_setup.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_dns_records_setup.png)
+![email_dns_records_setup.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_dns_records_setup.png)
 
 ### Bitwarden Integration
 
 I'll show you how to integrate Bitwarden.
 
-![bitwarden_username_generator_screenshot.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/bitwarden_username_generator_screenshot.png)
+![bitwarden_username_generator_screenshot.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/bitwarden_username_generator_screenshot.png)
 
 It was difficult to find the functionality of API Key's. However, a simple Google search lead me to the [forum of SimpleLogin.](https://forum.simplelogin.io/t/api-key-create-copy/120)
 
-![simplelogin_domains_dashboard_screenshot.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/simplelogin_domains_dashboard_screenshot.png)
+![simplelogin_domains_dashboard_screenshot.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/simplelogin_domains_dashboard_screenshot.png)
 
 ### Defining a naming strategy
 
@@ -183,7 +183,7 @@ Here are some naming strategies:
 
 I am opting for the way that Bitwarden suggests a name. You can ask Bitwarden to generate an alias and it will generate the alias for you on the site SimpleLogin
 
-![email_alias_generator_screenshot.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_alias_generator_screenshot.png)
+![email_alias_generator_screenshot.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_alias_generator_screenshot.png)
 
 When the generation occurs, I added the name of the commercial website in the prefix as well.
 
@@ -199,7 +199,7 @@ SimpleLogin provides an option to turn off the catch-all functionality. It then 
 
 The following image is a print screen of the existing system. You can define a regex prefix rule. That regex rule is coupled with a mailbox. There is a debug zone as well.
 
-![email_alias_rule_setup.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_alias_rule_setup.png)
+![email_alias_rule_setup.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_alias_rule_setup.png)
 
 ## Into the Easter Bunny's Burrow
 
@@ -248,7 +248,7 @@ It will tell you that the email journey starts from the Commercial Website, pass
 
 
 
-![email_forwarding_sequence_diagram.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_forwarding_sequence_diagram.png)
+![email_forwarding_sequence_diagram.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_forwarding_sequence_diagram.png)
 ```mermaid
 sequenceDiagram
     participant CommercialWebsite
@@ -276,11 +276,11 @@ In this example, I wanted my account deleted. I could not initiate the delete se
 
 I went over to my simplelogin.com account. (note that there are browser extensions as well).
 
-![email_aliases_dashboard_screenshot.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/email_aliases_dashboard_screenshot.png)
+![email_aliases_dashboard_screenshot.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/email_aliases_dashboard_screenshot.png)
 
 I pressed the New Custom Alias button.
 
-![custom_alias_creation_screenshot.png](../assets/images/blog/2023-04-09-an-egg-citing-approach-to-email-privacy/custom_alias_creation_screenshot.png)
+![custom_alias_creation_screenshot.png](../assets/images/blog/an-egg-citing-approach-to-email-privacy/custom_alias_creation_screenshot.png)
 
 First, create an alias prefix. I would use commercialwebsite.1234.override311@aleeas.com
 

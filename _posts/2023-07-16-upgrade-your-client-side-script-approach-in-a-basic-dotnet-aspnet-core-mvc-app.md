@@ -1,10 +1,10 @@
-﻿---
+---
 date: 2023-07-16
 title: "Upgrade Your Client-Side Script Approach in a Basic Dotnet Asp.Net Core MVC App"
 datePublished: Sun Jul 16 2023 06:44:07 GMT+0000 (Coordinated Universal Time)
 cuid: clk52mt5r000a0al67sls6s7r
 slug: upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app
-cover: /assets/images/blog/2023-07-16-upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app/2023-07-16-upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app.cover.jpeg
+cover: /assets/images/blog/upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app/2023-07-16-upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app.cover.jpeg
 tags: mvc, npm, aspnet-core, dotnet, libman
 
 ---
@@ -393,7 +393,7 @@ Below I give an overview of the sources I used to write this.
 
 [Semantic Versioning 2.0.0 | Semantic Versioning (](https://semver.org/)[semver.org](http://semver.org)[)](https://semver.org/)
 
-[Add nuspec and build file (#77) · aspnet/jquery-validation-unobtrusive@6c2113e (](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)[github.com](http://github.com)[)](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)
+[Add nuspec and build file (#77) � aspnet/jquery-validation-unobtrusive@6c2113e (](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)[github.com](http://github.com)[)](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)
 
 [https://jspm.org/](https://jspm.org/)
 

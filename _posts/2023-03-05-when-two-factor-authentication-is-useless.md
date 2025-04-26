@@ -1,11 +1,11 @@
-﻿---
+---
 date: 2023-03-05
 title: "When two-factor authentication is useless"
 datePublished: Sun Mar 05 2023 08:39:29 GMT+0000 (Coordinated Universal Time)
 cuid: clev56vw1000109i524xt4425
 slug: when-two-factor-authentication-is-useless
 canonical: https://dotnet.kriebbels.me/when-two-factor-authentication-is-useless
-cover: /assets/images/blog/2023-03-05-when-two-factor-authentication-is-useless/2023-03-05-when-two-factor-authentication-is-useless.cover.jpeg
+cover: /assets/images/blog/when-two-factor-authentication-is-useless/2023-03-05-when-two-factor-authentication-is-useless.cover.jpeg
 tags: security, privacy, 2fa, databreach, lastpass
 
 ---
@@ -40,7 +40,7 @@ By now you figured out that by enabling 2FA, you protect your login against pass
     
 3. Hardware Tokens: Hardware tokens are physical devices that generate one-time passwords or use public key cryptography to authenticate the user. They are more secure than SMS and authenticator apps because they are not vulnerable to online attacks or phishing. [Even reverse engineering them is hard.](https://flow.gi/SecurIDReverseEngineering/) However, hardware tokens can be lost or stolen, and they may not be as convenient to carry around as a phone. [In 2011, there was a data breach in one of those companies. The information was leaked on how those numbers could be generated. Every hardware token was vulnerable back then...](https://www.wired.com/story/the-full-story-of-the-stunning-rsa-hack-can-finally-be-told/)
     
-    [![security_token_devices_collection.jpg](../assets/images/blog/2023-03-05-when-two-factor-authentication-is-useless/security_token_devices_collection.jpg)](https://www.pinterest.com/pin/597008494328044958/)
+    [![security_token_devices_collection.jpg](../assets/images/blog/when-two-factor-authentication-is-useless/security_token_devices_collection.jpg)](https://www.pinterest.com/pin/597008494328044958/)
     
 4. Biometric Authentication: Biometric authentication uses physical characteristics like fingerprints, facial recognition, or iris scans to verify your identity. This method is more secure than the others since biometric features are unique to each individual and can't be easily replicated or stolen. However, biometric authentication is not foolproof, as there have been instances of [hackers bypassing fingerprint sensors](https://bitrebels.com/business/how-hackers-bypass-fingerprint-scanners/) or using [deep fake technology to trick facial recognition systems](https://www.theregister.com/2022/05/22/ai_in_brief/).
     

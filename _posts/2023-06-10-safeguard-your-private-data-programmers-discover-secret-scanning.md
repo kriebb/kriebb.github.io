@@ -1,11 +1,11 @@
-ï»¿---
+---
 date: 2023-06-10
 title: "Safeguard Your Private Data, Programmers: Discover Secret Scanning"
 seoDescription: "Utilize Windows Defender, GitLeaks, GitHub Advanced Security; safeguard data. Erase sensitive info via filter-branch, filter-repo, BFG Repo Cleaner"
 datePublished: Sat Jun 10 2023 16:33:40 GMT+0000 (Coordinated Universal Time)
 cuid: cliq7ubrs00050amlcrpoeeeg
 slug: safeguard-your-private-data-programmers-discover-secret-scanning
-cover: /assets/images/blog/2023-06-10-safeguard-your-private-data-programmers-discover-secret-scanning/2023-06-10-safeguard-your-private-data-programmers-discover-secret-scanning.cover.jpeg
+cover: /assets/images/blog/safeguard-your-private-data-programmers-discover-secret-scanning/2023-06-10-safeguard-your-private-data-programmers-discover-secret-scanning.cover.jpeg
 tags: github, git, secrets, gitguardian, gitleaks
 
 ---
@@ -78,7 +78,7 @@ I can set up GitLeaks on my developer computer using `Docker`, `Go` or use `Make
 After configuring my pre-commit hook, I can try to commit a client secret and the following will be the result.
 
 ```plaintext
-âžœ git commit -m "this commit contains a secret"
+? git commit -m "this commit contains a secret"
 Detect hardcoded secrets.................................................Failed
 ```
 
@@ -165,10 +165,10 @@ Luckily, there are other options available, such as replacing text. Read it on t
 
 1. Download and install `git-filter-repo`
     
-2. Create `replacements.txt` with on the left of `==>` , what I want to replace and on the right side of `==>` the text that I want to replace with: `toreplace==>replacewidth.` With a concrete example: `'123abc'==>ENV[â€˜AUTH_TOKENâ€™].`
+2. Create `replacements.txt` with on the left of `==>` , what I want to replace and on the right side of `==>` the text that I want to replace with: `toreplace==>replacewidth.` With a concrete example: `'123abc'==>ENV[‘AUTH_TOKEN’].`
     
     ```plaintext
-    â€˜eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5câ€™==>ENV[â€˜AUTH_TOKENâ€™]
+    ‘eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c’==>ENV[‘AUTH_TOKEN’]
     ```
     
 3. Use `git filter-repo --replace-text ../replacements.txt --force` to remove selected lines of code containing sensitive information

@@ -1,4 +1,4 @@
-ï»¿---
+---
 date: 2024-10-12
 title: "Tamperproof HTTP Requests"
 seoTitle: "Secure and Unalterable HTTP Requests"
@@ -6,7 +6,7 @@ seoDescription: "Learn how to secure HTTP requests against tampering using digit
 datePublished: Sat Oct 12 2024 16:23:40 GMT+0000 (Coordinated Universal Time)
 cuid: cm26d8v6o000009l7e6o3cwvd
 slug: tamperproof-http-requests
-cover: /assets/images/blog/2024-10-12-tamperproof-http-requests/2024-10-12-tamperproof-http-requests.cover.jpeg
+cover: /assets/images/blog/tamperproof-http-requests/2024-10-12-tamperproof-http-requests.cover.jpeg
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1728750198154/7ea7c117-b8a7-4b16-8ef0-1aa8c9ac6a1e.jpeg
 tags: http, jwt, jws, jose, jwe, tamperproof
 
@@ -24,7 +24,7 @@ When extending the user registration process, using Auth0 (an OIDC Provider), it
 
 In this blog post, I will explore difficult ways how to achieve this. Making the `HTTP` request body is tamper-proof is **a** step in protecting data as it moves from one server to another. The use of signatures for `HTTP` request bodies provides a robust mechanism for ensuring data integrity and security in this context. Frameworks like `JOSE` (JSON Object Signing and Encryption) can help in this matter.
 
-A lot of the internet is already protected by using the `HTTPS` protocol, right? Well, `HTTPS` only encrypts the data; it does not guarantee that the content is not tampered with during transit. `HTTPS` provides a secure channel but does not protect against all types of tampering. For instance, if data is decrypted and re-encoded, the integrity may be compromised without detection. In scenarios where sensitive data is transferred â€“ such as through webhooks â€“ signing the request body ensures the data's integrity independently of the transport layer's security.
+A lot of the internet is already protected by using the `HTTPS` protocol, right? Well, `HTTPS` only encrypts the data; it does not guarantee that the content is not tampered with during transit. `HTTPS` provides a secure channel but does not protect against all types of tampering. For instance, if data is decrypted and re-encoded, the integrity may be compromised without detection. In scenarios where sensitive data is transferred – such as through webhooks – signing the request body ensures the data's integrity independently of the transport layer's security.
 
 `HTTP` request body signatures add a layer of security by allowing the recipient to verify that the body has not been altered in transit. They act as a digital signature, much like those used in emails, ensuring the integrity of the sent content. 
 

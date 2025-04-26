@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2023-06-03
 title: "Configuration: The Tangle of Layers, Sections and sources in .NET 6 Development"
 seoTitle: ".NET 6 Dev: Config Layers & Sections"
@@ -6,7 +6,7 @@ seoDescription: "Explore .NET 6 config management for efficient, secure app deve
 datePublished: Sat Jun 03 2023 14:15:06 GMT+0000 (Coordinated Universal Time)
 cuid: clig2t5c9000b09jm3l1jg7qe
 slug: configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development
-cover: /assets/images/blog/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development.cover.jpeg
+cover: /assets/images/blog/configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development.cover.jpeg
 tags: dotnet, configuration, secrets, azure-key-vault, appsettings
 
 ---
@@ -19,7 +19,7 @@ tags: dotnet, configuration, secrets, azure-key-vault, appsettings
 
 It's not uncommon to come across projects with poorly managed configurations. When I first started building .NET Framework applications, the configuration process seems easy. However, over time, the `<appsettings>` section became more chaotic. [There is a possibility to cut this up into multiple sections, but that was writing a lot of boilerplate.](https://ardalis.com/custom-configuration-section-handlers/) Storing secrets in your configuration was not safe at all. [While there is a way to encrypt your settings](https://matthewregis.dev/posts/encrypting-application-settings-within-app-config), I do not know a lot of people of embracing this way of working. Developing microservices and managing all settings in multiple `web.config` ensures losing the will to live.
 
-![cartoon_girl_hiding_blocks.jpeg](../assets/images/blog/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/cartoon_girl_hiding_blocks.jpeg)
+![cartoon_girl_hiding_blocks.jpeg](../assets/images/blog/configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/cartoon_girl_hiding_blocks.jpeg)
 
 The .NET Core configuration is the new cool kid around the block. It provides a more flexible, efficient, and extensible way of handling application configuration.
 
@@ -58,7 +58,7 @@ When I have multiple sources, creating a configuration object is based on the co
 
 A configuration object can be built by a lot of sources. When asking for a configuration value, the system uses the newest value for the asked configuration key. First, it checks environment variables, then app settings, ..., and finally, command line arguments.
 
-[![configuration_layers_merging_diagram.png](../assets/images/blog/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/configuration_layers_merging_diagram.png)](https://andrewlock.net/exploring-dotnet-6-part-1-looking-inside-configurationmanager-in-dotnet-6/)
+[![configuration_layers_merging_diagram.png](../assets/images/blog/configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/configuration_layers_merging_diagram.png)](https://andrewlock.net/exploring-dotnet-6-part-1-looking-inside-configurationmanager-in-dotnet-6/)
 
 The above image comes from the [site of Andrew Lock](https://andrewlock.net/exploring-dotnet-6-part-1-looking-inside-configurationmanager-in-dotnet-6/).
 
@@ -149,7 +149,7 @@ The `secrets.json` file is used to store sensitive values. Those values could be
 
 I can manage the user secrets in Visual Studio by right-clicking on a project
 
-[![safe-storage-of-app-secrets-in-development-in-aspn.png](../assets/images/blog/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/safe-storage-of-app-secrets-in-development-in-aspn.png)](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows)
+[![safe-storage-of-app-secrets-in-development-in-aspn.png](../assets/images/blog/configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/safe-storage-of-app-secrets-in-development-in-aspn.png)](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows)
 
 [JetBrains Rider](https://www.jetbrains.com/rider/) does not offer a user interface. [I need to download and install a plugin for that.](https://plugins.jetbrains.com/plugin/10183--net-core-user-secrets)
 

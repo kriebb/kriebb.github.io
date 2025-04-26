@@ -1,11 +1,11 @@
-ï»¿---
+---
 date: 2023-04-02
 title: "The Importance of Unique Emails: Enhancing Your Security"
 datePublished: Sun Apr 02 2023 09:22:46 GMT+0000 (Coordinated Universal Time)
 cuid: clfz72eoh000l0amgddmkb9jj
 slug: the-importance-of-unique-emails-enhancing-your-security
 canonical: https://dotnet.kriebbels.me/the-importance-of-unique-emails-enhancing-your-security
-cover: /assets/images/blog/2023-04-02-the-importance-of-unique-emails-enhancing-your-security/2023-04-02-the-importance-of-unique-emails-enhancing-your-security.cover.jpeg
+cover: /assets/images/blog/the-importance-of-unique-emails-enhancing-your-security/2023-04-02-the-importance-of-unique-emails-enhancing-your-security.cover.jpeg
 tags: security, email, privacy, bitwarden, simplylogin
 
 ---
@@ -20,7 +20,7 @@ tags: security, email, privacy, bitwarden, simplylogin
 
 So far, we've determined that it's crucial to safeguard oneself against cybercriminals who exploit leaked data. [Your information is out there on the internet, but by implementing two-factor authentication (2FA) and using unique passwords, you can protect your accounts on various websites from conventional unauthorized access methods.](https://dotnet.kriebbels.me/when-two-factor-authentication-is-useless)
 
-Managing unique login names for each website isn't too challenging, and it makes the combination harder to guess. [This is a relatively simple task when using a password manager](https://dotnet.kriebbels.me/protect-your-digital-life-a-password-manager-really). However, the issue I want to tackle goes beyond thatâ€”I want to avoid phishing emails and scams. To achieve this, I need a unique email address for logins and registrations, or even better, a separate email address for each website I sign up for.
+Managing unique login names for each website isn't too challenging, and it makes the combination harder to guess. [This is a relatively simple task when using a password manager](https://dotnet.kriebbels.me/protect-your-digital-life-a-password-manager-really). However, the issue I want to tackle goes beyond that—I want to avoid phishing emails and scams. To achieve this, I need a unique email address for logins and registrations, or even better, a separate email address for each website I sign up for.
 
 The concept of using a unique email address allows you to pinpoint the source of data leaks or sales. Additionally, you can switch the email address you provided to a different one and disregard any messages sent to the original account.
 
@@ -144,7 +144,7 @@ I will mention two services: SimplyLogin and Apple's "Hide My Email". These serv
 
 1. [SimplyLogin](https://simplelogin.io/docs/): I quote their site: `SimpleLogin is an` [`open source`](https://github.com/simple-login) `email aliasing service that allows you to receive and send emails anonymously. Based in France, SimpleLogin has helped 50,000+ people protect their mailboxes against spams, phishing and data breaches.`
     
-2. [Hide My Email by Apple](https://support.apple.com/en-gb/guide/mac-help/mchle62f7f45/mac#:~:text=On%20your%20Mac%2C%20choose%20Apple,ID%20or%20to%20create%20one.&text=Click%20iCloud%20on%20the%20right,may%20need%20to%20scroll%20down.)): I quote their site: `With Hide My Email, you can generate unique, random email addresses that forward to your personal email account, so you donâ€™t have to share your real email address when filling out a form on the web or signing up for a newsletter. You can choose to forward emails to your iCloud Mail address or any email address associated with your` [`Apple ID`](https://support.apple.com/en-gb/guide/mac-help/aside/glosbdc8e694/13.0/mac/13.0)`.`
+2. [Hide My Email by Apple](https://support.apple.com/en-gb/guide/mac-help/mchle62f7f45/mac#:~:text=On%20your%20Mac%2C%20choose%20Apple,ID%20or%20to%20create%20one.&text=Click%20iCloud%20on%20the%20right,may%20need%20to%20scroll%20down.)): I quote their site: `With Hide My Email, you can generate unique, random email addresses that forward to your personal email account, so you don’t have to share your real email address when filling out a form on the web or signing up for a newsletter. You can choose to forward emails to your iCloud Mail address or any email address associated with your` [`Apple ID`](https://support.apple.com/en-gb/guide/mac-help/aside/glosbdc8e694/13.0/mac/13.0)`.`
     
 
 For the customers of Apple: you have a built-in way. I am not using that ecosystem.

@@ -6,7 +6,7 @@ seoDescription: "Discover secure coding practices and tools, such as SAST, IAST,
 datePublished: Sun Apr 16 2023 05:30:39 GMT+0000 (Coordinated Universal Time)
 cuid: clgiyxtr8049nmsnv0xwq3h7y
 slug: enable-developers-to-generate-safe-and-secure-code
-cover: /assets/images/blog/2025-04-19-enable-developers-to-generate-safe-and-secure-code/2025-04-19-enable-developers-to-generate-safe-and-secure-code.cover.png
+cover: /assets/images/blog/enable-developers-to-generate-safe-and-secure-code/2025-04-19-enable-developers-to-generate-safe-and-secure-code.cover.png
 tags: application-security, rasp, sast, dast, iast
 
 ---
@@ -78,13 +78,13 @@ A lot of these recommendations need an investigation that goes beyond the scope 
 
 Below you find an example of the JFrog Artifactory.
 
-[![Artifactory4Main.jpg](../assets/images/blog/2025-04-19-enable-developers-to-generate-safe-and-secure-code/Artifactory4Main.jpg)](https://www.jfrog.com/confluence/display/RTF?preview=/46107472/47874380/Artifactory4Main.jpg)
+[![Artifactory4Main.jpg](../assets/images/blog/enable-developers-to-generate-safe-and-secure-code/Artifactory4Main.jpg)](https://www.jfrog.com/confluence/display/RTF?preview=/46107472/47874380/Artifactory4Main.jpg)
 
 I loved the way that Contrast Security presented their SCA tool to me: [Contrast SCA | Software Supply Chain Security and Risk Management | Contrast Security](https://www.contrastsecurity.com/contrast-sca). Contrast Security does not only list the packages with known vulnerabilities but also identifies what code the developer uses from the package. E.g. when there is a vulnerable unused package in your repository, Contrast shows you are not using that package, thus you should not care about it. Another use case would be identifying where a vulnerable package is used in the organisation: [remember Log4J](https://www.reddit.com/r/msp/comments/rdba36/critical_rce_vulnerability_is_affecting_java/), a lot of companies needed to identify manually if they were using that vulnerable package.
 
-![vulnerable_libraries_dashboard_screenshot.png](../assets/images/blog/2025-04-19-enable-developers-to-generate-safe-and-secure-code/vulnerable_libraries_dashboard_screenshot.png)
+![vulnerable_libraries_dashboard_screenshot.png](../assets/images/blog/enable-developers-to-generate-safe-and-secure-code/vulnerable_libraries_dashboard_screenshot.png)
 
-![java_classes_loaded_list.png](../assets/images/blog/2025-04-19-enable-developers-to-generate-safe-and-secure-code/java_classes_loaded_list.png)
+![java_classes_loaded_list.png](../assets/images/blog/enable-developers-to-generate-safe-and-secure-code/java_classes_loaded_list.png)
 
 ## During the cycle of development and testing
 
@@ -105,9 +105,9 @@ Their tool observes that
 
 Contrast tries to help the developer by giving a similar overview in the form of a stack trace. That overview shows the problem, where to fix that problem and gives guidance on how to remediate it.
 
-![sql_injection_forgot_password_report.png](../assets/images/blog/2025-04-19-enable-developers-to-generate-safe-and-secure-code/sql_injection_forgot_password_report.png)
+![sql_injection_forgot_password_report.png](../assets/images/blog/enable-developers-to-generate-safe-and-secure-code/sql_injection_forgot_password_report.png)
 
-![sql_injection_code_flow_screenshot.png](../assets/images/blog/2025-04-19-enable-developers-to-generate-safe-and-secure-code/sql_injection_code_flow_screenshot.png)
+![sql_injection_code_flow_screenshot.png](../assets/images/blog/enable-developers-to-generate-safe-and-secure-code/sql_injection_code_flow_screenshot.png)
 
 The following video that I found gives a demo about Contrast Security. However, that one is 4 years old. Although the UI is outdated, you can get a good grasp on how such a tool can work.
 

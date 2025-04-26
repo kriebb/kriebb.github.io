@@ -7,11 +7,11 @@ $postsDir = Join-Path $rootPath "_posts"
 
 # Regex pattern to match invalid image paths
 $pattern = @'
-!\[.*?\]\(/c:\\git\\kriebb\.github\.io\\assets\\images\\blog[\\/]\d{4}[\\/]\d{2}[\\/]\d{2}-(\d{4}-\d{2}-\d{2}-[^\\/]+)[\\/]([^)]+)\)
+!\[.*?\]\(assets\\images\\blog[\\/]\d{4}[\\/]\d{2}[\\/]\d{2}-(\d{4}-\d{2}-\d{2}-[^\\/]+)[\\/]([^)]+)\)
 '@
 
 # Replacement pattern with correct relative path
-$replacement = '![<ALT>](assets/images/blog/$1/$2)'.Replace('<ALT>','$2')
+$replacement = '![<ALT>](../assets/images/blog/$1/$2)'.Replace('<ALT>','$2')
 
 # Process all markdown files
 Get-ChildItem $postsDir -Filter *.md -Recurse | ForEach-Object {

@@ -1,10 +1,10 @@
-ï»¿---
+---
 date: 2023-07-09
 title: "How to read a claim from a token in DotNet 6?"
 datePublished: Sun Jul 09 2023 18:18:54 GMT+0000 (Coordinated Universal Time)
 cuid: cljvrdcle000209lm8qqy4n0v
 slug: how-to-read-a-claim-from-a-token-in-dotnet-6
-cover: /assets/images/blog/2023-07-09-how-to-read-a-claim-from-a-token-in-dotnet-6/2023-07-09-how-to-read-a-claim-from-a-token-in-dotnet-6.cover.jpeg
+cover: /assets/images/blog/how-to-read-a-claim-from-a-token-in-dotnet-6/2023-07-09-how-to-read-a-claim-from-a-token-in-dotnet-6.cover.jpeg
 tags: dotnetcore, openid-connect, tokens, access-token, claim
 
 ---
@@ -448,11 +448,11 @@ I do like to mention the following sources that I may not explicitly mention in 
 
 [User claims in](https://damienbod.com/2019/11/01/user-claims-in-asp-net-core-using-openid-connect-authentication/) [ASP.NET](http://ASP.NET) [Core using OpenID Connect Authentication | Software Engineering (](https://damienbod.com/2019/11/01/user-claims-in-asp-net-core-using-openid-connect-authentication/)[damienbod.com](http://damienbod.com)[)](https://damienbod.com/2019/11/01/user-claims-in-asp-net-core-using-openid-connect-authentication/)
 
-[Introducing the OpenIddict client | KÃ©vin Chalet's blog (](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)[kevinchalet.com](http://kevinchalet.com)[)](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)
+[Introducing the OpenIddict client | Kévin Chalet's blog (](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)[kevinchalet.com](http://kevinchalet.com)[)](https://kevinchalet.com/2022/02/25/introducing-the-openiddict-client/)
 
 [Adding custom claims to a user during authentication with](https://joonasw.net/view/adding-custom-claims-aspnet-core-2) [ASP.NET](http://ASP.NET) [Core 2.0 - Joonas W's blog](https://joonasw.net/view/adding-custom-claims-aspnet-core-2)
 
-[aspnetcore/src/Components at main Â· dotnet/aspnetcore Â· GitHub](https://github.com/dotnet/aspnetcore/tree/main/src/Components)
+[aspnetcore/src/Components at main · dotnet/aspnetcore · GitHub](https://github.com/dotnet/aspnetcore/tree/main/src/Components)
 
 # Outro
 

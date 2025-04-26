@@ -1,10 +1,10 @@
-﻿---
+---
 date: 2023-01-29
 title: "Let`s zoom in on my first assignment"
 datePublished: Sun Jan 29 2023 19:06:13 GMT+0000 (Coordinated Universal Time)
 cuid: cldhr61on000209l4ex6g4h8l
 slug: lets-zoom-in-on-my-first-assignment
-cover: /assets/images/blog/2023-01-29-lets-zoom-in-on-my-first-assignment/2023-01-29-lets-zoom-in-on-my-first-assignment.cover.jpeg
+cover: /assets/images/blog/lets-zoom-in-on-my-first-assignment/2023-01-29-lets-zoom-in-on-my-first-assignment.cover.jpeg
 tags: technology, structure, assignment, overview
 
 ---

@@ -1,10 +1,10 @@
-﻿---
+---
 date: 2023-06-25
 title: "How to Consume Dot Net 6 Configuration in Your Services Effectively"
 datePublished: Sun Jun 25 2023 17:46:10 GMT+0000 (Coordinated Universal Time)
 cuid: cljbq1c00000l0al4a3b21m1c
 slug: how-to-consume-dot-net-6-configuration-in-your-services-effectively
-cover: /assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively.cover.jpeg
+cover: /assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively.cover.jpeg
 tags: validation, dotnet, configuration, mermaid, injection
 
 ---
@@ -40,7 +40,7 @@ Another important thing to note is that when you use an `IConfiguration` object 
 
 I may use the `IConfiguration` and `ConfigurationManager` objects to configure my services. The idea is that I use the `IOptions<MySettings>` object in my services. DotNet will make the mapping between the sources and the `IOptions` objects for me. This just works nicely!
 
-[![gladiator_are_you_not_entertained.jpg](../assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/gladiator_are_you_not_entertained.jpg)](https://jeff-wheeler.com/in-the-arena/)
+[![gladiator_are_you_not_entertained.jpg](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/gladiator_are_you_not_entertained.jpg)](https://jeff-wheeler.com/in-the-arena/)
 
 When you want to cringe again, at how we need to do it in Net Framework, go read this old documentation: [How to: Create Custom Configuration Sections Using ConfigurationSection | Microsoft Learn](https://learn.microsoft.com/en-us/previous-versions/aspnet/2tw134k3(v=vs.100))
 
@@ -74,7 +74,7 @@ public class MyController : Controller
 
 That's it! Now I can use `MySettings` configuration object in my code without worrying about parsing or loading configuration data myself.
 
-[![images](../assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/images)](https://steemit.com/fsharp/@marnee/cross-platform-development-with-net-core-and-f)
+[![images](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/images)](https://steemit.com/fsharp/@marnee/cross-platform-development-with-net-core-and-f)
 
 ### Difference between `IOptions`, `IOptionsSnapshot` and `IOptionsMonitor`
 
@@ -161,7 +161,7 @@ Suppose I have an [ASP.NET](http://ASP.NET) Core application that uses `IOptions
 
 
 
-![dependency_injection_sequence_diagram.png](../assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/dependency_injection_sequence_diagram.png)
+![dependency_injection_sequence_diagram.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/dependency_injection_sequence_diagram.png)
 ```mermaid
 sequenceDiagram
     participant BusinessLogicService
@@ -193,7 +193,7 @@ When I have a long-lived scoped service such as a request-scope service, I would
 
 
 
-![dotnet_optionssnapshot_sequence_diagram.png](../assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/dotnet_optionssnapshot_sequence_diagram.png)
+![dotnet_optionssnapshot_sequence_diagram.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/dotnet_optionssnapshot_sequence_diagram.png)
 ```mermaid
 sequenceDiagram
     participant BusinessLogicService(Scoped Service)
@@ -224,7 +224,7 @@ sequenceDiagram
 
 Suppose I have an application where I need to monitor changes to the configuration data and perform actions based on the changes. In this case, I would use `IOptionsMonitor`. For example, imagine that I have an email notification service in my application, and I have set the `MySettings` section in the Azure AppService AppSettings. If at some point I need to change the values of the `MySettings` section, it triggers change notifications, which the `IOptionsMonitor` listens to and subsequently performs necessary actions like reconnecting to the new server. The mermaid diagram below illustrates this and shows the difference with the IOptionSnapshot as well.
 
-[![dotnet_options_lifecycle_sequence.png](../assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/dotnet_options_lifecycle_sequence.png)](https://mermaid.live/view#pako:eNq1VsFu2zAM_RXCpxZoDrsaRYCu3boATQrUaHfxRZGZRIMjeRKdISv675MtO3YsOV3bLZcY8tPjI59I-TniKsMojgz-LFFyvBFsrdk2lWB_BdMkuCiYJLgqCmCm_jv7BDNpiFn4uQ-8VnIl1hV25h5LzUgomUof-7k0QqIxd2oteIJ6JzhWO4PrZwlXBWZNyCHV7L6oophEsiLZKKoFDNYu5_sEiYRcm6kv5suWiXyhSKwErxX3BI2-O0ssW46k5HkowVbBXElBSvdFNUvHmhyDVISgdqircsdwo0giwfzpOlwYYWCpVEXRElQuTabTxovYbhN55vlRIRknsWM2nHvnKxjL_EjWaHmstIfHxWK2uPWZQ7kcsQZ2t4mNq5plOabD5MbgA1hI0QAycG-Y0-B1DIfj4ZDD8zB5JRn5Azm9cmbabhg1oYrhCXuoGt4QfFWq4eqY3qgyQZnZnmX6ieVlU7BcqQIeTbim8EvQxuvOLn7rcviEfCNqxTOtxQ5Nt9PzySf3zWoxNpN6wsRwudRT-C7yHJYIGrnaFiVZ2gyUBLR793a1ltDxBhPtl74L08o_NZ8u4E4YQgkrawDfMLnu5_nukKfsPozOyXjxh16fYukNoFvb0rw_fUA5dMiXdtNjkdmaG2iIISvROePKAULC1e9SY3Ve2uzrR1fCjrq5kibh0lyHdDXB390TbtGKb6yrxHJ__L5hSr3a4qcmdaK2SBtbFbiXTtu-Y83wX0n4_1PG2ZL1D-CHWvCj_aCRSi0DugLF9WeSg9nE2se_tqIHHL-1eqD2eh-RdLjOootoi9qGzuxH4XOFTyPa4BbTKLaPGa5YmVMapfLFQllJKtlLHsWkS7yIyroKzTekW3z5A7KhopM)
+[![dotnet_options_lifecycle_sequence.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/dotnet_options_lifecycle_sequence.png)](https://mermaid.live/view#pako:eNq1VsFu2zAM_RXCpxZoDrsaRYCu3boATQrUaHfxRZGZRIMjeRKdISv675MtO3YsOV3bLZcY8tPjI59I-TniKsMojgz-LFFyvBFsrdk2lWB_BdMkuCiYJLgqCmCm_jv7BDNpiFn4uQ-8VnIl1hV25h5LzUgomUof-7k0QqIxd2oteIJ6JzhWO4PrZwlXBWZNyCHV7L6oophEsiLZKKoFDNYu5_sEiYRcm6kv5suWiXyhSKwErxX3BI2-O0ssW46k5HkowVbBXElBSvdFNUvHmhyDVISgdqircsdwo0giwfzpOlwYYWCpVEXRElQuTabTxovYbhN55vlRIRknsWM2nHvnKxjL_EjWaHmstIfHxWK2uPWZQ7kcsQZ2t4mNq5plOabD5MbgA1hI0QAycG-Y0-B1DIfj4ZDD8zB5JRn5Azm9cmbabhg1oYrhCXuoGt4QfFWq4eqY3qgyQZnZnmX6ieVlU7BcqQIeTbim8EvQxuvOLn7rcviEfCNqxTOtxQ5Nt9PzySf3zWoxNpN6wsRwudRT-C7yHJYIGrnaFiVZ2gyUBLR793a1ltDxBhPtl74L08o_NZ8u4E4YQgkrawDfMLnu5_nukKfsPozOyXjxh16fYukNoFvb0rw_fUA5dMiXdtNjkdmaG2iIISvROePKAULC1e9SY3Ve2uzrR1fCjrq5kibh0lyHdDXB390TbtGKb6yrxHJ__L5hSr3a4qcmdaK2SBtbFbiXTtu-Y83wX0n4_1PG2ZL1D-CHWvCj_aCRSi0DugLF9WeSg9nE2se_tqIHHL-1eqD2eh-RdLjOootoi9qGzuxH4XOFTyPa4BbTKLaPGa5YmVMapfLFQllJKtlLHsWkS7yIyroKzTekW3z5A7KhopM)
 
 ### IOptions StartupValidation Checkup in Azure Portal
 
@@ -238,7 +238,7 @@ When a service encounters validation errors during startup, it will return an HT
 
 In the Azure App Service page, select the Diagnose and solve problems tab, then click on the Diagnostic Tools option. Within the Diagnostic Tools tab, choose Application Event Logs to view the list of events.
 
-[![azure_application_event_logs.png](../assets/images/blog/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively/azure_application_event_logs.png)](https://thebernardlim.com/azure-app-service-event-logs/)
+[![azure_application_event_logs.png](../assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/azure_application_event_logs.png)](https://thebernardlim.com/azure-app-service-event-logs/)
 
 Read more about this on the following page: [How to view Azure App Service Event Logs? - Bernard Lim | Azure | .NET | SharePoint | M365 (](https://thebernardlim.com/azure-app-service-event-logs/)[thebernardlim.com](http://thebernardlim.com)[)](https://thebernardlim.com/azure-app-service-event-logs/)
 

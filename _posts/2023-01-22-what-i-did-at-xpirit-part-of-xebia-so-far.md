@@ -4,7 +4,7 @@ title: "What I did at Xpirit | Part of Xebia so far..."
 datePublished: Sun Jan 22 2023 11:49:32 GMT+0000 (Coordinated Universal Time)
 cuid: cld7bhif3000i09mhc0ota1p6
 slug: what-i-did-at-xpirit-part-of-xebia-so-far
-cover: /assets/images/blog/2023-01-22-what-i-did-at-xpirit-part-of-xebia-so-far/2023-01-22-what-i-did-at-xpirit-part-of-xebia-so-far.cover.webp
+cover: /assets/images/blog/what-i-did-at-xpirit-part-of-xebia-so-far/2023-01-22-what-i-did-at-xpirit-part-of-xebia-so-far.cover.jpg
 tags: networking, learning-journey, consultancy, retrosepctive, devretro2022
 
 ---

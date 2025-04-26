@@ -1,11 +1,11 @@
-ï»¿---
+---
 date: 2023-03-12
 title: "Protect Your Digital Life: A Password Manager? Really?"
 datePublished: Sun Mar 12 2023 08:05:52 GMT+0000 (Coordinated Universal Time)
 cuid: clf542m4j000108jxbrk1g7dw
 slug: protect-your-digital-life-a-password-manager-really
 canonical: https://dotnet.kriebbels.me/protect-your-digital-life-a-password-manager-really
-cover: /assets/images/blog/2023-03-12-protect-your-digital-life-a-password-manager-really/2023-03-12-protect-your-digital-life-a-password-manager-really.cover.jpeg
+cover: /assets/images/blog/protect-your-digital-life-a-password-manager-really/2023-03-12-protect-your-digital-life-a-password-manager-really.cover.jpeg
 tags: security, privacy, password-manager, keepass, bitwarden
 
 ---
@@ -34,7 +34,7 @@ A password manager is a software application or tool that helps users generate, 
 
 However, there is a downside to this as well. Since your master password is the key to all of your stored passwords, if it is compromised, then all of your passwords are compromised. This is why it is crucial to choose a strong master password and to keep it secure. Because companies will do everything to protect your data... right? Oh, wait... [we all remember how Facebook uses and leaked our data](https://www.businessinsider.com/stolen-data-of-533-million-facebook-users-leaked-online-2021-4?r=US&IR=T)... Erm... Still, a password manager has its uses. It still protects us from criminals that could gain access to other websites and use that sensitive information to do more harm.
 
-There are a lot of sites that give an overview of "password manager"-related data breaches. I started with this article: [Which Password Managers Have Been Hacked? â€“ Best Reviews](https://password-managers.bestreviews.net/faq/which-password-managers-have-been-hacked/)
+There are a lot of sites that give an overview of "password manager"-related data breaches. I started with this article: [Which Password Managers Have Been Hacked? – Best Reviews](https://password-managers.bestreviews.net/faq/which-password-managers-have-been-hacked/)
 
 # Dedicated or browser?
 
@@ -69,6 +69,6 @@ I did some research for this blog post and I am happy with my choice of using Bi
 
 The problem is not that I do not use a password manager... The problem is the leak at the companies where my data is stored. By using a password manager I can limit the risk that criminals can do something with my credentials. However, the criminals are not interested in only those credentials... Personal information is also leaked. That is the reason why I get scam emails and sms. I need to do more research on how to protect myself further.
 
-For the persons that are still sceptical about what leaking personal information can do, [listen to this flemish podcast](https://www.standaard.be/cnt/dmf20230309_95135028) (start at minute 20). To quote this [source](https://www.thesun.co.uk/tech/20733191/whatsapp-scam-danger-avoid-how-warning/): `It's the beginning of a con that involves tricking parents into thinking they're`Â [`speaking to their children`](https://www.thesun.co.uk/tech/17159706/parents-warned-whatsapp-scam-distressed/)`.`
+For the persons that are still sceptical about what leaking personal information can do, [listen to this flemish podcast](https://www.standaard.be/cnt/dmf20230309_95135028) (start at minute 20). To quote this [source](https://www.thesun.co.uk/tech/20733191/whatsapp-scam-danger-avoid-how-warning/): `It's the beginning of a con that involves tricking parents into thinking they're` [`speaking to their children`](https://www.thesun.co.uk/tech/17159706/parents-warned-whatsapp-scam-distressed/)`.`
 
 

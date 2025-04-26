@@ -1,15 +1,15 @@
-ï»¿---
+---
 date: 2023-02-05
 title: "OAuth2 / Open Id Connect / (access|id)_token"
 datePublished: Sun Feb 05 2023 10:26:59 GMT+0000 (Coordinated Universal Time)
 cuid: cldr8pa53000009mq2e6zdqxn
 slug: oauth2-open-id-connect-accessidtoken
-cover: /assets/images/blog/2023-02-05-oauth2-open-id-connect-accessid_token/2023-02-05-oauth2-open-id-connect-accessid_token.cover.jpeg
+cover: /assets/images/blog/oauth2-open-id-connect-accessid_token/2023-02-05-oauth2-open-id-connect-accessid_token.cover.jpeg
 tags: security, dotnet, oauth2, openid-connect, access-token
 
 ---
 
-# Previously Onâ€¦
+# Previously On…
 
 In my previous post, I zoomed in on my assignment. The development is about the creation of a registration of a user, using Auth0 authentication flows, actions,... . My responsibility is the creation of a BFF for the front end using Asp.net 6. I mentioned in that post the usage of id tokens and access tokens.
 
@@ -60,12 +60,12 @@ When receiving an access token, it means that the consumers have access to an AP
 
 * An id token should not have much information. Use the user info endpoint to request the data.
     
-* When you supply an id token, you need to supply the challenge or â€˜nonceâ€™. Using that, [the API can verify that the id token is not tampered with.](https://curity.io/resources/learn/validating-an-id-token/)
+* When you supply an id token, you need to supply the challenge or ‘nonce’. Using that, [the API can verify that the id token is not tampered with.](https://curity.io/resources/learn/validating-an-id-token/)
     
 
 ### An access token should not be used as an id token
 
-According to the Oauth2 specification, an access tokenÂ should be handled as just some random characters. Use the endpoints defined in the Oauth2 specification to verify the access token. To work with user information, request it from the user info endpoint or if you have to, use the id token.
+According to the Oauth2 specification, an access token should be handled as just some random characters. Use the endpoints defined in the Oauth2 specification to verify the access token. To work with user information, request it from the user info endpoint or if you have to, use the id token.
 
 In an access token, access only [claims](https://auth0.com/docs/get-started/apis/scopes/openid-connect-scopes#:~:text=OpenID%20Connect%20(OIDC)%20scopes%20are,user%20attributes%20the%20application%20needs.) that the API uses to check if the caller is authorized for accessing the requesting endpoint. E.g. the email claim: only persons from some [domain](http://axa.be) can use this api and/or operation.
 

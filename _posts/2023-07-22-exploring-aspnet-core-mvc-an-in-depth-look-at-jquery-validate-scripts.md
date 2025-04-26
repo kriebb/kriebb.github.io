@@ -1,10 +1,10 @@
-ï»¿---
+---
 date: 2023-07-22
 title: "Exploring Asp.net Core MVC: An In-Depth Look at JQuery Validate Scripts"
 datePublished: Sat Jul 22 2023 18:29:12 GMT+0000 (Coordinated Universal Time)
 cuid: clkecgo23000509jo4a3v7831
 slug: exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts
-cover: /assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts.cover.jpeg
+cover: /assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts.cover.jpeg
 tags: mvc, jquery, aspnet-core, validation, unobtrusive
 
 ---
@@ -358,11 +358,11 @@ In one of my next posts, I will figure out how to add support for FluentValidati
 
 [https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-7.0&tabs=visual-studio](https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-7.0&tabs=visual-studio)
 
-[Releases Â· aspnet/jquery-validation-unobtrusive (](https://github.com/aspnet/jquery-validation-unobtrusive/releases)[github.com](http://github.com)[)](https://github.com/aspnet/jquery-validation-unobtrusive/releases)
+[Releases · aspnet/jquery-validation-unobtrusive (](https://github.com/aspnet/jquery-validation-unobtrusive/releases)[github.com](http://github.com)[)](https://github.com/aspnet/jquery-validation-unobtrusive/releases)
 
 [ASP.NET](http://ASP.NET) [Web Forms - Wikipedia](https://en.wikipedia.org/wiki/ASP.NET_Web_Forms)
 
-[The History of](https://www.dotnetcurry.com/aspnet/1492/aspnet-history-part-1) [ASP.NET](http://ASP.NET) [â€“ Part I | DotNetCurry](https://www.dotnetcurry.com/aspnet/1492/aspnet-history-part-1)
+[The History of](https://www.dotnetcurry.com/aspnet/1492/aspnet-history-part-1) [ASP.NET](http://ASP.NET) [– Part I | DotNetCurry](https://www.dotnetcurry.com/aspnet/1492/aspnet-history-part-1)
 
 [Upgrade Your Client-Side Script Approach in a Basic Dotnet](https://dotnet.kriebbels.me/upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app) [Asp.Net](http://Asp.Net) [Core MVC App (](https://dotnet.kriebbels.me/upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app)[kriebbels.me](http://kriebbels.me)[)](https://dotnet.kriebbels.me/upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app)
 

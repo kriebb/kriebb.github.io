@@ -1,4 +1,4 @@
-Ôªø---
+---
 date: 2023-01-08
 title: "My solicitation started at Xpirit | Part of Xebia"
 seoTitle: "My solicitation started at Xebia | Xpirit"
@@ -6,7 +6,7 @@ seoDescription: "This story tells you about how I lived the sollicitation proces
 datePublished: Sun Jan 08 2023 10:47:58 GMT+0000 (Coordinated Universal Time)
 cuid: clcn94f3d000008lf9wl089ir
 slug: my-solicitation-started-at-xpirit-part-of-xebia
-cover: /assets/images/blog/2023-01-08-my-solicitation-started-at-xpirit-part-of-xebia/2023-01-08-my-solicitation-started-at-xpirit-part-of-xebia.cover.jpeg
+cover: /assets/images/blog/my-solicitation-started-at-xpirit-part-of-xebia/2023-01-08-my-solicitation-started-at-xpirit-part-of-xebia.cover.jpeg
 tags: psychology, job-search, consultancy, knowledge-sharing, devretro2022-hashnode
 
 ---
@@ -19,7 +19,7 @@ In my previous post I wrote about my [Adventure in Consultancy](https://kriebbel
 
 My previous employer asked me to teach and preach about more testing and better documentation in the company. Although I first declined that job, my project manager partnered up with me... and I did want to taste the challenge to make change happen... I learned much from a Udemy course called [Life Coaching](https://www.udemy.com/course/life-coaching-online-certification-course-life-coach-training/), but that subject is again a post on its own. (Spoiler alert, I need to finish that course actually).
 
-Together with management and believers under my peers, I started preaching, teaching about writing tests, documenting, talking to each other, fewer silos, escalating, help people transition from Net Framework to .Net core 3.1. ¬†I also wrote a framework that helped people test and made the *‚ÄúIt is not possible‚Äù* to *‚Äúokay, it seems possible‚Äù*. I also talked a lot about how to apply SOLID principles in code, Dependency Injection, DevOps and automation, taking responsibility, and accountability... I took initiative to help spread knowledge among people and made meetings happen concisely and to the point with action items at the end of meeting, with a question if the meeting mattered and if not, how to address the problem then.
+Together with management and believers under my peers, I started preaching, teaching about writing tests, documenting, talking to each other, fewer silos, escalating, help people transition from Net Framework to .Net core 3.1. †I also wrote a framework that helped people test and made the *ìIt is not possibleî* to *ìokay, it seems possibleî*. I also talked a lot about how to apply SOLID principles in code, Dependency Injection, DevOps and automation, taking responsibility, and accountability... I took initiative to help spread knowledge among people and made meetings happen concisely and to the point with action items at the end of meeting, with a question if the meeting mattered and if not, how to address the problem then.
 
 However, I ended up not knowing anymore what I could and wanted to do. I was giving advice, and energy but was not gaining energy back from it. I did gain experience in how to coach people and apply insights. I recognized what I learned from that [Udemy](https://www.udemy.com/course/life-coaching-online-certification-course-life-coach-training/) course and Syntra\`s course, [Coaching for not-management](https://www.syntra-ab.be/opleidingen/coaching-voor-niet-leidinggevenden) ... Technology-wise, there seemed to be no room anymore at the company because the coaching/teaching will keep haunting me...
 
@@ -37,7 +37,7 @@ I was happy to meet [Pieter](https://xpirit.com/team/pieter-gheysens/). I have a
 
 They sold their company to me, not the history, not the unit, not the kind of work. Xpirit | Part of Xebia hires people that they believe in. [Pieter](https://xpirit.com/team/pieter-gheysens/) said that there will always be work available for good people.
 
-They talked about their mission and vision. Fate should have something to do with it. I learned from my previous CTO [Cedric](https://www.linkedin.com/in/cedricvanholsbeke/?originalSubdomain=be) a lot of [why mission and vision also matter.](https://open.lib.umn.edu/principlesmanagement/chapter/4-3-the-roles-of-mission-vision-and-values/#:~:text=Mission%20and%20vision%20statements%20play,success%20of%20the%20organization%27s%20strategy.) In my "[personal growth"-blog post](https://kriebbels.hashnode.dev/devretro2022-my-personal-growth-over-2022), I wrote about discovering my mission and values in what I seek. Three of the four of [their values](https://xpirit.com/company/about/) just matched mine:¬† people first, knowledge and quality. A part of their mission "Authority" is also one that I carry in my heart. I want to be known as a genuine person. He is transparent in what he says and does.
+They talked about their mission and vision. Fate should have something to do with it. I learned from my previous CTO [Cedric](https://www.linkedin.com/in/cedricvanholsbeke/?originalSubdomain=be) a lot of [why mission and vision also matter.](https://open.lib.umn.edu/principlesmanagement/chapter/4-3-the-roles-of-mission-vision-and-values/#:~:text=Mission%20and%20vision%20statements%20play,success%20of%20the%20organization%27s%20strategy.) In my "[personal growth"-blog post](https://kriebbels.hashnode.dev/devretro2022-my-personal-growth-over-2022), I wrote about discovering my mission and values in what I seek. Three of the four of [their values](https://xpirit.com/company/about/) just matched mine:† people first, knowledge and quality. A part of their mission "Authority" is also one that I carry in my heart. I want to be known as a genuine person. He is transparent in what he says and does.
 
 What was also mentioned was they do four [innovation days](https://xpirit.com/xpirit-innovation-day-in-antwerp-march-2022/) a year. That is whole day that you can work together to gain knowledge. There is also a weekly Xpirit tuesdays in the Netherlands. In Belgium it happens once a month for now. There you do on knowledge sharing.
 
@@ -47,11 +47,11 @@ Although it was consultancy, I could keep my anxiety about it low by keep tellin
 
 My second conversation was going to be more technical with [Gill Cleeren](https://xpirit.com/team/gill-cleeren/). Normally [Marcel De Vries](https://xpirit.com/team/marcel-de-vries/), should be there as well. He had other priorities at that time. [Gill](https://xpirit.com/team/marcel-de-vries/)\`s enthusiasm was flying over the wire when he talked about Xpirit | Part of Xebia. He told me about his backstory. We found an agreement in the following life lesson: "In IT, it is always the same shit".
 
-Little did I know that I learned at the end of the whole story that they love doing [‚ÄúEpic shit‚Äù](https://twitter.com/renevo/status/918856665256157184). After the interview, [Gill](https://xpirit.com/team/marcel-de-vries/) told me that Xpirit | Part of Xebia always takes an [assessment](https://xpirit.com/a-place-to-learn-a-place-to-grow/). I never pass an opportunity to gain experience. Due to the nature of the [assessment](https://xpirit.com/a-place-to-learn-a-place-to-grow/), I can\`t spoil the fun when you would want to join Xpirit | Part of Xebia. You get the assignment in your mailbox with a nice phone call that gives guidance.
+Little did I know that I learned at the end of the whole story that they love doing [ìEpic shitî](https://twitter.com/renevo/status/918856665256157184). After the interview, [Gill](https://xpirit.com/team/marcel-de-vries/) told me that Xpirit | Part of Xebia always takes an [assessment](https://xpirit.com/a-place-to-learn-a-place-to-grow/). I never pass an opportunity to gain experience. Due to the nature of the [assessment](https://xpirit.com/a-place-to-learn-a-place-to-grow/), I can\`t spoil the fun when you would want to join Xpirit | Part of Xebia. You get the assignment in your mailbox with a nice phone call that gives guidance.
 
 ### Addendum
 
-The extra conversation was with [Marcel](https://xpirit.com/team/marcel-de-vries/). He made a genuinely nice impression on me. He told how Xpirit | Part of Xebia started in the Netherlands. We made conversation about his backstory and mine also. [Xebia](https://xebia.com/) wanted to have a Microsoft branch. A unit part specialises in people with authority. People that you know from, ok, he knows his stuff. It is of no surprise a lot if MVP's are working for Xpirit | Part of Xebia. ¬†I especially took an interest in why he started this journey. Ask him when you got the chance.
+The extra conversation was with [Marcel](https://xpirit.com/team/marcel-de-vries/). He made a genuinely nice impression on me. He told how Xpirit | Part of Xebia started in the Netherlands. We made conversation about his backstory and mine also. [Xebia](https://xebia.com/) wanted to have a Microsoft branch. A unit part specialises in people with authority. People that you know from, ok, he knows his stuff. It is of no surprise a lot if MVP's are working for Xpirit | Part of Xebia. †I especially took an interest in why he started this journey. Ask him when you got the chance.
 
 ## Magazines and Books
 
@@ -67,7 +67,7 @@ There [Alex Thissen](https://xpirit.com/team/alex-thissen/) and [Marcel](https:/
 
 ### Advice
 
-The advice that I got from the [assessment](https://xpirit.com/a-place-to-learn-a-place-to-grow/) was that I need not pursue Scrum Master and there is still a future for working with technologies, but I will have to work for it. They made the comparison with a plant in a pot. It is time for the plant to take root in another bigger pot, so the root can feed again. That will be important for that personal growth as well. For me, that comparison felt very ‚Äúspot on‚Äú. But I already felt the fear of making this big of a change in my career ( link personal growth ).
+The advice that I got from the [assessment](https://xpirit.com/a-place-to-learn-a-place-to-grow/) was that I need not pursue Scrum Master and there is still a future for working with technologies, but I will have to work for it. They made the comparison with a plant in a pot. It is time for the plant to take root in another bigger pot, so the root can feed again. That will be important for that personal growth as well. For me, that comparison felt very ìspot onì. But I already felt the fear of making this big of a change in my career ( link personal growth ).
 
 ## Contract
 
