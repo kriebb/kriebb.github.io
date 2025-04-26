@@ -165,10 +165,10 @@ Luckily, there are other options available, such as replacing text. Read it on t
 
 1. Download and install `git-filter-repo`
     
-2. Create `replacements.txt` with on the left of `==>` , what I want to replace and on the right side of `==>` the text that I want to replace with: `toreplace==>replacewidth.` With a concrete example: `'123abc'==>ENV[‘AUTH_TOKEN’].`
+2. Create `replacements.txt` with on the left of `==>` , what I want to replace and on the right side of `==>` the text that I want to replace with: `toreplace==>replacewidth.` With a concrete example: `'123abc'==>ENV[AUTH_TOKEN].`
     
     ```plaintext
-    ‘eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c’==>ENV[‘AUTH_TOKEN’]
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c==>ENV[AUTH_TOKEN]
     ```
     
 3. Use `git filter-repo --replace-text ../replacements.txt --force` to remove selected lines of code containing sensitive information
