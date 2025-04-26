@@ -50,6 +50,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-polyglot
   - jekyll-redirect-from
+
 # Polyglot settings
 polyglot:
   languages: ["en", "nl"]
@@ -85,7 +86,7 @@ defaults:
       path: "_posts"
     values:
       layout: "post"
-      permalink: /blog/:title/
+      permalink: /blog/:title
 
 permalink: pretty
 
