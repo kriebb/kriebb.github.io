@@ -331,19 +331,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Category toggles
-  document.querySelectorAll('.category-toggle').forEach(button => {
+  // Setup category toggles
+  const toggleButtons = document.querySelectorAll('.category-toggle');
+  toggleButtons.forEach(button => {
     button.addEventListener('click', function() {
       const targetId = this.getAttribute('data-target');
-      const targetPanel = document.getElementById(targetId);
-      
-      // Toggle panel visibility
-      targetPanel.classList.toggle('collapsed');
-      
-      // Toggle icon
+      const targetDiv = document.getElementById(targetId);
+      targetDiv.classList.toggle('collapsed');
       const icon = this.querySelector('.toggle-icon');
-      icon.textContent = targetPanel.classList.contains('collapsed') ? '+' : '-';
+      icon.textContent = targetDiv.classList.contains('collapsed') ? '+' : '-';
     });
   });
   

@@ -21,13 +21,13 @@
       {% if featured.tags.size > 0 %}
       <div class="featured-tags">
         {% for tag in featured.tags limit:3 %}
-          {% assign tagSlugified = tag | default: 'default-tag' | string | slugify %}
+          {% assign tagSlugified = tag | slugify %}
           <a href="/tag/{{ tagSlugified }}/" class="featured-tag">#{{ tag }}</a>
         {% endfor %}
       </div>
       {% endif %}
     </div>
-    <div class="featured-excerpt">{{ featured.excerpt | strip_html | truncatewords: 50 }}</div>
+    <div class="featured-excerpt">{{ featured.excerpt | strip_html | truncatewords: 30 }}</div>
     <a href="{{ featured.url | relative_url }}" class="featured-read-more">Read Full Article</a>
   </div>
 </div>
@@ -35,15 +35,34 @@
 <style>
   .featured-post {
     display: flex;
+    flex-direction: column;
     background-color: var(--card-bg, #ffffff);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .featured-post {
+      flex-direction: row;
+      max-height: 400px;
+    }
+    
+    .featured-post-image {
+      flex: 0 0 40%;
+      max-height: 400px;
+    }
+    
+    .featured-post-content {
+      flex: 0 0 60%;
+      max-height: 400px;
+      overflow: auto;
+    }
   }
   
   .featured-post-image {
-    flex: 0 0 40%;
     position: relative;
     overflow: hidden;
   }
@@ -60,8 +79,7 @@
   }
   
   .featured-post-content {
-    flex: 0 0 60%;
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   .featured-label {
@@ -78,7 +96,7 @@
   }
   
   .featured-post h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
   
@@ -134,19 +152,5 @@
   
   .featured-read-more:hover {
     background-color: var(--accent-dark, #003b6f);
-  }
-  
-  @media (max-width: 768px) {
-    .featured-post {
-      flex-direction: column;
-    }
-    
-    .featured-post-image {
-      flex: 0 0 200px;
-    }
-    
-    .featured-post-content {
-      flex: 1;
-    }
   }
 </style>

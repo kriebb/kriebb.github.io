@@ -24,8 +24,15 @@
     
     <div class="sidebar-section">
       <h3>Popular Tags</h3>
-
-
+      <div class="sidebar-tags">
+        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
+        {% for tag in all_tags limit:10 %}
+          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+          {% assign post_count = tag_posts.size %}
+          {% assign tag_slug = tag | slugify %}
+          <a href="/tag/{{ tag_slug }}/" class="sidebar-tag">#{{ tag }} ({{ post_count }})</a>
+        {% endfor %}
+      </div>
     </div>
 
     <div class="sidebar-section about-author">

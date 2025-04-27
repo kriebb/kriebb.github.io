@@ -4,7 +4,7 @@ layout: default
 
 <div class="blog-container">
   {% if page.show_featured != false %}
-
+    {% include featured-post.html %}
   {% endif %}
   
   <div class="blog-main">
@@ -34,7 +34,8 @@ layout: default
           {% if post.tags.size > 0 %}
           <div class="blog-tags">
             {% for tag in post.tags limit:3 %}
-          
+              {% assign tagSlugified = tag | slugify %}
+              <a href="/tag/{{ tagSlugified }}/" class="blog-tag">#{{ tag }}</a>
             {% endfor %}
           </div>
           {% endif %}
@@ -44,10 +45,9 @@ layout: default
       </article>
       {% endfor %}
     </div>
-
-    {% if page.blogsidebar %}
-    {% include blog-sidebar.html %}
-    {% endif %}
   </div>
   
+  {% if page.blogsidebar %}
+    {% include blog-sidebar.html %}
+  {% endif %}
 </div>

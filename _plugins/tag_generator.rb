@@ -4,24 +4,33 @@ module Jekyll
     safe true
     
     def generate(site)
-      tags = site.posts.docs.flat_map { |post| post.data['tags'] || [] }.uniq
+      # Get all unique tags from all posts
+      tags = []
+      site.posts.docs.each do |post|
+        if post.data['tags'].is_a?(Array)
+          tags.concat(post.data['tags'])
+        end
+      end
+      tags = tags.uniq
       
+      # Generate a page for each tag
       tags.each do |tag|
-        site.pages << TagPage.new(site, site.source, tag)
+        # Make sure tag is a string before slugifying
+        tag_slug = Jekyll::Utils.slugify(tag.to_s)
+        site.pages << TagPage.new(site, site.source, tag, tag_slug)
       end
     end
   end
   
   class TagPage < Page
-    def initialize(site, base, tag)
+    def initialize(site, base, tag, tag_slug)
       @site = site
       @base = base
-      @dir = "tag/#{Jekyll::Utils.slugify(tag)}/"
+      @dir = File.join('tag', tag_slug)
       @name = 'index.html'
       
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'tag.html')
-      self.data['layout'] = 'default' # Ensure this inherits from default
       self.data['tag'] = tag
       self.data['title'] = "Posts tagged with #{tag}"
     end
