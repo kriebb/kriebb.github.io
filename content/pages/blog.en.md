@@ -7,4 +7,5 @@ sidebar: false
 lang: en
 ref: blog
 pageid: blog
+sidebar: false
 ---

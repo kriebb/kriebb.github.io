@@ -7,7 +7,7 @@
   margin: 0 auto;
   padding: 20px;
   background-color: var(--background-color);
-  margin-top: 80px; // Space for the fixed header
+  margin-top: 40px; // Space for the fixed header
 
   &.with-sidebar {
     @media (min-width: 1024px) {
@@ -20,25 +20,30 @@
 
 // Blog header styling
 .blog-header {
-  background-color: var(--primary-color, #004c8c);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-light) 100%);
+  padding: 3rem 2rem;  // Adequate padding to keep header spacious
   margin: -20px -20px 30px -20px;
-  padding: 30px 20px;
   color: white;
   position: relative;
+  text-align: center;  // Center the title and subtitle
   
   .blog-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;  // Larger font size for a prominent title
+    margin-bottom: 1rem; // Increase space between title and subtitle
     color: white;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
   .blog-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
     font-weight: normal;
-    line-height: 1.4;
+    line-height: 1.6;  // Increased line height for better readability
+    max-width: 70%;  // Limiting width for better readability
+    margin: 0 auto;  // Center the subtitle if it's too wide
   }
 }
 
@@ -72,7 +77,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 15px;
-    color: var(--primary-color, #004c8c);
+    color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     border-bottom: 2px solid rgba(0, 76, 140, 0.2);
     padding-bottom: 8px;
   }
@@ -89,7 +94,7 @@
 
 // Tag item styling
 .tag-item {
-  background-color: var(--badge-bg, #f5f5f5);
+  background-color: var(--badge-bg, #f5f5f5); // Use CSS custom property for badge background
   border-radius: 30px;
   padding: 5px 15px;
   font-size: 0.9rem;
@@ -103,12 +108,12 @@
   
   &:hover {
     background-color: rgba(0, 76, 140, 0.1);
-    color: var(--primary-color, #004c8c);
+    color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     transform: translateY(-2px);
   }
   
   &.active {
-    background-color: var(--primary-color, #004c8c);
+    background-color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     color: white;
     
     .tag-count {
@@ -155,7 +160,7 @@
 
 // Blog card styling
 .blog-card {
-  background-color: var(--card-bg, white);
+  background-color: var(--card-bg, white); // Use CSS custom property for card background
   border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--card-shadow, 0 3px 10px rgba(0, 0, 0, 0.1));
@@ -221,7 +226,7 @@
     transition: color 0.2s ease;
     
     &:hover {
-      color: var(--primary-color, #004c8c);
+      color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     }
   }
 }
@@ -235,7 +240,7 @@
   
   .blog-tag {
     font-size: 0.8rem;
-    color: var(--primary-color, #004c8c);
+    color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     text-decoration: none;
     
     &:hover {
@@ -261,7 +266,7 @@
 .read-more {
   display: inline-block;
   padding: 8px 15px;
-  background-color: var(--primary-color, #004c8c);
+  background-color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
   color: white;
   text-decoration: none;
   border-radius: 4px;
@@ -281,14 +286,14 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: 40px;
-  background-color: var(--card-bg, white);
+  background-color: var(--card-bg, white); // Use CSS custom property for card background
   border-radius: 8px;
   box-shadow: var(--card-shadow, 0 2px 5px rgba(0, 0, 0, 0.1));
 }
 
 // No matching posts message
 .no-matching-posts {
-  background-color: var(--card-bg, white);
+  background-color: var(--card-bg, white); // Use CSS custom property for card background
   padding: 30px;
   border-radius: 8px;
   box-shadow: var(--card-shadow, 0 2px 8px rgba(0, 0, 0, 0.1));
@@ -296,7 +301,7 @@
   margin: 20px 0;
   
   h3 {
-    color: var(--primary-color, #004c8c);
+    color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     margin-bottom: 15px;
   }
   
@@ -309,7 +314,7 @@
 .reset-filters {
   display: inline-block;
   padding: 8px 15px;
-  background-color: var(--primary-color, #004c8c);
+  background-color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
   color: white;
   border-radius: 4px;
   text-decoration: none;
@@ -330,7 +335,7 @@
   
   .tag-page-title {
     font-size: 2rem;
-    color: var(--primary-color, #004c8c);
+    color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     margin-bottom: 10px;
   }
   
@@ -341,7 +346,7 @@
   .back-to-blog {
     display: inline-block;
     margin-top: 15px;
-    color: var(--primary-color, #004c8c);
+    color: var(--primary-color, #004c8c); // Use CSS custom property for primary color
     text-decoration: none;
     
     &:hover {

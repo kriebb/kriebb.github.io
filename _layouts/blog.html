@@ -6,8 +6,7 @@ layout: default
   <div class="blog-main">
     <!-- Blog Header -->
     <header class="blog-header">
-      <h1 class="blog-title">{{ page.title }}</h1>
-      <p class="blog-subtitle">Thoughts on .NET development, security, and professional growth</p>
+      <p class="blog-subtitle"><i>Thoughts on .NET development, security, and professional growth</i></p>
     </header>
     
     <!-- Search Box -->
@@ -22,15 +21,15 @@ layout: default
         <!-- All Tags Option -->
         <a href="#" class="tag-item active" data-tag="all">
           All
-          <span class="tag-count">{{ site.posts | size }}</span>
+          <span class="tag-count">{{ site.posts.size }}</span>
         </a>
         
         <!-- Generate Tags with Post Counts -->
         {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
         {% for tag in all_tags %}
           {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+          {% assign post_count = tag_posts.size %}
           {% assign size_class = "tag-size-1" %}
-          {% assign post_count = tag_posts | size %}
           
           {% if post_count > 10 %}
             {% assign size_class = "tag-size-5" %}
@@ -95,7 +94,7 @@ layout: default
         <!-- All Tags Option -->
         <a href="#" class="tag-item active" data-tag="all">
           All Posts
-          <span class="tag-count">{{ site.posts | size }}</span>
+          <span class="tag-count">{{ site.posts.size }}</span>
         </a>
         
         <!-- Generate Tags with Post Counts -->
@@ -104,7 +103,7 @@ layout: default
           {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
           <a href="#" class="tag-item" data-tag="{{ tag | slugify }}">
             {{ tag }}
-            <span class="tag-count">{{ tag_posts | size }}</span>
+            <span class="tag-count">{{ tag_posts.size }}</span>
           </a>
         {% endfor %}
       </div>
