@@ -23,7 +23,9 @@
 /* Components */
 @import "components/cover";
 @import "components/blog";
-@import "components/blog-index";
+@import "components/blog-cards";
+@import "components/code-blocks";
+
 @import "components/tags";
 
 @import "components/competence";
@@ -36,7 +38,7 @@
 @import "components/logo";
 @import "components/theme-toggle";
 @import "components/language-switcher";
-@import "components/icons";
+@import "components/icons"; 
 @import "components/projects";
 @import "components/protected";
 @import "components/image-popup";

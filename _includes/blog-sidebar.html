@@ -1,13 +1,31 @@
-<!-- _includes/blog-sidebar.html -->
+<!-- _includes/blog-sidebar.html - Without inline styles -->
 <aside class="blog-sidebar">
     <div class="sidebar-section">
       <h3>Categories</h3>
-      <ul class="category-list">
-        <li><a href="/tag/dotnet/">Development</a></li>
-        <li><a href="/tag/security/">Security</a></li>
-        <li><a href="/tag/career-development/">Career Growth</a></li>
-        <li><a href="/tag/devops/">DevOps</a></li>
-      </ul>
+      <div class="category-accordion">
+        {% for category in site.data.tag_categories %}
+          <div class="category-item">
+            <button class="category-toggle" data-category="{{ category.id }}">
+              {{ category.name }} <span class="toggle-icon">+</span>
+            </button>
+            <div class="category-tags collapsed" id="category-{{ category.id }}">
+              {% for tag in category.tags limit:5 %}
+                {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+                {% assign post_count = tag_posts.size %}
+                {% if post_count > 0 %}
+                  <a href="/tag/{{ tag | slugify }}/" class="tag-item">
+                    #{{ tag }} <span class="tag-count">{{ post_count }}</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+              {% assign remaining = category.tags.size | minus: 5 %}
+              {% if remaining > 0 %}
+                <a href="/tags/" class="more-tags">See {{ remaining }} more...</a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
     
     <div class="sidebar-section">
@@ -22,19 +40,6 @@
       </ul>
     </div>
     
-    <div class="sidebar-section">
-      <h3>Popular Tags</h3>
-      <div class="sidebar-tags">
-        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
-        {% for tag in all_tags limit:10 %}
-          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-          {% assign post_count = tag_posts.size %}
-          {% assign tag_slug = tag | slugify %}
-          <a href="/tag/{{ tag_slug }}/" class="sidebar-tag">#{{ tag }} ({{ post_count }})</a>
-        {% endfor %}
-      </div>
-    </div>
-
     <div class="sidebar-section about-author">
       <h3>About the Author</h3>
       <div class="author-bio">
@@ -43,136 +48,13 @@
         <a href="/about/" class="learn-more">Learn More</a>
       </div>
     </div>
+    
+    {% if page.toc %}
+    <div class="sidebar-section">
+      <h3>Table of Contents</h3>
+      <ul id="blog-toc" class="toc-list">
+        <!-- JS will populate this -->
+      </ul>
+    </div>
+    {% endif %}
   </aside>
-  
-  <style>
-    .blog-sidebar {
-      background-color: var(--card-bg, #ffffff);
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    .sidebar-section {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-color, #eaeaea);
-    }
-    
-    .sidebar-section:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-    
-    .sidebar-section h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--heading-color, #222);
-      position: relative;
-      padding-left: 1rem;
-    }
-    
-    .sidebar-section h3:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.15rem;
-      bottom: 0.15rem;
-      width: 4px;
-      background-color: var(--accent-color, #004c8c);
-      border-radius: 4px;
-    }
-    
-    .category-list, .recent-posts {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .category-list li, .recent-posts li {
-      margin-bottom: 0.5rem;
-    }
-    
-    .category-list a, .recent-posts a {
-      color: var(--text-color, #333);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    
-    .category-list a:hover, .recent-posts a:hover {
-      color: var(--accent-color, #004c8c);
-    }
-    
-    .recent-posts li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    
-    .post-date {
-      font-size: 0.8rem;
-      color: var(--text-muted, #777);
-    }
-    
-    .sidebar-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    
-    .sidebar-tag {
-      display: inline-block;
-      padding: 0.3rem 0.7rem;
-      background-color: var(--light-gray, #f0f0f0);
-      color: var(--text-color, #333);
-      border-radius: 16px;
-      font-size: 0.8rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    
-    .sidebar-tag:hover {
-      background-color: var(--accent-color, #004c8c);
-      color: white;
-    }
-    
-    .about-author {
-      text-align: center;
-    }
-    
-    .author-bio {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .author-image {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    
-    .author-bio p {
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    
-    .learn-more {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background-color: var(--accent-color, #004c8c);
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      transition: background-color 0.2s ease;
-    }
-    
-    .learn-more:hover {
-      background-color: var(--accent-dark, #003b6f);
-    }
-  </style>

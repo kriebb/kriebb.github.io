@@ -1,3 +1,4 @@
+<!-- _includes/featured-post.html -->
 {% assign featured_posts = site.posts | where_exp: "post", "post.featured == true" %}
 {% if featured_posts.size > 0 %}
   {% assign featured = featured_posts.first %}
@@ -5,152 +6,28 @@
   {% assign featured = site.posts.first %}
 {% endif %}
 
-<div class="featured-post">
-  <div class="featured-post-image">
+<article class="blog-card featured-card">
+  <div class="featured-badge">Featured</div>
+  <div class="blog-card-image">
     {% if featured.cover %}
       <img src="{{ featured.cover | relative_url }}" alt="{{ featured.title }}">
     {% else %}
       <img src="/assets/images/blog/default-cover.jpg" alt="{{ featured.title }}">
     {% endif %}
-  </div>
-  <div class="featured-post-content">
-    <div class="featured-label">Featured Post</div>
-    <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
-    <div class="featured-meta">
-      <span class="featured-date">{{ featured.date | date: "%B %d, %Y" }}</span>
-      {% if featured.tags.size > 0 %}
-      <div class="featured-tags">
-        {% for tag in featured.tags limit:3 %}
-          {% assign tagSlugified = tag | slugify %}
-          <a href="/tag/{{ tagSlugified }}/" class="featured-tag">#{{ tag }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
+    <span class="blog-date">{{ featured.date | date: "%b %d, %Y" }}</span>
+    
+    {% if featured.tags.size > 0 %}
+    <div class="image-overlay-tags">
+      {% for tag in featured.tags limit:3 %}
+        {% assign tagSlugified = tag | slugify %}
+        <a href="/tag/{{ tagSlugified }}/" class="blog-tag">#{{ tag }}</a>
+      {% endfor %}
     </div>
-    <div class="featured-excerpt">{{ featured.excerpt | strip_html | truncatewords: 30 }}</div>
-    <a href="{{ featured.url | relative_url }}" class="featured-read-more">Read Full Article</a>
+    {% endif %}
   </div>
-</div>
-
-<style>
-  .featured-post {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--card-bg, #ffffff);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    max-width: 100%;
-  }
-  
-  @media (min-width: 768px) {
-    .featured-post {
-      flex-direction: row;
-      max-height: 400px;
-    }
-    
-    .featured-post-image {
-      flex: 0 0 40%;
-      max-height: 400px;
-    }
-    
-    .featured-post-content {
-      flex: 0 0 60%;
-      max-height: 400px;
-      overflow: auto;
-    }
-  }
-  
-  .featured-post-image {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .featured-post-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .featured-post:hover .featured-post-image img {
-    transform: scale(1.05);
-  }
-  
-  .featured-post-content {
-    padding: 1.5rem;
-  }
-  
-  .featured-label {
-    display: inline-block;
-    background-color: var(--accent-color, #004c8c);
-    color: white;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  
-  .featured-post h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .featured-post h2 a {
-    color: var(--heading-color, #222);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .featured-post h2 a:hover {
-    color: var(--accent-color, #004c8c);
-  }
-  
-  .featured-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-muted, #777);
-  }
-  
-  .featured-date {
-    margin-right: 1rem;
-  }
-  
-  .featured-tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .featured-tag {
-    color: var(--accent-color, #004c8c);
-    text-decoration: none;
-    margin-right: 0.5rem;
-  }
-  
-  .featured-excerpt {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-  
-  .featured-read-more {
-    display: inline-block;
-    background-color: var(--accent-color, #004c8c);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-  }
-  
-  .featured-read-more:hover {
-    background-color: var(--accent-dark, #003b6f);
-  }
-</style>
+  <div class="blog-card-content">
+    <h2 class="blog-card-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+    <div class="blog-card-excerpt">{{ featured.excerpt | strip_html | truncatewords: 30 }}</div>
+    <a href="{{ featured.url | relative_url }}" class="read-more">Read Full Article</a>
+  </div>
+</article>
