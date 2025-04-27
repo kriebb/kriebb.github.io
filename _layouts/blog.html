@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<div class="blog-container{% if page.sidebar %} with-sidebar{% endif %}">
+<div class="blog-container">
+  {% if page.show_featured != false %}
+
+  {% endif %}
+  
   <div class="blog-main">
-   
-    <!-- Search Box -->
-    <div class="search-container">
-      <input type="text" id="blog-search" placeholder="{{ site.data.i18n[site.active_lang].blog.search_placeholder | default: 'Search posts...' }}">
-    </div>
-    
+    {{ content }}
+
     <!-- Blog Grid -->
     <div class="blog-grid">
       {% assign lang_posts = site.posts | where: "lang", site.active_lang %}
@@ -34,7 +34,7 @@ layout: default
           {% if post.tags.size > 0 %}
           <div class="blog-tags">
             {% for tag in post.tags limit:3 %}
-            <a href="/tag/{{ tag | slugify }}/" class="blog-tag">#{{ tag }}</a>
+          
             {% endfor %}
           </div>
           {% endif %}
@@ -44,31 +44,10 @@ layout: default
       </article>
       {% endfor %}
     </div>
+
+    {% if page.blogsidebar %}
+    {% include blog-sidebar.html %}
+    {% endif %}
   </div>
   
-  {% if page.sidebar %}
-  <!-- Optional Sidebar Layout -->
-  <aside class="blog-sidebar">
-    <div class="sidebar-section">
-      <h3 class="sidebar-title">Topics</h3>
-      <div class="sidebar-tag-cloud">
-        <!-- All Tags Option -->
-        <a href="#" class="tag-item active" data-tag="all">
-          All Posts
-          <span class="tag-count">{{ site.posts.size }}</span>
-        </a>
-        
-        <!-- Generate Tags with Post Counts -->
-        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
-        {% for tag in all_tags %}
-          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-          <a href="#" class="tag-item" data-tag="{{ tag | slugify }}">
-            {{ tag }}
-            <span class="tag-count">{{ tag_posts.size }}</span>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-  </aside>
-  {% endif %}
 </div>

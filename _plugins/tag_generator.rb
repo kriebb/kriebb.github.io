@@ -1,3 +1,4 @@
+# _plugins/tag_generator.rb
 module Jekyll
   class TagPageGenerator < Generator
     safe true
@@ -20,6 +21,7 @@ module Jekyll
       
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'tag.html')
+      self.data['layout'] = 'default' # Ensure this inherits from default
       self.data['tag'] = tag
       self.data['title'] = "Posts tagged with #{tag}"
     end

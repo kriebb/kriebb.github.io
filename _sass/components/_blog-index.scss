@@ -540,3 +540,47 @@
   color: white;
   transform: scale(1.05);
 }
+
+/* Breadcrumbs */
+.breadcrumbs {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted, #777);
+}
+
+.breadcrumbs a {
+  color: var(--accent-color, #004c8c);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Tag Header */
+.tag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tag-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.clear-filter {
+  background-color: var(--accent-color, #004c8c);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+.clear-filter:hover {
+  background-color: var(--accent-dark, #003b6f);
+}
