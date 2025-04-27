@@ -6,7 +6,7 @@ cuid: clg9l8edz00080amef2ltazup
 slug: an-egg-citing-approach-to-email-privacy
 canonical: https://dotnet.kriebbels.me/an-egg-citing-approach-to-email-privacy
 cover: /assets/images/blog/an-egg-citing-approach-to-email-privacy/2023-04-09-an-egg-citing-approach-to-email-privacy.cover.png
-tags: email-privacy, security, email-aliases, simplelogin, bitwarden, data-protection, identity-management
+tags: email-privacy security email-aliases simplelogin bitwarden data-protection identity-management
 ---
 
 ## Previously on...

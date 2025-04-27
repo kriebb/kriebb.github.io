@@ -4,49 +4,10 @@ layout: default
 
 <div class="blog-container{% if page.sidebar %} with-sidebar{% endif %}">
   <div class="blog-main">
-    <!-- Blog Header -->
-    <header class="blog-header">
-      <p class="blog-subtitle"><i>Thoughts on .NET development, security, and professional growth</i></p>
-    </header>
-    
+   
     <!-- Search Box -->
     <div class="search-container">
       <input type="text" id="blog-search" placeholder="{{ site.data.i18n[site.active_lang].blog.search_placeholder | default: 'Search posts...' }}">
-    </div>
-    
-    <!-- Tag Section with Title -->
-    <div class="tag-section">
-      <h3 class="tag-section-header">Filter by Topic</h3>
-      <div class="tag-cloud">
-        <!-- All Tags Option -->
-        <a href="#" class="tag-item active" data-tag="all">
-          All
-          <span class="tag-count">{{ site.posts.size }}</span>
-        </a>
-        
-        <!-- Generate Tags with Post Counts -->
-        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
-        {% for tag in all_tags %}
-          {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-          {% assign post_count = tag_posts.size %}
-          {% assign size_class = "tag-size-1" %}
-          
-          {% if post_count > 10 %}
-            {% assign size_class = "tag-size-5" %}
-          {% elsif post_count > 7 %}
-            {% assign size_class = "tag-size-4" %}
-          {% elsif post_count > 5 %}
-            {% assign size_class = "tag-size-3" %}
-          {% elsif post_count > 3 %}
-            {% assign size_class = "tag-size-2" %}
-          {% endif %}
-          
-          <a href="#" class="tag-item {{ size_class }}" data-tag="{{ tag | slugify }}">
-            {{ tag }}
-            <span class="tag-count">{{ post_count }}</span>
-          </a>
-        {% endfor %}
-      </div>
     </div>
     
     <!-- Blog Grid -->

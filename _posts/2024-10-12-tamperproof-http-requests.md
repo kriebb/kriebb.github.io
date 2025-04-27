@@ -8,7 +8,7 @@ cuid: cm26d8v6o000009l7e6o3cwvd
 slug: tamperproof-http-requests
 cover: /assets/images/blog/tamperproof-http-requests/2024-10-12-tamperproof-http-requests.cover.jpeg
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1728750198154/7ea7c117-b8a7-4b16-8ef0-1aa8c9ac6a1e.jpeg
-tags: http, jwt, jws, jose, jwe, tamperproof
+tags: http jwt jws jose jwe tamperproof
 
 ---
 

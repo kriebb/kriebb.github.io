@@ -6,7 +6,7 @@ cuid: clel55n0o000509mf2q7x87o1
 slug: how-to-know-if-your-data-is-leaked
 canonical: https://dotnet.kriebbels.me/when-two-factor-authentication-is-useless
 cover: /assets/images/blog/how-to-know-if-your-data-is-leaked/2023-02-26-how-to-know-if-your-data-is-leaked.cover.jpeg
-tags: security, privacy, data-protection, cyber-security, identity-theft, data-breach, scam-prevention
+tags: security privacy data-protection cyber-security identity-theft data-breach scam-prevention
 ---
 
 ## Previously on...

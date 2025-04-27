@@ -1,0 +1,48 @@
+- name: "Web Development"
+  id: "web-dev"
+  tags:
+    - dotnet
+    - aspnet-core
+    - mvc
+    - jquery
+    - npm
+    - libman
+
+- name: "API & Integration"
+  id: "api-integration"
+  tags:
+    - rest-api
+    - httpclient
+    - connection-pooling
+    - polly
+
+- name: "Security & Authentication"
+  id: "security-auth"
+  tags:
+    - oauth2
+    - openid-connect
+    - jwt
+    - jose
+    - security
+    - cybersecurity
+    - application-security
+    
+- name: "DevOps & Infrastructure"
+  id: "devops-infra"
+  tags:
+    - devops
+    - git
+    - git-workflow
+    - azure
+    - azure-devops
+    - infrastructure-as-code
+    - branching-strategy
+
+- name: "Professional Growth"
+  id: "prof-growth"
+  tags:
+    - career-development
+    - consultancy
+    - personal-growth
+    - professional-development
+    - knowledge-sharing

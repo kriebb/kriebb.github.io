@@ -3,19 +3,16 @@ date: 2023-06-03
 title: "Configuration: The Tangle of Layers, Sections and sources in .NET 6 Development"
 seoTitle: ".NET 6 Dev: Config Layers & Sections"
 seoDescription: "Explore .NET 6 config management for efficient, secure app development. Improve practices, optimize with layered settings, diverse sources"
-datePublished: Sat Jun 03 2023 14:15:06 GMT+0000 (Coordinated Universal Time)
-cuid: clig2t5c9000b09jm3l1jg7qe
 slug: configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development
 cover: /assets/images/blog/configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development/2023-06-03-configuration-the-tangle-of-layers-sections-and-sources-in-net-6-development.cover.jpeg
-tags: dotnet, configuration, secrets, azure-key-vault, appsettings
-
+tags: dotnet configuration secrets azurekeyvault appsettings cloud bestpractices
 ---
 
-# Previously on...
+## Previously on...
 
 [In my previous post, I described how I regained focus on my blogging.](https://dotnet.kriebbels.me/once-az-204-is-done-re-engaging-with-my-goals) This time, let us focus on how we can configure our settings in the DotNet "core" world.
 
-# Context
+## Context
 
 It's not uncommon to come across projects with poorly managed configurations. When I first started building .NET Framework applications, the configuration process seems easy. However, over time, the `<appsettings>` section became more chaotic. [There is a possibility to cut this up into multiple sections, but that was writing a lot of boilerplate.](https://ardalis.com/custom-configuration-section-handlers/) Storing secrets in your configuration was not safe at all. [While there is a way to encrypt your settings](https://matthewregis.dev/posts/encrypting-application-settings-within-app-config), I do not know a lot of people of embracing this way of working. Developing microservices and managing all settings in multiple `web.config` ensures losing the will to live.
 
@@ -35,26 +32,19 @@ In this post, I will explore the layered configuration, grouping of configuratio
 
 Let's discuss some theoretical concepts.
 
-# Layered configuration
+## Layered configuration
 
 Before we try to define a configuration object in code, I want to have an understanding of how settings are defined. A common way to define my settings is to put them in the `appsettings.json` and use the Azure Keyvault. These days, on top of using the `appsettings.json`, there is an option to use the Azure [App Configuration service](https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview) as well.
 
 When I have multiple sources, creating a configuration object is based on the combination of those sources. Some sources could be:
 
-* environment variables,
-    
-* `appsettings.json` file
-    
-* `appsettings.{env}.json` file
-    
-* user secrets,
-    
-* app configuration service
-    
-* key vault,
-    
-* command line arguments
-    
+- Environment variables
+- `appsettings.json` file
+- `appsettings.{env}.json` file
+- User secrets
+- App configuration service
+- Key vault
+- Command line arguments
 
 A configuration object can be built by a lot of sources. When asking for a configuration value, the system uses the newest value for the asked configuration key. First, it checks environment variables, then app settings, ..., and finally, command line arguments.
 
@@ -66,7 +56,7 @@ When a key name already exists in other sources, the value will be overridden. I
 
 With that understanding, let's delve into the sections.
 
-# Sections
+## Sections
 
 In .NET Framework, configuration data is stored in the `App.config` file for console/Windows applications and in the `Web.config` file for web applications. The configuration data is stored as XML and contains settings for the application, such as database connection strings, app settings, and more.
 
@@ -74,18 +64,13 @@ While `App.config` and `Web.config` worked well in the past in that period, but 
 
 In .NET 6, sections provide a much more flexible and organized way to work with configuration data:
 
-* Organize configuration data into **logical groups** instead of grouping it by type of configuration like ConnectionStrings, AppSettings,... **without having to write boilerplate code.**
-    
-* Selectively **override or replace specific configuration** values
-    
-* Useful for large projects with **different environments**
-    
-* Add, remove, and modify configuration sections **without affecting other sections**
-    
-* Define strongly typed classes and validation ***with ease***
-    
+- Organize configuration data into **logical groups** instead of grouping it by type of configuration like ConnectionStrings, AppSettings,... **without having to write boilerplate code.**
+- Selectively **override or replace specific configuration** values
+- Useful for large projects with **different environments**
+- Add, remove, and modify configuration sections **without affecting other sections**
+- Define strongly typed classes and validation ***with ease***
 
-# Sources
+## Sources
 
 Having covered the way configuration is layered and grouped, we can now examine the sources
 
@@ -107,7 +92,7 @@ If we were to store this secret in a configuration file using double dashes, it 
 
 ```json
 {
-  "my": {
+"my": {
     "secret": {
       "value": true
     }
@@ -125,11 +110,12 @@ When we add double dashes before the value `--another--secret--value`, it will b
 }
 ```
 
+
 This is important because it ensures that our key-value pairs are correctly interpreted and that the value we are trying to save is treated as a single value and not as a separate key-value pair.
 
 Let us explore the centralization of settings of multiple services that belong logically together, to make life just a lot easier.
 
-## Store on-the-fly-needed settings using a central service!
+### Store on-the-fly-needed settings using a central service!
 
 The following video was helpful as it provided insight into the Azure App Configuration service. However, I will give a summary as well for the comfort of the reader.
 
@@ -158,8 +144,8 @@ However, I like to manage it myself. The `secrets.json` is stored at the followi
 ```xml
 <PropertyGroup>
   <TargetFramework>net6</TargetFramework>
-  <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-</PropertyGroup>
+  <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId> 
+</PropertyGroup> 
 ```
 
 The content of a secrets.json looks like following json.
@@ -182,15 +168,12 @@ For a web application, this will be automatically loaded and override or add the
 }
 ```
 
-# What\`s next?
+## What's next?
 
 In one of my upcoming posts, I will first do a small recap with a drawing. Then I discuss the configuration defaults the `HostBuilder` class and [ASP.NET](http://ASP.NET) Core provide. I will explain how to consume configuration data in `Program.cs` using the `IConfiguration` interface and how it differs from `ConfigurationManager`. Plus, I will explore sections in my configuration using the `.AddOptions<>` method. Furthermore, I will demystify the difference between `.Configure<>` and `.AddOptions<>` and the difference between `IOptions<>`, `IOptionsMonitor<>`, or `IOptionsSnapshot<>`. Finally, I will give an insight moment on how I debug the startup validation of my configuration when deployed my service is deployed in Azure.
 
-# Outro
+## Outro
 
 This is a new format that I am playing with. I am in doubt if I want to have multiple posts that tackle a section or use the format that I am used to when writing an article for Xprt [Magazine](https://xpirit.com/download/). [I aim for a reading time of between four and thirteen minutes.](https://www.wyliecomm.com/2022/06/blog-post-length/)
 
-I am always happy to get feedback. Let\`s engage!
-
-
-
+I am always happy to get feedback. Let's engage!

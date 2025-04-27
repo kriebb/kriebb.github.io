@@ -5,7 +5,7 @@ datePublished: Sun Jul 16 2023 06:44:07 GMT+0000 (Coordinated Universal Time)
 cuid: clk52mt5r000a0al67sls6s7r
 slug: upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app
 cover: /assets/images/blog/upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app/2023-07-16-upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app.cover.jpeg
-tags: mvc, npm, aspnet-core, dotnet, libman
+tags: mvc npm aspnet-core dotnet libman
 
 ---
 

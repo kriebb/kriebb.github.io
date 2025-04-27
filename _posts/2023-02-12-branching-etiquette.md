@@ -5,7 +5,7 @@ datePublished: 2023-02-12T18:27:59.000Z
 cuid: cle1pyszg000809lg0kuo0swx
 slug: branching-etiquette
 cover: /assets/images/blog/branching-etiquette/2023-02-12-branching-etiquette.cover.jpeg
-tags: git-workflow, devops-practices, branching-strategy, version-control, infrastructure-as-code, pre-commit-hooks
+tags: git-workflow devops-practices branching-strategy version-control infrastructure-as-code pre-commit-hooks
 ---
 
 ## Previously on

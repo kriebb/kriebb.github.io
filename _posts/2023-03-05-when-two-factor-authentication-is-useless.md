@@ -6,7 +6,7 @@ cuid: clev56vw1000109i524xt4425
 slug: when-two-factor-authentication-is-useless
 canonical: https://dotnet.kriebbels.me/when-two-factor-authentication-is-useless
 cover: /assets/images/blog/when-two-factor-authentication-is-useless/2023-03-05-when-two-factor-authentication-is-useless.cover.jpeg
-tags: security, privacy, cybersecurity, two-factor-authentication, password-management, data-protection, infosec
+tags: security privacy cybersecurity two-factor-authentication password-management data-protection infosec
 ---
 
 ## Previously on...

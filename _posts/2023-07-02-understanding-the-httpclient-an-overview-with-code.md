@@ -5,7 +5,7 @@ datePublished: Sun Jul 02 2023 15:50:37 GMT+0000 (Coordinated Universal Time)
 cuid: cljllzpf0000n0amf693og9x4
 slug: understanding-the-httpclient-an-overview-with-code
 cover: /assets/images/blog/understanding-the-httpclient-an-overview-with-code/2023-07-02-understanding-the-httpclient-an-overview-with-code.cover.jpeg
-tags: dependency-injection, dotnet, polly, httpclient, connection-pooling
+tags: dependency-injection dotnet polly httpclient connection-pooling
 
 ---
 

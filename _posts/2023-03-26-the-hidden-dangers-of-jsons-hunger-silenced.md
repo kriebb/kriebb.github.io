@@ -5,7 +5,7 @@ datePublished: 2023-03-26T08:20:34.000Z
 cuid: clfp4rg1400000al3bqxud8ia
 slug: the-hidden-dangers-of-jsons-hunger-silenced
 cover: /assets/images/blog/the-hidden-dangers-of-jsons-hunger-silenced/2023-03-26-the-hidden-dangers-of-jsons-hunger-silenced.cover.jpeg
-tags: json-security, deserialization, input-validation, pentesting, sast, code-security, vulnerability-management
+tags: json-security deserialization input-validation pentesting sast code-security vulnerability-management
 ---
 
 ## Previously on...

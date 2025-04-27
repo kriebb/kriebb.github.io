@@ -5,7 +5,7 @@ datePublished: Sat Jul 22 2023 18:29:12 GMT+0000 (Coordinated Universal Time)
 cuid: clkecgo23000509jo4a3v7831
 slug: exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts
 cover: /assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts.cover.jpeg
-tags: mvc, jquery, aspnet-core, validation, unobtrusive
+tags: mvc jquery aspnet-core validation unobtrusive
 
 ---
 

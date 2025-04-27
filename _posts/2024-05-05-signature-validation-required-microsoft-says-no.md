@@ -7,7 +7,7 @@ datePublished: Sun May 05 2024 18:26:20 GMT+0000 (Coordinated Universal Time)
 cuid: clvtv6bj700060amdg2kk88ri
 slug: signature-validation-required-microsoft-says-no
 cover: /assets/images/blog/signature-validation-required-microsoft-says-no/2024-05-05-signature-validation-required-microsoft-says-no.cover.jpeg
-tags: microsoft, testing, dotnet, nuget, openid-connect, aspnetcore, entra
+tags: microsoft testing dotnet nuget openid-connect aspnetcore entra
 
 ---
 
@@ -28,7 +28,7 @@ NuGet Packages mentioned:
 
 ## Context
 
-Lately, my fascination with web development and identity security has taken a new turn. While prepping for a tech demo, I stumbled upon complexities that many developers face—using OAuth and OpenID Connect for securing apps in a testing context, using a browser. It's compelling how these systems are vital yet somewhat obscured in daily coding routines.
+Lately, my fascination with web development and identity security has taken a new turn. While prepping for a tech demo, I stumbled upon complexities that many developers faceï¿½using OAuth and OpenID Connect for securing apps in a testing context, using a browser. It's compelling how these systems are vital yet somewhat obscured in daily coding routines.
 
 The tech scene itself is evolving, with an increasing emphasis on robust security protocols. Recent breaches and escalated security mandates make it imperative for applications to be fortified yet user-friendly. Hence, the dive into the authenticity mechanisms of OIDC with a focus on e.g. Microsoft Entra was not merely by chance but a necessity. As I worked through integrating Microsoft accounts into the authentication flow of my demo app, it revealed facets and pitfalls of current authentication packages.
 
@@ -36,19 +36,19 @@ The tech scene itself is evolving, with an increasing emphasis on robust securit
 
 If you've ever logged into a service or app using your Facebook, Google, or Microsoft account, then you've encountered OpenID Connect (OIDC) without perhaps realizing it. This protocol is extensively used because it streamlines the authentication process for millions of users across various platforms by allowing them to sign in with existing identities. This is a better scenario than providing another company with your credentials. Those companies are mentioned a lot in the news. [According to EU-law, companies have an obligation to inform the user about what information is stolen.](https://www.clearygottlieb.com/-/media/files/alert-memos-2018/eu-regulated-companies-faced-with-personal-data-breach--reconciling-obligations-under-gdpr--mar.pdf)
 
-### What is OIDC? — An Analogy
+### What is OIDC? ï¿½ An Analogy
 
 Imagine you're attending a concert where the ticket purchase is done through an app using Google Pay, which doesn't expose your bank account details. Here, the concert venue represents the application you want access to.
 
 ![modern_minimalist_building_courtyard.jpeg](../assets/images/blog/2024-05-05-signature-validation-required-microsoft-says-no/modern_minimalist_building_courtyard.jpeg)
 
-Google acts as the OIDC service — and validates your purchase without sharing your sensitive bank details—and the ticket represents the authorization given to you by OIDC to access the venue.
+Google acts as the OIDC service ï¿½ and validates your purchase without sharing your sensitive bank detailsï¿½and the ticket represents the authorization given to you by OIDC to access the venue.
 
 In this analogy, your ticket is not just a piece of paper but contains a sophisticated hologram (representing a digital certificate).
 
 ![concert_ticket_on_keyboard.jpeg](../assets/images/blog/2024-05-05-signature-validation-required-microsoft-says-no/concert_ticket_on_keyboard.jpeg)
 
-This hologram shows that the ticket is genuine when inspected under a specific light (the public key) matching a sticker (the private key) you were given when purchasing the ticket. This matching process ensures the ticket’s authenticity privately without exposing sensitive data—a core principle in OIDC using Authorization Code Flow with PKCE (Proof Key for Code Exchange). PKCE adds an extra layer of security, ensuring that even if the criminals grab your ticket, they can’t misuse it because they cannot provide the purchase proof that the concert venue will ask on entrance.
+This hologram shows that the ticket is genuine when inspected under a specific light (the public key) matching a sticker (the private key) you were given when purchasing the ticket. This matching process ensures the ticketï¿½s authenticity privately without exposing sensitive dataï¿½a core principle in OIDC using Authorization Code Flow with PKCE (Proof Key for Code Exchange). PKCE adds an extra layer of security, ensuring that even if the criminals grab your ticket, they canï¿½t misuse it because they cannot provide the purchase proof that the concert venue will ask on entrance.
 
 
 
@@ -57,7 +57,7 @@ This hologram shows that the ticket is genuine when inspected under a specific l
 
 ### Why OIDC?
 
-The necessity of OIDC lies in its ability to standardize secure and scalable user authentication across diverse digital systems. Using familiar accounts like Facebook, Google, or Microsoft for authentication doesn’t just reduce the burden of managing multiple usernames and passwords for users; it also outsources the security responsibilities to entities that specialize in security, thereby enhancing overall safety. By using OIDC, businesses can offload much of the cybersecurity risks associated with user data management and password protection.
+The necessity of OIDC lies in its ability to standardize secure and scalable user authentication across diverse digital systems. Using familiar accounts like Facebook, Google, or Microsoft for authentication doesnï¿½t just reduce the burden of managing multiple usernames and passwords for users; it also outsources the security responsibilities to entities that specialize in security, thereby enhancing overall safety. By using OIDC, businesses can offload much of the cybersecurity risks associated with user data management and password protection.
 
 ## Experiencing OIDC with Microsoft Entra
 
@@ -140,7 +140,7 @@ In the Microsoft Account library, there is no code that gives me the option to v
 
 ### Signature Validation Analogy: Concert Tickets
 
-Imagine you've purchased a ticket to see your favourite band perform live. This ticket allows you entry into the concert venue, but it’s not just any ticket. It’s embedded with a unique holographic seal that proves it's genuine. This is akin to the cryptographic signature on a token in the OIDC process.
+Imagine you've purchased a ticket to see your favourite band perform live. This ticket allows you entry into the concert venue, but itï¿½s not just any ticket. Itï¿½s embedded with a unique holographic seal that proves it's genuine. This is akin to the cryptographic signature on a token in the OIDC process.
 
 Now, suppose a scalper tries to sell counterfeit tickets outside the venue. The venue security (acting as the client in the OIDC process) uses a special light (public key) to check the authenticity of the holographic seal (signature) on your ticket (the token). If the holographic seal lights up correctly, it confirms the ticket wasn't tampered with and is valid, allowing you entrance to the concert. If the ticket fails this test, it means it might have been tampered with, similar to a potential token modification in a cyberattack.
 
@@ -148,9 +148,9 @@ Now, suppose a scalper tries to sell counterfeit tickets outside the venue. The 
 
 In the context of the concert:
 
-— **Prevention of Fraud:** Just as the holographic seal prevents counterfeit or altered tickets from passing as genuine, signature validation in OIDC prevents tampered tokens from being used to falsely claim an identity or permissions.
+ï¿½ **Prevention of Fraud:** Just as the holographic seal prevents counterfeit or altered tickets from passing as genuine, signature validation in OIDC prevents tampered tokens from being used to falsely claim an identity or permissions.
 
-— **Security Protocol Integrity:** Should the holographic seal be poorly crafted, allowing fake tickets to appear valid, the entire security protocol of the venue would be undermined, just as weak or absent signature validation can expose a system to breaches.
+ï¿½ **Security Protocol Integrity:** Should the holographic seal be poorly crafted, allowing fake tickets to appear valid, the entire security protocol of the venue would be undermined, just as weak or absent signature validation can expose a system to breaches.
 
 #### Potential Risks Without Proper Validation
 
@@ -185,7 +185,7 @@ The links below indicate that `AddMicrosoftAccount()` is deprecated. But the sou
 
 ## Outro
 
-Reflecting on this journey of navigating through OIDC and Microsoft Entra, I am both enlightened and a bit overwhelmed. The nuances of modern identity management systems like OIDC are vast. Yet, understanding them is not just about building secure applications, but also about empowering them to be robust in the face of evolving digital threats. My goal has been to bring to light the often overlooked aspects of app security — a commitment I will continue to explore and share insights on.
+Reflecting on this journey of navigating through OIDC and Microsoft Entra, I am both enlightened and a bit overwhelmed. The nuances of modern identity management systems like OIDC are vast. Yet, understanding them is not just about building secure applications, but also about empowering them to be robust in the face of evolving digital threats. My goal has been to bring to light the often overlooked aspects of app security ï¿½ a commitment I will continue to explore and share insights on.
 
 
 

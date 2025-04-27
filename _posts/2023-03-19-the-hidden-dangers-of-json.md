@@ -5,7 +5,7 @@ datePublished: 2023-03-19T11:17:36.000Z
 cuid: clffb05o2000b09meebgabb7c
 slug: the-hidden-dangers-of-json
 cover: /assets/images/blog/the-hidden-dangers-of-json/2023-03-19-the-hidden-dangers-of-json.cover.jpeg
-tags: security, json-deserialization, owasp, dotnet, code-execution, vulnerability-management, application-security
+tags: security json-deserialization owasp dotnet code-execution vulnerability-management application-security
 ---
 
 ## Previously on...

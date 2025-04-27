@@ -5,7 +5,7 @@ datePublished: 2023-01-29T19:06:13.000Z
 cuid: cldhr61on000209l4ex6g4h8l
 slug: lets-zoom-in-on-my-first-assignment
 cover: /assets/images/blog/lets-zoom-in-on-my-first-assignment/2023-01-29-lets-zoom-in-on-my-first-assignment.cover.jpeg
-tags: software-development, consulting, rest-api, azure-devops, identity-management, knowledge-sharing
+tags: software-development consulting rest-api azure-devops identity-management knowledge-sharing
 ---
 
 ## Previously on...

@@ -331,3 +331,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Category toggles
+  document.querySelectorAll('.category-toggle').forEach(button => {
+    button.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetPanel = document.getElementById(targetId);
+      
+      // Toggle panel visibility
+      targetPanel.classList.toggle('collapsed');
+      
+      // Toggle icon
+      const icon = this.querySelector('.toggle-icon');
+      icon.textContent = targetPanel.classList.contains('collapsed') ? '+' : '-';
+    });
+  });
+  
+  // Tag cloud toggle
+  const cloudToggle = document.getElementById('tag-cloud-toggle');
+  const tagCloud = document.getElementById('tag-cloud');
+  
+  if (cloudToggle && tagCloud) {
+    cloudToggle.addEventListener('click', function() {
+      tagCloud.classList.toggle('hidden');
+      this.textContent = tagCloud.classList.contains('hidden') ? 
+        'Show Tag Cloud' : 'Hide Tag Cloud';
+    });
+  }
+});

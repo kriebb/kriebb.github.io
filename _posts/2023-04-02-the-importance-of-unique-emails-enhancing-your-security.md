@@ -6,7 +6,7 @@ cuid: clfz72eoh000l0amgddmkb9jj
 slug: the-importance-of-unique-emails-enhancing-your-security
 canonical: https://dotnet.kriebbels.me/the-importance-of-unique-emails-enhancing-your-security
 cover: /assets/images/blog/the-importance-of-unique-emails-enhancing-your-security/2023-04-02-the-importance-of-unique-emails-enhancing-your-security.cover.jpeg
-tags: security, privacy, email-aliases, data-protection, phishing-prevention, identity-management, online-privacy
+tags: security privacy email-aliases data-protection phishing-prevention identity-management online-privacy
 ---
 
 ## Previously on...

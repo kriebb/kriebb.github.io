@@ -7,7 +7,7 @@ datePublished: Mon Nov 11 2024 13:47:33 GMT+0000 (Coordinated Universal Time)
 cuid: cm3d2vnt9000v09i9dmz0byo4
 slug: introduction-to-my-certified-ethical-hacker-ceh-journey
 cover: /assets/images/blog/introduction-to-my-certified-ethical-hacker-ceh-journey/2024-11-11-introduction-to-my-certified-ethical-hacker-ceh-journey.cover.jpg
-tags: cybersecurity, cehv12
+tags: cybersecurity cehv12
 
 ---
 

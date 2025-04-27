@@ -5,7 +5,7 @@ datePublished: Sun Jul 09 2023 18:18:54 GMT+0000 (Coordinated Universal Time)
 cuid: cljvrdcle000209lm8qqy4n0v
 slug: how-to-read-a-claim-from-a-token-in-dotnet-6
 cover: /assets/images/blog/how-to-read-a-claim-from-a-token-in-dotnet-6/2023-07-09-how-to-read-a-claim-from-a-token-in-dotnet-6.cover.jpeg
-tags: dotnetcore, openid-connect, tokens, access-token, claim
+tags: dotnetcore openid-connect tokens access-token claim
 
 ---
 

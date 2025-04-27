@@ -7,7 +7,7 @@ datePublished: Sun Apr 16 2023 05:30:39 GMT+0000 (Coordinated Universal Time)
 cuid: clgiyxtr8049nmsnv0xwq3h7y
 slug: enable-developers-to-generate-safe-and-secure-code
 cover: /assets/images/blog/enable-developers-to-generate-safe-and-secure-code/2025-04-19-enable-developers-to-generate-safe-and-secure-code.cover.png
-tags: application-security, rasp, sast, dast, iast
+tags: application-security rasp sast dast iast
 featured: true
 ---
 

@@ -7,7 +7,7 @@ datePublished: 2023-01-08T10:47:58.000Z
 cuid: clcn94f3d000008lf9wl089ir
 slug: my-solicitation-started-at-xpirit-part-of-xebia
 cover: /assets/images/blog/my-solicitation-started-at-xpirit-part-of-xebia/2023-01-08-my-solicitation-started-at-xpirit-part-of-xebia.cover.jpeg
-tags: personal-growth, career-development, job-search, consultancy, knowledge-sharing, interview-process
+tags: personal-growth career-development job-search consultancy knowledge-sharing interview-process
 ---
 
 ## Previously on...

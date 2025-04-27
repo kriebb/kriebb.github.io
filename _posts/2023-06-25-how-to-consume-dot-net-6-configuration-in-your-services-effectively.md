@@ -5,7 +5,7 @@ datePublished: Sun Jun 25 2023 17:46:10 GMT+0000 (Coordinated Universal Time)
 cuid: cljbq1c00000l0al4a3b21m1c
 slug: how-to-consume-dot-net-6-configuration-in-your-services-effectively
 cover: /assets/images/blog/how-to-consume-dot-net-6-configuration-in-your-services-effectively/2023-06-25-how-to-consume-dot-net-6-configuration-in-your-services-effectively.cover.jpeg
-tags: validation, dotnet, configuration, mermaid, injection
+tags: validation dotnet configuration mermaid injection
 
 ---
 

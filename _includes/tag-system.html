@@ -1,0 +1,60 @@
+<div class="tag-system">
+    <!-- Main Tag Categories Accordion -->
+    <div class="tag-categories">
+      {% for category in site.data.tag_categories %}
+        <div class="tag-category">
+          <button class="category-toggle" data-target="{{ category.id }}">
+            {{ category.name }} <span class="toggle-icon">+</span>
+          </button>
+          <div id="{{ category.id }}" class="category-tags collapsed">
+            {% for tag in category.tags %}
+              {% assign posts_with_tag = site.posts | where_exp: "post", "post.tags contains tag" %}
+              {% assign tag_count = posts_with_tag | size %}
+              {% if tag_count > 0 %}
+                <a href="/tag/{{ tag | slugify }}/" class="tag-item">
+                  #{{ tag }} <span class="tag-count">{{ tag_count }}</span>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Tag Cloud Toggle -->
+    <button id="tag-cloud-toggle" class="tag-cloud-toggle">Show Tag Cloud</button>
+    
+    <!-- Tag Cloud (Initially Hidden) -->
+    <div id="tag-cloud" class="tag-cloud hidden">
+      {% assign tags_with_count = "" | split: "" %}
+      {% for tag in site.tags %}
+        {% assign tag_name = tag[0] %}
+        {% assign tag_count = tag[1] | size %}
+        {% assign tag_with_count = tag_name | append: "," | append: tag_count %}
+        {% assign tags_with_count = tags_with_count | push: tag_with_count %}
+      {% endfor %}
+      
+      {% assign max_count = 1 %}
+      {% for tag_info in tags_with_count %}
+        {% assign tag_parts = tag_info | split: "," %}
+        {% assign count = tag_parts[1] | plus: 0 %}
+        {% if count > max_count %}
+          {% assign max_count = count %}
+        {% endif %}
+      {% endfor %}
+      
+      {% for tag_info in tags_with_count %}
+        {% assign tag_parts = tag_info | split: "," %}
+        {% assign tag_name = tag_parts[0] %}
+        {% assign count = tag_parts[1] | plus: 0 %}
+        
+        {% assign weight = count | times: 100 | divided_by: max_count | plus: 70 %}
+        {% if weight > 170 %}{% assign weight = 170 %}{% endif %}
+        
+        <a href="/tag/{{ 'tag_name' | slugify }}/" class="cloud-tag" 
+           style="font-size: '{{ weight }}%';">
+          #{{ tag_name }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>

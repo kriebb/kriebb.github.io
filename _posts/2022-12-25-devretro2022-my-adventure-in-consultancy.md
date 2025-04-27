@@ -7,7 +7,7 @@ datePublished: Sun Dec 25 2022 13:43:44 GMT+0000 (Coordinated Universal Time)
 cuid: clc3f8ik0000n08l3etu1dfsi
 slug: devretro2022-my-adventure-in-consultancy
 cover: /assets/images/blog/devretro2022-my-adventure-in-consultancy/2022-12-25-devretro2022-my-adventure-in-consultancy.cover.jpeg
-tags: personal-development, consultancy, devretro2022, career-change, software-consulting
+tags: growth consultancy devretro2022 career consulting
 ---
 
 ## Introduction
