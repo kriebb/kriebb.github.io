@@ -13,7 +13,7 @@ featured: true
 
 # Previously on...
 
-[In my previous blog post](https://dotnet.kriebbels.me/the-hidden-dangers-of-jsons-hunger-silenced), I wrote about JSON RCE attacks. The possibility of such an attack exists, was brought to my attention in a report by [CheckMarx](https://checkmarx.com/cxsast-source-code-scanning/). I heard about SAST scans from the product team that I worked with. Our team was also briefed about application security by [Wesley Cabus](https://hashnode.com/@wcabus) on a knowledge-sharing moment at a [Xebia | Xpirit Tuesday](https://pages.xebia.com/knowledge-base-times-social-distancing).
+[In my previous blog post](https://dotnet.kriebbels.me/the-hidden-dangers-of-jsons-hunger-silenced), I wrote about JSON RCE attacks. The possibility of such an attack exists, was brought to my attention in a report by [CheckMarx](https://checkmarx.com/cxsast-source-code-scanning/). I heard about SAST scans from the product team that I worked with. Our team was also briefed about application security by [Wesley Cabus](https://hashnode.com/@wcabus) on a knowledge-sharing moment at a [<code>Xebia | Xpirit</code> Tuesday](https://pages.xebia.com/knowledge-base-times-social-distancing).
 
 # Context
 

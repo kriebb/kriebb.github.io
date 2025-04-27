@@ -86,7 +86,7 @@ Detect hardcoded secrets.................................................Failed
 
 By using GitLeaks with Azure DevOps, regularly scanning code using GitLeaks and integrating it into the development pipeline can prevent code merges with potential vulnerabilities and prevent them from moving into production, protecting organizations' valuable data, and reputations.
 
-I can use [Gitleaks as a plugin on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Foxholenl.Gitleaks). When reading that page, I noticed that the author @[JoostVoskuil](@https://github.com/JoostVoskuil/azure-devops-gitleaks/commits?author=JoostVoskuil) gives credit to a colleague of mine: [Jesse Houwing - Xebia | Xpirit](https://xpirit.com/team/jesse-houwing/).
+I can use [Gitleaks as a plugin on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Foxholenl.Gitleaks). When reading that page, I noticed that the author @[JoostVoskuil](@https://github.com/JoostVoskuil/azure-devops-gitleaks/commits?author=JoostVoskuil) gives credit to a colleague of mine: [Jesse Houwing - <code>Xebia | Xpirit</code>](https://xpirit.com/team/jesse-houwing/).
 
 [Mark Patton gives a good view on how to use GitLeaks in Azure DevOps.](https://markpatton.cloud/2020/09/26/secret-scanning-protecting-your-code-in-azure-devops/)
 
@@ -104,7 +104,7 @@ The secret scanning feature offers alerts for partners that run automatically on
 
 Secret scanning alerts for users are available for free on all public repositories. Organizations using GitHub Enterprise Cloud can enable secret scanning alerts for users on their private as well as internal repositories and public repositories for free with a license for GitHub Advanced Security. An alert is also sent to contributors who committed the secret if they haven't ignored the repository.
 
-When you want to know more about GitHub AdvancedSecurity, Go visit this [blogpost](https://devopsjournal.io/blog/2023/05/23/GitHub-Advanced-Security-Azure-DevOps) about Advanced Security. It is written by my [Xebia | Xpirit](https://xpirit.com) college Rob Bos and he is known as an authority when it comes to Github.
+When you want to know more about GitHub AdvancedSecurity, Go visit this [blogpost](https://devopsjournal.io/blog/2023/05/23/GitHub-Advanced-Security-Azure-DevOps) about Advanced Security. It is written by my [<code>Xebia | Xpirit</code>](https://xpirit.com) college Rob Bos and he is known as an authority when it comes to Github.
 
 # How to manually undo my mistake
 

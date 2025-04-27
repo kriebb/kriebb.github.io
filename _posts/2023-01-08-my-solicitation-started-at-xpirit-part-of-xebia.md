@@ -1,7 +1,7 @@
 ---
 date: 2023-01-08
 title: "My solicitation started at Xpirit | Part of Xebia"
-seoTitle: "My solicitation started at Xebia | Xpirit"
+seoTitle: "My solicitation started at <code>Xebia | Xpirit</code>"
 seoDescription: "This story tells you about how I lived the solicitation process with Xpirit | Xebia."
 datePublished: 2023-01-08T10:47:58.000Z
 cuid: clcn94f3d000008lf9wl089ir
