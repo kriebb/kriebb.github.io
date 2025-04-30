@@ -3,25 +3,57 @@ scripts:
     url: "https://cdn.jsdelivr.net/npm/swiper@9.2.4/swiper-bundle.min.js"
     local: "/vendor/swiper/js/swiper-bundle.min.js"
     defer: true
-
   - name: aos
     url: "https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.js"
     local: "/vendor/aos/js/aos.js"
     defer: true
-
   - name: mermaid
     url: "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
     local: "/vendor/mermaid/js/mermaid.js"
     defer: true
+  - name: prism-core
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"
+    local: "/vendor/prism/js/prism.min.js"
+    defer: true
+  - name: prism-autoloader
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"
+    local: "/vendor/prism/js/prism-autoloader.min.js"
+    defer: true
+  - name: prism-markup
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+    local: "/vendor/prism/js/prism-markup.min.js"
+    defer: true
+  - name: prism-csharp
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-csharp.min.js"
+    local: "/vendor/prism/js/prism-csharp.min.js"
+    defer: true
+  - name: prism-markup-templating
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"
+    local: "/vendor/prism/js/prism-markup-templating.min.js"
+    defer: true
+  - name: prism-cshtml
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cshtml.min.js"
+    local: "/vendor/prism/js/prism-cshtml.min.js"
+    defer: true
+  - name: prism-line-numbers
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"
+    local: "/vendor/prism/js/prism-line-numbers.min.js"
+    defer: true
+  - name: code-blocks
+    url: "/assets/js/code-blocks.js"
+    local: "/assets/js/code-blocks.js"
+    defer: true
 
 styles:
-  - name: swiper
-    url: "https://cdn.jsdelivr.net/npm/swiper@9.2.4/swiper-bundle.min.css"
-    local: "/vendor/swiper/css/swiper-bundle.min.css"
-
-  - name: aos
-    url: "https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.css"
-    local: "/vendor/swiper/css/aos.css"
+  - name: prism-theme
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+    local: "/vendor/prism/css/prism-tomorrow.min.css"
+  - name: prism-line-numbers
+    url: "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+    local: "/vendor/prism/css/prism-line-numbers.min.css"
+  - name: font-awesome
+    url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    local: "/vendor/font-awesome/css/all.min.css"
 
 fonts:
   - name: poppins

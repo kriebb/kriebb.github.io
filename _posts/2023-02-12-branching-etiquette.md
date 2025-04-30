@@ -141,11 +141,11 @@ esac
 
 Creating the script:
 
-![git_hooks_folder_screenshot.png](../assets/images/blog/2023-02-12-branching-etiquette/git_hooks_folder_screenshot.png)
+![git_hooks_folder_screenshot.png](../assets/images/blog/branching-etiquette/git_hooks_folder_screenshot.png)
 
 Using the script:
 
-![git_branch_commit_screenshot.png](../assets/images/blog/2023-02-12-branching-etiquette/git_branch_commit_screenshot.png)
+![git_branch_commit_screenshot.png](../assets/images/blog/branching-etiquette/git_branch_commit_screenshot.png)
 
 ## Branch Naming Conventions
 

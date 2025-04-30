@@ -26,7 +26,7 @@ Below I will describe first how to get in a situation similar to the one that I 
 
 First, create the Azure Application Service. Secondly, using the Azure Portal, go to the configuration page. Then setup a virtual directory with the following parameters: `/app_name` to `\site\wwwroot\appname`
 
-![azure_app_virtual_paths.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_app_virtual_paths.png)
+![azure_app_virtual_paths.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_app_virtual_paths.png)
 
 ### Deploy the Azure App Service
 
@@ -46,7 +46,7 @@ az webapp deployment source config-zip --src .\appname.zip -n "webapp-2302191038
 
 My colleague told me that the deployment had succeeded. I navigated to the Azure App Service. The browser reported an Internal Server Error.
 
-![azure_webapp_http_500_error.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_webapp_http_500_error.png)
+![azure_webapp_http_500_error.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_webapp_http_500_error.png)
 
 ### Use Kestrel
 
@@ -54,11 +54,11 @@ The first step I took, was to check Application Insights but found that no error
 
 Next, using the console in the Azure Portal, I started the application. First, I got an error that the [Asp.net core Development certificate](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-dev-certs) was not available. So I created and configured a generated self-signed certificate. That error was mitigated and now I got no error at all.
 
-![command_prompt_run_weatherapp.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/command_prompt_run_weatherapp.png)
+![command_prompt_run_weatherapp.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/command_prompt_run_weatherapp.png)
 
 After waiting a while, the console let me know that the process was killed due to no CPU activity.
 
-![webjob_idle_timeout_error.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/webjob_idle_timeout_error.png)
+![webjob_idle_timeout_error.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/webjob_idle_timeout_error.png)
 
 To exclude the idea there was something wrong with the HTTPS endpoint, I edited the appsettings.json and removed the HTTPS endpoint. Next, I removed the self-signed certificated. The result was the same.
 
@@ -76,11 +76,11 @@ After searching for the procedure to make the proxy server work with Azure funct
 
 I could find nothing in Application Insights. Maybe I had some logging using the LogStream in Azure Portal.
 
-![azure_app_service_logs_settings.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_app_service_logs_settings.png)
+![azure_app_service_logs_settings.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_app_service_logs_settings.png)
 
 After enabling the options, I navigated to the Azure App Service. Afterwards in the LogStream, I could find more information.
 
-![azure_logstream_http500_error.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_logstream_http500_error.png)
+![azure_logstream_http500_error.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_logstream_http500_error.png)
 
 Sadly, it did not help me much. Except something seemed very wrong?
 
@@ -90,7 +90,7 @@ The advanced tools will help me debug the application. [I can edit the web.confi
 
 I had to enable the stdout logging. To do this I set the `stdoutLogEnabled` to `true`.
 
-![web_config_dotnetcore_settings.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/web_config_dotnetcore_settings.png)
+![web_config_dotnetcore_settings.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/web_config_dotnetcore_settings.png)
 
 After pressing save, I went back to Kudu and looked for the output. I navigated again to the Azure App Service and nothing changed. It was still the same Internal Server Error.
 
@@ -98,47 +98,47 @@ I searched for the logging, but found nothing. It seemed that the application mo
 
 At this point, I was searching for any clue... So using Kudu, I browsed around.
 
-![azure_logfiles_directory_listing.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_logfiles_directory_listing.png)
+![azure_logfiles_directory_listing.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_logfiles_directory_listing.png)
 
 I found a file named `eventlog.xml`.
 
-![iis_aspnetcore_config_error.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/iis_aspnetcore_config_error.png)
+![iis_aspnetcore_config_error.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/iis_aspnetcore_config_error.png)
 
 I noticed that the system complained that the `processpath` is required. That meant the system did not find the web.config. The `processpath` has the value `dotnet.` I put the `web.config` in the folder `wwwroot`.
 
 I surfed to Azure App Service and I got a different error page. I got an error stating: ANCM Failed to Find Native Dependencies:
 
-![azure_http_error_500_31.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_http_error_500_31.png)
+![azure_http_error_500_31.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_http_error_500_31.png)
 
 However, I did not find stdout logging. I checked the `eventlog.xml` again.
 
-![iis_aspnetcore_module_error.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/iis_aspnetcore_module_error.png)
+![iis_aspnetcore_module_error.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/iis_aspnetcore_module_error.png)
 
 It complained about a missing `aspnetcorev2_inprocess.dll`. Which I found strange. I changed the `.\wwwroot\web.config` that the `WeatherApp.dll` is found in the `appname` folder.
 
-![aspnetcore_config_weatherapp_dll.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/aspnetcore_config_weatherapp_dll.png)
+![aspnetcore_config_weatherapp_dll.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/aspnetcore_config_weatherapp_dll.png)
 
 Surfing again to the Azure AppService, I got a webpage stating: Page Not Found. However, I found the stdout logging file. But the file was empty.
 
 [I read documentation about the web.config and the stdout logging](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/logging-and-diagnostics?view=aspnetcore-7.0). I need to add `handlersettings` to state the level of logging.
 
-![aspnetcore_webserver_config.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/aspnetcore_webserver_config.png)
+![aspnetcore_webserver_config.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/aspnetcore_webserver_config.png)
 
 Finally, I got logging.
 
-![aspnetcore_azure_log_screenshot.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/aspnetcore_azure_log_screenshot.png)
+![aspnetcore_azure_log_screenshot.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/aspnetcore_azure_log_screenshot.png)
 
 ## Solution
 
 Everything fell into place. From the days that I deployed applications in IIS on a PaaS, I know that a `web.config` should be in every application that you define in IIS. The `web.config` was not read by IIS the `appname`. It was read in the folder `wwwroot`. That meant that the configuration around Virtual Paths and Directory needed to be investigated. Using the configuration page in the Azure Portal, I saw that the appname defined in the virtual path did not follow the company's convention.
 
-![iis_applications_virtual_paths.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/iis_applications_virtual_paths.png)
+![iis_applications_virtual_paths.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/iis_applications_virtual_paths.png)
 
 I changed the value of the virtual path from `app_name` to `appname.`
 
 Finally, I surfed to `/WeatherForeCast` of the app and got a nice Not Authenticated Error. The app is working.
 
-![azure_http_401_error_screenshot.png](../assets/images/blog/2023-02-19-internal-server-error-an-azure-app-service-tale/azure_http_401_error_screenshot.png)
+![azure_http_401_error_screenshot.png](../assets/images/blog/internal-server-error-an-azure-app-service-tale/azure_http_401_error_screenshot.png)
 
 ## Troubleshooting Steps Summary
 

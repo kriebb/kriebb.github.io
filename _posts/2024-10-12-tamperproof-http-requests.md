@@ -3,20 +3,17 @@ date: 2024-10-12
 title: "Tamperproof HTTP Requests"
 seoTitle: "Secure and Unalterable HTTP Requests"
 seoDescription: "Learn how to secure HTTP requests against tampering using digital signatures and the JOSE framework for enhanced data integrity and security"
-datePublished: Sat Oct 12 2024 16:23:40 GMT+0000 (Coordinated Universal Time)
+datePublished: 2024-10-12
 cuid: cm26d8v6o000009l7e6o3cwvd
 slug: tamperproof-http-requests
 cover: /assets/images/blog/tamperproof-http-requests/2024-10-12-tamperproof-http-requests.cover.jpeg
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1728750198154/7ea7c117-b8a7-4b16-8ef0-1aa8c9ac6a1e.jpeg
 tags: http jwt jws jose jwe tamperproof
-
 ---
 
-# Tamperproof HTTP Requests
+## Tamperproof HTTP Requests
 
-In this article we explore data integrity and authenticity when dealing with sensitive information.
-
-This section outlines the fundamental importance of making HTTP request bodies tamperproof, particularly when handling personally identifiable information (PII). We introduce digital signatures as a key mechanism for data integrity.
+In this article we explore data integrity and authenticity when dealing with sensitive information. This section outlines the fundamental importance of making HTTP request bodies tamperproof, particularly when handling personally identifiable information (PII). We introduce digital signatures as a key mechanism for data integrity.
 
 ## Why should you care?
 
@@ -24,28 +21,26 @@ When extending the user registration process, using Auth0 (an OIDC Provider), it
 
 In this blog post, I will explore difficult ways how to achieve this. Making the `HTTP` request body is tamper-proof is **a** step in protecting data as it moves from one server to another. The use of signatures for `HTTP` request bodies provides a robust mechanism for ensuring data integrity and security in this context. Frameworks like `JOSE` (JSON Object Signing and Encryption) can help in this matter.
 
-A lot of the internet is already protected by using the `HTTPS` protocol, right? Well, `HTTPS` only encrypts the data; it does not guarantee that the content is not tampered with during transit. `HTTPS` provides a secure channel but does not protect against all types of tampering. For instance, if data is decrypted and re-encoded, the integrity may be compromised without detection. In scenarios where sensitive data is transferred � such as through webhooks � signing the request body ensures the data's integrity independently of the transport layer's security.
+A lot of the internet is already protected by using the `HTTPS` protocol, right? Well, `HTTPS` only encrypts the data; it does not guarantee that the content is not tampered with during transit. `HTTPS` provides a secure channel but does not protect against all types of tampering. For instance, if data is decrypted and re-encoded, the integrity may be compromised without detection. In scenarios where sensitive data is transferred - such as through webhooks - signing the request body ensures the data's integrity independently of the transport layer's security.
 
 `HTTP` request body signatures add a layer of security by allowing the recipient to verify that the body has not been altered in transit. They act as a digital signature, much like those used in emails, ensuring the integrity of the sent content. 
 
-
 I will also investigate if using an access or ID token could help in this matter. 
 
-## Previously on ...
+## Previously on...
 
 Here, we recap earlier discussions on signatures and OpenID Connect, setting the stage for a deeper exploration into data security practices in HTTP requests.
 
-I wrote about OpenID Connect before and how to mock your provider, and thus creating and faking tokens...
+I wrote about OpenID Connect before and how to mock your provider, and thus creating and faking tokens:
 
-- https://dotnet.kriebbels.me/oauth2-open-id-connect-accessidtoken
-- https://dotnet.kriebbels.me/signature-validation-required-microsoft-says-no
-- https://dotnet.kriebbels.me/how-to-read-a-claim-from-a-token-in-dotnet-6
-- https://xebia.com/blog/openid-connect-mocking-you/
-- https://xebia.com/blog/openid-connect-mocking-you/
+- [OAuth2 Open ID Connect Access/ID Token](https://dotnet.kriebbels.me/oauth2-open-id-connect-accessidtoken)
+- [Signature Validation Required? Microsoft Says No](https://dotnet.kriebbels.me/signature-validation-required-microsoft-says-no)
+- [How to Read a Claim from a Token in DotNet 6](https://dotnet.kriebbels.me/how-to-read-a-claim-from-a-token-in-dotnet-6)
+- [OpenID Connect Mocking You](https://xebia.com/blog/openid-connect-mocking-you/)
 
 I did a talk as well on how to mock your OIDC Provider:
-- https://www.visug.be/Events/92
-- https://www.updateconference.net/en/2023/session/mock-your-openid-connect-provider
+- [VISUG Event](https://www.visug.be/Events/92)
+- [Update Conference](https://www.updateconference.net/en/2023/session/mock-your-openid-connect-provider)
 
 This article aims to further expand upon previously covered concepts and enhance understanding.
 
@@ -117,7 +112,6 @@ The **JSON Object Signing and Encryption** (JOSE) framework offers a suite of te
 
 `JOSE` enables you to sign and encrypt HTTP request bodies, ensuring integrity and confidentiality.
 
-
 ```mermaid
 graph TD;
     JWT --> JWS;
@@ -128,7 +122,7 @@ graph TD;
 
 ## Understanding the Versatility of JSON Web Tokens
 
-`JSON` Web Tokens (`JWT`) are often thought of as mere access tokens, but their potential extends far beyond this basic use case. A `JWT is a compact, URL-safe means of representing claims between two parties. These tokens are particularly useful in scenarios that require verification and integrity. In this documentation, we will explore how `JWT`s can be utilized beyond traditional access tokens and how they can ensure the integrity and non-tamperability of HTTP request bodies.
+`JSON` Web Tokens (`JWT`) are often thought of as mere access tokens, but their potential extends far beyond this basic use case. A `JWT` is a compact, URL-safe means of representing claims between two parties. These tokens are particularly useful in scenarios that require verification and integrity. In this documentation, we will explore how `JWT`s can be utilized beyond traditional access tokens and how they can ensure the integrity and non-tamperability of HTTP request bodies.
 
 ## The Concept of 'Super Tokens'!
 
@@ -143,7 +137,6 @@ Super tokens present a single point of failure. If a super token is compromised,
 ### What should not be stored in a token?
 
 - Highly sensitive data such as passwords, credit card details, or private keys should never be stored in tokens. This is because tokens are often stored in less secure environments, such as cookies or local storage, which could lead to exposure if an attacker gains access.
-
 - Information that is subject to frequent change should not be stored in tokens, as updating a token across a system can be cumbersome. A token is valid for the specified time. This means that, in that time window, that data is valid.
 
 ## `HTTP` Header vs `HTTP` Body?
@@ -152,12 +145,12 @@ Tokens are commonly attached to `HTTP` headers for authentication purposes. For 
 
 Headers should only contain information necessary for message transmission like authentication tokens and content type identifiers. Headers should be lightweight and used to convey metadata.
 
-The body is used for the main content of the `HTTP` message. Sensitive data that is sensitive, dynamic or is not used for authorization should be safely passed here... 
+The body is used for the main content of the `HTTP` message. Sensitive data that is sensitive, dynamic or is not used for authorization should be safely passed here.
 
 However, it becomes essential to ensure the tamper-proofing of the request body.
 
 And thus, we have the reason why I did some digging into this topic:
-Making the body tamperproof can be done by 
+Making the body tamperproof can be done by:
 - Levering the `JOSE` framework
 - Using a Signature in the `HTTP` Header
 
@@ -210,11 +203,9 @@ The following steps outline the process:
 - By applying `JWT` encoding on the body of an HTTP request, any alteration to the body would be detected through signature verification. This ensures that the data is indeed from an authentic source and has not been tampered with on its way to the server.
 
 - You can encode sensitive parts of the HTTP message (for example, headers or the body itself) into the `JWT` payload. Only an entity with the correct secret or public key can validate the `JWT` and trust the data.
-
 - Using `JWT` not in an authorization context simplifies the process. There's no need for a centralized authority to verify token signatures. Just an agreement between two parties and where to find a shared secret or the location of the public key.
 
 #### Example HTTP Request
-
 
 ```mermaid
 sequenceDiagram
@@ -277,13 +268,9 @@ eyJhbGciOiJSUzI1NiJ9.ewogICJhbW91bnQiOiAiMTUwMCIsCiAgImN1cnJlbmN5IjogIlVTRCIsCiA
 This section explains the structure and utility of JWE tokens, detailing their multiple encryption layers to provide comprehensive data security.
 
 JWE tokens encapsulate multiple encryption layers. Here's a breakdown of its structure:
-
 - **`JWE` Encrypted Key**: This is the encrypted version of the Content Encryption Key (`CEK`). The `CEK` is essential for decrypting the actual payload.
-
 - **`JWE` Initialization Vector**: This element maximizes security by ensuring that identical data never results in the same encryption output.
-
 - **`JWE` Authentication Tag**: This ensures that the data integrity is maintained, verifying that the data has not been tampered with.
-
 - **`JWE` Ciphertext**: This is the encrypted data payload that you aim to secure.
 
 ### Example: Deciphering the `JWE` Token
@@ -297,7 +284,6 @@ To decrypt a `JWE` token, follow these steps:
 3. Decrypt the Payload:
     - Using the `CEK`, decrypt the `JWE` ciphertext to extract the original payload.
 
-
 ```mermaid
 sequenceDiagram
     participant Client
@@ -310,7 +296,6 @@ sequenceDiagram
     Client ->> Client: Decrypt JWE Ciphertext
     Client ->> Client: Extract Original Payload
 ```
-
 
 ### `JWS` Verification
 
@@ -333,12 +318,10 @@ The concept of signing involves creating a digital signature for the body of a `
   
 - For each request
   - sign the Request: Calculate the `SHA256` hash of the request body, and encrypt the hash using your private key
-
   - Attach Signature to Header: Include your signature e.g. with a header name `Signature` or `X-Payload-Signature` header when you send your HTTP request.
-
   - Server-side Verification: The server uses the public key to verify the received signature and the integrity of the request body.
 
-```mermaid
+```
 sequenceDiagram
     participant Client
     participant Server
@@ -360,7 +343,6 @@ sequenceDiagram
 ```
 
 ```http
-
 POST /transaction HTTP/1.1
 Date: Fri, 11 Oct 2024 09:38:52 GMT
 Host: api.dummy.com
@@ -389,7 +371,6 @@ When an access or ID token is uses the `JWT` format, it should not be used as an
 
 However, there are other possibilities that keep the `HTTP` Request Body human-readable, by only adding a signature `HTTP` Headers.
 
-
 ## Sources
 
 A list of tools, references, and resources consulted while writing this article provides you with additional context and avenues for further exploration into this topic.
@@ -404,18 +385,15 @@ A list of tools, references, and resources consulted while writing this article 
 ### Sources for this article
 
 - [belgianmobileid aka ITSME information about JOSE](https://belgianmobileid.github.io/slate/jose)
-- https://medium.com/@idenisko/understanding-the-jwe-token-a-practical-guide-942224f6a9b6
-- https://developer.visa.com/pages/encryption_guide/jwe-jws
-- https://auth0.com/docs/get-started/apis/configure-json-web-encryption
-- https://openid.net/developers/certified-openid-connect-implementations/
-- https://openid.net/specs/draft-jones-json-web-encryption-02.html
-- https://jwt.io/introduction/
-- https://oauth.net/2/
-- https://dev.to/ariefwara/rest-api-body-payload-signature-2277
-- https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification
+- [Understanding the JWE Token: A Practical Guide](https://medium.com/@idenisko/understanding-the-jwe-token-a-practical-guide-942224f6a9b6)
+- [Visa Developer: JWE & JWS](https://developer.visa.com/pages/encryption_guide/jwe-jws)
+- [Auth0: Configure JSON Web Encryption](https://auth0.com/docs/get-started/apis/configure-json-web-encryption)
+- [OpenID: Certified Implementations](https://openid.net/developers/certified-openid-connect-implementations/)
+- [OpenID: JSON Web Encryption Draft](https://openid.net/specs/draft-jones-json-web-encryption-02.html)
+- [JWT Introduction](https://jwt.io/introduction/)
+- [OAuth 2.0](https://oauth.net/2/)
+- [REST API Body Payload Signature](https://dev.to/ariefwara/rest-api-body-payload-signature-2277)
+- [Implementing SHA256 Webhook Signature Verification](https://hookdeck.com/webhooks/guides/how-to-implement-sha256-webhook-signature-verification)
 - [`Content-Type: application/jwt`](https://datatracker.ietf.org/doc/html/rfc7519)
 - [`Content-Type: application/json`](https://datatracker.ietf.org/doc/html/rfc4627)
-- [A really nice read on how protecting data is used in Open Banking in Europe. Even design principles are listed](https://www.openbankingeurope.eu/media/2096/obe-json-web-signature-profile-for-open-banking.pdf)
-
-
-
+- [Open Banking Europe: JSON Web Signature Profile](https://www.openbankingeurope.eu/media/2096/obe-json-web-signature-profile-for-open-banking.pdf)

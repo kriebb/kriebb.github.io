@@ -68,12 +68,12 @@ In WebForms, server-side validation was the primary method employed. However, we
 
 Asp.net core MVC has a different approach. jQuery Validation was introduced into the framework. This plugin allows us to define validation rules and messages for form fields. Rules can be specified using HTML attributes, enabling customization and client-side validation setup.
 
-![project_wwwroot_folder_structure.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/project_wwwroot_folder_structure.png)
+![project_wwwroot_folder_structure.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/project_wwwroot_folder_structure.png)
 To streamline the integration of client-side validation into ASP.NET MVC, the jQuery Validate Unobtrusive plugin was introduced. This plugin utilizes HTML5 data attributes to specify validation rules.
 
 I come to the point where I understand why the following scripts are here.
 
-![jquery_validation_scripts_partial_cshtml.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/jquery_validation_scripts_partial_cshtml.png)
+![jquery_validation_scripts_partial_cshtml.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/jquery_validation_scripts_partial_cshtml.png)
 
 But now I got the question, how are the Html 5 data attributes used in the scaffolded project and do I still need to code my validation rules twice, once on the backend and now using HTML 5 data attributes? I will explore this by creating a Registration form and working my way through this until I understand it.
 
@@ -150,18 +150,18 @@ The `asp-validation-*` tag helpers are responsible for rendering the data attrib
 ### What about Intellisense and type safety?
 When working with HTML, I got intellisense:
 
-![visual_studio_html_tooltip.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/visual_studio_html_tooltip.png)
+![visual_studio_html_tooltip.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/visual_studio_html_tooltip.png)
 
 When I choose a property that does not exist in the model, I do get a build error as well.
 
-![aspnet_label_nameundefined_error.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/aspnet_label_nameundefined_error.png)
+![aspnet_label_nameundefined_error.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/aspnet_label_nameundefined_error.png)
 
 I got the Registration in Red, because VS2022 does not find a controller
 
-![aspnet_registration_form_code.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/aspnet_registration_form_code.png)
+![aspnet_registration_form_code.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/aspnet_registration_form_code.png)
 
 I fixed this error by creating a RegistrationController in a folder called Controllers
-![aspnet_registration_controller_code.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/aspnet_registration_controller_code.png)
+![aspnet_registration_controller_code.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/aspnet_registration_controller_code.png)
 
 ## Step 3: Render the View
 
@@ -210,7 +210,7 @@ These data attributes are used by jQuery Validate and jQuery Validate Unobtrusiv
 ## Step 4: Client-side Validation
 The `data-val-required` attribute and the `data-val-email` attribute will be used by jQuery Validate to validate the required and email fields respectively. jQuery Validate will be able to do this because jQuery Validate Unobtrusive defined the rules and added support to those rules in the jQuery Validate framework.
 
-![registration_invalid_email_error.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/registration_invalid_email_error.png)
+![registration_invalid_email_error.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/registration_invalid_email_error.png)
 
 The above text displays after the `inputbox` loses focus.
 
@@ -219,7 +219,7 @@ The above text displays after the `inputbox` loses focus.
 The difference between jQuery Validate and jQuery Validate Unobtrusive lies in how they handle client-side validation based on the data attributes generated from C# validation attributes.
 
 The two scripts, `jquery.validate.js` and `jquery.validate.unobtrusive.js` are included in the `ValidationscriptsPartial.cshtml` in an ASP.NET core MVC project.
-![jquery_validation_scripts_partial_cshtml.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/jquery_validation_scripts_partial_cshtml.png)
+![jquery_validation_scripts_partial_cshtml.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/jquery_validation_scripts_partial_cshtml.png)
 
 ### jQuery Validate
 
@@ -321,7 +321,7 @@ Now I understand the link between everything, and after writing my previous post
 The generated `data-val-*` attributes are the interface for the validation rules. When using the tag helpers, that happens using the `asp-validation-for` attribute.
 
 I can confidently update to a more recent version of jQuery Validate Unobtrusive. This is the framework I need to manage. It depends on jQuery Validate and jQuery. When updating to a newer script Unobtrusive script, I can refer to the [release notes](https://github.com/aspnet/jquery-validation-unobtrusive/releases) of this framework.
-![github_release_notes_screenshot.png](../assets/images/blog/2023-07-22-exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/github_release_notes_screenshot.png)
+![github_release_notes_screenshot.png](../assets/images/blog/exploring-aspnet-core-mvc-an-in-depth-look-at-jquery-validate-scripts/github_release_notes_screenshot.png)
 
 [I will not use LibMan but instead, opt for npm. If I have other dependencies that utilize jQuery and jQuery Validate, I can easily identify conflicts when updating.](https://dotnet.kriebbels.me/upgrade-your-client-side-script-approach-in-a-basic-dotnet-aspnet-core-mvc-app)
 

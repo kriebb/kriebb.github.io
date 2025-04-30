@@ -37,17 +37,17 @@ If you've ever logged into a service or app using your Facebook, Google, or Micr
 
 Imagine you're attending a concert where the ticket purchase is done through an app using Google Pay, which doesn't expose your bank account details. Here, the concert venue represents the application you want access to.
 
-![modern_minimalist_building_courtyard.jpeg](../assets/images/blog/2024-05-05-signature-validation-required-microsoft-says-no/modern_minimalist_building_courtyard.jpeg)
+![modern_minimalist_building_courtyard.jpeg](../assets/images/blog/signature-validation-required-microsoft-says-no/modern_minimalist_building_courtyard.jpeg)
 
 Google acts as the OIDC service - and validates your purchase without sharing your sensitive bank details-and the ticket represents the authorization given to you by OIDC to access the venue.
 
 In this analogy, your ticket is not just a piece of paper but contains a sophisticated hologram (representing a digital certificate).
 
-![concert_ticket_on_keyboard.jpeg](../assets/images/blog/2024-05-05-signature-validation-required-microsoft-says-no/concert_ticket_on_keyboard.jpeg)
+![concert_ticket_on_keyboard.jpeg](../assets/images/blog/signature-validation-required-microsoft-says-no/concert_ticket_on_keyboard.jpeg)
 
 This hologram shows that the ticket is genuine when inspected under a specific light (the public key) matching a sticker (the private key) you were given when purchasing the ticket. This matching process ensures the ticket's authenticity privately without exposing sensitive data-a core principle in OIDC using Authorization Code Flow with PKCE (Proof Key for Code Exchange). PKCE adds an extra layer of security, ensuring that even if the criminals grab your ticket, they can't misuse it because they cannot provide the purchase proof that the concert venue will ask on entrance.
 
-![concert_ticket_hologram_process.png](../assets/images/blog/2024-05-05-signature-validation-required-microsoft-says-no/concert_ticket_hologram_process.png)
+![concert_ticket_hologram_process.png](../assets/images/blog/signature-validation-required-microsoft-says-no/concert_ticket_hologram_process.png)
 
 ### Why OIDC?
 
@@ -69,7 +69,7 @@ Let us find out if they now abide by the standard.
 
 When you download from Entry a sample application for Asp.NET Core, you get a deprecated one.
 
-![azure_ad_quickstart_steps.png](../assets/images/blog/2024-05-05-signature-validation-required-microsoft-says-no/azure_ad_quickstart_steps.png)
+![azure_ad_quickstart_steps.png](../assets/images/blog/signature-validation-required-microsoft-says-no/azure_ad_quickstart_steps.png)
 
 It lets me download the following:
 

@@ -1,9 +1,9 @@
 ﻿---
-date: 2025-04-19
+date: 2023-04-16
 title: "Enable developers to generate safe and secure code"
 seoTitle: "Empower developers to create secure code"
 seoDescription: "Discover secure coding practices and tools, such as SAST, IAST, DAST, and RASP, to avoid security flaws in your apps"
-datePublished: Sun Apr 16 2023 05:30:39 GMT+0000 (Coordinated Universal Time)
+datePublished: 2023-04-16
 cuid: clgiyxtr8049nmsnv0xwq3h7y
 slug: enable-developers-to-generate-safe-and-secure-code
 cover: /assets/images/blog/enable-developers-to-generate-safe-and-secure-code/2025-04-19-enable-developers-to-generate-safe-and-secure-code.cover.png
@@ -11,11 +11,11 @@ tags: application-security rasp sast dast iast
 featured: true
 ---
 
-# Previously on...
+## Previously on...
 
 [In my previous blog post](https://dotnet.kriebbels.me/the-hidden-dangers-of-jsons-hunger-silenced), I wrote about JSON RCE attacks. The possibility of such an attack exists, was brought to my attention in a report by [CheckMarx](https://checkmarx.com/cxsast-source-code-scanning/). I heard about SAST scans from the product team that I worked with. Our team was also briefed about application security by [Wesley Cabus](https://hashnode.com/@wcabus) on a knowledge-sharing moment at a [<code>Xebia | Xpirit</code> Tuesday](https://pages.xebia.com/knowledge-base-times-social-distancing).
 
-# Context
+## Context
 
 I am trying to gain a better understanding of how I can code with a security mindset. Although I have heard of [Checkmarx](https://checkmarx.com/cxsast-source-code-scanning/), I did not got any insight into the process how security reports came to be. I still have many questions about the process. For example, why does it take two days before results are available? Why is this information only available at the end of the process? Additionally, I am confused as to why security is only available at the end of the development lifecycle. What about the packages that are used in the project? [In a previous post](https://dotnet.kriebbels.me/the-hidden-dangers-of-jsons-hunger-silenced), I wrote about the RCE (Remote Code Execution) that could be done with version 11 of Newtonsoft, but in the project, versions 12 and 13 were used. However, the SAST still flagged it.
 
@@ -27,13 +27,13 @@ Contrast Security mentioned that other colleagues of mine at Xebia, have taken i
 
 Maarten Plat is busy with a 5-part blog series about this subject. [Part one tackles the subject SAST](https://xebia.com/blog/how-to-make-your-web-application-more-secure-by-using-static-application-security-testing-part-1-of-5-in-application-security-testing-series/). [Part two tackles the part DAST](https://xebia.com/blog/how-to-make-your-web-application-more-secure-by-using-dynamic-application-security-testing-dast-part-2-of-application-security-testing-series/). Other blog posts will tackle IAST and SCA. The last part will be about integrating those tools into a Continuous Integration (CI) pipeline. Maarten also made a tutorial about one of the products of Contrast Security, so be sure to follow him! Let us read below what all those abbreviations mean...
 
-# Application Security
+## Application Security
 
 It is crucial to understand what tools are used during the development and product lifecycle. Writing secure code is essential. When you add a package with vulnerabilities or use an insecure way of working, you want to be notified as soon as possible. The same mindset applies to writing unit tests, automate your deployment to allow (automated) integration testing. This allows a better understanding of business, infrastructure and security requirements.
 
-## At the beginning of a lifecycle
+### At the beginning of a lifecycle
 
-Even before you have runnable code, your work can already be insecure. The longer you wait to adjust this, the harder it is going to be. Read more about [Mitigating technical debt with developer-driven security (](https://www.securecodewarrior.com/article/mitigating-technical-debt)[securecodewarrior.com](http://securecodewarrior.com)[)](https://www.securecodewarrior.com/article/mitigating-technical-debt)
+Even before you have runnable code, your work can already be insecure. The longer you wait to adjust this, the harder it is going to be. Read more about [Mitigating technical debt with developer-driven security](https://www.securecodewarrior.com/article/mitigating-technical-debt)
 
 [On the website of contrast security, you can learn how to code securely.](https://www.contrastsecurity.com/developer/learn#Contrast-Secure-Code-Lessons)
 
@@ -57,22 +57,14 @@ Software Composition Analysis (SCA) is done by tools that manage the packages yo
 
 [JFrog has a good blog post that tells you about the dangers of using third-party packages.](https://jfrog.com/blog/a-year-of-supply-chain-attacks-how-to-protect-your-sdlc/) I created a summary of how they suggest you can protect yourself from an attack like that. JFrog recommends:
 
-* establishing a [vetting process for your supply chain](https://supplychaingamechanger.com/what-is-the-best-supplier-vetting-process/),
-    
-* shift security left in the [SDLC](https://en.wikipedia.org/wiki/Systems_development_life_cycle),
-    
-* [verify binary code integrity](https://en.wikipedia.org/wiki/Code_integrity),
-    
-* require an [SBOM](https://en.wikipedia.org/wiki/Software_supply_chain) for all software,
-    
-* protect your SDLC with multi-factor authentication,
-    
-* avoid [dependency confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-    
-* avoid [typosquatting](https://en.wikipedia.org/wiki/Typosquatting) attacks,
-    
-* and [use version pinning](https://the-guild.dev/blog/how-should-you-pin-dependencies-and-why) for packages.
-    
+- establishing a [vetting process for your supply chain](https://supplychaingamechanger.com/what-is-the-best-supplier-vetting-process/),
+- shift security left in the [SDLC](https://en.wikipedia.org/wiki/Systems_development_life_cycle),
+- [verify binary code integrity](https://en.wikipedia.org/wiki/Code_integrity),
+- require an [SBOM](https://en.wikipedia.org/wiki/Software_supply_chain) for all software,
+- protect your SDLC with multi-factor authentication,
+- avoid [dependency confusion](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+- avoid [typosquatting](https://en.wikipedia.org/wiki/Typosquatting) attacks,
+- and [use version pinning](https://the-guild.dev/blog/how-should-you-pin-dependencies-and-why) for packages.
 
 A lot of these recommendations need an investigation that goes beyond the scope of this blog post... I linked corresponding definitions and other blog posts that are worth reading.
 
@@ -98,10 +90,8 @@ In the images below, you can find an example request, where the email address `k
 
 Their tool observes that
 
-* there isn’t sufficient validation and sanitization of the user input in this request. That is a confirmation that there is an SQL injection flaw.
-    
-* the unsanitized input, which is the email address, ends up being used directly in the SQL Query. That is displayed in red in the image below.
-    
+- there isn't sufficient validation and sanitization of the user input in this request. That is a confirmation that there is an SQL injection flaw.
+- the unsanitized input, which is the email address, ends up being used directly in the SQL Query. That is displayed in red in the image below.
 
 Contrast tries to help the developer by giving a similar overview in the form of a stack trace. That overview shows the problem, where to fix that problem and gives guidance on how to remediate it.
 
@@ -135,11 +125,8 @@ Web Application Firewalls or WAFs can be configured with specific rules to ident
 
 [The difference with Runtime Application Self-Protection, or RASP](https://geekflare.com/rasp-tools/), is a security technology deployed within the application itself. RASP provides real-time protection against attacks by monitoring the application's behaviour. It responds to threats as they arise. RASP is also capable of detecting and blocking attacks that were not previously known by looking at the behaviour. E.g. When a user tries to use a SQL injection attack, the tool will be able to detect that and throws an exception that results in an Internal Server Error. To see it in action, [Contrast has a video](https://www.contrastsecurity.com/security-influencers/contrast-vs-the-log4j2-cve-a-demonstration?wvideo=80y2qkb6aq) to show how their product defends against the Log4J exploit.
 
-# Outro
+## Outro
 
 I did my best to not let this post be a Contrast Security advertisement. I want to give them credit because they did take the time to explain to me the basics of application security. With that demo and the information is given, I did my research and learned a lot. I hope I can sparkle your interest in Application Security as well, so we can all code with a security mindset.
 
 I want to test out the community edition that Contrast Security offers. I will share my experiences as well. That can be something to play with on an innovation day that is organized at Xpirit | Xebia. I do not know at this point where to find the time... But I promise I will add this to my to-do list.
-
-
-

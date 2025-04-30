@@ -10,6 +10,33 @@ github_username: kriebb
 theme: minima
 markdown: kramdown
 highlighter: rouge
+
+# Syntax highlighting settings
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Custom code highlighting
+prism_highlight:
+  enabled: true
+  line_numbers: true
+  languages:
+    - razor
+    - cshtml
+    - csharp
+    - javascript
+    - html
+    - css
+    - json
+    - yaml
+
+# Source directory
 source: .
 include:
   - content/pages

@@ -1,103 +1,12 @@
 // _sass/components/_code-blocks.scss
 
-// Base code block styling
+// Base code block styling - without forced background color
 pre {
     position: relative;
     margin: 2rem 0;
     border-radius: 8px;
-    background-color: #1e1e1e; // Dark background for all code
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-    // Add a subtle border glow based on language (using attribute selectors)
-    &[data-lang="csharp"],
-    &[data-lang="cs"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(104, 33, 122, 0.3);
-    }
-
-    &[data-lang="cshtml"],
-    &[data-lang="razor"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(243, 106, 90, 0.3);
-    }
-
-    &[data-lang="email"],
-    &[data-lang="email-header"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(138, 43, 226, 0.3);
-    }
-
-    &[data-lang="mermaid"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(66, 184, 131, 0.3);
-    }
-
-    &[data-lang="http"],
-    &[data-lang="http-headers"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(54, 119, 168, 0.3);
-    }
-
-    &[data-lang="cmd"],
-    &[data-lang="powershell"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(226, 192, 141, 0.3);
-    }
-
-    &[data-lang="txt"],
-    &[data-lang="text"] {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(132, 132, 132, 0.3);
-    }
-
-    .code-actions {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        display: flex;
-        gap: 6px;
-        z-index: 5;
-      }
-      // Copy button
-      .code-copy-btn {
-        background: rgba(255, 255, 255, 0.1);
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        width: 30px;
-        height: 30px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        opacity: 0.7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        &:hover {
-          opacity: 1;
-          background: rgba(255, 255, 255, 0.2);
-        }
-        
-        &.copied {
-          background: rgba(66, 184, 131, 0.5);
-        }
-      }
-      // Collapse toggle button
-  .collapse-toggle {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0.7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    &:hover {
-      opacity: 1;
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
 
     // Code language label
     &:before {
@@ -113,125 +22,90 @@ pre {
         font-family: 'Fira Code', monospace;
         text-transform: uppercase;
         z-index: 5;
-      }
-
-    // Language-specific header colors
-    &[data-lang="csharp"]:before,
-    &[data-lang="cs"]:before {
-        background: rgba(104, 33, 122, 0.8);
     }
-
-    &[data-lang="cshtml"]:before,
-    &[data-lang="razor"]:before {
-        background: rgba(243, 106, 90, 0.8);
+    
+    // Action buttons container
+    .code-actions {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        gap: 6px;
+        z-index: 5;
     }
-
-    &[data-lang="email"]:before,
-    &[data-lang="email-header"]:before {
-        background: rgba(138, 43, 226, 0.8);
+    
+    // Copy button
+    .code-copy-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        &.copied {
+            background: rgba(66, 184, 131, 0.5);
+        }
     }
-
-    &[data-lang="mermaid"]:before {
-        background: rgba(66, 184, 131, 0.8);
-    }
-
-    &[data-lang="http"]:before,
-    &[data-lang="http-headers"]:before {
-        background: rgba(54, 119, 168, 0.8);
-    }
-
-    &[data-lang="cmd"]:before,
-    &[data-lang="powershell"]:before {
-        background: rgba(226, 192, 141, 0.8);
-    }
-
-    &[data-lang="txt"]:before,
-    &[data-lang="text"]:before {
-        background: rgba(132, 132, 132, 0.8);
+    
+    // Collapse toggle button
+    .collapse-toggle {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+        }
     }
 }
-
-// Code content styling
-code {
-    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 1.25rem;
-    color: #e0e0e0;
-    display: block;
-    overflow-x: auto;
-    tab-size: 2;
-}
-
-/* Inline code styling */
-p code, 
-li code, 
-td code, 
-h1 code, 
-h2 code, 
-h3 code, 
-h4 code, 
-h5 code, 
-h6 code,
-a code,
-span code {
-  font-family: 'Fira Code', Consolas, Monaco, monospace !important;
-  font-size: 0.9em !important;
-  background-color: rgba(0, 0, 0, 0.05) !important;
-  padding: 0.2rem 0.4rem !important;
-  border-radius: 3px !important;
-  color: #d63384 !important; /* Adjust this color to match your theme */
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
-  word-break: break-word !important;
-  display: inline !important;
-  white-space: nowrap !important;
-  line-height: 1.4 !important;
-  margin: 0 2px !important;
-  vertical-align: middle !important;
-  border: none !important;
-}
-  
 
 // Collapsed state styling
-// Collapsed state styling with better visual indication
 pre.collapsed {
     max-height: 150px;
     overflow: hidden;
     
     &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 0.95));
-      pointer-events: none;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 0.95));
+        pointer-events: none;
     }
     
     &:before {
-      z-index: 6; // Ensure language label stays on top
+        z-index: 6; // Ensure language label stays on top
     }
-    
-    // Add a "show more" indicator
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 0.95));
-      pointer-events: none;
-    }
-    
-    &::before {
-      z-index: 6; // Keep language label on top
-    }
-  }
-  
-  // Visual indicator for collapsed code
-  .collapsed-indicator {
+}
+
+// Visual indicator for collapsed code
+.collapsed-indicator {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -246,140 +120,13 @@ pre.collapsed {
     align-items: center;
     gap: 6px;
     pointer-events: none;
-  }
-  
-  pre.collapsed .collapsed-indicator {
+}
+
+pre.collapsed .collapsed-indicator {
     display: flex;
-  }
-
-// Mermaid diagram styling
-.mermaid {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-
-    svg {
-        max-width: 100%;
-        margin: 0 auto;
-        font-family: 'Poppins', sans-serif;
-
-        // Style diagram elements
-        .node rect,
-        .node circle,
-        .node ellipse,
-        .node polygon,
-        .node path {
-            fill: #f8f9fa;
-            stroke: #66b2b2;
-            stroke-width: 1px;
-        }
-
-        .label {
-            color: #333;
-            font-weight: 500;
-        }
-
-        .edgePath .path {
-            stroke: #999;
-            stroke-width: 1.5px;
-        }
-
-        .cluster rect {
-            fill: #f0f8ff;
-            stroke: #99c4e0;
-            stroke-width: 1px;
-        }
-
-        // Style text elements in diagrams
-        .messageText,
-        .noteText,
-        .loopText,
-        .errorText {
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-        }
-    }
 }
 
-// Dark mode support for mermaid
-.dark-mode .mermaid {
-    background-color: #2a2a2a;
-
-    svg {
-
-        .node rect,
-        .node circle,
-        .node ellipse,
-        .node polygon,
-        .node path {
-            fill: #2a2a2a;
-            stroke: #66b2b2;
-        }
-
-        .label {
-            color: #e0e0e0;
-        }
-
-        .edgePath .path {
-            stroke: #b0b0b0;
-        }
-
-        .cluster rect {
-            fill: #252525;
-            stroke: #555;
-        }
-    }
-}
-
-/* Dark mode support for inline code */
-/* Dark mode support for inline code */
-.dark-mode p code, 
-.dark-mode li code, 
-.dark-mode td code, 
-.dark-mode h1 code, 
-.dark-mode h2 code, 
-.dark-mode h3 code, 
-.dark-mode h4 code, 
-.dark-mode h5 code, 
-.dark-mode h6 code,
-.dark-mode a code,
-.dark-mode span code {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  color: #ff7b9c !important;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
-}
-
-// Copy button
-.code-copy-btn {
-    position: absolute;
-    top: 10px;
-    right: 45px; // Position to the left of collapse button
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 3px 8px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    opacity: 0.7;
-    z-index: 5;
-
-    &:hover {
-        opacity: 1;
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    &.copied {
-        background: rgba(66, 184, 131, 0.5);
-    }
-}
-
-// Line numbers
+// Line numbers (if you want to keep this functionality)
 .has-line-numbers {
     counter-reset: line;
     padding-left: 3.8rem;
@@ -399,70 +146,4 @@ pre.collapsed {
             font-size: 0.85em;
         }
     }
-}
-
-// CSHTML/Razor specific styling
-.language-cshtml .razor-directive,
-.language-razor .razor-directive {
-    color: #ff9da4; // Light red for @using, @model etc.
-}
-
-.language-cshtml .razor-code-block,
-.language-razor .razor-code-block {
-    color: #fac863; // Gold for @{...} code blocks
-}
-
-.language-cshtml .razor-expression,
-.language-razor .razor-expression {
-    color: #c594c5; // Purple for @Model.Property etc.
-}
-
-.language-cshtml .razor-at-symbol,
-.language-razor .razor-at-symbol {
-    color: #f99157; // Orange for @ symbol
-    font-weight: bold;
-}
-
-// Email header specific styling
-.language-email .email-from,
-.language-email-header .email-from {
-    color: #ff9da4; // Light red for From:
-}
-
-.language-email .email-to,
-.language-email-header .email-to {
-    color: #d1f1a9; // Light green for To:
-}
-
-.language-email .email-cc,
-.language-email-header .email-cc {
-    color: #bbdaff; // Light blue for Cc:
-}
-
-.language-email .email-subject,
-.language-email-header .email-subject {
-    color: #ffeead; // Light yellow for Subject:
-}
-
-.language-email .email-date,
-.language-email-header .email-date {
-    color: #ebbbff; // Light purple for Date:
-}
-
-.language-email .email-header-name,
-.language-email-header .email-header-name {
-    color: #c594c5; // Purple for header names
-    font-weight: bold;
-}
-
-.language-email .email-header-value,
-.language-email-header .email-header-value {
-    color: #99ffff; // Cyan for header values
-}
-
-.language-email .email-body,
-.language-email-header .email-body {
-    color: #d8d8d8; // Light gray for the body text
-    padding-top: 1rem;
-    border-top: 1px dashed rgba(138, 43, 226, 0.3);
 }

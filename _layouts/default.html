@@ -3,6 +3,7 @@
 
 <head>
   {%- include head.html -%}
+
 </head>
 
 <body>
@@ -123,6 +124,8 @@
   {% for script in site.data.assets.scripts %}
   <script src="{{ script.url }}" {% if script.defer %}defer{% endif %}></script>
   {% endfor %}
+
+
   {% for style in site.data.assets.styles %}
   <link rel="stylesheet" href="{{ style.url }}" onerror="this.onerror=null;this.href='{{ style.local }}';">
   {% endfor %}
@@ -136,6 +139,9 @@
   <script src="{{ '/assets/js/mermaid.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script src="{{ '/assets/js/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script src="{{ '/assets/js/code-blocks.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  
+ 
+  
   {% include mermaid.html %}
   {% include cookie-consent.html %}
 

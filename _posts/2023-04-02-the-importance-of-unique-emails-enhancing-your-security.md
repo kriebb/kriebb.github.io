@@ -119,7 +119,7 @@ They offer a quick and easy way to create a temporary email address with a short
 
 How does it work? Fairly easy, you surf to a provider like [temp-mail.org](https://temp-mail.org/) and you got an inbox. You have an email assigned to you.
 
-![temporary_email_inbox_screenshot.png](../assets/images/blog/2023-04-02-the-importance-of-unique-emails-enhancing-your-security/temporary_email_inbox_screenshot.png)
+![temporary_email_inbox_screenshot.png](../assets/images/blog/the-importance-of-unique-emails-enhancing-your-security/temporary_email_inbox_screenshot.png)
 
 There are apps as well to use on your smartphones. How that can come into play, I do not know yet.
 
