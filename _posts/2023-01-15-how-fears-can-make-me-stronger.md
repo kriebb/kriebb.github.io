@@ -66,9 +66,9 @@ Another view on the fear of embarrassment is admitting I do not know everything.
 | Losing Business | Fear of losing control and opportunities | Creates unhealthy job protection behaviors | Empower others and trust that new opportunities will arise |
 | Being Embarrassed | Fear of appearing incompetent | Prevents authentic connections | Accept compliments gracefully and admit when you don't know |
 
-## Xpirit | Part of Xebia
+## <code>Xpirit | Part of Xebia</code>
 
-When I read that book, I saw a resemblance with the way [Xpirit | Part of Xebia](https://xpirit.com) operates. A company that acknowledges these fears and especially that wants to help me conquer those fears is admiring and can lift me further as well.
+When I read that book, I saw a resemblance with the way [<code>Xpirit | Part of Xebia</code>](https://xpirit.com) operates. A company that acknowledges these fears and especially that wants to help me conquer those fears is admiring and can lift me further as well.
 
 ## Outro
 

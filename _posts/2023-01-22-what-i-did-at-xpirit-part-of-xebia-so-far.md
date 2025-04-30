@@ -1,6 +1,6 @@
 ﻿---
 date: 2023-01-22
-title: "What I did at Xpirit | Part of Xebia so far..."
+title: "What I did at <code>Xpirit | Part of Xebia</code> so far..."
 datePublished: 2023-01-22T11:49:32.000Z
 cuid: cld7bhif3000i09mhc0ota1p6
 slug: what-i-did-at-xpirit-part-of-xebia-so-far
@@ -10,17 +10,17 @@ tags: networking learning-journey consultancy professional-development knowledge
 
 ## Previously on...
 
-In my previous posts, I shared my experiences around my personal growth, which lead me to join [XPirit | Part of Xebia](https://xpirit.com). In this post, I will write about what I have experienced so far. There are also links to my colleagues at certain events. Check those out.
+In my previous posts, I shared my experiences around my personal growth, which lead me to join [<code>Xpirit | Part of Xebia</code>](https://xpirit.com). In this post, I will write about what I have experienced so far. There are also links to my colleagues at certain events. Check those out.
 
 ## Assignments
 
-[XPirit | Part of Xebia](https://xpirit.com)'s mantra "the right people for the right assignment", means that there has to be a good fit with the customer. From the moment I signed, [Annemie](https://xpirit.com/team/annemie-vandenberghe/) asked me to convert my CV to the format that [XPirit | Part of Xebia](https://xpirit.com) uses, so she can start the hunt for finding the assignments.
+[<code>Xpirit | Part of Xebia</code>](https://xpirit.com)'s mantra "the right people for the right assignment", means that there has to be a good fit with the customer. From the moment I signed, [Annemie](https://xpirit.com/team/annemie-vandenberghe/) asked me to convert my CV to the format that [<code>Xpirit | Part of Xebia</code>](https://xpirit.com) uses, so she can start the hunt for finding the assignments.
 
 It felt very strange to be hired and not yet have a clear goal, or purpose. "For qualified personnel, there is always an assignment available", according to [Pieter](https://xpirit.com/team/pieter-gheysens/). Meanwhile, I studied for [Blazor](https://www.pluralsight.com/courses/getting-started-blazor) because there is a project that needed some bug fixing.
 
 When the first assignment came in, I put myself in the shoes of the consultant. The mindset I have now is simply: "How can I help you?". The customer was searching for experience. Some I have, some I have not. Working with security-related systems, OpenID, ASP.NET Core 6 felt challenging. I was thrilled to work with this. [Gill](https://xpirit.com/team/gill-cleeren/) supported me to study OpenID in ASP.NET 6 one week before the new assignment. I needed that to start more confidently.
 
-What I soon realized is that in an assignment there is a part for where you are hired for and there will be some extras on the side as well. I take the [vision and mission](https://xpirit.com/company/about/) statements of [XPirit | Part of Xebia](https://xpirit.com) seriously. I started a small meeting each week where we can do some knowledge sharing. After all, the consultant will leave at a certain point. It works in both ways as well. This gave me also an opportunity to get to know the customer better and to form a connection.
+What I soon realized is that in an assignment there is a part for where you are hired for and there will be some extras on the side as well. I take the [vision and mission](https://xpirit.com/company/about/) statements of [<code>Xpirit | Part of Xebia</code>](https://xpirit.com) seriously. I started a small meeting each week where we can do some knowledge sharing. After all, the consultant will leave at a certain point. It works in both ways as well. This gave me also an opportunity to get to know the customer better and to form a connection.
 
 ## Onboarding
 
@@ -46,7 +46,7 @@ A good read about the [Innovation Day May 2022](https://xpirit.com/the-taste-of-
 
 ### Conferences
 
-At [XPirit | Part of Xebia](https://xpirit.com), you have a minimum of 6 days that you need to fill in to gather knowledge. How you do that is up to you. Before you get crazy with expensive and far-away conferences, there is a budget available as well. Your non-billable hours are not covered in that budget, but e.g. your flying tickets are part of the budget.
+At [<code>Xpirit | Part of Xebia</code>](https://xpirit.com), you have a minimum of 6 days that you need to fill in to gather knowledge. How you do that is up to you. Before you get crazy with expensive and far-away conferences, there is a budget available as well. Your non-billable hours are not covered in that budget, but e.g. your flying tickets are part of the budget.
 
 I followed the following conferences in 2022:
 
@@ -79,11 +79,11 @@ The other family day of 2023 already took place. [We went to Disneyland for the 
 
 ### Swag
 
-At [XPirit | Part of Xebia](https://xpirit.com), they love their [Swag](https://www.linkedin.com/posts/roycornelissennl_welcome-activity-6947979222556536832-5WIC). It is quite impressive how proud they are to announce their new creations. Most of the time, that happens on an innovation day. It builds up hype in the company as well. I have 3 nice T-shirts, 2 good polos, 3 sweaters, and 1 heavy warm sweater. I do wear them at the innovation days as well as to work at the customer.
+At [<code>Xpirit | Part of Xebia</code>](https://xpirit.com), they love their [Swag](https://www.linkedin.com/posts/roycornelissennl_welcome-activity-6947979222556536832-5WIC). It is quite impressive how proud they are to announce their new creations. Most of the time, that happens on an innovation day. It builds up hype in the company as well. I have 3 nice T-shirts, 2 good polos, 3 sweaters, and 1 heavy warm sweater. I do wear them at the innovation days as well as to work at the customer.
 
 ### Christmas Market Leuven
 
-In December 2022, [XPirit | Part of Xebia](https://xpirit.com) came together to visit the Christmas market there. I had never been to Leuven's Christmas Market, so I was very curious. However, I do hate traffic. Going to Leuven and meeting up at 6 PM seems hellish. I worked with the customer in Brussels that day. I left early, went to the library in Leuven and there I worked until it was time to meet. I am free to work like that. Working like a digital nomad, maybe for something in the future or can this be a part of this adventure at XPirit as well?
+In December 2022, [<code>Xpirit | Part of Xebia</code>](https://xpirit.com) came together to visit the Christmas market there. I had never been to Leuven's Christmas Market, so I was very curious. However, I do hate traffic. Going to Leuven and meeting up at 6 PM seems hellish. I worked with the customer in Brussels that day. I left early, went to the library in Leuven and there I worked until it was time to meet. I am free to work like that. Working like a digital nomad, maybe for something in the future or can this be a part of this adventure at XPirit as well?
 
 ### Christmas party
 
@@ -93,11 +93,11 @@ At the end of December 2022, in Belgium, they send us [a care package](https://w
 
 ### Birthday present
 
-What I have experienced in previous companies, is that when it is your birthday, you get wishes, maybe a card. You bring something to the company to share. Due to the nature of a consultancy agency, there is no such thing as one place where you are each day. I got a lovely gift sent to my place! Thanks, [XPirit | Part of Xebia](https://xpirit.com)!
+What I have experienced in previous companies, is that when it is your birthday, you get wishes, maybe a card. You bring something to the company to share. Due to the nature of a consultancy agency, there is no such thing as one place where you are each day. I got a lovely gift sent to my place! Thanks, [<code>Xpirit | Part of Xebia</code>](https://xpirit.com)!
 
 ### New Years drink
 
-To start the new year, we came together to Gill Cleeren's place for having new years drinks with something to eat. Afterwards, there was a status meeting on what goals to get this year. Where in 2022, [XPirit | Part of Xebia](https://xpirit.com) was the only brand in Belgium, exploited by our company. In 2023, we are now officially part of Xebia! It is fun to see the engagement of our management and the transparency of the goals they want to get.
+To start the new year, we came together to Gill Cleeren's place for having new years drinks with something to eat. Afterwards, there was a status meeting on what goals to get this year. Where in 2022, [<code>Xpirit | Part of Xebia</code>](https://xpirit.com) was the only brand in Belgium, exploited by our company. In 2023, we are now officially part of Xebia! It is fun to see the engagement of our management and the transparency of the goals they want to get.
 
 ## Professional Development Opportunities at Xpirit
 
@@ -111,4 +111,4 @@ To start the new year, we came together to Gill Cleeren's place for having new y
 
 ## Outro
 
-The overview above should help you gain some insight into what we do at [XPirit | Part of Xebia](https://xpirit.com). There is a lot to do and it is important to protect your boundaries as well. Later, around April/May 2023, I will create another post that fits in this series. I feel like I have said everything about these topics. Then I can say I worked for 1 year for them!
+The overview above should help you gain some insight into what we do at [<code>Xpirit | Part of Xebia</code>](https://xpirit.com). There is a lot to do and it is important to protect your boundaries as well. Later, around April/May 2023, I will create another post that fits in this series. I feel like I have said everything about these topics. Then I can say I worked for 1 year for them!

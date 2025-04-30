@@ -32,7 +32,7 @@ As I take the CEH course, it is essential for me to build a strong foundation fi
 
 - Practice in Labs: Creating a Virtual environment where I can practise, so I can engage with the given labs. That should give me hands-on experience and a chance to use different tools. However, they do supply me with a remote lab environment where I can practise. Maybe I will start using there environment and not losing time setting up my own.
 - Review and Revisit: I will not hesitate to go back to previous lessons and labs.
-- Books: They do supply me with a book that consists out of 2000 pages :|. Do I fully understand why I am going to do?
+- Books: They do supply me with a book that consists out of 2000 pages. Do I fully understand why I am going to do?
 
 ## Exams in the CEH Program
 

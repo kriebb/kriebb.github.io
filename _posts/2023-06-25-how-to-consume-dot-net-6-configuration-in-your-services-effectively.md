@@ -220,7 +220,7 @@ sequenceDiagram
 
 Suppose I have an application where I need to monitor changes to the configuration data and perform actions based on the changes. In this case, I would use `IOptionsMonitor`. For example, imagine that I have an email notification service in my application, and I have set the `MySettings` section in the Azure AppService AppSettings. If at some point I need to change the values of the `MySettings` section, it triggers change notifications, which the `IOptionsMonitor` listens to and subsequently performs necessary actions like reconnecting to the new server. The mermaid diagram below illustrates this and shows the difference with the `IOptionsSnapshot` as well.
 
-```
+```mermaid
 sequenceDiagram
     participant App as App (1 Instance)
     participant Config as IConfiguration
@@ -280,7 +280,7 @@ sequenceDiagram
 
 Remember the following line of code:
 
-```
+```cs
 serviceCollection.AddOptions<MyViewOnSettings>("mysettings").ValidateOnStart().ValidateDataAnnotations();
 ```
 

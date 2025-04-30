@@ -4,7 +4,7 @@ Dit is een Jekyll-website die jouw persoonlijke branding en werkervaring present
 
 ## Structuuroverzicht
 
-```
+```text
 .
 ├── _config.yml
 ├── Gemfile

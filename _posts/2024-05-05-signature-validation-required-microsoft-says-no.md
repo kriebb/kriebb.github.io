@@ -16,8 +16,8 @@ TLDR; Microsoft's `AddMicrosoftAccount()` method does not do signature validatio
 
 NuGet Packages mentioned:
 
-- [NuGet Gallery | Microsoft.AspNetCore.Authentication.MicrosoftAccount 8.0.4](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount)
-- [NuGet Gallery | Microsoft.AspNetCore.Authentication.OpenIdConnect 8.0.4](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OpenIdConnect)
+- [NuGet Gallery - Microsoft.AspNetCore.Authentication.MicrosoftAccount 8.0.4](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount)
+- [NuGet Gallery - Microsoft.AspNetCore.Authentication.OpenIdConnect 8.0.4](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OpenIdConnect)
 
 ## Previously on
 
@@ -90,7 +90,7 @@ When mocking out Entra, I noticed some small changes between the sample I used f
 
 Notice in the example below, there is no `sub` claim to be found, and you get by default more claims than in the generic OIDC Library.
 
-[Get a user - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http)
+[Get a user - Microsoft Graph v1.0 - Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http)
 
 ```csharp
 public sealed record UserInfoEndpointResponseBody(
@@ -111,7 +111,7 @@ public sealed record UserInfoEndpointResponseBody(
 
 This is the refactored sample I used for the OIDC Library according to this link:
 
-[Microsoft identity platform UserInfo endpoint - Microsoft identity platform | Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity-platform/userinfo#consider-using-an-id-token-instead)
+[Microsoft identity platform UserInfo endpoint - Microsoft identity platform - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity-platform/userinfo#consider-using-an-id-token-instead)
 
 ```csharp
 public sealed record UserInfoEndpointResponseBody(

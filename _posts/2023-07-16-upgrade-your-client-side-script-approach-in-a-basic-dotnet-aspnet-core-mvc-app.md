@@ -103,7 +103,7 @@ I notice a lot of given client javascript files.
 
 - `jquery.validate.unobtrusive.js`: This file is a jQuery plugin that works in conjunction with jQuery Validation and the ASP.NET Core MVC framework. The purpose of jQuery Validation Unobtrusive is to validate user input on the client side before submitting the form to the server. More on that in a later blog post.
 
-```
+```json
 // Unobtrusive validation support library for jQuery and jQuery Validate
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -363,25 +363,24 @@ Below I give an overview of the sources I used to write this.
 
 [JavaScript package managers compared: npm, Yarn, or pnpm? - LogRocket Blog](https://blog.logrocket.com/javascript-package-managers-compared/)
 
-[Which package manager to choose for your next javascript project? | by Himanshu Garadiya | Jun, 2023 | Medium](https://medium.com/@garadiya0/which-package-manager-to-choose-for-your-next-javascript-project-13eab214a05c?source=tag_page---------32-84--------------------aa75c5a1_98b6_401a_8774_bb6d743c4e45-------17)
+[Which package manager to choose for your next javascript project? - by Himanshu Garadiya - Jun, 2023 - Medium](https://medium.com/@garadiya0/which-package-manager-to-choose-for-your-next-javascript-project-13eab214a05c?source=tag_page---------32-84--------------------aa75c5a1_98b6_401a_8774_bb6d743c4e45-------17)
 
 [Package Managers in JavaScript (c-sharpcorner.com)](https://www.c-sharpcorner.com/blogs/package-managers-in-javascript)
 
-[Bower is dead, long live npm. And Yarn. And webpack. | Snyk](https://snyk.io/blog/bower-is-dead/)
+[Bower is dead, long live npm. And Yarn. And webpack. - Snyk](https://snyk.io/blog/bower-is-dead/)
 
-[Semantic Versioning 2.0.0 | Semantic Versioning (semver.org)](https://semver.org/)
+[Semantic Versioning 2.0.0 - Semantic Versioning (semver.org)](https://semver.org/)
 
 [Add nuspec and build file (#77) aspnet/jquery-validation-unobtrusive@6c2113e (github.com)](https://github.com/aspnet/jquery-validation-unobtrusive/commit/6c2113ee25f10092b206cb409c6d3e33a9ee44c8#diff-e4bed5b736f205989dd4fdb6d78acfe9126577983d325d378ce91794d74e63c8)
 
 [https://jspm.org/](https://jspm.org/)
 
-[Client-side library acquisition in ASP.NET Core with LibMan | Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-7.0)
+[Client-side library acquisition in ASP.NET Core with LibMan - Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-7.0)
 
-[Use LibMan with ASP.NET Core in Visual Studio | Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-7.0)
+[Use LibMan with ASP.NET Core in Visual Studio - Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-7.0)
 
 [aspnet/LibraryManager (github.com)](https://github.com/aspnet/LibraryManager)
 
 [npm (npmjs.com)](https://www.npmjs.com/)
 
-[An alternative way to use Visual Studio with npm | by EasyLOB | Medium](https://medium.com/@easylob/a-alternative-way-to-use-visual-studio-with-npm-5427d938ff05)
-```
+[An alternative way to use Visual Studio with npm - by EasyLOB - Medium](https://medium.com/@easylob/a-alternative-way-to-use-visual-studio-with-npm-5427d938ff05)
