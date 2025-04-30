@@ -1,0 +1,76 @@
+---
+layout: page
+title: Tagged Posts
+permalink: /tag/
+---
+
+<div class="tag-page">
+  <h1 id="tag-header">Posts with tag: <span id="current-tag">Loading...</span></h1>
+  
+  <div id="tag-posts" class="blog-grid">
+    <!-- Posts will be loaded dynamically -->
+    <p class="loading">Loading posts...</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Extract tag from URL path: /tag/tagname/
+    var path = window.location.pathname;
+    var tagMatch = path.match(/\/tag\/([^\/]+)\/?/);
+    
+    if (!tagMatch || !tagMatch[1]) {
+      document.getElementById('tag-header').textContent = 'Tag not specified';
+      document.getElementById('tag-posts').innerHTML = '<p>Please select a specific tag to view posts.</p>';
+      return;
+    }
+    
+    // Get the tag and decode it
+    var tag = decodeURIComponent(tagMatch[1]);
+    document.getElementById('current-tag').textContent = '#' + tag;
+    
+    // Find all posts with this tag
+    var taggedPosts = [];
+    
+    {% for post in site.posts %}
+      {% if post.tags %}
+        {% for tag in post.tags %}
+          if ('{{ tag | downcase | slugify }}' === tag.toLowerCase()) {
+            taggedPosts.push({
+              title: "{{ post.title | escape }}",
+              url: "{{ post.url | relative_url }}",
+              date: "{{ post.date | date: '%b %d, %Y' }}",
+              cover: "{{ post.cover | default: '/assets/images/blog/default-cover.jpg' | relative_url }}",
+              excerpt: "{{ post.excerpt | strip_html | truncatewords: 30 | escape }}"
+            });
+          }
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    
+    // Render the posts
+    if (taggedPosts.length === 0) {
+      document.getElementById('tag-posts').innerHTML = '<p>No posts found with tag #' + tag + '.</p>';
+    } else {
+      var postsHTML = '';
+      
+      taggedPosts.forEach(function(post) {
+        postsHTML += `
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="${post.cover}" alt="${post.title}">
+              <span class="blog-date">${post.date}</span>
+            </div>
+            <div class="blog-card-content">
+              <h2 class="blog-card-title"><a href="${post.url}">${post.title}</a></h2>
+              <div class="blog-card-excerpt">${post.excerpt}</div>
+              <a href="${post.url}" class="read-more">Read more</a>
+            </div>
+          </article>
+        `;
+      });
+      
+      document.getElementById('tag-posts').innerHTML = postsHTML;
+    }
+  });
+</script>

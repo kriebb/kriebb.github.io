@@ -1,0 +1,18 @@
+---
+layout: page
+title: Search
+permalink: /search/
+---
+
+<div class="search-page">
+  
+  {% include search-bar.html %}
+  
+  <div id="search-results">
+    <!-- Results will be populated by JavaScript -->
+    <p>Enter a search term above to find content on this site.</p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

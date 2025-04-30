@@ -1,0 +1,15 @@
+<div class="search-container">
+    <form class="search-form" action="/search/" method="get">
+      <input 
+        type="text" 
+        id="search-input" 
+        name="q" 
+        placeholder="{% if site.active_lang == 'en' %}Search the site...{% else %}Zoek op de site...{% endif %}" 
+        aria-label="Search"
+        autocomplete="off"
+      >
+      <button type="submit" class="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </div>

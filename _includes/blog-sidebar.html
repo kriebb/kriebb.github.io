@@ -1,6 +1,7 @@
 <!-- _includes/blog-sidebar.html - Without inline styles -->
 <aside class="blog-sidebar">
     <div class="sidebar-section">
+      {% include search-bar.html %}
       <h3>Categories</h3>
       <div class="category-accordion">
         {% for category in site.data.tag_categories %}

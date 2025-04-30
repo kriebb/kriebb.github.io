@@ -1,0 +1,105 @@
+/* Search Styles */
+.search-container {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .search-form {
+    display: flex;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+  
+  .search-form:focus-within {
+    box-shadow: 0 0 0 2px var(--accent-color);
+    border-color: var(--accent-color);
+  }
+  
+  #search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    font-size: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    width: 100%;
+  }
+  
+  #search-input:focus {
+    outline: none;
+  }
+  
+  .search-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .search-button:hover {
+    background-color: var(--accent-dark);
+  }
+  
+  /* Search results page styling */
+  .search-results {
+    margin-top: 2rem;
+  }
+  
+  .search-result-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .search-result-item:last-child {
+    border-bottom: none;
+  }
+  
+  .search-result-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-result-title a {
+    color: var(--heading-color);
+    text-decoration: none;
+  }
+  
+  .search-result-title a:hover {
+    color: var(--accent-color);
+  }
+  
+  .search-result-snippet {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .search-result-meta {
+    font-size: 0.8rem;
+    color: var(--muted-color);
+  }
+  
+  /* Dark mode adjustments */
+  .dark-mode {
+    #search-input {
+      background-color: #2a2a2a;
+    }
+    
+    .search-form {
+      border-color: #444;
+    }
+    
+    .search-result-item {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
