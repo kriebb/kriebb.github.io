@@ -2,6 +2,8 @@
 layout: contact
 title: "Contact"
 permalink: "/contact/"
+ref: contact
+pageid: contact
 ---
 
 This site is a personal showcase of my resume and a migration of my technical writings from Hashnode. All contact through this form is strictly for personal matters.
