@@ -2,7 +2,7 @@
 layout: page
 title: "Mission & Vision"
 permalink: "/mission-vision/"
-description: "My professional mission and vision as a freelance .NET developer."
+description: "My professional mission and vision as a .NET developer consultant at Xebia."
 sidebar: false
 lang: en
 ref: mission-vision
@@ -13,7 +13,7 @@ pageid: mission-vision
 I help businesses build secure and straightforward IT solutions by simplifying complex challenges, focusing on coaching, testing, and best practices (such as SOLID principles).
 
 ## Vision
-I believe in a future where (cloud) infrastructure, (cloud) software development and (cloud) security naturally reinforce each other through continuous learning. My freelance work allows me the freedom to collaborate openly, transparently, and effectively with businesses that also value and want to boost their quality, integrity, and knowledge sharing to a next, feasible level. 
+I believe in a future where (cloud) infrastructure, (cloud) software development and (cloud) security naturally reinforce each other through continuous learning. My work as a consultant at Xebia allows me the freedom to collaborate openly, transparently, and effectively with businesses that also value and want to boost their quality, integrity, and knowledge sharing to a next, feasible level. 
 
 ## Core Values
 

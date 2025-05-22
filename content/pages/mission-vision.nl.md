@@ -2,7 +2,7 @@
 layout: page
 title: "Missie & Visie"
 permalink: "/missie-visie/"
-description: "Mijn professionele missie en visie als freelance .NET developer."
+description: "Mijn professionele missie en visie als .NET developer consultant bij Xebia."
 sidebar: false
 lang: nl
 ref: mission-vision
@@ -13,7 +13,7 @@ pageid: mission-vision
 Ik help bedrijven bij het bouwen van veilige en duidelijke IT-oplossingen door complexe uitdagingen te vereenvoudigen, met focus op coaching, testen en best practices (zoals SOLID-principes).
 
 ## Visie
-Ik geloof in een toekomst waarin (cloud) infrastructuur, (cloud) softwareontwikkeling en (cloud) beveiliging elkaar natuurlijk versterken door continu leren. Mijn freelance werk geeft me de vrijheid om open, transparant en effectief samen te werken met bedrijven die ook waarde hechten aan en hun kwaliteit, integriteit en kennisdeling naar een volgend, haalbaar niveau willen tillen.
+Ik geloof in een toekomst waarin (cloud) infrastructuur, (cloud) softwareontwikkeling en (cloud) beveiliging elkaar natuurlijk versterken door continu leren. Mijn werk als consultant bij Xebia geeft me de vrijheid om open, transparant en effectief samen te werken met bedrijven die ook waarde hechten aan en hun kwaliteit, integriteit en kennisdeling naar een volgend, haalbaar niveau willen tillen.
 
 ## Kernwaarden
 
