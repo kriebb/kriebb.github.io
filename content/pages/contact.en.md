@@ -15,5 +15,5 @@ Please note that as a consultant at Xebia, I do not handle any business or profe
 - **Location**: Belgium (Antwerp/Ghent region)
 - **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/kristofriebbels)
 
-This site was created with Visual Studio Code, Le Chat Mistral AI large model, and Microsoft Copilot technologies.
+This site was built with Jekyll (using Ruby plugins) with assistance from AI tools like Mistral AI and Microsoft Copilot.
 
