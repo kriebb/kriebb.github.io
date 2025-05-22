@@ -7,3 +7,43 @@ layout: default
     <a class="btn-cta" href="{{ '/resume' | relative_url }}">Check my Resume</a>
   </div>
 </section>
+
+<style>
+  .tech-experiments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .tech-item {
+    background: var(--card-bg, #f9f9f9);
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tech-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .tech-item h3 {
+    margin-top: 0;
+    color: var(--accent-color, #0066cc);
+    font-size: 1.2rem;
+  }
+  
+  .tech-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .tech-experiments {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

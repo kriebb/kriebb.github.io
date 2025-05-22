@@ -1,5 +1,6 @@
 ---
-layout: index
+redirect_to: /blog/
+layout: null
 title: Home
 permalink: /
 lang: nl
@@ -17,10 +18,27 @@ sidebar: false
 
 Ik ben gepassioneerd over het verkennen van nieuwe technologieën en AI-tools, waaronder:
 
-- **Mistral AI** grote taalmodellen
-- **Microsoft Copilot** voor code-assistentie en contentcreatie
-- **Microsoft Copilot Platform (MCP)** voor aangepaste AI-oplossingen
-- **Visual Studio Code** verbeterde workflows
-- **Op maat gemaakte agents** met MCP-integratie met Mistral AI
+<div class="tech-experiments">
+  <div class="tech-item">
+    <h3>Mistral AI</h3>
+    <p>Werken met grote taalmodellen voor diverse toepassingen</p>
+  </div>
+  <div class="tech-item">
+    <h3>Microsoft Copilot</h3>
+    <p>AI benutten voor code-assistentie en contentcreatie</p>
+  </div>
+  <div class="tech-item">
+    <h3>Microsoft Copilot Platform</h3>
+    <p>Bouwen van aangepaste AI-oplossingen met MCP</p>
+  </div>
+  <div class="tech-item">
+    <h3>Visual Studio Code</h3>
+    <p>Creëren van verbeterde ontwikkelingsworkflows</p>
+  </div>
+  <div class="tech-item">
+    <h3>Custom AI Agents</h3>
+    <p>Ontwikkelen van agents met MCP-integratie en Mistral AI</p>
+  </div>
+</div>
 
 Deze experimenten helpen me om op de hoogte te blijven van de nieuwste ontwikkelingstools en AI-mogelijkheden, die ik toepas om deze site te verbeteren en betere content te creëren.

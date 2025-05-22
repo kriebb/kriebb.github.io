@@ -8,6 +8,8 @@ toc: true
 lang: nl
 ref: resume
 pageid: resume
+sitemap: false
+robots: noindex, nofollow
 
 ---
 
