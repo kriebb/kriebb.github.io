@@ -2,15 +2,14 @@
 layout: contact
 title: "Contact"
 permalink: "/contact/"
-sidebar: false
-lang: en
-ref: contact
-pageid: contact
 ---
 
-If you need more information or want to work together, feel free to reach out:
+This site is a personal showcase of my resume and a migration of my technical writings from Hashnode. All contact through this form is strictly for personal matters.
+
+Please note that I do not handle any business or professional inquiries through this website.
+
 - **Location**: Belgium (Antwerp/Ghent region)
 - **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/kristofriebbels)
 
-If you have any questions or want to work together, please fill out the form below. I'll get back to you as soon as possible.
+This site was created with Visual Studio Code, Le Chat Mistral AI large model, and Microsoft Copilot technologies.
 

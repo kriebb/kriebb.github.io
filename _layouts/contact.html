@@ -5,64 +5,54 @@ layout: page
 {{ content }}
 
 <section class="contact-section">
-  <form id="contact-form" action="https://formspree.io/f/xeoaokrq" method="POST">
-    <!-- Name -->
-    <div class="form-group">
-      <label for="name">{{ site.data.i18n[site.active_lang].contact.form.name }}:</label>
-      <input id="name" name="name" type="text" required />
-    </div>
-
-    <!-- Email (required) -->
-    <div class="form-group">
-      <label for="email">{{ site.data.i18n[site.active_lang].contact.form.email }}:</label>
-      <input id="email" name="email" type="email" required />
-    </div>
-
-    <!-- Phone (required) -->
-    <div class="form-group">
-      <label for="phone">{{ site.data.i18n[site.active_lang].contact.form.phone }}:</label>
-      <input id="phone" name="phone" type="tel" required />
-    </div>
-
-    <!-- Subject (required) -->
-    <div class="form-group">
-      <label for="subject">{{ site.data.i18n[site.active_lang].contact.form.subject }}:</label>
-      <input id="subject" name="subject" type="text" required />
-    </div>
-
-    <!-- Message -->
-    <div class="form-group">
-      <label for="message">{{ site.data.i18n[site.active_lang].contact.form.message }}:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+  <div class="xebia-contact-info">
+    <h2>Contact Through Xebia</h2>
+    <p>For inquiries or collaboration opportunities, please contact through Xebia:</p>
+    <div class="contact-options">
+      <a href="https://xebia.com/contact/" class="btn-primary" target="_blank">Contact Xebia</a>
     </div>
     
-    <!-- GDPR Consent -->
-    <div class="consent-box">
-      <input type="checkbox" id="data-consent" name="data-consent" required>
-      <label for="data-consent">
-        {% if site.active_lang == "en" %}
-        I consent to limited collection and secure handling of my contact information as described in the <a href="/privacy-policy/">Privacy Policy</a>.
-        {% else %}
-        Ik ga akkoord met de beperkte verzameling en veilige verwerking van mijn contactgegevens zoals beschreven in het <a href="/nl/privacy-beleid/">Privacybeleid</a>.
-        {% endif %}
-      </label>
+    <div class="additional-info">
+      <p>As a consultant at Xebia, all professional inquiries should be directed through the company.</p>
+      <p>Thank you for your understanding.</p>
     </div>
-    
-    <div id="form-status"></div>
-    
-    <!-- Informational Text -->
-    <p>
-      {{ site.data.i18n[site.active_lang].contact.form.note }}
-    </p>
-    <div class="h-captcha" data-sitekey="91229cfa-8ee4-4992-a5dc-4862a4320b06" data-callback="enableSubmit"></div>
-    <!-- hCaptcha instead of Google reCaptcha -->
-    <button class="btn-submit" >
-      {{ site.data.i18n[site.active_lang].contact.form.submit }}
-    </button>
-  </form>
+  </div>
 </section>
 
-<!-- Replace Google reCaptcha with hCaptcha -->
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-<script src="{{ '/assets/js/contact.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<style>
+  .xebia-contact-info {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .contact-options {
+    margin: 2rem 0;
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+  
+  .additional-info {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+</style>

@@ -9,6 +9,6 @@ sidebar: false
 
 # Kristof Riebbel - .NET Developer
 
-**{{ site.data.i18n[site.active_lang].hero.subtitle }}**. {{ site.data.i18n[site.active_lang].hero.description }}
+**Complexiteit omzetten in duidelijkheid**. {{ site.data.i18n[site.active_lang].hero.description }}
 
 {{ site.data.i18n[site.active_lang].hero.expertise }}

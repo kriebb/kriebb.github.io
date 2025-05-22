@@ -2,7 +2,7 @@
 
 # General
 site_title: "IT KRIEBBELS"
-site_description: "Freelance .NET Developer – Building secure, clear, and reliable solutions"
+site_description: "Senior .NET Developer specializing in secure, clear, and reliable solutions"
 switch_lang: "Switch to Dutch"
 
 
@@ -63,11 +63,11 @@ about:
 
 # Contact page
 contact:
-  title: "Contact Me"
-  intro: "If you need more information or want to work together, feel free to reach out:"
+  title: "Contact"
+  intro: "For inquiries or collaboration opportunities, please contact through Xebia:"
   location: "Location"
   location_value: "Belgium (Antwerp/Ghent region)"
-  form_intro: "If you have any questions or want to work together, please fill out the form below. I'll get back to you as soon as possible."
+  form_intro: "If you have questions or want to explore working together, please reach out through Xebia's website."
   form:
     name: "Name (min 2 chars)"
     email: "Email (Required)"

@@ -2,7 +2,7 @@
 layout: page
 title: "Services"
 permalink: "/services/"
-description: "Overview of my freelance .NET development services, including Agile approaches and project-based collaboration."
+description: "Overview of my .NET development expertise as a Xebia consultant, including Agile approaches and project-based collaboration."
 sidebar: false
 lang: en
 ref: services
@@ -10,7 +10,7 @@ pageid: services
 
 ---
 
-As a freelance .NET developer, I specialize in creating software that’s clean, reliable, and secure. I'm also a certified Scrum Master, so I can seamlessly adapt to Agile projects or help you transition smoothly into an Agile workflow.
+As a Senior .NET Developer at Xebia, I specialize in creating software that's clean, reliable, and secure. I'm also a certified Scrum Master, so I can seamlessly adapt to Agile projects or help you transition smoothly into an Agile workflow.
 
 ### 1. .NET Development
 - Building software solutions with C#, Azure, and modern software architecture.
@@ -28,5 +28,5 @@ As a freelance .NET developer, I specialize in creating software that’s clean,
 - Certified Scrum Master experienced in Agile processes, facilitating sprint planning, reviews, retrospectives, and daily stand-ups.
 - Supporting your team in becoming more productive and responsive through clear Agile practices.
 
-Interested in working together or curious about how Agile can benefit your projects? Feel free to [contact me](/contact).
+Interested in how Xebia can help your organization? [Contact Xebia](https://xebia.com/contact/).
 

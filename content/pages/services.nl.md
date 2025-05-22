@@ -2,14 +2,14 @@
 layout: page
 title: "Diensten"
 permalink: "/diensten/"
-description: "Overzicht van mijn freelance .NET ontwikkelingsdiensten, inclusief Agile benaderingen en projectmatige samenwerking."
+description: "Overzicht van mijn .NET ontwikkelingsexpertise als Xebia consultant, inclusief Agile benaderingen en projectmatige samenwerking."
 sidebar: false
 lang: nl
 ref: services
 pageid: services
 ---
 
-Als freelance .NET ontwikkelaar ben ik gespecialiseerd in het maken van software die schoon, betrouwbaar en veilig is. Ik ben ook een gecertificeerde Scrum Master, dus ik kan naadloos aanpassen aan Agile projecten of je helpen om soepel over te stappen naar een Agile werkwijze.
+Als Senior .NET Developer bij Xebia ben ik gespecialiseerd in het maken van software die schoon, betrouwbaar en veilig is. Ik ben ook een gecertificeerde Scrum Master, dus ik kan naadloos aanpassen aan Agile projecten of je helpen om soepel over te stappen naar een Agile werkwijze.
 
 ### 1. .NET Ontwikkeling
 - Bouwen van softwareoplossingen met C#, Azure en moderne software-architectuur.
@@ -27,4 +27,4 @@ Als freelance .NET ontwikkelaar ben ik gespecialiseerd in het maken van software
 - Gecertificeerde Scrum Master met ervaring in Agile processen, faciliteren van sprintplanning, reviews, retrospectives en daily stand-ups.
 - Ondersteunen van jouw team om productiever en responsiever te worden door middel van duidelijke Agile praktijken.
 
-Geïnteresseerd in samenwerking of benieuwd hoe Agile jouw projecten kan verbeteren? [Neem contact met me op](/nl/contact).
+Geïnteresseerd in hoe Xebia uw organisatie kan helpen? [Neem contact op met Xebia](https://xebia.com/contact/).
