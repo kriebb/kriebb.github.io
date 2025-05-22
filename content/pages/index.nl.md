@@ -7,7 +7,7 @@ ref: index
 sidebar: false
 ---
 
-# Kristof Riebbel - .NET Developer
+# Kristof Riebbels - .NET Developer
 
 **Complexiteit omzetten in duidelijkheid**. {{ site.data.i18n[site.active_lang].hero.description }}
 
