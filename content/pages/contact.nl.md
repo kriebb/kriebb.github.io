@@ -2,7 +2,7 @@
 layout: contact
 title: "Contact"
 permalink: "/contact/"
-lang: en
+lang: nl
 ref: contact
 pageid: contact
 
