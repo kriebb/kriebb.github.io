@@ -1,6 +1,6 @@
 ---
-redirect_to: https://itkriebbels.be/blog
-layout: null
+layout: redirect
+redirect_to: "https://itkriebbels.be/blog"
 title: Home
 permalink: /
 lang: en
