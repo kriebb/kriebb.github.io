@@ -1,5 +1,5 @@
 ---
-redirect_to: /blog/
+redirect_to: https://itkriebbels.be/blog
 layout: null
 title: Home
 permalink: /

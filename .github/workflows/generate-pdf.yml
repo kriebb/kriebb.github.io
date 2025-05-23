@@ -88,7 +88,7 @@ jobs:
             --margin-right 10mm \
             --margin-bottom 10mm \
             --margin-left 10mm \
-            http://localhost:4000/print-resume/ \
+            https://itkriebbels.be/print-resume/ \
             ./_site/kristof-riebbels-resume-en-wkhtmltopdf.pdf
           
           # Generate Dutch PDF with text searchability
@@ -107,7 +107,7 @@ jobs:
             --margin-right 10mm \
             --margin-bottom 10mm \
             --margin-left 10mm \
-            http://localhost:4000/nl/print-resume/ \
+            https://itkriebbels.be/nl/print-resume/ \
             ./_site/nl/kristof-riebbels-resume-nl-wkhtmltopdf.pdf
       
       - name: Stop Jekyll server

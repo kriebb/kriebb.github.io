@@ -11,7 +11,7 @@ const { chromium } = require('@playwright/test');
     console.log('Generating English PDF...');
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto('http://localhost:4000/print-resume/', {
+    await page.goto('https://itkriebbels.be/print-resume/', {
       waitUntil: 'networkidle'
     });
     
@@ -31,7 +31,7 @@ const { chromium } = require('@playwright/test');
     // Dutch version
     console.log('Generating Dutch PDF...');
     const nlPage = await context.newPage();
-    await nlPage.goto('http://localhost:4000/nl/print-resume/', {
+    await nlPage.goto('https://itkriebbels.be/nl/print-resume/', {
       waitUntil: 'networkidle'
     });
     
