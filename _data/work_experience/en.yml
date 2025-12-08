@@ -1,4 +1,18 @@
-- date: "04/2022 – Present"
+- date: "01/2025 – 12/2025"
+  company: "Liantis (Contractor)"
+  role: "Platform System Engineer"
+  bullets:
+    - "Redesigned Github Actions and Github workflows to be used in a new platform to support developers using SemVer, orchestration flows, building blocks and to help the developers to really carry the DevOps culture at Liantis"
+    - "Suggest, Convince and implement orchestration workflows with building blocks"
+    - "Inspire to use SemVer, Conventional Commits"
+    - "Educate fellow engineers / developers"
+    - "Help developer teams in a hackaton and note comments"
+    - "List all the items that should change towards a migration of existing applications and discuss"
+    - "Usage of WSL, K9s and help other developers to understand it"
+  extra_details:
+    - "Learn and understand Kubernetes"
+
+- date: "04/2022 – 12/2024"
   company: "Xebia XMS BE"
   role: "Software Architect"
   bullets:

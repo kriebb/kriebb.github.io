@@ -4,6 +4,8 @@ core_competencies:
       - "SOLID"
       - "TDD"
       - "Clean Code"
+      - "SemVer"
+      - "Conventional Commits"
   - category: "Agile Practices"
     items:
       - "Certified Scrum Master"
@@ -62,6 +64,9 @@ skills:
         - "Docker"
         - "GitHub Actions"
         - "CI/CD automation"
+        - "Kubernetes"
+        - "WSL"
+        - "K9s"
     - category: "Azure & DevOps"
       items:
         - "Azure DevOps (Repos, Pipelines, Agent Pools, Artifacts)"
