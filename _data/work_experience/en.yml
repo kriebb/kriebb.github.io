@@ -3,6 +3,8 @@
   role: "Integration Consultant (Platform System Engineer)"
   bullets:
     - "Redesigned Github Actions and Github workflows to be used in a new platform to support developers using SemVer, orchestration flows, building blocks and to help the developers to really carry the DevOps culture at Liantis"
+    - "Collaborating with Infrastructure & Operations (I&O) teams for configuration change requests and platform alignment"
+    - "Creating Technical Deliverables and Documentation for workflows and platform standards"
     - "Suggest, Convince and implement orchestration workflows with building blocks"
     - "Inspire to use SemVer, Conventional Commits"
     - "Educate fellow engineers / developers"
@@ -38,7 +40,7 @@
 - date: "04/2017 – 04/2022"
   company: "RecoMatics – Solution Engineer"
   bullets:
-    - "Analyzing customer needs, creating user stories (agile & waterfall)"
+    - "Requirements Analysis & User Story Definition (agile & waterfall)"
     - "Maintaining a SaaS product in Azure (Cloud Services, WebAPI, Service Bus)"
     - "Coaching the product and project teams to improve collaboration"
     - "Handling DevOps tasks: Azure DevOps, build pipelines, deployment automations"

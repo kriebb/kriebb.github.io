@@ -6,6 +6,9 @@ core_competencies:
       - "Clean Code"
       - "SemVer"
       - "Conventional Commits"
+      - "Performance Optimization"
+      - "Code Reviews"
+      - "Secure Software Design"
   - category: "Agile Practices"
     items:
       - "Certified Scrum Master"

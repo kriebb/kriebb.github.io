@@ -2,7 +2,7 @@
 
 # Algemeen
 site_title: "IT KRIEBBELS"
-site_description: "Freelance .NET Developer – Bouw van veilige, duidelijke en betrouwbare oplossingen"
+site_description: "Freelance .NET Technical Lead | Azure Developer Associate – Bouw van veilige, duidelijke en betrouwbare oplossingen"
 switch_lang: "Switch to English"
 
 # Navigatie
@@ -22,9 +22,9 @@ nav:
 
 # Homepage
 hero:
-  title: "Kristof Riebbels | .NET Developer"
+  title: "Kristof Riebbels | .NET Technical Lead"
   subtitle: "Complexiteit omzetten in duidelijkheid"
-  description: "Ik ben een freelance .NET developer gespecialiseerd in veilige, onderhoudbare en betrouwbare oplossingen op maat."
+  description: "Ik ben een freelance .NET Technical Lead gespecialiseerd in veilige, onderhoudbare en betrouwbare oplossingen op maat."
   expertise: "Met expertise in C#, ASP.NET Core en Azure help ik bedrijven om technische uitdagingen om te zetten in gestructureerde oplossingen die consistent en veilig werken, met focus op kwaliteitsvolle SOLID code."
   cta: "Bekijk mijn CV"
 
@@ -101,8 +101,9 @@ sidebar:
   
   links:
     home: "Home"
+    index: "Home"
     about: "Over Mij"
-    work_experience: "Werkervaring"
+    work-experience: "Werkervaring"
     contact: "Contact"
     resume: "CV"
     services: "Diensten"
