@@ -7,6 +7,36 @@
     
     <div class="timeline-content">
       <h3 class="company">{{ item.company }}</h3>
+      {% if item.role %}
+      <div class="role" style="color: #666; font-style: italic; margin-bottom: 0.5rem; font-weight: 500;">{{ item.role }}</div>
+      {% endif %}
+      
+      {% if item.core_skills or item.technologies %}
+      <div class="experience-skills-container" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.8rem; background: #f8f9fa; padding: 0.8rem; border-radius: 6px; border-left: 3px solid #00b386;">
+        {% if item.core_skills %}
+        <div class="skill-group" style="flex: 1; min-width: 200px;">
+          <div style="font-weight: 600; font-size: 0.85rem; color: #004c8c; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px;">Core Skills</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+            {% for skill in item.core_skills %}
+            <span style="background: white; border: 1px solid #e1e4e8; color: #333; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;">{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        
+        {% if item.technologies %}
+        <div class="skill-group" style="flex: 1; min-width: 200px;">
+          <div style="font-weight: 600; font-size: 0.85rem; color: #004c8c; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px;">Used Technologies</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+            {% for tech in item.technologies %}
+            <span style="background: white; border: 1px solid #e1e4e8; color: #333; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
       <ul class="main-bullets">
         {% for bullet in item.bullets %}
           <li>{{ bullet | markdownify }}</li>

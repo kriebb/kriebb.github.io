@@ -66,6 +66,7 @@
       font-size: 1rem;
       margin-bottom: 0.25rem;
       color: #00b386;
+      font-weight: 600;
     }
 
     .contact-info {
@@ -466,7 +467,7 @@
         <h3>{{ site.data.i18n[site.active_lang].resume.languages }}</h3>
         <ul class="education-list">
           {% for lang_item in site.data.resume[site.active_lang].languages %}
-          <li>{{ lang_item }}</li>
+          <li class="language-item">{{ lang_item | markdownify | remove: '<p>' | remove: '</p>' }}</li>
           {% endfor %}
         </ul>
       </div>
@@ -508,6 +509,27 @@
       <div class="experience-item">
         <div class="experience-date">{{ item.date }}</div>
         <h3 class="experience-company">{{ item.company }}</h3>
+        {% if item.role %}
+        <div class="experience-role" style="color: #666; font-style: italic; margin-bottom: 0.2rem; font-weight: 500;">{{ item.role }}</div>
+        {% endif %}
+        
+        {% if item.core_skills or item.technologies %}
+        <div style="display: flex; gap: 1rem; margin: 0.3rem 0; padding: 0.3rem; background: #f9f9f9; border-left: 2px solid #00b386; border-radius: 2px;">
+          {% if item.core_skills %}
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 0.75rem; color: #004c8c; margin-bottom: 0.1rem;">Core Skills</div>
+            <div style="font-size: 0.75rem;">{{ item.core_skills | join: ", " }}</div>
+          </div>
+          {% endif %}
+          {% if item.technologies %}
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 0.75rem; color: #004c8c; margin-bottom: 0.1rem;">Used Technologies</div>
+            <div style="font-size: 0.75rem;">{{ item.technologies | join: ", " }}</div>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
         <ul>
           {% for bullet in item.bullets limit:3 %}
           <li>{{ bullet | markdownify }}</li>

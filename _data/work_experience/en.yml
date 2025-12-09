@@ -1,9 +1,12 @@
 - date: "09/2025 – 12/2025"
-  company: "Liantis (Independent Consultant)"
+  company: "Liantis (Freelance via EnzoTech)"
   role: "Integration Consultant (Platform System Engineer)"
+  core_skills: ["DevOps Culture", "Workflow Orchestration", "Platform Engineering", "Technical Responsibility"]
+  technologies: ["Github Actions", "Kubernetes", "SemVer", "K9s", "WSL", "act (local workflows)"]
   bullets:
+    - "Held end technical responsibility for the design and implementation of the new developer platform workflows"
     - "Redesigned Github Actions and Github workflows to be used in a new platform to support developers using SemVer, orchestration flows, building blocks and to help the developers to really carry the DevOps culture at Liantis"
-    - "Creating Technical Deliverables and Documentation for workflows and platform standards"
+    - "Creating Technical Deliverables and Documentation for software releases, workflows and platform standards"
     - "Suggest, Convince and implement orchestration workflows with building blocks"
     - "Inspire to use SemVer, Conventional Commits"
     - "Educate fellow engineers / developers"
@@ -16,17 +19,19 @@
 - date: "04/2022 – 08/2025"
   company: "Xebia XMS BE"
   role: "Coding Architect / Team Lead / Azure Developer"
+  core_skills: ["Security Architecture", "Identity & Access Management (IAM)", "Cloud Modernization", "Performance Optimization"]
+  technologies: ["Azure", ".NET 8", "Auth0", "Itsme", "Azure DevOps", "APIM", "KeyVault", "SQL", "Blob Storage", "Private Link", "TypeScript", "Webpack", "BFF"]
   bullets:
     - "Providing expert consultancy for secure identity solutions and .NET ecosystem modernization"
     - "Implementing Auth0 with Itsme integration in corporate environments"
-    - "Developing with .NET 8, including migration from .NET 6 environments"
+    - "Developing with .NET 8 (C# 12), including migration from .NET 6 (C# 10) environments"
     - "Writing technical authority-building blog posts on security and architecture"
     - "Managing Azure DevOps environment with YAML pipelines, Agent Pools, and Artifacts"
     - "Speaking at industry conferences including [Techorama 2024](https://techorama-2024-belgium.sessionize.com/session/596350), [Update Conference 2023](http://www.updateconference.net/cz/2023/schedule/mock-your-openid-connect-provider), [VISUG](https://www.visug.be/Events/92), and [Dotnet Friday](https://dotnetfriday.nl/blogs/2024-02-dotnetfriday/)"
     - "Microsoft Certified: Azure Developer Associate (AZ-204)"
   client_projects:
     - name: "AXA Belgium"
-      details: "Led implementation of Auth0 (with Itsme integration), transitioning old systems (e.g. LDAP) and strengthening their customer authentication security posture. Worked with Azure Storage Accounts, KeyVault (one per app domain/environment type), and Application Insights for monitoring and logging. Collaborated with Infrastructure & Operations (I&O) teams for configuration change requests and platform alignment."
+      details: "Led implementation of Auth0 (with Itsme integration) across 4 domains: Internal User Management, Retail Self-registration, Brokers, and Corporate Users. Held end-to-end technical responsibility, designing secure ASP.NET Core MVC (.NET 8) solutions using the BFF pattern, Webpack, and TypeScript to replace legacy jQuery. Collaborated closely with Functional Analysts, IAM, Cloudification, and Standardization teams, acting as a liaison to Enterprise Architects. Mentored a junior Technical Analyst and ensured comprehensive documentation. Addressed resiliency (ASEv3), Private Link security, and optimized Auth0 usage (preventing 429 errors)."
     - name: "Outdoor Group"
       details: "Added ASP.NET MVC screens and integrating new fields and functionality within an existing project"
     - name: "KBC"
@@ -37,10 +42,15 @@
     - "Created an [Epic Easter Egg Hunt](/assets/images/work-experience/easter2024.jpeg) challenge using .NET and Azure"
 
 - date: "04/2017 – 04/2022"
-  company: "RecoMatics – Solution Engineer"
+  company: "RecoMatics"
+  role: "Solution Engineer"
+  core_skills: ["SaaS Product Development", "DevOps Implementation", "Technical Coaching", "SOLID Principles", "Scalability"]
+  technologies: [".NET Core", "ASP.NET Core", "Azure (Functions, Service Bus, Blob Storage)", "Docker", "Kubernetes", "TypeScript", "React", "EF Core", "Dapper", "SQL"]
   bullets:
     - "Requirements Analysis & User Story Definition (agile & waterfall)"
-    - "Maintaining a SaaS product in Azure (Cloud Services, WebAPI, Service Bus)"
+    - "Maintaining a SaaS product in Azure (Cloud Services, WebAPI, Service Bus) focused on scalable solutions"
+    - "Creating scalable test solutions and managing release documentation"
+    - "Performance optimization: SQL query plan analysis, IO optimization, and using Lease/REST operations for blob storage number generation to reduce database load"
     - "Coaching the product and project teams to improve collaboration"
     - "Handling DevOps tasks: Azure DevOps, build pipelines, deployment automations"
     - "Tech stack: .NET Core, TypeScript, React (minor), EF, Dapper, Azure Functions"
@@ -48,14 +58,17 @@
     - name: "KBC Verzekeringen (Ghent)"
       details: "Maintained, resolved bugs, with boy-scout approach for Vycunia product (SharePoint / Dyanimics integration)"
     - name: "KBC Bank"
-      details: "Handle a project  maintenance ) productized into Vycunia and provided ongoing support for their document management systems"
+      details: "Handle a project  maintenance, productized into Vycunia and provided ongoing support for their document management systems"
   extra_details:
     - "Implemented secure data integrations (SharePoint & Dynamics)"
     - "Set up CI/CD pipelines with Azure, GitVersion, GitHub"
     - "Served as a technical interviewer and coach"
 
 - date: "08/2014 – 04/2017"
-  company: "Qite – Senior Software Developer (C#)"
+  company: "Qite"
+  role: "Senior Software Developer"
+  core_skills: ["Full Stack Development", "Agile Methodologies", "TDD", "CI/CD Pipeline Setup", "Code Quality (SOLID)"]
+  technologies: ["WebAPI", "AngularJS", "TypeScript", "Bootstrap", "Azure (Blob, SQL)", "WinForms", "Entity Framework 6", "TFS/Git", "PowerShell", "MSBuild", "NSubstitute"]
   bullets:
     - "Developing & maintaining WebAPI, TypeScript, AngularJS, EF 6.1 solutions"
     - "Working in an agile way, focusing on user stories and continuous feedback"
@@ -73,7 +86,10 @@
     - "Provided team training (SOLID, TDD, DI)"
 
 - date: "05/2014 – 08/2014"
-  company: "Adam Software – Senior Software Developer (C#)"
+  company: "Adam Software"
+  role: "Senior Software Developer"
+  core_skills: ["Backend Architecture", "Proof of Concepts", "High Performance Computing"]
+  technologies: [".NET", "WebAPI", "CQRS", "EventStore", "Unity DI", "NuGet"]
   bullets:
     - "Proof of concept: WebAPI in a legacy application"
     - "Introducing NuGet packaging to the build server"
@@ -81,7 +97,10 @@
     - "Tech: CQRS, EventStore, Unity DI, WebAPI"
 
 - date: "05/2010 – 05/2014"
-  company: "Febelco – Senior Software Developer (C#)"
+  company: "Febelco"
+  role: "Senior Software Developer"
+  core_skills: ["Legacy Modernization", "Domain Driven Design (DDD)", "TDD", "Database Optimization (SQL)"]
+  technologies: ["C#", ".NET", "WCF", "SQL Server", "NHibernate", "WinForms", "MSMQ", "TeamCity", "Octopus Deploy", "Mercurial", "RhinoMocks"]
   bullets:
     - "Redeveloping an ERP system (DB2/COBOL/FORTRAN → SQL Server/WCF/.NET)"
     - "Applying Domain Driven Design, NHibernate, repository/unit-of-work patterns"
@@ -92,7 +111,10 @@
     - "Facilitated migration to modern version control systems and automation (TeamCity, Octopus Deploy)"
 
 - date: "12/2008 – 05/2010"
-  company: "Ferranti – Implementation Consultant"
+  company: "Ferranti"
+  role: "Implementation Consultant"
+  core_skills: ["Functional Analysis", "Business Intelligence", "Technical Testing", "Training"]
+  technologies: ["C#", "LINQ", "WebServices", "SQL Server", "TimeXtender", "InterGraph I/Dispatcher"]
   bullets:
     - "Working on projects for key clients including Essent BE, Essent NL, and Brandweer Antwerpen"
     - "Translating blueprints into functional documents, discussing analysis with customers"
@@ -105,14 +127,20 @@
       details: "Implemented TimeXtender and reporting solutions for business intelligence requirements"
 
 - date: "01/2008 – 12/2008"
-  company: "Ferranti – SQL/X++ Developer"
+  company: "Ferranti"
+  role: "SQL/X++ Developer"
+  core_skills: ["ERP Development", "On-site Consulting"]
+  technologies: ["Dynamics AX (X++)", "SQL Server"]
   bullets:
     - "Working on Ferranti's ERP system and Datawarehouse"
     - "Developing for Essent MDB in the Netherlands as on-site developer"
     - "Learning customer-facing implementation skills in international environment"
 
 - date: "07/2007 – 12/2007"
-  company: "Fortis Bank – Pay Management Information (BI)"
+  company: "Fortis Bank"
+  role: "Business Intelligence Consultant"
+  core_skills: ["Business Intelligence", "Data Analysis"]
+  technologies: ["SQL", "BI Tools"]
   bullets:
     - "Short-term project focused on business intelligence for Pay Management"
     - "Collaborating with stakeholders on data analysis and reporting needs"
