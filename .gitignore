@@ -12,6 +12,7 @@ vendor/
 .ruby-gemset
 Gemfile.lock  # For GitHub Pages compatibility
 node_modules/
+bin/
 
 # Editor ignores
 .vscode/

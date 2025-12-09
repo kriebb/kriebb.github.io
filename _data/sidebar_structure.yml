@@ -8,10 +8,11 @@
       urls:
         en: "/about/"
         nl: "/nl/over-mij/"
-    - id: work_experience
-      urls:
-        en: "/work-experience/"
-        nl: "/nl/werkervaring/"
+    - title:
+        en: Work Experience
+        nl: Werkervaring
+      id: work-experience
+      icon: fa-briefcase
     - id: contact
       urls:
         en: "/contact/"
