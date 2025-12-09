@@ -1,9 +1,8 @@
 - date: "09/2025 – 12/2025"
-  company: "Liantis"
+  company: "Liantis (Zelfstandig Consultant)"
   role: "Integration Consultant (Platform System Engineer)"
   bullets:
     - "Herontwerpen van Github Actions en Github workflows voor gebruik in een nieuw platform ter ondersteuning van ontwikkelaars, gebruikmakend van SemVer, orchestratie flows, bouwblokken en om de ontwikkelaars te helpen de DevOps-cultuur bij Liantis echt uit te dragen."
-    - "Samenwerken met Infrastructure & Operations (I&O) teams voor configuratiewijzigingen en platformafstemming"
     - "Creëren van Technische Deliverables en Documentatie voor workflows en platformstandaarden"
     - "Voorstellen, overtuigen en implementeren van orchestratie workflows met bouwblokken"
     - "Inspireren tot gebruik van SemVer, Conventional Commits"
@@ -16,7 +15,7 @@
 
 - date: "04/2022 – 08/2025"
   company: "Xebia XMS BE (Zelfstandig Consultant)"
-  role: "Software Architect"
+  role: "Coding Architect / Team Lead / Azure Developer"
   bullets:
     - "Leveren van hulp en met een consultancy-mindset voor beveiligde identiteitsoplossingen en .NET ecosysteem modernisering"
     - "Toepassen van kritisch denken en challengen waar het kan, ( met als doel meerwaarde te geven. )"
@@ -28,7 +27,7 @@
     - "Microsoft Certified: Azure Developer Associate (AZ-204)"
   client_projects:
     - name: "AXA Belgium"
-      details: "Leidde implementatie van Auth0 met Itsme integratie, versterking van hun klantauthenticatie beveiligingspositie. Werkte met Azure Storage Accounts, KeyVault (één per app-domein/omgevingstype), en Application Insights voor monitoring en logging."
+      details: "Leidde implementatie van Auth0 met Itsme integratie, versterking van hun klantauthenticatie beveiligingspositie. Werkte met Azure Storage Accounts, KeyVault (één per app-domein/omgevingstype), en Application Insights voor monitoring en logging. Werkte samen met Infrastructure & Operations (I&O) teams voor configuratiewijzigingen en platformafstemming."
     - name: "Outdoor Group"
       details: "Verbeterde ASP.NET MVC schermen em integratie van nieuwe velden en functionaliteit binnen een bestaand project"
     - name: "KBC"

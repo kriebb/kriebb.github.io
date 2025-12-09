@@ -7,5 +7,5 @@ sidebar: false
 lang: nl
 ref: blog
 pageid: blog
-sidebar: false
+blogsidebar: true
 ---

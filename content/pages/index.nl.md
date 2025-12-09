@@ -7,7 +7,7 @@ ref: index
 sidebar: false
 ---
 
-# Kristof Riebbel - .NET Developer
+# Kristof Riebbels - Coding Architect / Team Lead / Azure Developer
 
 **{{ site.data.i18n[site.active_lang].hero.subtitle }}**. {{ site.data.i18n[site.active_lang].hero.description }}
 

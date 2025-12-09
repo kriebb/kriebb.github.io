@@ -1,9 +1,8 @@
 - date: "09/2025 – 12/2025"
-  company: "Liantis"
+  company: "Liantis (Independent Consultant)"
   role: "Integration Consultant (Platform System Engineer)"
   bullets:
     - "Redesigned Github Actions and Github workflows to be used in a new platform to support developers using SemVer, orchestration flows, building blocks and to help the developers to really carry the DevOps culture at Liantis"
-    - "Collaborating with Infrastructure & Operations (I&O) teams for configuration change requests and platform alignment"
     - "Creating Technical Deliverables and Documentation for workflows and platform standards"
     - "Suggest, Convince and implement orchestration workflows with building blocks"
     - "Inspire to use SemVer, Conventional Commits"
@@ -16,7 +15,7 @@
 
 - date: "04/2022 – 08/2025"
   company: "Xebia XMS BE"
-  role: "Software Architect"
+  role: "Coding Architect / Team Lead / Azure Developer"
   bullets:
     - "Providing expert consultancy for secure identity solutions and .NET ecosystem modernization"
     - "Implementing Auth0 with Itsme integration in corporate environments"
@@ -27,7 +26,7 @@
     - "Microsoft Certified: Azure Developer Associate (AZ-204)"
   client_projects:
     - name: "AXA Belgium"
-      details: "Led implementation of Auth0 (with Itsme integration), transitioning old systems (e.g. LDAP) and strengthening their customer authentication security posture. Worked with Azure Storage Accounts, KeyVault (one per app domain/environment type), and Application Insights for monitoring and logging."
+      details: "Led implementation of Auth0 (with Itsme integration), transitioning old systems (e.g. LDAP) and strengthening their customer authentication security posture. Worked with Azure Storage Accounts, KeyVault (one per app domain/environment type), and Application Insights for monitoring and logging. Collaborated with Infrastructure & Operations (I&O) teams for configuration change requests and platform alignment."
     - name: "Outdoor Group"
       details: "Added ASP.NET MVC screens and integrating new fields and functionality within an existing project"
     - name: "KBC"
