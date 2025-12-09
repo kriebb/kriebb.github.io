@@ -40,15 +40,15 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Playwright
+      - name: Install Playwright Dependencies
         run: |
           npm init -y
-          npm install @playwright/test
+          npm ci
           npx playwright install chromium --with-deps
 
-      - name: Generate PDFs with Puppeteer
+      - name: Generate PDFs with Playwright
         run: |
-          node generate-pdf.js
+          npm run pdf
           # Verify PDFs were created
           ls -la ./_site/*.pdf || true
           ls -la ./_site/nl/*.pdf || true

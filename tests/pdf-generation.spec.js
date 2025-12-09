@@ -24,7 +24,7 @@ test('Generate Resume PDFs @pdf', async ({ page }) => {
   await page.goto('/nl/print-resume/', { waitUntil: 'networkidle' });
   
   await page.pdf({
-    path: './kristof-riebbels-resume-nl.pdf',
+    path: './_site/kristof-riebbels-resume-nl.pdf',
     format: 'A4',
     printBackground: true,
     margin: {
