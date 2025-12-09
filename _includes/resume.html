@@ -14,7 +14,8 @@
         <div class="competence-items">
           {% for item in competence_group.items %}
             <div class="competence-item">
-              <span class="competence-badge">{{ item }}</span>
+              {% include tech-icon.html tech=item %}
+              <span class="competence-text">{{ item }}</span>
             </div>
           {% endfor %}
         </div>
@@ -32,7 +33,8 @@
         <div class="competence-items">
           {% for item in category_obj.items %}
             <div class="competence-item">
-              <span class="competence-badge">{{ item }}</span>
+              {% include tech-icon.html tech=item %}
+              <span class="competence-text">{{ item }}</span>
             </div>
           {% endfor %}
         </div>

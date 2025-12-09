@@ -35,47 +35,37 @@ Key strengths include:
 For more projects, visit my [GitHub profile](https://github.com/kriebb).
 
 ## Skills and Expertise
-{% for category_obj in site.data.resume[site.active_lang].skills.development_and_programming %}
-<div class="competency-card">
-  <h3 class="competency-title">{{ category_obj.category }}</h3>
-  <div class="competency-items">
-    {% for item in category_obj.items %}
-      <div class="competency-item">
-        {% if item == "C#" %}{% include tech-icon.html tech="csharp" %}{% endif %}
-        {% if item == ".NET Core" %}{% include tech-icon.html tech="dotnet" %}{% endif %}
-        {% if item == "ASP.NET Core" %}{% include tech-icon.html tech="dotnet" %}{% endif %}
-        {% if item == "Azure" %}{% include tech-icon.html tech="azure" %}{% endif %}
-        {% if item == "JavaScript" %}{% include tech-icon.html tech="javascript" %}{% endif %}
-        {% if item == "TypeScript" %}{% include tech-icon.html tech="typescript" %}{% endif %}
-        {% if item contains "Docker" %}{% include tech-icon.html tech="docker" %}{% endif %}
-        <span class="competency-badge">{{ item }}</span>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-{% endfor %}
+{% include resume.html section="development_and_programming" %}
 
 ## Education and Graduation Project
+<div class="resume-list">
 {% for edu_item in site.data.resume[site.active_lang].education %}
-- {{ edu_item }}
+  <div class="resume-list-item">{{ edu_item }}</div>
 {% endfor %}
+</div>
 
 ## Certifications
 <div class="certification-container">
-    {% include certification-logos.html cert=cert_key name=cert_name %}
+    {% include certification-logos.html %}
 </div>
 
 ## {{ site.data.i18n[site.active_lang].resume.languages }}
+<div class="resume-list">
 {% for lang_item in site.data.resume[site.active_lang].languages %}
-- {{ lang_item }}
+  <div class="resume-list-item">{{ lang_item | markdownify | remove: '<p>' | remove: '</p>' }}</div>
 {% endfor %}
+</div>
 
 ## Interests and Hobbies
+<div class="resume-list">
 {% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}
-- {{ interest }}
+  <div class="resume-list-item">{{ interest }}</div>
 {% endfor %}
+</div>
 
 ## Talk to Me About
+<div class="resume-list">
 {% for topic in site.data.resume[site.active_lang].talk_to_me_about %}
-- {{ topic }}
+  <div class="resume-list-item">{{ topic }}</div>
 {% endfor %}
+</div>

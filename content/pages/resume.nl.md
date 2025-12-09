@@ -38,9 +38,11 @@ Voor meer projecten, bezoek mijn [GitHub profiel](https://github.com/kriebb).
 {% include resume.html section="development_and_programming" %}
 
 ## Opleiding en Afstudeerproject
+<div class="resume-list">
 {% for edu_item in site.data.resume[site.active_lang].education %}
-- {{ edu_item }}
+  <div class="resume-list-item">{{ edu_item }}</div>
 {% endfor %}
+</div>
 
 ## Certificeringen
 <div class="certification-container">
@@ -48,16 +50,22 @@ Voor meer projecten, bezoek mijn [GitHub profiel](https://github.com/kriebb).
 </div>
 
 ## {{ site.data.i18n[site.active_lang].resume.languages }}
+<div class="resume-list">
 {% for lang_item in site.data.resume[site.active_lang].languages %}
-- {{ lang_item }}
+  <div class="resume-list-item">{{ lang_item | markdownify | remove: '<p>' | remove: '</p>' }}</div>
 {% endfor %}
+</div>
 
 ## Interesses en Hobby's
+<div class="resume-list">
 {% for interest in site.data.resume[site.active_lang].interests_and_hobbies %}
-- {{ interest }}
+  <div class="resume-list-item">{{ interest }}</div>
 {% endfor %}
+</div>
 
 ## Praat Met Mij Over
+<div class="resume-list">
 {% for topic in site.data.resume[site.active_lang].talk_to_me_about %}
-- {{ topic }}
+  <div class="resume-list-item">{{ topic }}</div>
 {% endfor %}
+</div>

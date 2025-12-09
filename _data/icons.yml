@@ -1,0 +1,55 @@
+# Mapping for Devicon classes
+# Format: "Resume Keyword": "devicon-class"
+
+# Languages & Frameworks
+"C#": "devicon-csharp-plain colored"
+".NET Core": "devicon-dotnetcore-plain colored"
+".NET 8": "devicon-dotnetcore-plain colored"
+"ASP.NET Core": "devicon-dotnetcore-plain colored"
+"ASP.NET MVC": "devicon-dotnetcore-plain colored"
+"Web API": "devicon-dotnetcore-plain colored"
+"JavaScript": "devicon-javascript-plain colored"
+"TypeScript": "devicon-typescript-plain colored"
+"CSS/SCSS": "devicon-css3-plain colored"
+"Jekyll": "devicon-jekyll-plain colored"
+"Python": "devicon-python-plain colored"
+"Node.js": "devicon-nodejs-plain colored"
+"React": "devicon-react-original colored"
+"AngularJS": "devicon-angularjs-plain colored"
+"Bootstrap": "devicon-bootstrap-plain colored"
+
+# Databases
+"SQL Server": "devicon-microsoftsqlserver-plain colored"
+"CosmosDB": "devicon-azure-plain colored" # Cosmos specific icon not always available, Azure generic is safe
+"MongoDB": "devicon-mongodb-plain colored"
+"Azure SQL Database": "devicon-azure-plain colored"
+"SQL": "devicon-azuresqldatabase-plain colored"
+
+# Infrastructure & Cloud
+"Azure": "devicon-azure-plain colored"
+"Docker": "devicon-docker-plain colored"
+"Kubernetes": "devicon-kubernetes-plain colored"
+"GitHub Actions": "devicon-githubactions-plain colored"
+"WSL": "devicon-linux-plain colored"
+"Linux": "devicon-linux-plain colored"
+"PowerShell": "devicon-powershell-plain colored"
+
+# Tools
+"Visual Studio": "devicon-visualstudio-plain colored"
+"Visual Studio Code": "devicon-vscode-plain colored"
+"Rider": "devicon-jetbrains-plain colored"
+"Git": "devicon-git-plain colored"
+"GitHub": "devicon-github-original colored"
+"Azure DevOps": "devicon-azuredevops-plain colored"
+"TFS/Git": "devicon-azuredevops-plain colored"
+"NuGet": "devicon-nuget-original colored"
+"Webpack": "devicon-webpack-plain colored"
+
+# Generic / Fallbacks (using FontAwesome for concepts)
+"Scrum": "fas fa-users-cog"
+"SOLID": "fas fa-cubes"
+"TDD": "fas fa-vial"
+"Clean Code": "fas fa-broom"
+"Security": "fas fa-shield-alt"
+"OAuth": "fas fa-key"
+"OIDC": "fas fa-id-card"
