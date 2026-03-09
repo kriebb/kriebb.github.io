@@ -125,12 +125,7 @@ function makeCollapsible(pre, actionsContainer) {
    */
   function formatSpecialLanguages(codeBlock, language) {
     if (!language) return;
-    
-    // Handle line numbers for certain languages
-    if (['csharp', 'cs', 'javascript', 'js', 'typescript', 'ts', 'cshtml', 'razor'].includes(language)) {
-      addLineNumbers(codeBlock);
-    }
-    
+
     // Format HTTP headers specially
     if (language === 'http' || language === 'http-headers') {
       formatHttpHeaders(codeBlock);
@@ -150,24 +145,6 @@ function makeCollapsible(pre, actionsContainer) {
     if (language === 'cshtml' || language === 'razor') {
       formatRazorSyntax(codeBlock);
     }
-  }
-  
-  /**
-   * Add line numbers to code
-   */
-  function addLineNumbers(codeBlock) {
-    if (codeBlock.parentNode.classList.contains('has-line-numbers')) {
-      return;
-    }
-
-    codeBlock.parentNode.classList.add('has-line-numbers');
-
-    const lines = codeBlock.innerHTML.split('\n');
-    const wrappedLines = lines.map(line => 
-      `<span class="code-line">${line}</span>`
-    ).join('\n');
-    
-    codeBlock.innerHTML = wrappedLines;
   }
   
   /**

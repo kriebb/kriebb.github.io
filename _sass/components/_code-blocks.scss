@@ -119,24 +119,3 @@ pre.collapsed {
 pre.collapsed .collapsed-indicator {
     display: flex;
 }
-
-.has-line-numbers {
-    counter-reset: line;
-    padding-left: 3.25rem;
-
-    .code-line {
-        position: relative;
-        padding-left: 0.35rem;
-
-        &:before {
-            counter-increment: line;
-            content: counter(line);
-            position: absolute;
-            left: -2.7rem;
-            width: 2.2rem;
-            color: rgba(255, 255, 255, 0.35);
-            text-align: right;
-            font-size: 0.8em;
-        }
-    }
-}
