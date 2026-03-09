@@ -39,23 +39,26 @@
   
   /* Code highlighting improvements */
   .highlight {
-    background-color: var(--light-gray);
-    border-radius: 8px;
+    background: transparent;
+    border-radius: 12px;
     margin: 1.5rem 0;
     
     pre {
-      padding: 1.2rem;
+      padding: 2.5rem 1rem 1rem;
       overflow-x: auto;
       margin: 0;
+      background: #202327;
+      color: #eef2f7;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     
     code {
       font-family: 'Fira Code', monospace, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono';
       font-size: 0.9rem;
-      line-height: 1.5;
+      line-height: 1.65;
     }
   }
   
   .dark-mode .highlight {
-    background-color: #2d2d2d;
+    background: transparent;
   }

@@ -1,49 +1,54 @@
 // assets/js/code-blocks.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all code blocks
     initCodeBlocks();
-    
-    // Initialize Mermaid diagrams with custom config
-    initMermaidDiagrams();
+
+    if (typeof initMermaidDiagrams === 'function') {
+      initMermaidDiagrams();
+    }
   });
-  
-  /**
-   * Initialize all code blocks with collapsible functionality and copy button
-   */
-  /**
- * Initialize all code blocks with collapsible functionality and copy button
- */
+
+const COLLAPSE_LINE_THRESHOLD = 18;
+const COLLAPSE_CHAR_THRESHOLD = 900;
+
 function initCodeBlocks() {
-    // Find all code blocks
     const codeBlocks = document.querySelectorAll('pre code');
-    
+
     codeBlocks.forEach((codeBlock, index) => {
       const pre = codeBlock.parentNode;
+      const wrapper = pre.parentNode;
+
+      if (pre.dataset.codeBlockEnhanced === 'true') {
+        return;
+      }
+
+      pre.dataset.codeBlockEnhanced = 'true';
       const id = `code-block-${index}`;
       pre.id = id;
-      
-      // Set language attribute for styling
+
       const language = getLanguageFromClass(codeBlock.className);
       if (language) {
         pre.setAttribute('data-lang', language);
       }
-      
-      // Create action buttons container
+
       const actionsContainer = document.createElement('div');
       actionsContainer.className = 'code-actions';
       pre.appendChild(actionsContainer);
-      
-      // Add copy button
+
       addCopyButton(actionsContainer, codeBlock);
-      
-      // Make collapsible if code is long
-      if (codeBlock.textContent.split('\n').length > 10) {
+
+      const lineCount = codeBlock.textContent.split('\n').length;
+      const charCount = codeBlock.textContent.length;
+
+      if (lineCount > COLLAPSE_LINE_THRESHOLD && charCount > COLLAPSE_CHAR_THRESHOLD) {
         makeCollapsible(pre, actionsContainer);
       }
-      
-      // Format special languages
+
       formatSpecialLanguages(codeBlock, language);
+
+      if (wrapper && wrapper.classList.contains('highlight')) {
+        wrapper.classList.add('code-block-shell');
+      }
     });
   }
   
@@ -87,40 +92,31 @@ function addCopyButton(container, codeBlock) {
     container.appendChild(copyBtn);
   }
   
-  /**
-   * Make a code block collapsible if it's long
-   */
-/**
- * Make a code block collapsible if it's long
- */
 function makeCollapsible(pre, actionsContainer) {
-    // Start collapsed
     pre.classList.add('collapsed');
-    
-    // Add collapsed indicator
+
     const indicator = document.createElement('div');
     indicator.className = 'collapsed-indicator';
     indicator.innerHTML = '<i class="fa fa-ellipsis-h"></i> <span>Code collapsed</span>';
     pre.appendChild(indicator);
-    
-    // Add toggle button
+
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'collapse-toggle';
-    toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>'; // Down arrow icon
+    toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
     toggleBtn.title = 'Expand code';
-    
+
     toggleBtn.addEventListener('click', () => {
       pre.classList.toggle('collapsed');
-      
+
       if (pre.classList.contains('collapsed')) {
-        toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>'; // Down arrow icon
+        toggleBtn.innerHTML = '<i class="fa fa-chevron-down"></i>';
         toggleBtn.title = 'Expand code';
       } else {
-        toggleBtn.innerHTML = '<i class="fa fa-chevron-up"></i>'; // Up arrow icon
+        toggleBtn.innerHTML = '<i class="fa fa-chevron-up"></i>';
         toggleBtn.title = 'Collapse code';
       }
     });
-    
+
     actionsContainer.appendChild(toggleBtn);
   }
   
@@ -160,10 +156,12 @@ function makeCollapsible(pre, actionsContainer) {
    * Add line numbers to code
    */
   function addLineNumbers(codeBlock) {
-    // Add line numbers container class
+    if (codeBlock.parentNode.classList.contains('has-line-numbers')) {
+      return;
+    }
+
     codeBlock.parentNode.classList.add('has-line-numbers');
-    
-    // Split code by lines and wrap each in a span
+
     const lines = codeBlock.innerHTML.split('\n');
     const wrappedLines = lines.map(line => 
       `<span class="code-line">${line}</span>`

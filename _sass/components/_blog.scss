@@ -301,6 +301,19 @@
     margin-bottom: 1rem;
     color: var(--heading-color);
   }
+
+  h1 code,
+  h2 code,
+  h3 code,
+  h4 code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    font-size: 0.9em;
+    white-space: normal;
+  }
   
   p {
     margin-bottom: 1.5rem;
