@@ -126,3 +126,56 @@ In [`work-experience.md`](./work-experience.md) wordt met Liquid de data opgehaa
 Veel succes met je website! Als je nog vragen hebt, voel je vrij om contact op te nemen.  
 
 *© 2025 IT KRIEBBELS. All rights reserved.*
+
+---
+
+## Docker Development Preview
+
+If you do not want Ruby or gems on your host, use the Docker preview workflow instead.
+
+This keeps Jekyll running in a container while you edit the repo in VS Code.
+
+### Start the preview
+
+```bash
+LOCAL_UID=$(id -u) LOCAL_GID=$(id -g) docker compose up
+```
+
+What this does:
+
+- builds a local dev image with the Jekyll toolchain and gems already installed
+- serves the site on `http://127.0.0.1:4000`
+- enables `--watch` and `--force_polling` for mounted-file changes
+- enables `--future` so scheduled posts are visible locally
+- enables LiveReload on port `35729`
+- keeps generated preview output inside the container instead of writing Ruby/Jekyll artifacts into your repo
+
+### Open the site
+
+- Site: `http://127.0.0.1:4000`
+- LiveReload: `http://127.0.0.1:35729`
+
+### Typical workflow
+
+1. Open this repo in VS Code.
+2. Run `LOCAL_UID=$(id -u) LOCAL_GID=$(id -g) docker compose up`.
+3. Keep the container running.
+4. Edit posts, layouts, includes, Sass, or images.
+5. Refresh the browser and inspect the rendered result.
+
+### Stop the preview
+
+```bash
+docker compose down
+```
+
+### Notes
+
+- Running with `LOCAL_UID` and `LOCAL_GID` avoids root-owned files in the repo during local development.
+- If port `4000` is already in use, start it like this instead:
+
+```bash
+LOCAL_UID=$(id -u) LOCAL_GID=$(id -g) JEKYLL_PORT=4001 LIVERELOAD_PORT=35730 docker compose up
+```
+- The first `docker compose up` builds the local image.
+- Later restarts reuse that built image, so startup is much faster than reinstalling gems every time.

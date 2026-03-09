@@ -1,0 +1,7 @@
+.git
+_site
+.jekyll-cache
+playwright-report
+test-results
+node_modules
+vendor
