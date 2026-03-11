@@ -27,6 +27,13 @@ hero:
   description: "Ik ben een freelance .NET Technical Lead gespecialiseerd in veilige, onderhoudbare en betrouwbare oplossingen op maat."
   expertise: "Met expertise in C#, ASP.NET Core en Azure help ik bedrijven om technische uitdagingen om te zetten in gestructureerde oplossingen die consistent en veilig werken, met focus op kwaliteitsvolle SOLID code."
   cta: "Bekijk mijn CV"
+  blog_cta: "Lees de blog"
+  resume_cta: "Bekijk mijn CV"
+
+home:
+  latest_posts_title: "Laatste blogposts"
+  latest_posts_intro: "De blog is de beste plaats om te zien waar ik actief aan leer, bouw en probeer echt te begrijpen."
+  all_posts_cta: "Bekijk alle blogposts"
 
 # CV pagina
 resume:

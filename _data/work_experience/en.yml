@@ -1,3 +1,13 @@
+- date: "01/2026 – Present"
+  company: "AXA Belgium (Freelance via Solvus)"
+  role: ".NET Developer Engineer"
+  core_skills: ["ASP.NET Core Delivery", "System Analysis Support", "DevOps Collaboration", "Modernization"]
+  technologies: [".NET", "ASP.NET Core MVC", "Angular", "Azure DevOps", "YAML", "TypeScript"]
+  bullets:
+    - "Returned to AXA Belgium to work across .NET delivery, system analysis support, and implementation work in existing business-critical applications"
+    - "Helping delivery teams by taking feature work, analysis follow-up, and practical DevOps tasks off the board where that creates breathing room"
+    - "Continuing to grow into Angular, AI-assisted workflows, and platform-minded engineering habits alongside day-to-day delivery work"
+
 - date: "09/2025 – 12/2025"
   company: "Liantis (Freelance via EnzoTech)"
   role: "Integration Consultant (Platform System Engineer)"
