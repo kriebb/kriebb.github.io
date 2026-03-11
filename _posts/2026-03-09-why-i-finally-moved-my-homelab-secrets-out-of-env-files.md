@@ -23,7 +23,7 @@ During that stretch I started my company, spent some time at Liantis, and later 
 
 At home I was doing the same kind of work in miniature. I kept consolidating the HomeLab, testing local LLM workflows, and noticing that the setup no longer felt like a loose pile of containers. It had started to behave like infrastructure I relied on. My time at Liantis also pushed me toward platform engineering thinking in a way that finally stuck.
 
-That is why this felt like the right post to return with. It sits at the intersection of .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management. Moving to Infisical{% include inline-tech-note.html key="post1_infisical" %} was the moment those threads stopped being separate concerns and started pressing on the same design problem.
+That is why I came back with this post. It sits where .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management started pulling on the same problem. Moving to Infisical{% include inline-tech-note.html key="post1_infisical" %} was the point where those threads stopped feeling separate.
 
 ## Previously On
 
@@ -78,7 +78,7 @@ flowchart LR
     A4 --> A5["running container gets flat env values"]
 ```
 
-Docker Compose still wants flat values. That part did not change. What changed is where the long-lived truth lives. Before, copied env files were the normal operating model. After the migration, the flat file only exists at the last handoff where the runtime still needs it.
+Docker Compose still wants flat values. That part did not change. What changed is where the long-lived truth lives. Before, copied env files were the normal way of working. After the migration, the flat file only exists at the last handoff where the runtime still needs it.
 
 ## Why This Became Worth Fixing Now
 
@@ -94,7 +94,7 @@ An LLM does not care about my story about "just a local lab." It sees token-like
 
 I did not need every warning to be perfect for the pattern to be obvious. If Gemini or Codex kept stumbling over token-like files in ordinary repos, I had left too much operational meaning in the wrong places. That gets more expensive once the same tools are helping me inspect infrastructure, compare options, write docs, and patch repos. I want those tools to behave more like expensive consultants than curious interns rummaging through leftovers.
 
-What the tooling did well was turn vague discomfort into a concrete design problem. The same thing kept happening: a model hit token-like files, or a workflow blurred config and secret enough to make the conversation noisy. That frustration was also feedback. It meant too much trust-sensitive information was still leaking into ordinary repo state.
+What the tooling did well was turn vague discomfort into a concrete design problem. The same thing kept happening: a model hit token-like files, or a workflow blurred config and secret enough to make the conversation noisy. That frustration was also feedback. It told me too much trust-sensitive information was still leaking into ordinary repo state.
 
 ## Show And Tell: The Intake In My Own Words
 
@@ -155,9 +155,9 @@ Before landing on Infisical, the most obvious alternative was Bitwarden Secrets 
 
 Bitwarden came into the picture for a very ordinary reason: I was paying the yearly subscription anyway. That made Bitwarden Secrets Manager a fair comparison from the start, not a straw man.
 
-The part that pushed me away was the shape of the problem. I was not trying to answer "where do I store one more sensitive string?" I was trying to answer how runners should fetch stack-specific secrets, how shared provider credentials should be owned once, and how the whole thing should keep working locally without dragging sensitive material through too many repos and working copies. That is much closer to platform design than to personal credential storage.
+The part that pushed me away was the shape of the problem. I was not trying to answer "where do I store one more sensitive string?" I was trying to answer how runners should fetch stack-specific secrets, how shared provider credentials should be owned once, and how the whole thing could keep working locally without dragging sensitive material through too many repos and working copies. That is much closer to platform design than to personal credential storage.
 
-The decisive requirement was local-first operation. I wanted the HomeLab to keep its own secret control plane close to the workloads it serves. I also want a future where local development can use a local Infisical-facing path or proxy of my own instead of assuming the wider network is always part of the answer. Once that became a hard requirement, the comparison changed. Bitwarden Secrets Manager is a sensible product in the right family. It just does not line up with the operating model I want this environment to teach me.
+The decisive requirement was local-first operation. I wanted the HomeLab to keep its own secret control plane close to the workloads it serves. I also want a future where local development can use a local Infisical-facing path or proxy of my own instead of assuming the wider network is always part of the answer. Once that became a hard requirement, the comparison changed. Bitwarden Secrets Manager is a sensible product in the right family. It just does not line up with the way I want this environment to work.
 
 ## What Changed
 
@@ -187,7 +187,7 @@ flowchart LR
     VM --> UI
 ```
 
-What the diagram above tells you is how I want the HomeLab to stay split physically. The NAS carries the durable side, especially databases and state that should stay close to the disks. The old laptop carries the compute side: Redis, heavier runtimes, and the UI-heavy workloads that make more sense there. There is a Traefik on each side because there are two routing surfaces in practice, not one. I will come back to that later, but it matters here because the secret architecture sits on top of that split.
+What the diagram above shows is the physical split I want to keep. The NAS carries the durable side, especially databases and state that should stay close to the disks. The old laptop carries the compute side: Redis, heavier runtimes, and the UI-heavy workloads that make more sense there. There is a Traefik on each side because there are really two routing surfaces here, not one. I will come back to that later, but it matters here because the secret architecture sits on top of that split.
 
 The change was not simply "take the old `.env` values and paste them into a vault." In practice it meant:
 
@@ -215,7 +215,7 @@ I keep that fragment because it shows the tension honestly. My first instinct wa
 
 Infisical is not just a prettier place to put environment variables. In this setup it became the control plane for secret distribution.
 
-That difference matters because the wrong mental model simply recreates the old mess behind a nicer UI. If I treat Infisical as a place to dump passwords, I still end up with sprawl. If I treat it as the place where secret ownership and distribution live, I start designing runtimes, runners, and stacks around a cleaner source of truth.
+That difference matters because the wrong mental model just brings back the old mess behind a nicer UI. If I treat Infisical as a place to dump passwords, I still end up with sprawl. If I treat it as the place where secret ownership and distribution live, I start designing runtimes, runners, and stacks around a cleaner source of truth.
 
 For my environment, the important properties were self-hosting, machine identity workflows, imports and references, a usable CLI, and local-first operation. I wanted the vault model to fit the HomeLab I actually have.
 
