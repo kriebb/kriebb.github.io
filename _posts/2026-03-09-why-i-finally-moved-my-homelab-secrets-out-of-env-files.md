@@ -23,11 +23,13 @@ During that stretch I started my company, spent some time at Liantis, and later 
 
 At home I was doing the same kind of work in miniature. I kept consolidating the HomeLab, testing local LLM workflows, and noticing that the setup no longer felt like a loose pile of containers. It had started to behave like infrastructure I relied on. My time at Liantis also pushed me toward platform engineering thinking in a way that finally stuck.
 
-That's why I came back with this post. It sits where .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management started pulling on the same problem. Moving to Infisical{% include inline-tech-note.html key="post1_infisical" %} was the point where those threads stopped feeling separate.
+That's why I came back with this post. It sits where .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management started pulling on the same problem. Infisical{% include inline-tech-note.html key="post1_infisical" %} was where those threads finally stopped feeling separate.
 
 ## Previously On
 
-The real context was not one older post. It was the shape the HomeLab had grown into, and the way AI started forcing me to inspect that shape more honestly.
+This is the part where the setup itself matters more than any earlier post.
+
+The real context was the shape the HomeLab had grown into, and the way AI started forcing me to inspect that shape more honestly.
 
 I had Docker stacks spread across a Synology NAS{% include inline-tech-note.html key="post1_synology_nas" %}, a separate compute VM{% include inline-tech-note.html key="post1_compute_vm" %}, and several repositories where `stack.env.template`, `.env`, and `stack.env` had accumulated over time. I keep those Compose definitions manageable through Dockge{% include inline-tech-note.html key="post1_dockge" %}. None of that was dramatic on its own. The problem was the pattern: secrets and token-like values kept showing up as ordinary text in too many places.
 
@@ -39,7 +41,7 @@ For too long I kept giving myself the same excuse: it's local, it's private, it'
 
 The starting point was simple enough: I wanted secrets out of the copied text files scattered across the environment.
 
-There was no dramatic breach behind this change. What kept building instead was friction. AI tooling kept tripping over token-like values. I kept moving the same provider credentials between the NAS, the VM, and local working copies. Rotating anything felt heavier than it should. After a while I could not answer a basic question cleanly anymore: who actually owned a given secret?
+There was no dramatic breach behind this change. What kept building instead was friction. AI tooling kept tripping over token-like values. I kept moving the same provider credentials between the NAS, the VM, and local working copies. Rotating anything felt heavier than it should. After a while I couldn't answer a basic question cleanly anymore: who actually owned a given secret?
 
 That's what I mean by secret debt.
 
@@ -52,11 +54,11 @@ see: docs/INFISICAL_VISUAL_STORYBOARD.md
 
 ![A cleaner Infisical overview after the initial instance banners were dismissed](/assets/images/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files/infisical-org-overview-clean.png)
 
-The migration stopped feeling vague once I had a place where secret ownership could live outside the repos. The useful part wasn't the web UI itself. The useful part was finally having a control plane.
+The screenshot above is the moment this stopped looking like cleanup and started looking like an operating change. The important part is not the web UI. The important part is that secret ownership now had a place to live outside the repos.
 
 When I say secret debt, I don't mean only "too many passwords." I mean the drag that appears when secrets are duplicated, kept too close to code, edited by hand in several places, and annoying enough to rotate that I postpone it. That kind of debt stays quiet until it turns into a stale `.env`, an unexpected `401`, or a runner still using last week's value.
 
-I ran into that pattern often enough that it stopped looking like a minor nuisance. It was really an architecture problem, which meant I wasn't going to fix it with one careful evening of `.env` edits. I needed a source of truth and a deployment flow that still made sense when I was tired or in a hurry.
+I ran into that pattern often enough that it stopped looking like a minor nuisance. It was really an architecture problem, which meant I wasn't going to fix it with one careful evening of `.env` edits. I needed a source of truth and a deployment flow that would still make sense when I was tired or in a hurry.
 
 Before, the secret flow really looked like this:
 
@@ -94,7 +96,7 @@ An LLM doesn't care about my story about "just a local lab." It sees token-like 
 
 I didn't need every warning to be perfect for the pattern to be obvious. If Gemini or Codex kept stumbling over token-like files in ordinary repos, I had left too much operational meaning in the wrong places. That gets more expensive once the same tools are helping me inspect infrastructure, compare options, write docs, and patch repos. I want those tools to behave more like expensive consultants than curious interns rummaging through leftovers.
 
-What the tooling did well was turn vague discomfort into a concrete design problem. The same thing kept happening: a model hit token-like files, or a workflow blurred config and secret enough to make the conversation noisy. That frustration was also feedback. It told me too much trust-sensitive information was still leaking into ordinary repo state.
+The tooling turned vague discomfort into a concrete design problem. The same thing kept happening: a model hit token-like files, or a workflow blurred config and secret enough to make the conversation noisy. That frustration was also feedback. It told me too much trust-sensitive information was still leaking into ordinary repo state.
 
 ## The Intake In My Own Words
 
@@ -137,7 +139,7 @@ On paper this is an infrastructure hygiene story. In practice it also changed ho
 
 Once I started using those tools seriously, the questions changed. Which repositories should they see? Which files should stay out of scope completely? How much operational state was I normalizing into everyday context windows without noticing?
 
-I don't think the useful answer is fearmongering. I still use cloud LLMs because they genuinely help. They help me think faster, compare options, write better, and move through dull work with less friction. That is precisely why I care about reducing the amount of sensitive material that sits near ordinary working context. I didn't really arrive at that conclusion up front. It became obvious only after I started using the tools seriously and kept seeing where they tripped.
+I don't think the useful answer is fearmongering. I still use cloud LLMs because they genuinely help. They help me think faster, compare options, write better, and move through dull work with less friction. That's exactly why I care about reducing the amount of sensitive material that sits near ordinary working context. I didn't really arrive at that conclusion up front. It became obvious only after I started using the tools seriously and kept seeing where they tripped.
 
 The local LLM lab matters to me for the same reason. I don't think local models replace the strongest cloud models today. I do think they give me a cleaner split. Local models are useful for sensitive inspection, infra-heavy logs, and token-adjacent work. Cloud models remain useful for higher-level reasoning, writing, and comparison once the context is already clean enough. That split only becomes credible if the secret story underneath it is also credible.
 
@@ -145,9 +147,9 @@ The local LLM lab matters to me for the same reason. I don't think local models 
 
 I don't expect my internet connection to fail every week. I just don't want basic internal secret discipline to depend on public internet access.
 
-That requirement changes the kind of system I am trying to build. If the HomeLab keeps functioning when the outside world is noisy, I learn better instincts. If every local problem gets solved by public SaaS on day one, I teach myself a much narrower model of infrastructure than the one I actually want to practice.
+That requirement changes the kind of system I'm trying to build. If the HomeLab keeps functioning when the outside world is noisy, I learn better instincts. If every local problem gets solved by public SaaS on day one, I teach myself a much narrower model of infrastructure than the one I actually want to practice.
 
-That is one reason Infisical appealed to me. I wanted the secret control plane to belong to the environment it served.
+That's one reason Infisical appealed to me. I wanted the secret control plane to belong to the environment it served.
 
 ## Why Not Bitwarden?
 
@@ -155,7 +157,7 @@ Before landing on Infisical, the most obvious alternative was Bitwarden Secrets 
 
 Bitwarden came into the picture for a very ordinary reason: I was paying the yearly subscription anyway. That made Bitwarden Secrets Manager a fair comparison from the start, not a straw man.
 
-The part that pushed me away was the shape of the problem. I was not trying to answer "where do I store one more sensitive string?" I was trying to answer how runners should fetch stack-specific secrets, how shared provider credentials should be owned once, and how the whole thing could keep working locally without dragging sensitive material through too many repos and working copies. That is much closer to platform design than to personal credential storage.
+The part that pushed me away was the shape of the problem. I wasn't trying to answer "where do I store one more sensitive string?" I was trying to answer how runners should fetch stack-specific secrets, how shared provider credentials should be owned once, and how the whole thing could keep working locally without dragging sensitive material through too many repos and working copies. That's much closer to platform design than to personal credential storage.
 
 The decisive requirement was local-first operation. I wanted the HomeLab to keep its own secret control plane close to the workloads it serves. I also want a future where local development can use a local Infisical-facing path or proxy of my own instead of assuming the wider network is always part of the answer. Once that became a hard requirement, the comparison changed. Bitwarden Secrets Manager is a sensible product in the right family. It just doesn't line up with the way I want this environment to work.
 
@@ -199,7 +201,7 @@ The change was not simply "take the old `.env` values and paste them into a vaul
 
 If I had to compress the change into one sentence, it would be this: I wasn't trying to centralize duplication. I was trying to remove it from the design.
 
-One saved chat fragment captures the mood of the migration better than a polished summary ever could:
+One saved chat fragment says it more honestly than a polished summary could:
 
 ```text
 ~/.codex/history.jsonl
@@ -213,21 +215,21 @@ This saved fragment shows exactly where I hit my breaking point. My first instin
 
 ## Why Infisical Fits This Environment
 
-Infisical is not just a prettier place to put environment variables. In this setup it became the control plane for secret distribution.
+Infisical is not just a prettier place to put environment variables. In this setup, it became the control plane for secret distribution.
 
 The wrong mental model just brings back the old mess behind a nicer UI. Treat Infisical like a place to dump passwords and I still end up with sprawl. Treat it like the place where secret ownership and distribution live and I start designing runtimes, runners, and stacks around a cleaner source of truth.
 
 For my environment, the important properties were self-hosting, machine identity workflows, imports and references, a usable CLI, and local-first operation. I wanted the vault model to fit the HomeLab I actually have.
 
-That last point is easy to underestimate. I did not want to adopt a product and then spend the next year working around the fact that it assumes a different world than mine. The HomeLab has a Synology NAS, a VM, Macvlan quirks, local DNS habits, Gitea runners, and a strong desire to remain useful even when the internet is irrelevant or temporarily absent. The product needed to fit that world.
+That last point is easy to underestimate. I didn't want to adopt a product and then spend the next year working around the fact that it assumes a different world than mine. The HomeLab has a Synology NAS, a VM, Macvlan quirks, local DNS habits, Gitea runners, and a strong desire to remain useful even when the internet is irrelevant or temporarily absent. The product needed to fit that world.
 
 ## The AI Angle
 
 This migration also sits inside my broader AI workflow, even though I don't want AI to run infrastructure blindly.
 
-What I do want is a cleaner setup for AI-assisted work: repos with less accidental secret material, working copies that are easier to reason about, automation with clearer trust boundaries, and a HomeLab that supports LLM experiments without normalizing sloppy secret habits as the price of experimentation. Part of that is also coaching Gemini and Codex better with clearer instructions, better guardrails, and fewer leftover files for them to stumble over.
+What I do want is a cleaner setup for AI-assisted work: repos with less accidental secret material, working copies that are easier to reason about, automation with clearer trust boundaries, and a HomeLab that supports LLM experiments without normalizing sloppy secret habits as the price of experimentation. Part of that also means coaching Gemini and Codex with clearer instructions, better guardrails, and fewer leftover files to stumble over.
 
-Part of why this post felt worth writing is that secret management, GitOps, HomeLab operations, machine identities, developer tooling, and AI-assisted engineering are no longer separate topics for me. They are different edges of the same system.
+By this point secret management, GitOps, HomeLab operations, machine identities, developer tooling, and AI-assisted engineering no longer felt like separate topics to me. They were all pulling on the same setup.
 
 ![One HomeLab seen from several sides at once: secrets, GitOps, local infrastructure, tooling, and AI workflows all pulling on the same setup](/assets/images/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files/one-homelab-many-concerns.png)
 
@@ -248,6 +250,6 @@ The series titles are already set:
 
 That's the real reason I made the move.
 
-This was not only about cleaning up secrets. It was also about learning better habits, giving AI tooling clearer boundaries, and building a HomeLab that teaches me the kind of platform discipline I actually want to keep.
+This wasn't only about cleaning up secrets. It was also about learning better habits, giving AI tooling clearer boundaries, and building a HomeLab that teaches me the kind of platform discipline I actually want to keep.
 
-Once I started looking at it through that lens, moving to Infisical stopped feeling like over-engineering. It felt overdue.
+If there is one useful lesson in this first part, it is probably this: start by separating normal configuration from the values that actually change the trust boundary when they leak. That question did more work for me than any tool comparison did. Once I started looking at it that way, moving to Infisical stopped feeling like over-engineering. It felt overdue.
