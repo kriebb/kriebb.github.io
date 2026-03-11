@@ -17,13 +17,13 @@ This is part 1 of a 3-part series.
 - Coming next: `How I Designed My Infisical Secret Architecture`
 - Then: `Infisical, Gitea Actions, and the Secret Zero Problem`
 
-My technical posts went quiet for a while, but the systems around me didn't.
+I haven't posted here in a while, but the work kept going.
 
-During that stretch I started my company, spent some time at Liantis, and later returned to AXA in a .NET-heavy role. A lot of that work lives in the overlap between code, analysis, some Angular, and the kind of DevOps support that keeps delivery from stalling.
+In the meantime I started my company, spent some time at Liantis, and ended up back at AXA in a mostly .NET role. Most of that work sits somewhere between code, analysis, some Angular, and the kind of DevOps support that helps delivery keep moving.
 
-At home I was doing the same kind of work in miniature. I kept consolidating the HomeLab, testing local LLM workflows, and noticing that the setup no longer felt like a loose pile of containers. It had started to behave like infrastructure I relied on. My time at Liantis also pushed me toward platform engineering thinking in a way that finally stuck.
+At home I was doing a smaller version of the same thing. I kept consolidating the HomeLab, trying local LLM workflows, and noticing that the setup no longer felt like a loose pile of containers. It had started to feel like infrastructure I actually relied on. Liantis is also where platform engineering started to click for me.
 
-That's why I came back with this post. It sits where .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management started pulling on the same problem. Infisical{% include inline-tech-note.html key="post1_infisical" %} was where those threads finally stopped feeling separate.
+That's what brought me back to the blog with this post. For me it sits where .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management all started pulling on the same problem. Infisical{% include inline-tech-note.html key="post1_infisical" %} was where those threads finally stopped feeling separate.
 
 ## Previously On
 
@@ -248,8 +248,8 @@ The series titles are already set:
 
 ## Outro
 
-That's the real reason I made the move.
+In the end, that was the real reason for the move.
 
-This wasn't only about cleaning up secrets. It was also about learning better habits, giving AI tooling clearer boundaries, and building a HomeLab that teaches me the kind of platform discipline I actually want to keep.
+It was not just about cleaning up secrets. It was about learning better habits, giving AI tooling a clearer line to work with, and turning the HomeLab into something that teaches me better instincts instead of sloppy ones.
 
-If there is one useful lesson in this first part, it is probably this: start by separating normal configuration from the values that actually change the trust boundary when they leak. That question did more work for me than any tool comparison did. Once I started looking at it that way, moving to Infisical stopped feeling like over-engineering. It felt overdue.
+The most useful question in this first part was a simple one: which values are just configuration, and which ones change the trust boundary when they leak? That question did more work for me than any product comparison did. Once I started looking at it that way, moving to Infisical stopped feeling like over-engineering. It just felt late.
