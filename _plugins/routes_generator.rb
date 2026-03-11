@@ -132,8 +132,13 @@ module Jekyll
       FileUtils.mkdir_p(File.dirname(routes_file))
       
       # Write without YAML frontmatter
-      File.open(routes_file, 'w') do |file|
-        file.write(routes.to_yaml.sub(/^---\n/, ''))
+      new_content = routes.to_yaml.sub(/^---\n/, '')
+      
+      # Only write if content changed to avoid infinite build loops
+      if !File.exist?(routes_file) || File.read(routes_file) != new_content
+        File.open(routes_file, 'w') do |file|
+          file.write(new_content)
+        end
       end
     end
   end

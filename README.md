@@ -145,7 +145,7 @@ What this does:
 
 - builds a local dev image with the Jekyll toolchain and gems already installed
 - serves the site on `http://127.0.0.1:4000`
-- enables `--watch` and `--force_polling` for mounted-file changes
+- enables `--watch` for mounted-file changes
 - enables `--future` so scheduled posts are visible locally
 - enables LiveReload on port `35729`
 - keeps generated preview output inside the container instead of writing Ruby/Jekyll artifacts into your repo
