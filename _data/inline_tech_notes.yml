@@ -1,0 +1,35 @@
+post1_infisical: |
+  <strong>Infisical</strong> is the self-hosted secret control plane in this series. I use it because imports, references, machine identities, and the CLI fit GitOps far better than a pile of copied <code>.env</code> files ever could.
+
+post1_synology_nas: |
+  This is the physical HomeLab anchor: a Synology DS220+ with an Intel Celeron and the RAM upgraded to 6 GB. It carries the boring, durable part of the platform really well, which is exactly why it became the natural home for persistent services and state.
+
+post1_compute_vm: |
+  The compute side runs on an old laptop with Proxmox. One small Linux VM there carries the Docker workloads I want to isolate from the NAS or move around more freely later.
+
+post1_dockge: |
+  <strong>Dockge</strong> is the lightweight stack manager I use for Compose files. For this kind of LLM-assisted maintenance I find it cleaner than Portainer because the files stay plain, close to the real Compose shape, and easy to diff.
+
+post1_bitwarden: |
+  This is Bitwarden's machine-facing secret product, not the personal password vault. I mention it because I already pay for Bitwarden for passwords, so it was the first serious comparison before I chose a self-hosted local control plane instead.
+
+post2_infisical_modeling: |
+  On this page I am using Infisical less as an installation target and more as a modeling tool. Its value here is that folders, imports, and references let me describe ownership honestly instead of mirroring old <code>.env</code> files into a nicer UI.
+
+post2_gitea_runner: |
+  A <strong>Gitea Runner</strong> is the worker that executes the GitHub Actions-compatible jobs from my self-hosted Gitea instance. I care about it on this page because the vault structure is only good if an automation worker can consume it without copying provider secrets into every stack path.
+
+post3_synology_nas: |
+  This is the always-on physical anchor in the HomeLab: a Synology DS220+ with its Intel Celeron and the RAM upgraded to 6 GB. It is where the durable, boring part of the platform tends to live, which is why it matters so much in the trust story.
+
+post3_compute_vm: |
+  The compute side runs on an old laptop that now hosts Proxmox. A small Linux VM there carries the Docker workloads I want to isolate from the NAS while keeping the operational model similar.
+
+post3_gitea_runner: |
+  <strong>Gitea</strong> is the self-hosted Git forge in this setup, and the runner is the worker that executes GitHub Actions-compatible jobs. That compatibility is the reason I can keep the workflow model familiar without handing the whole deployment path to GitHub.
+
+post3_azure_key_vault: |
+  <strong>Azure Key Vault</strong> is Microsoft's managed secret service for Azure-native platforms. It becomes the natural answer when Azure itself is the center of gravity and managed identities can carry the trust model end to end. I keep it in this story because that is still a realistic future path, just not the current center of gravity.
+
+post3_traefik: |
+  <strong>Traefik</strong> is the reverse proxy that gives the HomeLab stable hostnames and TLS entry points. It matters on this page because the secret story is also an access story: browsers, runners, MCP tools, and humans all need predictable ways to reach the same services.

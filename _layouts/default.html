@@ -131,7 +131,7 @@
   {% endfor %}
   <script src="{{ '/assets/js/swiper-init.js' | relative_url }}"></script>
 
-  <script src="{{ '/assets/js/image-popup.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/image-popup.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script src="{{ '/assets/js/navigation.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

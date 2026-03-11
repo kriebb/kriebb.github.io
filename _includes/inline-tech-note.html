@@ -1,0 +1,2 @@
+{%- assign note = site.data.inline_tech_notes[include.key] -%}
+{%- if note -%}<span class="inline-tech-note" data-tech-note-content="{{ note | strip_newlines | escape }}" data-tech-note-label="{{ include.label | default: 'Read more...' | escape }}"></span>{%- endif -%}
