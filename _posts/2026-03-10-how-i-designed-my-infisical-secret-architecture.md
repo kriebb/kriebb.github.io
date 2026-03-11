@@ -50,7 +50,7 @@ see: docs/INFISICAL_VISUAL_STORYBOARD.md
 
 ![Infisical folder hierarchy with provider folders and consumer paths](/assets/images/blog/how-i-designed-my-infisical-secret-architecture/infisical_folder_hierarchy.png)
 
-What stands out in the screenshot above is how different provider folders feel from stack folders once they live in the same product. The hierarchy itself starts teaching the architecture.
+The useful part in the screenshot above is how quickly the provider folders stop looking like stack folders. Once they sit in the same product, the hierarchy starts telling the truth about ownership.
 
 ```mermaid
 flowchart TD
@@ -74,7 +74,7 @@ flowchart TD
     AI --> IM
 ```
 
-The diagram is deliberately simple. The point is not to list every stack. The point is to show the direction of truth. Provider-owned truth points outward toward consumers instead of being duplicated downward into every stack that happens to use it.
+The diagram is deliberately simple. It is not there to list every stack. It is there to show the direction of truth. Provider-owned truth points outward toward consumers instead of being duplicated downward into every stack that happens to use it.
 
 ## Why Organize By Product?
 
@@ -82,9 +82,9 @@ A provider-based hierarchy answers the questions I actually have to answer when 
 
 It helps me answer the questions that matter under pressure: which stacks depend on Cloudflare, which services consume Mailfence, which AI workloads share provider keys, where I should rotate a value, who owns it, and which consumers I should expect to move when I touch it.
 
-Those are the questions that matter during rotation, incident response, onboarding, and decommissioning. If the vault structure does not help me answer them, then the vault may be centralized, but it is not well designed.
+Those are the questions that matter during rotation, incident response, onboarding, and decommissioning. If the vault structure doesn't help me answer them, then the vault may be centralized, but it is not well designed.
 
-That is why I prefer product and provider ownership as the starting point. It makes the system legible under pressure.
+That is why I prefer product and provider ownership as the starting point. It makes the system easier to read under pressure.
 
 ## Imports Instead Of Copy-Paste
 
@@ -99,7 +99,7 @@ see: docs/INFISICAL_VISUAL_STORYBOARD.md
 
 ![The `/traefik` path importing provider-owned Cloudflare values instead of carrying its own private copy](/assets/images/blog/how-i-designed-my-infisical-secret-architecture/infisical-traefik-import-view.png)
 
-This is the screenshot I was missing earlier. It proves the idea in the actual product: the `traefik` consumer path can stay small because the shared Cloudflare truth is pulled in through an import instead of being copied again under a new folder.
+This was the screenshot I was missing earlier. It proves the idea in the product itself: the `traefik` consumer path can stay small because the shared Cloudflare truth comes in through an import instead of being copied again under a new folder.
 
 Cloudflare is the easiest example. Both `traefik` and `compute-traefik` need Cloudflare credentials for DNS automation. The lazy structure would copy the same values into both folders. The product-based structure is simpler once I stop thinking in terms of files:
 
@@ -107,7 +107,7 @@ Cloudflare is the easiest example. Both `traefik` and `compute-traefik` need Clo
 - `/traefik` imports from `/cloudflare`
 - `/compute-traefik` imports from `/cloudflare`
 
-That reduces duplication, but the more important gain is clarity. When I ask where the key lives, there is one answer. When I ask who consumes it, the importing folders tell me. When I ask who owns it, I do not need to reverse-engineer the answer from whichever stack happened to duplicate the value first.
+That reduces duplication, but the more important gain is clarity. There is one answer to where the key lives. The importing folders tell me who consumes it. I no longer have to reverse-engineer ownership from whichever stack happened to duplicate the value first.
 
 The same pattern applies to Mailfence and AI provider keys. Once I stopped treating every stack as if it needed its own local copy of the world, the vault got simpler and more honest at the same time.
 
@@ -182,13 +182,13 @@ One reason I went deeper than a basic vault migration is that my engineering wor
 
 It increasingly includes Gemini for investigation and orchestration, Codex for repo work and patching, Copilot for smaller coding moments, and local models for privacy-sensitive or infra-heavy tasks. Once those tools become part of the workflow, architecture mistakes become more expensive. Not because the models are malicious, but because the context surface gets larger.
 
-The more tools inspect repos, env files, deployment pipelines, Compose files, and scripts, the more valuable it becomes to have a clean boundary between code, config, and secrets. A provider-based vault model reduces semantic leakage. Shared provider truth appears in fewer places. Stack-specific truth stays local. Non-secret structure stays in Git. That is better for people, and it is better for AI-assisted workflows.
+The more tools inspect repos, env files, deployment pipelines, Compose files, and scripts, the more valuable it becomes to have a clean line between code, config, and secrets. A provider-based vault model reduces semantic leakage. Shared provider truth appears in fewer places. Stack-specific truth stays local. Non-secret structure stays in Git. That is better for people, and it is better for AI-assisted workflows.
 
-That sounds abstract until I look at how the tools actually behave. Gemini is better when it can scan the architecture without dragging three local copies of the same provider key through the conversation. Codex is better when the repo-local artifacts are concrete but not polluted by duplicated secret meaning. A cleaner vault model does not make the tools wiser by magic. It makes the environment less noisy for them.
+That gets easier to understand when I look at how the tools actually behave. Gemini is better when it can scan the architecture without dragging three local copies of the same provider key through the conversation. Codex is better when the repo-local artifacts are concrete but not polluted by duplicated secret meaning. A cleaner vault model doesn't make the tools wiser by magic. It makes the environment less noisy for them.
 
 ## What Dangerous AI-Assisted Infrastructure Work Looks Like
 
-I find it more useful to name the dangerous patterns than to say something vague like "AI in infra is risky."
+It is more useful to name the dangerous patterns than to say something vague like "AI in infra is risky."
 
 For me, the obvious risks look like this:
 
@@ -203,7 +203,7 @@ That is another reason the provider model feels right to me. A better architectu
 
 ## A More Concrete Walkthrough
 
-The easiest way to misunderstand this migration would be to treat the design as a principle only, when it actually shows up in concrete folders and concrete flows.
+This migration is easy to misunderstand if it stays at the level of principle only, because it really shows up in concrete folders and concrete flows.
 
 ### Case Study: `traefik` And `compute-traefik`
 
@@ -217,7 +217,7 @@ The provider model is much more direct:
 - `/traefik` imports from `/cloudflare`
 - `/compute-traefik` imports from `/cloudflare`
 
-That does not only remove duplication. It makes the operational answers boring, which is exactly what I want, because rotation happens in `/cloudflare`, the importing folders show the consumers directly, and ownership has much less room to drift.
+That removes duplication, but more importantly it makes the operational answers boring, which is exactly what I want. Rotation happens in `/cloudflare`, the importing folders show the consumers directly, and ownership has much less room to drift.
 
 ### Case Study: `gk-mailfence` And `gk-shield`
 
@@ -232,7 +232,7 @@ see: docs/INFISICAL_VISUAL_STORYBOARD.md
 
 ![A provider-owned Cloudflare secret shown in Infisical with the value masked but the ownership context still visible](/assets/images/blog/how-i-designed-my-infisical-secret-architecture/infisical-cloudflare-secret-detail.png)
 
-This second proof shot matters for a different reason. The import view shows where the consumer points. The secret detail view shows that the provider-owned value itself is still treated as one piece of truth with a real path and a real owner.
+This second proof shot matters for a different reason. The import view shows where the consumer points. The secret detail view shows that the provider-owned value is still treated as one piece of truth with a real path and a real owner.
 
 The application context feels different between `gk-mailfence` and `gk-shield`, so it would have been easy to let each stack pretend it owned its own mail-related truth. That still creates duplication if the underlying provider relationship is shared.
 
@@ -249,7 +249,7 @@ MAIL_FROM_ADDRESS=alerts@itkriebbels.be
 OPENAI_API_KEY=sk-proj-abcd***
 ```
 
-The literal values are not the point. The point is that each of them should have one honest owner and a limited set of consumers.
+The literal values are not the point. Each of them should have one honest owner and a limited set of consumers.
 
 ### Case Study: `/ai-providers`
 

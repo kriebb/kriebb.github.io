@@ -25,7 +25,7 @@ This post is the practical one. Once the structure exists, the next question is 
 
 ## Context
 
-The Synology NAS{% include inline-tech-note.html key="post3_synology_nas" %} does not log in like a human. The compute VM{% include inline-tech-note.html key="post3_compute_vm" %} does not log in like a human. Gitea runners{% include inline-tech-note.html key="post3_gitea_runner" %} definitely should not inherit admin credentials through shell history or copied files just because automation is inconvenient.
+The Synology NAS{% include inline-tech-note.html key="post3_synology_nas" %} doesn't log in like a human. The compute VM{% include inline-tech-note.html key="post3_compute_vm" %} doesn't log in like a human. Gitea runners{% include inline-tech-note.html key="post3_gitea_runner" %} definitely shouldn't inherit admin credentials through shell history or copied files just because automation is inconvenient.
 
 That is the real context for the rest of this post: the authentication story had to be machine-native.
 
@@ -41,7 +41,7 @@ If I ignore it, the whole story about "secretless infrastructure" becomes self-c
 
 In my setup, the bootstrap trust is `INFISICAL_CLIENT_ID` and `INFISICAL_CLIENT_SECRET`, stored as Gitea Actions secrets and exchanged for a short-lived access token during the workflow.
 
-That is not "no secret at all." It is a controlled bootstrap secret, and I think that is the mature answer.
+That isn't "no secret at all." It is a controlled bootstrap secret, and I think that's the grown-up answer.
 
 ## Why Machine Identities Matter
 
@@ -53,7 +53,7 @@ It also makes debugging more honest.
 
 One of the most useful lessons in this migration came from a simple failure. The `nas-deployer` machine identity initially had a `Viewer` role, and the workflow hit a `403 Forbidden` when it needed more. That is easy to misdiagnose if I am not disciplined. It is tempting to suspect a malformed token, a broken CLI, a wrong path, or a dead server. Sometimes the real answer is simpler: the identity is too weak for the work it is trying to do.
 
-I do not read that as a flaky platform. I read it as a boundary that was enforced exactly the way it had been configured.
+I don't read that as a flaky platform. I read it as a line that was enforced exactly the way it had been configured.
 
 <!-- visual-slot: post3-machine-identity-tight
 type: screenshot
@@ -64,7 +64,7 @@ see: docs/INFISICAL_VISUAL_STORYBOARD.md
 
 ![Project-level machine identities for the HomeLab vault, including the NAS and VM deployers](/assets/images/blog/infisical-gitea-actions-and-the-secret-zero-problem/infisical-machine-identities-project.png)
 
-What stands out in the screenshot above is that the runner is not a ghost. It has an identity, a role, and a scope. The tighter project-level capture is the better image for that, because it shows the two identities that mattered in practice: `nas-deployer` and `vm-deployer`. That is the trust model the rest of the workflow depends on.
+The useful part in the screenshot above is that the runner is not a ghost. It has an identity, a role, and a scope. The tighter project-level capture works better because it shows the two identities that mattered in practice: `nas-deployer` and `vm-deployer`. That is the trust model the rest of the workflow depends on.
 
 ```mermaid
 sequenceDiagram
@@ -101,7 +101,7 @@ Every part of that command matters.
 
 `--method=universal-auth` selects the machine-auth path. `--client-id` identifies the machine principal. `--client-secret` is the bootstrap material and has to be treated that way. `--plain` returns a token that is easy to export in shell workflows. `--silent` keeps the logs cleaner.
 
-The last flag matters more than it first appears. `--domain` has to point at the endpoint that is actually reachable from the place where the workflow runs. That sounds obvious until the network topology gets involved.
+The last flag matters more than it first appears. `--domain` has to point at the endpoint that is actually reachable from the place where the workflow runs. It sounds obvious until the network topology gets involved.
 
 ## The Macvlan Paradox
 
@@ -120,7 +120,7 @@ The correct host-side path in this environment is:
 
 - `http://192.168.5.90:8081`
 
-I do not think of that path as a workaround. It is simply the honest path for the topology I actually built.
+I don't think of that path as a workaround. It is simply the honest path for the topology I actually built.
 
 I wanted this post to include that detail because otherwise the final setup sounds cleaner than it really is. The clean browser path and the clean host-side automation path are not always the same thing. In this environment they deliberately are not.
 
@@ -137,7 +137,7 @@ sequenceDiagram
     Note over Runner,Vault: direct host-side control-plane path
 ```
 
-That is the kind of diagram I always miss in neat tutorials. It is not pretty for the sake of pretty. It is useful because it tells the truth about which path belongs to which actor.
+That is the kind of diagram I always miss in neat tutorials. It is not there to look pretty. It is useful because it tells the truth about which path belongs to which actor.
 
 ## The Export Flow
 
@@ -165,7 +165,7 @@ The key flag here is `--expand`.
 
 That flag lets the vault stay expressive. Imports remain imports. References remain references. Shared provider ownership stays modeled properly. At the edge, the runtime still gets the flat values it expects.
 
-That is the bridge I wanted between good architecture and boring deployment mechanics, because I want the control plane to stay structured while the runtime stays simple.
+That is the bridge I wanted between good architecture and boring deployment mechanics. The control plane stays structured while the runtime stays simple.
 
 The export step becomes more convincing once I put it next to the actual workflow shape:
 
@@ -199,7 +199,7 @@ The export step becomes more convincing once I put it next to the actual workflo
 
 ![A single Gitea Actions run showing the job surface where the pipeline executes](/assets/images/blog/infisical-gitea-actions-and-the-secret-zero-problem/gitea-actions-run-detail.png)
 
-What you notice in the screenshot above is the execution surface itself. It is not yet the full secret export log, but it does show the exact place where the vault interaction belongs.
+The screenshot above shows the execution surface itself. It is not yet the full secret export log, but it does show the exact place where the vault interaction belongs.
 
 That is the part I wanted to show explicitly. Compose still gets what it expects, but Git no longer has to pretend it is the rightful owner of the secret values.
 
@@ -224,7 +224,7 @@ That makes Infisical feel more like a developer platform than a compliance platf
 
 ## Why `stack.env.template` Still Matters
 
-I do not want this series to sound ideological. I am not trying to erase every environment-file pattern from existence.
+I don't want this series to sound ideological. I am not trying to erase every environment-file pattern from existence.
 
 The separation I wanted was simpler than that:
 
@@ -233,7 +233,7 @@ The separation I wanted was simpler than that:
 
 That is why `stack.env.template` still matters. It preserves non-secret defaults, environment shape, Compose expectations, and values like `COMPOSE_PROJECT_NAME` that are operationally important without being secret.
 
-I do not read that as a weak compromise. It is a better boundary.
+I don't read that as a weak compromise. It is a better line.
 
 This distinction is easier to understand with two tiny examples side by side:
 
@@ -264,9 +264,9 @@ This is exactly the kind of detail that disappears from glossy tutorials because
 
 ## What "Secretless" Means Here
 
-I do not like vague uses of the phrase "secretless infrastructure."
+I don't like vague uses of the phrase "secretless infrastructure."
 
-In this setup it does not mean that no secrets exist, that no bootstrap secret exists, or that a temporary `.env` file is never created during deployment. It means something narrower and more useful:
+In this setup it doesn't mean that no secrets exist, that no bootstrap secret exists, or that a temporary `.env` file is never created during deployment. It means something narrower and more useful:
 
 - secrets are not committed as normal repo state
 - deployments retrieve secret material from a managed source of truth
@@ -285,7 +285,7 @@ Infisical wins when the environment is hybrid or self-hosted, local latency matt
 
 My environment is intentionally hybrid: NAS, VM, local-first operation, GitOps runners, and HomeLab constraints all sit on the same substrate. Azure Key Vault is not weak. It is simply not the natural fit for this substrate.
 
-That does not make Azure Key Vault irrelevant to me. It makes it a comparison from a different angle.
+That doesn't make Azure Key Vault irrelevant to me. It makes it a comparison from a different angle.
 
 I think about it in almost the same way people think about local Azure-adjacent tooling such as running support services in Docker while keeping the option open to move deeper into Azure later. That path makes sense when I want to stay mentally close to an Azure landing zone, use Azure-native identity later, and reduce migration friction toward a more cloud-centered model.
 
@@ -303,11 +303,11 @@ To verify that the migration actually works, I would want to confirm at least fi
 4. `--expand` produces the final values I expect at the edge
 5. a shared provider secret can be rotated once and observed correctly downstream
 
-The point is not to normalize manual grepping forever. The point is to close the loop at least once so the control plane, the pipeline, and the runtime all agree.
+I don't want to normalize manual grepping forever. I do want to close the loop at least once so the control plane, the pipeline, and the runtime all agree.
 
 ## How Gemini And Codex Actually Helped
 
-This migration did not happen in isolation. It happened with LLMs visibly involved in the work, and I think that is worth documenting more honestly than "I used AI."
+This migration didn't happen in isolation. LLMs were visibly involved in the work, and I think that is worth documenting more honestly than "I used AI."
 
 What I actually did was more structured than that. Gemini was useful as an investigator and orchestrator. Codex was useful as a coding and patching agent. Playwright automation helped when the UI was the shortest path. Human judgment still mattered whenever permissions, structure, or trust boundaries were involved.
 
@@ -399,9 +399,9 @@ goal: show local models for token-adjacent work and cloud models for cleaner hig
 see: docs/INFISICAL_VISUAL_STORYBOARD.md
 -->
 
-I do not want the conclusion to be "cloud bad, local good." That is too simple to be useful. The strongest cloud models still help me with broader reasoning, stronger writing, better synthesis, and faster comparison of options.
+I don't want the conclusion to be "cloud bad, local good." That is too simple to be useful. The strongest cloud models still help me with broader reasoning, stronger writing, better synthesis, and faster comparison of options.
 
-At the same time, I do not want every sensitive or token-adjacent workflow to lean on cloud context by default. That is where the future local LLM lab becomes strategically useful. Not as a total replacement, but as a second layer with different privacy properties.
+At the same time, I don't want every sensitive or token-adjacent workflow to lean on cloud context by default. That is where the future local LLM lab becomes strategically useful. Not as a total replacement, but as a second layer with different privacy properties.
 
 The split I am aiming for is straightforward:
 
@@ -410,7 +410,7 @@ The split I am aiming for is straightforward:
 
 That separation only makes sense if the secret architecture underneath it is also disciplined. Otherwise I am just routing messy context through more tools and pretending the complexity itself is progress.
 
-There is a future local-development angle behind that split as well. I want a local Infisical-facing proxy path later, so a local dev flow does not have to assume the wider network is reachable every time I want to boot a service. That fits the same principle as the rest of this migration: the secret path should feel local, deliberate, and explicit.
+There is a future local-development angle behind that split as well. I want a local Infisical-facing proxy path later, so a local dev flow doesn't have to assume the wider network is reachable every time I want to boot a service. That fits the same principle as the rest of this migration: the secret path should feel local, deliberate, and explicit.
 
 ## Why Traefik Is Part Of The Secret Story
 
