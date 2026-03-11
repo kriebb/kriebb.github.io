@@ -19,9 +19,9 @@ This is part 1 of a 3-part series.
 
 It has been a while since I published a technical post here.
 
-The blog went quiet, but the work did not. In the meantime I started my company, spent a period at Liantis, and eventually landed back at AXA in a .NET-heavy role where I also help with system analysis, some Angular work, and the kind of DevOps support that takes pressure off the people who live in that space full time.
+I stopped publishing for a while, but I did not stop changing the systems around me. In that stretch I started my company, spent some time at Liantis, and later landed back at AXA in a .NET-heavy role. A lot of my work there sits in the overlap between code, analysis, some Angular, and the kind of DevOps support that helps the platform people keep moving.
 
-In the background the same thread kept running through everything else: HomeLab consolidation, local LLM experiments, and the bigger question underneath all of that. At what point does a small setup stop being a pile of useful scripts and start behaving like infrastructure? A short period at Liantis also made platform engineering click for me in a way it had not before.
+At home I was doing something similar on a smaller scale. I kept consolidating the HomeLab, experimenting with local LLM workflows, and noticing that the setup was becoming less like "some containers I run" and more like infrastructure I depend on. My time at Liantis also nudged me toward platform engineering thinking in a way that finally clicked.
 
 It felt like the right post to return with because it sits exactly where several threads meet for me: .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management. The migration to Infisical{% include inline-tech-note.html key="post1_infisical" %} was not a side quest. It was the point where those threads finally collided hard enough that I could not ignore them anymore.
 
@@ -33,7 +33,7 @@ I had multiple Docker stacks spread across a Synology NAS{% include inline-tech-
 
 That started to matter more once I leaned harder into AI-assisted development. Gemini, Codex, Copilot, and other tools kept warning about tokens, suspicious values, and repo contents that looked too close to secrets. Those warnings were sometimes annoying. They were also useful. They forced me to look at the setup without the sentimental HomeLab excuse.
 
-I had told myself some version of the same story for too long: it is local, it is private, it is only the HomeLab, it is fine for now. That story only works until the HomeLab starts shaping my actual engineering habits. Once that happened, the cost of keeping secrets scattered across files stopped being theoretical.
+For too long I kept giving myself the same excuse: it is local, it is private, it is only the HomeLab, I will clean it up later. That excuse gets weaker once the HomeLab starts influencing how I think about delivery, automation, and repo hygiene in my day job as well.
 
 ## The Intake
 
@@ -84,19 +84,17 @@ What the diagram above tells you is not that Docker Compose suddenly stopped wan
 
 ## Why This Became Worth Fixing Now
 
-My HomeLab is no longer just a place where I run a few containers. It has become the place where I test delivery habits, ways of organizing the HomeLab, AI-assisted workflows, and local-first infrastructure. That changes the standard.
+The HomeLab had turned into my test bench for delivery habits. I use it to try GitOps flows, split workloads between the NAS and the VM, and see what breaks when AI tooling has to reason about real repo state instead of a neat demo project.
 
-If I want the HomeLab to make me better at real delivery and platform work, I cannot keep teaching myself that duplicated secrets next to repos are normal. If I want to use LLMs seriously, I also cannot keep making them reason about token-like leftovers in ordinary working copies. And if local AI is going to become part of the workflow, code, config, and secrets need cleaner boundaries first.
-
-That is the real reason this migration became worth doing. The old setup still worked, but it was quietly training me in habits I did not want to keep.
+Once I looked at it that way, duplicated secrets next to repos stopped feeling like harmless clutter. They were part of the way I was training myself. If I want this environment to make me better at platform work, the boundary between code, config, and secrets has to hold up there as well.
 
 ## What The LLMs Started Teaching Me
 
 One of the ironies here is that the pressure to clean this up partly came from the tools that are supposed to help me move faster.
 
-An LLM does not care about the HomeLab story I tell myself. It sees token-like strings, suspicious files, and blurry boundaries. Then it reacts accordingly. Sometimes that is useful. Sometimes it is irritating. Usually it is both.
+An LLM does not care about the story I tell myself about "just a local lab." It sees token-like strings, suspicious files, and awkward boundaries, then it gets noisy about them. Sometimes that noise is annoying. It is also useful.
 
-What matters is not whether every warning is morally correct. What matters is that the warnings are exposing weak boundaries. If a repo keeps triggering secret heuristics, then the boundary between code and operational trust is still too soft. That matters even more once the models are helping with infrastructure investigation, planning, documentation, and patching. I want those tools to behave more like expensive consultants than curious interns rummaging through leftovers.
+I did not need every warning to be perfectly right for the pattern to be obvious. If Gemini or Codex kept running into token-like files in ordinary repos, I had left too much operational meaning in the wrong places. That becomes more expensive once the same tools are helping me inspect infrastructure, compare options, write docs, and patch repos.
 
 One of the more useful things the tooling taught me was how to turn vague discomfort into a concrete design problem. The same thing happened again and again: a model ran into token-like files, or a workflow blurred config and secret in a way that made the whole conversation noisier than it should have been. That was frustrating, but it was also useful feedback. It meant too much operational meaning was still leaking into ordinary repo state.
 
@@ -118,11 +116,11 @@ make sure git repos are up to date before making changes so you can revert
 after using infisical and it works we can rewrite the history
 ```
 
-That combination captures how I wanted to approach the migration. I wanted progress, but I wanted reversibility as well. I wanted better boundaries, but I did not want fake absolutism. Not every value in an env file is a secret. Ports, project names, and non-sensitive defaults still belong in normal configuration. The real problem was not that env files existed. The real problem was that sensitive values were living in places where they should not.
+That note already contained the constraint that mattered most to me. I did not want a fake cleanup where every value in an env file suddenly got treated like a secret. Ports, project names, and other boring defaults still belong in normal configuration. The values I wanted out were the ones that changed the trust boundary when they leaked or got copied around.
 
-That distinction shaped the whole design.
+That is what pushed the migration toward separating `stack.env.template` from secret material instead of trying to ban env files as a concept.
 
-A tiny example helps more here than another paragraph:
+A small Traefik example shows the problem better than another abstract paragraph:
 
 ```dotenv
 # old mixed shape
@@ -133,13 +131,13 @@ CLOUDFLARE_API_TOKEN=cf_v1_abcd***
 LETSENCRYPT_EMAIL=admin@itkriebbels.be
 ```
 
-It is not a dramatic file, and that is exactly why it is useful. Most of the file looks normal. Only one or two values are genuinely sensitive. That is how secret sprawl becomes easy to defend for too long. The mixed shape feels harmless until tooling, rotation, and automation start treating it like a blurry trust boundary.
+This is the kind of file I had in more than one place. Four lines are ordinary settings I would expect to keep in Git. Then there is a Cloudflare token in the same shape, edited in the same way, easy to copy, easy to forget, and easy to leave behind in a working tree. That was the real problem. The file never looked alarming enough to force a cleanup on its own.
 
 ## Why This Also Became A Privacy Story
 
-At first glance, this is an infrastructure hygiene story. It is that. It is also a privacy story in a more practical sense.
+On paper this is an infrastructure hygiene story. In practice it also changed how comfortable I was handing repo context to cloud LLMs.
 
-Once I started using cloud LLMs seriously, I had to ask a different set of questions. Which repositories should these tools see? Which files should they never need to inspect? How much sensitive operational state am I normalizing into everyday context windows without noticing?
+Once I started using those tools seriously, the questions changed. Which repositories should they see? Which files should stay out of scope completely? How much operational state was I normalizing into everyday context windows without noticing?
 
 I do not think the useful answer is fearmongering. I still use cloud LLMs because they genuinely help. They help me think faster, compare options, write better, and move through dull work with less friction. That is precisely why I care about reducing the amount of sensitive material that sits near ordinary working context.
 
