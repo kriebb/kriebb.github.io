@@ -440,12 +440,25 @@
     overflow-wrap: normal;
   }
 
-  p code,
-  li code,
-  td code {
+  :not(pre) > code {
+    display: inline;
+    padding: 0.01rem 0.14rem;
+    border-radius: 0.16rem;
+    border: none;
+    background: rgba(108, 117, 125, 0.04);
+    color: inherit;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
     white-space: break-spaces;
     word-break: break-word;
     overflow-wrap: anywhere;
+  }
+
+  .dark-mode & {
+    :not(pre) > code {
+      background: rgba(255, 255, 255, 0.1);
+      color: #f3f6fb;
+    }
   }
 
   table {

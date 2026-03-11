@@ -28,14 +28,14 @@ These cookies are necessary for the website to function properly. They enable ba
 
 ## Analytics
 
-For website analytics, we use Cloudflare Web Analytics, which **does not use cookies** and respects your privacy. Unlike traditional analytics tools:
+For website analytics, we use Simple Analytics, which **does not use cookies** and respects your privacy. Unlike traditional analytics tools:
 
-- Cloudflare Web Analytics does not use cookies
+- Simple Analytics does not use cookies
 - Does not track users across websites
 - Does not collect any personal data
 - Is fully compliant with GDPR, CCPA, and PECR
 
-This means you can browse our website without any tracking cookies being set. For more information about Cloudflare Web Analytics, please visit [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+This means you can browse our website without any tracking cookies being set. For more information about Simple Analytics, please visit [Simple Analytics' Data & Ownership page](https://docs.simpleanalytics.com/data-security-and-ownership).
 
 ## Third-party services
 

@@ -7,7 +7,7 @@ ref: index
 sidebar: false
 ---
 
-# Kristof Riebbels - .NET Developer, Architecture, and AI-Assisted Delivery
+# Kristof Riebbels - .NET Developer
 
 **{{ site.data.i18n[site.active_lang].hero.subtitle }}**. {{ site.data.i18n[site.active_lang].hero.description }}
 

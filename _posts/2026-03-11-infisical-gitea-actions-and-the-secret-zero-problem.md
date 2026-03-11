@@ -1,6 +1,6 @@
 ---
-date: 2026-03-31
-datePublished: 2026-03-31T09:30:00+02:00
+date: 2026-03-25
+datePublished: 2026-03-25T09:30:00+01:00
 title: "Infisical, Gitea Actions, and the Secret Zero Problem"
 seoTitle: "Infisical, Gitea Actions, and the Secret Zero Problem"
 seoDescription: "A practical post about Machine Identities, Universal Auth, Traefik, Macvlan, DNS, and how AI-assisted workflows fit into a local-first Infisical setup."
@@ -320,8 +320,9 @@ Looking at the local Gemini chats, the recurring pattern is investigation and or
 Gemini was good at scanning a problem space quickly, helping shape the vault structure, and keeping a broad view over NAS, VM, Gitea, and Docker concerns. One shortened trace from the local chat directory captures that role quite well:
 
 ```text
-~/.gemini/tmp/kristof/chats/2026-03-*/session-*.md
+~/.gemini/tmp/<user>/chats/2026-03-*/session-*.md
 
+excerpt:
 document this way of working
 this needs to be a tutorial, teacher blog post that explains why infisical, why important, how to use
 ```
@@ -331,8 +332,9 @@ That was not just a writing prompt. It reflected the role I was giving Gemini in
 Another safe fragment from the same chat trail shows the pattern from a different angle:
 
 ```text
-~/.gemini/tmp/kristof/chats/2026-03-*/session-*.md
+~/.gemini/tmp/<user>/chats/2026-03-*/session-*.md
 
+excerpt:
 Planning the Next Actions
 assessing the optimal location for the docker compose file and related files
 ```
@@ -351,7 +353,9 @@ The friction also shows up clearly once the order of operations is wrong. One li
 
 ```text
 ~/.codex/history.jsonl
+~/.codex/archived_sessions/<session-id>.jsonl
 
+excerpt:
 do not remove the token
 as long as we did not implement infisical, you cannot remove anything
 ```

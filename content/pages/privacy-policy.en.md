@@ -27,7 +27,7 @@ When you contact us through our website, we collect:
 
 ### Information Collected Automatically
 
-When you visit our website, we collect anonymous usage data using Cloudflare Web Analytics. This service:
+When you visit our website, we collect anonymous usage data using Simple Analytics. This service:
 - Does not use cookies
 - Does not track users across different websites
 - Does not collect any personal data
@@ -88,19 +88,19 @@ For more information, please see our [Cookie Policy](/cookies/).
 
 We use the following third-party service providers:
 - hCaptcha for form protection (privacy-friendly alternative to Google reCAPTCHA)
-- Cloudflare Web Analytics for website analytics (privacy-friendly, cookie-less analytics)
+- Simple Analytics for website analytics (privacy-friendly, cookie-less analytics)
 - Formspree for form submissions (GDPR-compliant form processing)
 
-### Cloudflare Web Analytics
+### Simple Analytics
 
-We use Cloudflare Web Analytics to understand website usage patterns without compromising your privacy. Unlike traditional analytics tools:
-- Cloudflare Web Analytics does not use cookies
+We use Simple Analytics to understand website usage patterns without compromising your privacy. Unlike traditional analytics tools:
+- Simple Analytics does not use cookies
 - It does not track you across websites
 - It does not collect personal data
 - It does not create user profiles
 - It only provides aggregate metrics about visitors
 
-For more information on how Cloudflare handles data, please visit [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+For more information on how Simple Analytics handles data, please visit [Simple Analytics' Data & Ownership page](https://docs.simpleanalytics.com/data-security-and-ownership).
 
 ### hCaptcha
 

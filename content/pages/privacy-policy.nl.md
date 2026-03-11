@@ -27,7 +27,7 @@ Wanneer u contact met ons opneemt via onze website, verzamelen we:
 
 ### Automatisch verzamelde informatie
 
-Wanneer u onze website bezoekt, verzamelen we anonieme gebruiksgegevens via Cloudflare Web Analytics. Deze service:
+Wanneer u onze website bezoekt, verzamelen we anonieme gebruiksgegevens via Simple Analytics. Deze service:
 - Gebruikt geen cookies
 - Volgt gebruikers niet over verschillende websites
 - Verzamelt geen persoonlijke gegevens
@@ -89,19 +89,19 @@ Voor meer informatie, zie ons [Cookiebeleid](/cookiebeleid/).
 
 We gebruiken de volgende externe dienstverleners:
 - hCaptcha voor formulierbescherming (privacyvriendelijk alternatief voor Google reCAPTCHA)
-- Cloudflare Web Analytics voor website-analyse (privacyvriendelijk, cookie-loos analytics)
+- Simple Analytics voor website-analyse (privacyvriendelijk, cookie-loos analytics)
 - Formspree voor formulierinzendingen (AVG-conform formulierverwerking)
 
-### Cloudflare Web Analytics
+### Simple Analytics
 
-We gebruiken Cloudflare Web Analytics om website gebruikspatronen te begrijpen zonder uw privacy in gevaar te brengen. In tegenstelling tot traditionele analytics tools:
-- Gebruikt Cloudflare Web Analytics geen cookies
+We gebruiken Simple Analytics om websitegebruikspatronen te begrijpen zonder uw privacy in gevaar te brengen. In tegenstelling tot traditionele analytics tools:
+- Gebruikt Simple Analytics geen cookies
 - Volgt het u niet over websites heen
 - Verzamelt het geen persoonlijke gegevens
 - Creëert het geen gebruikersprofielen
 - Biedt het alleen geaggregeerde statistieken over bezoekers
 
-Voor meer informatie over hoe Cloudflare met gegevens omgaat, bezoek [Cloudflare's Privacybeleid](https://www.cloudflare.com/privacypolicy/).
+Voor meer informatie over hoe Simple Analytics met gegevens omgaat, bezoek [de pagina over data en eigenaarschap van Simple Analytics](https://docs.simpleanalytics.com/data-security-and-ownership).
 
 ### hCaptcha
 

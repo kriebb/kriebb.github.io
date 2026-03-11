@@ -1,6 +1,6 @@
 ---
-date: 2026-03-17
-datePublished: 2026-03-17T09:30:00+01:00
+date: 2026-03-11
+datePublished: 2026-03-11T19:15:00+01:00
 title: "Why I Finally Moved My HomeLab Secrets Out of `.env` Files"
 seoTitle: "Why I Moved My HomeLab Secrets Out of .env Files"
 seoDescription: "A return-to-blogging post about secret debt, token warnings, AI-assisted engineering, and why a local-first secret control plane became necessary."
@@ -14,12 +14,14 @@ show_post_navigation: false
 
 This is part 1 of a 3-part series.
 
-- Coming next on March 24, 2026: `How I Designed My Infisical Secret Architecture`
-- Then on March 31, 2026: `Infisical, Gitea Actions, and the Secret Zero Problem`
+- Coming next: `How I Designed My Infisical Secret Architecture`
+- Then: `Infisical, Gitea Actions, and the Secret Zero Problem`
 
 It has been a while since I published a technical post here.
 
-The blog went quiet, but the work did not. In the meantime I started my company, spent a period at Liantis, and eventually landed back at AXA in a .NET-heavy role where I also help with system analysis, some Angular work, and the kind of DevOps support that takes pressure off the people who live in that space full time. In the background the same thread kept running through everything else: HomeLab consolidation, local LLM experiments, and the bigger question underneath all of that. At what point does a small setup stop being a pile of useful scripts and start behaving like infrastructure? A short period at Liantis also made platform engineering click for me in a way it had not before.
+The blog went quiet, but the work did not. In the meantime I started my company, spent a period at Liantis, and eventually landed back at AXA in a .NET-heavy role where I also help with system analysis, some Angular work, and the kind of DevOps support that takes pressure off the people who live in that space full time.
+
+In the background the same thread kept running through everything else: HomeLab consolidation, local LLM experiments, and the bigger question underneath all of that. At what point does a small setup stop being a pile of useful scripts and start behaving like infrastructure? A short period at Liantis also made platform engineering click for me in a way it had not before.
 
 It felt like the right post to return with because it sits exactly where several threads meet for me: .NET delivery, GitOps hygiene, self-hosted infrastructure, AI-assisted engineering, and secret management. The migration to Infisical{% include inline-tech-note.html key="post1_infisical" %} was not a side quest. It was the point where those threads finally collided hard enough that I could not ignore them anymore.
 
@@ -58,28 +60,27 @@ I saw that pattern often enough that it stopped feeling like a minor inconvenien
 
 A platform problem is not solved by one careful afternoon of editing `.env` files. It needs a source of truth, a repeatable flow, and boundaries that survive a tired evening or a rushed deployment. That is the level at which I wanted to fix this.
 
+Before, the secret flow really looked like this:
+
 ```mermaid
 flowchart LR
-    subgraph Old["Before"]
-        A["repo .env files"]
-        B["manual copies"]
-        C["runner and hosts"]
-    end
-
-    subgraph New["After"]
-        V["Infisical vault"]
-        T["stack.env.template<br/>non-secret settings"]
-        E["temporary .env during deploy"]
-        R["docker compose runtime"]
-    end
-
-    A --> B --> C
-    V --> E
-    T --> E
-    E --> R
+    B1["repo-local .env files"] --> B2["same secrets copied again"]
+    B2 --> B3["NAS, VM, runner, and local working copies"]
 ```
 
-What the diagram above tells you is that Docker Compose still ends up with flat values. That part did not disappear. What changed is where that flat file lives and for how long. By temporary I mean it only exists for the deployment step or runtime handoff, instead of being the permanent source of truth in every repo.
+That was the part I wanted to get rid of. The vault was not missing yet. The problem was that the copies had become the operating model.
+
+After the migration, the shape became this:
+
+```mermaid
+flowchart LR
+    A1["Infisical owns the secret truth"] --> A2["deploy step asks Infisical for values"]
+    A3["stack.env.template<br/>keeps only non-secret settings"] --> A2
+    A2 --> A4["temporary .env for Docker Compose"]
+    A4 --> A5["running container gets flat env values"]
+```
+
+What the diagram above tells you is not that Docker Compose suddenly stopped wanting flat values. It still wants them. The improvement is that the flat file only exists at deployment time, instead of being copied around as the long-lived truth. Before, the copies were the normal way of working. After, the copy only exists at the last handoff where the runtime still needs it.
 
 ## Why This Became Worth Fixing Now
 
@@ -87,7 +88,7 @@ My HomeLab is no longer just a place where I run a few containers. It has become
 
 If I want the HomeLab to make me better at real delivery and platform work, I cannot keep teaching myself that duplicated secrets next to repos are normal. If I want to use LLMs seriously, I also cannot keep making them reason about token-like leftovers in ordinary working copies. And if local AI is going to become part of the workflow, code, config, and secrets need cleaner boundaries first.
 
-That is the real reason this migration became worth doing. The old setup was still working, but it was teaching the wrong lessons.
+That is the real reason this migration became worth doing. The old setup still worked, but it was quietly training me in habits I did not want to keep.
 
 ## What The LLMs Started Teaching Me
 
@@ -97,16 +98,17 @@ An LLM does not care about the HomeLab story I tell myself. It sees token-like s
 
 What matters is not whether every warning is morally correct. What matters is that the warnings are exposing weak boundaries. If a repo keeps triggering secret heuristics, then the boundary between code and operational trust is still too soft. That matters even more once the models are helping with infrastructure investigation, planning, documentation, and patching. I want those tools to behave more like expensive consultants than curious interns rummaging through leftovers.
 
-One of the more useful things the tooling taught me was how to turn vague discomfort into a concrete design problem. The same thing happened again and again: a model ran into token-like files, or a workflow blurred config and secret in a way that made the whole conversation noisier than it should have been. That was frustrating in the short term, but it was also useful feedback. It meant the HomeLab still had too much hidden coupling and too much operational meaning leaking into ordinary repo state.
+One of the more useful things the tooling taught me was how to turn vague discomfort into a concrete design problem. The same thing happened again and again: a model ran into token-like files, or a workflow blurred config and secret in a way that made the whole conversation noisier than it should have been. That was frustrating, but it was also useful feedback. It meant too much operational meaning was still leaking into ordinary repo state.
 
 ## Show And Tell: The Intake In My Own Words
 
 The chat history around this migration is useful because it shows that the intake was never abstract. It was practical from the start, and it looked exactly like the kind of thing I would actually go back and grep later.
 
 ```text
-~/.gemini/tmp/kristof/chats/2026-03-*/session-*.md
+~/.gemini/tmp/<user>/chats/2026-03-*/session-*.md
 /home/kristof/git/nas-infra-infisical/
 
+excerpt:
 on our nas and docker compute we work with secrets in the *.env files
 ensure we use infisical for this
 
@@ -147,7 +149,7 @@ The local LLM lab matters to me for the same reason. I do not think local models
 
 When I say I wanted this to work without internet, I do not mean I expect my internet connection to fail every week. I mean I do not want basic internal secret discipline to depend on public internet access.
 
-That matters because it changes what kind of system I am building. If the HomeLab keeps functioning when the outside world is noisy, I learn better instincts. If every local platform problem gets solved by public SaaS on day one, I teach myself a much narrower model of infrastructure than the one I actually want to practice.
+That matters because it changes what kind of system I am building. If the HomeLab keeps functioning when the outside world is noisy, I learn better instincts. If every local problem gets solved by public SaaS on day one, I teach myself a much narrower model of infrastructure than the one I actually want to practice.
 
 That is one reason Infisical appealed to me. I wanted a secret control plane that belonged to the environment it served.
 
@@ -189,7 +191,7 @@ flowchart LR
     VM --> UI
 ```
 
-What the diagram above tells you is how I want the operating surface to stay split. The NAS carries the durable side of the HomeLab, especially databases and state that should stay close to the disks. The old laptop carries the isolated compute side, including Redis, heavier runtimes, and the UI-heavy workloads that make more sense there. There is a Traefik on each side because the HomeLab ended up with two different routing surfaces for two different host contexts. I will come back to that later, but it matters here because the secret architecture sits on top of that physical split.
+What the diagram above tells you is how I want the HomeLab to stay split physically. The NAS carries the durable side, especially databases and state that should stay close to the disks. The old laptop carries the compute side: Redis, heavier runtimes, and the UI-heavy workloads that make more sense there. There is a Traefik on each side because there are two routing surfaces in practice, not one. I will come back to that later, but it matters here because the secret architecture sits on top of that split.
 
 The change was not simply "take the old `.env` values and paste them into a vault." In practice it meant:
 
@@ -201,9 +203,15 @@ The change was not simply "take the old `.env` values and paste them into a vaul
 
 If I had to compress the change into one sentence, it would be this: I was not trying to centralize duplication. I was trying to replace duplication with architecture.
 
-One chat fragment captures the mood of the migration better than a polished summary ever could:
+One saved chat fragment captures the mood of the migration better than a polished summary ever could:
 
-> "llms keep complaining about tokens found, even it is only in my local homelab..."
+```text
+~/.codex/history.jsonl
+~/.codex/archived_sessions/<session-id>.jsonl
+
+excerpt:
+llms keep complaining about tokens found, even it is only in my local homelab...
+```
 
 That sentence is useful because it shows the tension honestly. My first instinct was still to defend the local mess because it was local. The tools did not care about that argument. They kept forcing the same question back on me: if this boundary is messy enough that even normal tooling trips over it, why am I still defending it?
 
@@ -225,11 +233,15 @@ What I do want is a cleaner setup for AI-assisted work. I want repos that contai
 
 Part of why this post felt worth writing is that secret management, GitOps, HomeLab operations, machine identities, developer tooling, and AI-assisted engineering are no longer separate topics for me. They are different edges of the same system.
 
+![One HomeLab seen from several sides at once: secrets, GitOps, local infrastructure, tooling, and AI workflows all pulling on the same setup](/assets/images/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files/one-homelab-many-concerns.png)
+
+What the illustration above shows is one HomeLab seen from several sides at once. The vault, the runners, the local workflows, and the AI tooling all pull on the same setup. That is why this stopped feeling like “just one more secret tool” and started feeling like part of the same environment I was already trying to understand better.
+
 ## What’s Next
 
-Coming next, on March 24, 2026, is the architecture post: why I organized secrets by product instead of by stack, how imports and references changed the design, and why that model is cleaner than duplicating values into every consumer.
+Coming next is the architecture post: why I organized secrets by product instead of by stack, how imports and references changed the design, and why that model is cleaner than duplicating values into every consumer.
 
-Then, on March 31, 2026, I will get into the GitOps and machine-identity side: Universal Auth, the Secret Zero problem, `infisical run`, `infisical export --expand`, and the networking details that made the final setup behave correctly.
+Then I will get into the GitOps and machine-identity side: Universal Auth, the Secret Zero problem, `infisical run`, `infisical export --expand`, and the networking details that made the final setup behave correctly.
 
 The series titles are already set:
 
@@ -240,6 +252,6 @@ The series titles are already set:
 
 That, in the end, is the real reason I made the move.
 
-I was done pretending HomeLab secret sprawl was harmless just because it was local. Once tooling keeps stumbling over it, runners need better boundaries, and the environment starts shaping real habits, `.env` convenience turns into debt.
+This was not only about cleaning up secrets. It was also about learning better habits, giving AI tooling clearer boundaries, and building a HomeLab that teaches me the kind of platform discipline I actually want to keep.
 
-Once I looked at the problem through that lens, moving to Infisical stopped feeling like over-engineering. It felt late.
+Once I looked at it that way, moving to Infisical stopped feeling like over-engineering. It felt late.

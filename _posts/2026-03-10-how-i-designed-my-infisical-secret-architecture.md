@@ -1,6 +1,6 @@
 ---
-date: 2026-03-24
-datePublished: 2026-03-24T09:30:00+01:00
+date: 2026-03-18
+datePublished: 2026-03-18T09:30:00+01:00
 title: "How I Designed My Infisical Secret Architecture"
 seoTitle: "How I Designed My Infisical Secret Architecture"
 seoDescription: "A practical look at provider-based secret ownership, imports, references, and why this Infisical design works better than mirroring old .env files."
@@ -15,7 +15,7 @@ show_post_navigation: false
 This is part 2 of a 3-part series.
 
 - Previously: [Why I Finally Moved My HomeLab Secrets Out of `.env` Files](/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files)
-- Coming next on March 31, 2026: `Infisical, Gitea Actions, and the Secret Zero Problem`
+- Coming next: `Infisical, Gitea Actions, and the Secret Zero Problem`
 
 ## Previously On
 

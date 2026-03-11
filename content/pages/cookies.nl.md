@@ -28,14 +28,14 @@ Deze cookies zijn noodzakelijk voor het goed functioneren van de website. Ze mak
 
 ## Analytics
 
-Voor website-analyse gebruiken we Cloudflare Web Analytics, dat **geen cookies gebruikt** en uw privacy respecteert. In tegenstelling tot traditionele analysetools:
+Voor website-analyse gebruiken we Simple Analytics, dat **geen cookies gebruikt** en uw privacy respecteert. In tegenstelling tot traditionele analysetools:
 
-- Gebruikt Cloudflare Web Analytics geen cookies
+- Gebruikt Simple Analytics geen cookies
 - Volgt het gebruikers niet over websites heen
 - Verzamelt het geen persoonlijke gegevens
 - Voldoet het volledig aan AVG (GDPR), CCPA en PECR
 
-Dit betekent dat u onze website kunt bezoeken zonder dat er tracking cookies worden geplaatst. Voor meer informatie over Cloudflare Web Analytics, bezoek [Cloudflare's Privacybeleid](https://www.cloudflare.com/privacypolicy/).
+Dit betekent dat u onze website kunt bezoeken zonder dat er tracking cookies worden geplaatst. Voor meer informatie over Simple Analytics, bezoek [de pagina over data en eigenaarschap van Simple Analytics](https://docs.simpleanalytics.com/data-security-and-ownership).
 
 ## Diensten van derden
 
