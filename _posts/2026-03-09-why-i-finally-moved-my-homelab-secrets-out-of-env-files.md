@@ -92,7 +92,7 @@ Once I looked at it that way, duplicated secrets next to repos stopped feeling l
 
 One of the ironies here is that the pressure to clean this up partly came from the tools that are supposed to help me move faster.
 
-An LLM doesn't care about my story about "just a local lab." It sees token-like strings, suspicious files, and awkward boundaries, then it starts complaining. That is sometimes irritating, but it's also useful.
+An LLM doesn't care about my story about "just a local lab." It sees token-like strings, suspicious files, and awkward boundaries, then it starts complaining. That's sometimes irritating, but it's also useful.
 
 I didn't need every warning to be perfect for the pattern to be obvious. If Gemini or Codex kept stumbling over token-like files in ordinary repos, I had left too much operational meaning in the wrong places. That gets more expensive once the same tools are helping me inspect infrastructure, compare options, write docs, and patch repos. I want those tools to behave more like expensive consultants than curious interns rummaging through leftovers.
 
@@ -135,7 +135,7 @@ I had files like this in more than one place. Four lines are ordinary settings I
 
 ## Why This Also Became A Privacy Story
 
-On paper this is an infrastructure hygiene story. In practice it also changed how comfortable I felt handing repo context to cloud LLMs.
+On paper, it's an infrastructure hygiene story. In practice, it also changed how comfortable I felt handing repo context to cloud LLMs.
 
 Once I started using those tools seriously, the questions changed. Which repositories should they see? Which files should stay out of scope completely? How much operational state was I normalizing into everyday context windows without noticing?
 
@@ -250,6 +250,6 @@ The series titles are already set:
 
 In the end, that was the real reason for the move.
 
-It was not just about cleaning up secrets. It was about learning better habits, giving AI tooling a clearer line to work with, and turning the HomeLab into something that teaches me better instincts instead of sloppy ones.
+It wasn't just about cleaning up secrets. It was about learning better habits, giving AI tooling a clearer line to work with, and turning the HomeLab into something that teaches me better instincts instead of sloppy ones.
 
 The most useful question in this first part was a simple one: which values are just configuration, and which ones change the trust boundary when they leak? That question did more work for me than any product comparison did. Once I started looking at it that way, moving to Infisical stopped feeling like over-engineering. It just felt late.
