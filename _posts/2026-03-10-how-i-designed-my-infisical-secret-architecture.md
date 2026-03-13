@@ -10,8 +10,6 @@ tags: devops gitops homelab infisical secrets architecture llm
 show_post_navigation: false
 ---
 
-# How I Designed My Infisical Secret Architecture
-
 This is part 2 of a 3-part series.
 
 - Previously: [Why I Finally Moved My HomeLab Secrets Out of `.env` Files](/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files)
@@ -21,7 +19,7 @@ This is part 2 of a 3-part series.
 
 In the previous post, I explained why I finally stopped tolerating duplicated `.env` files and token-like values spread across the HomeLab. The short version was that the HomeLab had started behaving like a real platform, AI tooling kept surfacing weak boundaries, and I wanted a secret story that would still make sense when the internet was down.
 
-This post picks up where that one stopped. Installing a secret manager is the easy part. The real work starts when I have to decide how Infisical{% include inline-tech-note.html key="post2_infisical_modeling" %} should represent the system.
+This post picks up where that one stopped. Installing a secret manager is the easy part. The real work starts when I have to decide how [Infisical](https://infisical.com/) should represent the system.
 
 ## Context
 
@@ -147,26 +145,27 @@ I wanted the result to be structurally better, not only more modern.
 
 References matter for the same reason imports matter. They let me keep meaning at the right layer.
 
-Without imports and references, people duplicate values because they are afraid indirection makes the runtime fragile. In practice, disciplined indirection makes the model cleaner. Rotation happens in the right place. Ownership stays visible. Consumers stay small. The runner side matters here as well, because a Gitea runner{% include inline-tech-note.html key="post2_gitea_runner" %} should be able to consume this structure without turning it back into duplication.
+Without imports and references, people duplicate values because they are afraid indirection makes the runtime fragile. In practice, disciplined indirection makes the model cleaner. Rotation happens in the right place. Ownership stays visible. Consumers stay small. The runner side matters here as well, because a [Gitea runner](https://docs.gitea.com/usage/actions/act-runner) should be able to consume this structure without turning it back into duplication.
 
-Once I combine that with `infisical export --expand`, the runtime still gets concrete values at the edge while the vault keeps the better structure internally. That is exactly the balance I wanted: expressive architecture in the control plane, boring flat values at runtime.
+Once I combine that with a committed stack contract and guarded runtime injection, the runtime still gets concrete values at the edge while the vault keeps the better structure internally. That is exactly the balance I wanted: expressive architecture in the control plane, boring runtime behavior at the edge.
 
 ```mermaid
 sequenceDiagram
     participant Admin as Me in Infisical
     participant Vault as Provider Folder
     participant Stack as Stack Folder
+    participant Contract as stack.contract.json
     participant Runner as Gitea Runner
-    participant Runtime as Docker Compose
+    participant Runtime as Guarded Docker
 
     Admin->>Vault: Store or rotate provider secret once
     Stack->>Vault: Import shared path
-    Runner->>Stack: infisical export --expand
-    Stack-->>Runner: Resolved flat dotenv values
-    Runner->>Runtime: docker compose --env-file .env up -d
+    Contract-->>Runner: Discover Infisical path and environment
+    Runner->>Runtime: docker compose up -d
+    Runtime->>Vault: infisical run for stack path
 ```
 
-That is the flow I wanted from the start. Meaning stays in the vault. Flat values only exist at the runtime edge because that is where older tooling still expects them.
+That is the flow I wanted from the start. Meaning stays in the vault. The contract makes the path explicit. The runtime edge stays boring without falling back to secret files in the repo.
 
 ## Why Legibility Matters Almost As Much As Encryption
 
@@ -200,6 +199,32 @@ For me, the obvious risks look like this:
 I have seen traces of all four during the migration work. The emotional tone is not the interesting part. The operational reflex underneath it is. Convenience always tries to win. Good structure is the thing that keeps convenience from quietly eroding the boundary.
 
 That is another reason the provider model feels right to me. A better architecture removes some of the temptation before the tool even starts reasoning.
+
+## Why The Vault Model Was Not The Whole Boundary
+
+This was the next thing I had to learn the hard way: a better vault model is necessary, but it is not enough.
+
+Provider folders, imports, and cleaner ownership reduce semantic leakage. They do not stop a tired human, an eager LLM, or a Compose UI from reaching for `docker compose up -d`, generating a secret-bearing `.env`, or recreating the old habit under a nicer control plane.
+
+That is where the meaning of the architecture changed for me. Infisical became the place that defines ownership, but not the only thing that enforces behavior. The runtime edge needed its own hard boundary.
+
+In practice that boundary became a committed `stack.contract.json` beside the Compose file and a guarded Docker execution path underneath both the shell and the UI. The contract tells the runtime where the truth lives in Infisical. The guarded Docker path makes sure the stack cannot quietly slide back to secret files on disk just because that would be convenient.
+
+That sounds like a runtime concern, and it is, but it starts here in the architecture. If the vault model does not describe ownership clearly, then the execution layer has nothing honest to enforce later.
+
+```mermaid
+flowchart LR
+    V["Provider-owned paths in Infisical"]
+    C["stack.contract.json"]
+    G["guarded docker boundary"]
+    R["runtime container process"]
+
+    V --> C
+    C --> G
+    G --> R
+```
+
+The diagram is simple on purpose. The useful part is the handoff. The vault owns meaning. The contract makes that meaning discoverable. The guarded runtime edge turns that meaning into actual behavior.
 
 ## A More Concrete Walkthrough
 
@@ -288,14 +313,13 @@ The migration notes capture the center of gravity quite well:
 
 That was exactly the direction I kept pushing.
 
-There is also a practical GitOps example in the local artifacts that shows how the design reaches a real deployment:
+There is also a practical GitOps example in the local artifacts that shows how the design reaches a real deployment without falling back to secret env files:
 
 ```yaml
-- name: Inject Secrets from Infisical
+- name: Deploy through the guarded runtime boundary
   env:
     INFISICAL_CLIENT_ID: ${{ secrets.INFISICAL_CLIENT_ID }}
     INFISICAL_CLIENT_SECRET: ${{ secrets.INFISICAL_CLIENT_SECRET }}
-    INFISICAL_PROJECT_ID: ${{ secrets.INFISICAL_PROJECT_ID }}
   run: |
     export INFISICAL_TOKEN=$(infisical login --method=universal-auth \
       --client-id="$INFISICAL_CLIENT_ID" \
@@ -303,53 +327,24 @@ There is also a practical GitOps example in the local artifacts that shows how t
       --plain --silent \
       --domain="http://192.168.5.90:8081")
 
-    cp stack.env.template .env
-
-    infisical export --token="$INFISICAL_TOKEN" \
-      --projectId "$INFISICAL_PROJECT_ID" \
-      --env "prod" \
-      --path "/traefik" \
-      --domain="http://192.168.5.90:8081" \
-      --format=dotenv >> .env
+    docker compose up -d
 ```
 
-Even though that is a deployment example, it reinforces the architectural point. The stack consumes from a clear path. That path exists inside a larger provider-owned model. The runtime gets flat values only at the edge.
+That example only works because the compose directory also contains the metadata that the runtime edge needs:
 
-I also want one Compose example here, because this is where a lot of architecture talk either becomes credible or falls apart.
-
-The shortest version of that runtime edge looks like this:
-
-```bash
-cp stack.env.template .env
-infisical export --expand >> .env
-docker compose --env-file .env up -d
+```json
+{
+  "stack": "traefik",
+  "infisical": {
+    "domain": "http://192.168.5.90:8081",
+    "project_id": "replace-me",
+    "environment": "prod",
+    "path": "/traefik"
+  }
+}
 ```
 
-That is the boring handoff I wanted. The architecture can stay expressive in Infisical, while the runtime still gets the flat shape it expects without turning the repo into the long-term home of the secret values.
-
-```dotenv
-# stack.env.template
-COMPOSE_PROJECT_NAME=traefik
-TRAEFIK_HTTP_PORT=80
-TRAEFIK_HTTPS_PORT=443
-```
-
-```bash
-cp stack.env.template .env
-
-infisical export \
-  --token="$INFISICAL_TOKEN" \
-  --projectId "$INFISICAL_PROJECT_ID" \
-  --env "prod" \
-  --path "/traefik" \
-  --domain="http://192.168.5.90:8081" \
-  --format=dotenv \
-  --expand >> .env
-
-docker compose --env-file .env up -d
-```
-
-This is what I mean when I say the runtime should stay boring. The template holds the non-secret shape. Infisical appends the sensitive part at deploy time. Compose still gets the flat env-file shape it expects, but that shape is no longer the long-term home of the secret architecture.
+This is what I mean when I say the runtime should stay boring. The repo keeps non-secret structure and contract metadata. Infisical keeps the secret truth. The deployment path stays short, but it no longer has to manufacture a secret-bearing file on disk just to make Compose happy.
 
 ## Why This Architecture Is Also A Teaching Tool
 
@@ -366,6 +361,41 @@ My answer is simple enough to teach:
 - keep non-secret structure in Git
 
 That is not vendor hype. It is an operating pattern.
+
+## How This Post Was Written
+
+This post also comes from the real migration work. The folder structure, imports, screenshots, and examples come from the setup itself.
+
+I did use the same writing and review loop as in Part 1: ChatGPT, Codex, Gemini, QuillBot, GPTZero, and Transkriptor all helped at different stages. I use them to compare drafts, pressure-test the prose, check whether a screenshot adds anything, and feed read-aloud comments back into the post. They help me improve the article. They do not replace the work behind it.
+
+## Sources
+
+- [Infisical secret imports](https://infisical.com/docs/documentation/platform/secret-imports)  
+  The feature that made the provider-based structure practical instead of theoretical.
+
+- [Infisical secret referencing](https://infisical.com/docs/documentation/platform/secret-referencing)  
+  Reference behavior and the way shared values can stay shared instead of copied.
+
+- [Infisical CLI usage](https://infisical.com/docs/cli/usage)  
+  The CLI side that turns the architecture into a real deploy-time flow.
+
+- [ChatGPT](https://chatgpt.com/)  
+  Used to compare prose versions and refine a few diagrams and visual explanations.
+
+- [OpenAI Codex](https://openai.com/codex/)  
+  Used to patch the post, update assets, and validate the Jekyll output in the repo itself.
+
+- [Gemini](https://gemini.google.com/)  
+  Used as a second opinion on the visual choices and on sections that stayed too tidy after a first pass.
+
+- [QuillBot](https://quillbot.com/)  
+  Used as a comparison tool for sentence rhythm, not as the source of truth.
+
+- [GPTZero](https://gptzero.me/)  
+  Used as a pressure test when the prose became too composite or too polished.
+
+- [Transkriptor](https://transkriptor.com/)  
+  Used to turn spoken read-through comments into editing notes.
 
 ## What’s Next
 

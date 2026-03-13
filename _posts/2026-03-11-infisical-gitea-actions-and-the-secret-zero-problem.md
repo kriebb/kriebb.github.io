@@ -10,8 +10,6 @@ tags: devops gitops homelab infisical gitea traefik dns llm
 show_post_navigation: false
 ---
 
-# Infisical, Gitea Actions, and the Secret Zero Problem
-
 This is part 3 of a 3-part series.
 
 - Previously: [Why I Finally Moved My HomeLab Secrets Out of `.env` Files](/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files)
@@ -25,7 +23,7 @@ This post is the practical one. Once the structure exists, the next question is 
 
 ## Context
 
-The Synology NAS{% include inline-tech-note.html key="post3_synology_nas" %} doesn't log in like a human. The compute VM{% include inline-tech-note.html key="post3_compute_vm" %} doesn't log in like a human. Gitea runners{% include inline-tech-note.html key="post3_gitea_runner" %} definitely shouldn't inherit admin credentials through shell history or copied files just because automation is inconvenient.
+The [Synology NAS](https://www.synology.com/en-nz/company/news/article/DS220plus/Synology%C2%AE%20Introduces%20DS220%2B) doesn't log in like a human. The compute VM, running on [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview), doesn't log in like a human. [Gitea runners](https://docs.gitea.com/usage/actions/act-runner) definitely shouldn't inherit admin credentials through shell history or copied files just because automation is inconvenient.
 
 That is the real context for the rest of this post: the authentication story had to be machine-native.
 
@@ -71,17 +69,18 @@ sequenceDiagram
     participant G as Gitea Actions Secrets
     participant R as Gitea Runner
     participant I as Infisical
-    participant D as Docker Compose
+    participant C as stack.contract.json
+    participant D as Guarded Docker
 
     G->>R: INFISICAL_CLIENT_ID / INFISICAL_CLIENT_SECRET
     R->>I: infisical login --method=universal-auth
     I-->>R: short-lived access token
-    R->>I: infisical export --expand
-    I-->>R: resolved dotenv values
-    R->>D: docker compose --env-file .env up -d
+    C-->>R: discover stack path and environment
+    R->>D: docker compose up -d
+    D->>I: infisical run for stack path
 ```
 
-That sequence is the center of gravity for the whole deployment story. The bootstrap secret stays small. The runtime secret material is short-lived. The runner gets what it needs without becoming the long-term home of the secret architecture.
+That sequence is the center of gravity for the whole deployment story. The bootstrap secret stays small. The runner gets what it needs without becoming the long-term home of the secret architecture, and the runtime edge no longer depends on a secret-bearing env file.
 
 ## The Login Flow
 
@@ -139,42 +138,37 @@ sequenceDiagram
 
 That is the kind of diagram I always miss in neat tutorials. It is not there to look pretty. It is useful because it tells the truth about which path belongs to which actor.
 
-## The Export Flow
+## The First Runtime Edge
 
-Once the runner has an access token, exporting is straightforward:
+Once the runner has an access token, the next question is no longer "can I get the values out of Infisical?" The real question is where I want the runtime boundary to sit.
 
 <!-- visual-slot: post3-gitea-run-view
 type: screenshot
 source: gitea workflow run details
-goal: show the login/export step where the control plane meets the pipeline
+goal: show the login plus guarded deploy step where the control plane meets the pipeline
 see: docs/INFISICAL_VISUAL_STORYBOARD.md
 -->
 
 ```bash
-infisical export \
-  --token="$INFISICAL_TOKEN" \
-  --projectId "$INFISICAL_PROJECT_ID" \
-  --env "prod" \
-  --path "/paperless-private" \
-  --domain="http://192.168.5.90:8081" \
-  --format=dotenv \
-  --expand
+export INFISICAL_TOKEN=$(infisical login \
+  --method=universal-auth \
+  --client-id="$INFISICAL_CLIENT_ID" \
+  --client-secret="$INFISICAL_CLIENT_SECRET" \
+  --plain --silent \
+  --domain="http://192.168.5.90:8081")
+
+docker compose up -d
 ```
 
-The key flag here is `--expand`.
+That looks almost too small, which is part of the point. The deployment command only stays that short because the real work moved lower. The stack directory carries `stack.contract.json`, and the guarded Docker boundary underneath `docker compose` uses that contract to resolve the right Infisical path at runtime.
 
-That flag lets the vault stay expressive. Imports remain imports. References remain references. Shared provider ownership stays modeled properly. At the edge, the runtime still gets the flat values it expects.
-
-That is the bridge I wanted between good architecture and boring deployment mechanics. The control plane stays structured while the runtime stays simple.
-
-The export step becomes more convincing once I put it next to the actual workflow shape:
+The workflow shape therefore changed as well:
 
 ```yaml
-- name: Build runtime env for traefik
+- name: Deploy through guarded Docker
   env:
     INFISICAL_CLIENT_ID: ${{ secrets.INFISICAL_CLIENT_ID }}
     INFISICAL_CLIENT_SECRET: ${{ secrets.INFISICAL_CLIENT_SECRET }}
-    INFISICAL_PROJECT_ID: ${{ secrets.INFISICAL_PROJECT_ID }}
   run: |
     export INFISICAL_TOKEN=$(infisical login \
       --method=universal-auth \
@@ -183,34 +177,23 @@ The export step becomes more convincing once I put it next to the actual workflo
       --plain --silent \
       --domain="http://192.168.5.90:8081")
 
-    cp stack.env.template .env
-
-    infisical export \
-      --token="$INFISICAL_TOKEN" \
-      --projectId "$INFISICAL_PROJECT_ID" \
-      --env "prod" \
-      --path "/traefik" \
-      --domain="http://192.168.5.90:8081" \
-      --format=dotenv \
-      --expand >> .env
-
-    docker compose --env-file .env up -d
+    docker compose up -d
 ```
 
 ![A single Gitea Actions run showing the job surface where the pipeline executes](/assets/images/blog/infisical-gitea-actions-and-the-secret-zero-problem/gitea-actions-run-detail.png)
 
 The screenshot above shows the execution surface itself. It is not yet the full secret export log, but it does show the exact place where the vault interaction belongs.
 
-That is the part I wanted to show explicitly. Compose still gets what it expects, but Git no longer has to pretend it is the rightful owner of the secret values.
+That is the part I wanted to show explicitly. Git still carries structure. Infisical still carries the secret truth. What changed is that the runtime edge no longer needs to manufacture a secret-bearing env file on disk just to keep Compose happy.
 
 ## `infisical run` And Why I Like It
 
-There is another side to the story that matters for local development:
+There is another side to the story that matters just as much for local development:
 
 <!-- visual-slot: post3-local-dev-direct-run
 type: code-taste
 source: short local-dev command pair
-goal: show the difference between runtime injection and exported env-file flows
+goal: show the difference between guarded runtime injection and the old env-file reflex
 see: docs/INFISICAL_VISUAL_STORYBOARD.md
 -->
 
@@ -222,43 +205,88 @@ I like this pattern because it removes a lot of ritual around local secret handl
 
 That makes Infisical feel more like a developer platform than a compliance platform. I care about that distinction because engineers keep using the secure path when it is also the pleasant path.
 
-## Why `stack.env.template` Still Matters
+The important part for the HomeLab came a little later: I stopped thinking of `infisical run` as just a developer convenience and started treating it as the actual runtime boundary.
 
-I don't want this series to sound ideological. I am not trying to erase every environment-file pattern from existence.
+## Docker Turned Out To Be The Real Boundary
 
-The separation I wanted was simpler than that:
+That matters because LLMs already know `docker run` and `docker compose up`. They reach for those commands instinctively. Dockge does the same thing from a nicer UI. If I only improve the vault and leave Docker untouched, the old habit can still reappear at the exact moment where secrets enter the runtime.
 
-- non-sensitive defaults and structure stay in Git
-- secret material moves into Infisical
+That is why I ended up moving the policy lower:
 
-That is why `stack.env.template` still matters. It preserves non-secret defaults, environment shape, Compose expectations, and values like `COMPOSE_PROJECT_NAME` that are operationally important without being secret.
+- keep ownership in Infisical
+- keep non-secret structure in Git
+- put the enforcement boundary underneath `docker`
 
-I don't read that as a weak compromise. It is a better line.
+In practice that meant a guarded Docker wrapper plus a committed `stack.contract.json` beside each Compose file.
 
-This distinction is easier to understand with two tiny examples side by side:
+```mermaid
+sequenceDiagram
+    participant Runner as Gitea Runner or Dockge
+    participant Guard as guarded docker boundary
+    participant Vault as Infisical
+    participant Engine as Docker Engine
 
-```dotenv
-# stack.env.template
-COMPOSE_PROJECT_NAME=paperless-private
-PAPERLESS_PORT=8010
-PAPERLESS_URL=https://paperless.itkriebbels.be
+    Runner->>Guard: docker compose up -d
+    Guard->>Vault: resolve stack contract and fetch runtime secrets
+    Vault-->>Guard: short-lived injected environment
+    Guard->>Engine: real docker compose up -d
 ```
 
-```dotenv
-# exported by Infisical during deployment
-PAPERLESS_DBUSER=paperless
-PAPERLESS_DBPASS=pg_abcd***
-PAPERLESS_SECRET_KEY=django_abcd***
-SMTP_PASSWORD=mf_abcd***
+This is the part I had been missing earlier. The vault defines ownership. The Docker boundary enforces behavior.
+
+## Why Dockge Changed The Picture
+
+The moment Dockge entered the story, the old compromise looked even weaker.
+
+Dockge is still a Docker caller. It just happens to be a Docker caller behind a friendlier interface. If I allow the UI to bypass the policy boundary, then I have created exactly the kind of split-brain setup that gets messy under pressure: one path for disciplined automation, another path for convenience.
+
+I did not want that.
+
+So Dockge became part of the same design. The control-plane image now needs the Infisical CLI, the same guarded Docker entrypoint, and the same fail-closed behavior as the MCP bridges and shell tooling.
+
+That is a more honest design than telling myself the UI is somehow exempt from the rules because it looks less dangerous than a terminal.
+
+## Why A Docker Plugin Would Have Been Nice
+
+At one point I wanted Docker to solve this for me with a neat plugin hook.
+
+That would have been convenient, but it turned out not to be the shape of the problem. Docker has plugin mechanisms, but not the kind of universal pre-run policy hook I wanted for every mutating `docker run` or `docker compose` call.
+
+So the practical answer was not "find the magical plugin slot." The practical answer was to wrap the execution surface that both humans and tools already reach for.
+
+## Why `stack.contract.json` Matters More Than `stack.env.template`
+
+I still do not want this series to sound ideological. Non-secret structure still belongs in Git. The difference is that I no longer want the runtime story to depend on env files, even temporary ones.
+
+That is why `stack.contract.json` matters more to me now than `stack.env.template`.
+
+The contract is not a secret store. It is the discoverable metadata that tells the runtime boundary which Infisical folder belongs to the stack:
+
+```json
+{
+  "stack": "paperless-private",
+  "infisical": {
+    "domain": "http://192.168.5.90:8081",
+    "project_id": "replace-me",
+    "environment": "prod",
+    "path": "/paperless-private"
+  }
+}
 ```
 
-The first file belongs in Git. The second belongs in the secret flow and should exist as briefly as possible.
+That is the line I wanted in the end:
+
+- non-secret structure and metadata in Git
+- secret truth in Infisical
+- runtime enforcement under Docker
+
+`stack.env.template` can still exist as a migration aid for non-sensitive defaults. It is just no longer the center of gravity.
 
 ## The Gitea Naming Paradox
 
 Gitea checks out repositories into a working directory whose name is not always the operational name I want Docker Compose to adopt.
 
-If Compose derives its project name from the checkout path, naming drift and collisions become more likely. The clean fix was to hardcode `COMPOSE_PROJECT_NAME` into `stack.env.template`.
+If Compose derives its project name from the checkout path, naming drift and collisions become more likely. The clean fix is to keep that naming explicit in non-secret config instead of letting the checkout path decide it by accident.
 
 This is exactly the kind of detail that disappears from glossy tutorials because it only matters when GitOps is real, multiple deployments coexist, and predictable container identity matters. In other words, it matters precisely when the documentation needs to become more honest.
 
@@ -266,12 +294,13 @@ This is exactly the kind of detail that disappears from glossy tutorials because
 
 I don't like vague uses of the phrase "secretless infrastructure."
 
-In this setup it doesn't mean that no secrets exist, that no bootstrap secret exists, or that a temporary `.env` file is never created during deployment. It means something narrower and more useful:
+In this setup it doesn't mean that no secrets exist or that no bootstrap secret exists. It means something narrower and more useful:
 
 - secrets are not committed as normal repo state
 - deployments retrieve secret material from a managed source of truth
-- long-lived duplication is minimized
-- automation consumes secrets intentionally and briefly
+- the runtime edge does not rely on secret-bearing `.env` or `stack.env` files
+- automation consumes secrets intentionally, briefly, and through a guarded boundary
+- if the secret control plane is unavailable, mutating runtime actions fail closed instead of improvising a fallback
 
 That definition is less impressive than the slogan version. It is also more useful.
 
@@ -291,16 +320,16 @@ I think about it in almost the same way people think about local Azure-adjacent 
 
 Infisical is serving a different need in this HomeLab. It is not trying to mimic Azure locally. It is trying to be the local control plane that fits the substrate I already have. If the future path were "move this whole trust model into Azure," then Azure Key Vault would become more compelling very quickly. Right now the stronger requirement is that the secret path should stay useful and honest on local infrastructure first.
 
-That is the practical comparison I care about. Azure Key Vault{% include inline-tech-note.html key="post3_azure_key_vault" %} is the cleaner answer when Azure is already the center of gravity. Infisical is the cleaner answer when the HomeLab itself is the center of gravity and the cloud may still come later.
+That is the practical comparison I care about. [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts) is the cleaner answer when Azure is already the center of gravity. Infisical is the cleaner answer when the HomeLab itself is the center of gravity and the cloud may still come later.
 
 ## How I Would Verify The Result
 
 To verify that the migration actually works, I would want to confirm at least five things:
 
-1. the Gitea runner logs show the Infisical login and export steps succeeding
+1. the Gitea runner logs show the Infisical login and guarded deploy step succeeding
 2. the correct endpoint is used from the runner context: `http://192.168.5.90:8081`
-3. imports resolve as expected
-4. `--expand` produces the final values I expect at the edge
+3. the stack contract resolves to the expected Infisical path
+4. a guarded Docker action fails closed when Infisical auth is unavailable
 5. a shared provider secret can be rotated once and observed correctly downstream
 
 I don't want to normalize manual grepping forever. I do want to close the loop at least once so the control plane, the pipeline, and the runtime all agree.
@@ -414,7 +443,7 @@ There is a future local-development angle behind that split as well. I want a lo
 
 ## Why Traefik Is Part Of The Secret Story
 
-At first glance, Traefik{% include inline-tech-note.html key="post3_traefik" %} might look like a side topic in a post about Infisical, but in this environment it clearly is not.
+At first glance, [Traefik](https://traefik.io/traefik/) might look like a side topic in a post about Infisical, but in this environment it clearly is not.
 
 In this environment, Traefik is part of the secret story because it is part of the service access story. I need stable ways to reach self-hosted services for browsers, Gitea runners, MCP bridges, Playwright automation, and AI-assisted workflows that rely on predictable endpoints.
 
@@ -484,6 +513,41 @@ One rule captures the whole situation well:
 Once I internalize that rule, a lot of earlier confusion becomes easier to explain. It also becomes easier to tell an AI system what "the right endpoint" means in context.
 
 That is not a small thing. Good AI-assisted operations work often starts by reducing ambiguity before the tool ever starts reasoning.
+
+## How This Post Was Written
+
+This post comes from the runner work, the auth failures, the routing weirdness, and the bits that only become obvious once I actually deploy against the setup instead of describing it from memory.
+
+I used the same writing loop here as in the earlier parts: ChatGPT, Codex, Gemini, QuillBot, GPTZero, and Transkriptor. They helped me test phrasing, tighten the structure, check the screenshots, and feed spoken corrections back into the draft. The underlying workflow and tradeoffs still come from the work itself.
+
+## Sources
+
+- [Infisical Universal Auth](https://infisical.com/docs/documentation/platform/identities/universal-auth)  
+  The machine-auth path behind the login flow in this post.
+
+- [Infisical CLI usage](https://infisical.com/docs/cli/usage)  
+  The CLI commands behind `infisical login`, `infisical export`, and `infisical run`.
+
+- [Azure Key Vault basics](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts)  
+  The baseline Azure comparison point for the self-hosted versus Azure-native trust model discussion.
+
+- [ChatGPT](https://chatgpt.com/)  
+  Used to compare structure, refine some text, and help shape supporting visuals.
+
+- [OpenAI Codex](https://openai.com/codex/)  
+  Used for repo-local editing, screenshot capture, CSS fixes, and site validation.
+
+- [Gemini](https://gemini.google.com/)  
+  Used as a second opinion on repeated problems and on the practical structure of the post.
+
+- [QuillBot](https://quillbot.com/)  
+  Used to compare sentence rhythm and catch overly tidy phrasing.
+
+- [GPTZero](https://gptzero.me/)  
+  Used as an external pressure test when the prose started reading too assembled.
+
+- [Transkriptor](https://transkriptor.com/)  
+  Used to capture spoken review passes and feed those comments back into the draft.
 
 ## Outro
 

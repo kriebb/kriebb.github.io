@@ -45,6 +45,7 @@ What is missing:
 - a real import or reference view
 - a stronger side-by-side between provider truth and consumer runtime output
 - one screenshot that makes Infisical feel like a product, not only a concept
+- one small diagram that shows the handoff from vault ownership to runtime enforcement
 
 ### Post 3
 
@@ -61,6 +62,8 @@ What is missing:
 - one browser-facing Infisical access screenshot through Traefik
 - one Gitea workflow or log view
 - one visual that makes the Macvlan paradox feel concrete instead of purely explained
+- one code taste block for `stack.contract.json`
+- one diagram for runner or Dockge -> guarded Docker -> Infisical -> Docker Engine
 
 ## Capture Rules
 
@@ -257,17 +260,45 @@ Type:
 
 Asset goal:
 
-- keep the existing workflow snippet, but add a second short snippet that only shows the runtime edge:
+- show the runtime edge as contract metadata plus one guarded deploy command:
+
+```json
+{
+  "stack": "traefik",
+  "infisical": {
+    "domain": "http://192.168.5.90:8081",
+    "project_id": "replace-me",
+    "environment": "prod",
+    "path": "/traefik"
+  }
+}
+```
 
 ```bash
-cp stack.env.template .env
-infisical export --expand >> .env
-docker compose --env-file .env up -d
+docker compose up -d
 ```
 
 Caption goal:
 
-- show how expressive vault structure turns into boring runtime input
+- show how expressive vault structure turns into boring runtime behavior without secret env files
+
+### Injection point 5
+
+Section:
+
+- `## Why The Vault Model Was Not The Whole Boundary`
+
+Type:
+
+- diagram
+
+Asset goal:
+
+- one compact handoff diagram showing provider folders -> `stack.contract.json` -> guarded Docker -> runtime process
+
+Caption goal:
+
+- prove that the vault defines ownership but the runtime boundary enforces behavior
 
 ## Post 3: Infisical, Gitea Actions, and the Secret Zero Problem
 
@@ -313,7 +344,7 @@ Caption goal:
 
 Section:
 
-- `## The Export Flow`
+- `## The First Runtime Edge`
 
 Type:
 
@@ -321,7 +352,7 @@ Type:
 
 Asset goal:
 
-- Gitea Actions run view with the Infisical login/export step visible
+- Gitea Actions run view with the Infisical login and guarded deploy step visible
 
 Capture target:
 
@@ -355,6 +386,42 @@ Caption goal:
 - show the difference between exported env files and direct runtime injection
 
 ### Injection point 5
+
+Section:
+
+- `## Docker Turned Out To Be The Real Boundary`
+
+Type:
+
+- diagram
+
+Asset goal:
+
+- one sequence diagram showing runner or Dockge -> guarded Docker boundary -> Infisical -> Docker Engine
+
+Caption goal:
+
+- prove that the policy now sits below both the LLM and the UI
+
+### Injection point 6
+
+Section:
+
+- `## Why \`stack.contract.json\` Matters More Than \`stack.env.template\``
+
+Type:
+
+- code taste
+
+Asset goal:
+
+- one short masked `stack.contract.json` example that shows path and environment metadata without revealing any secrets
+
+Caption goal:
+
+- show that the committed metadata is discoverable and non-secret
+
+### Injection point 7
 
 Section:
 
