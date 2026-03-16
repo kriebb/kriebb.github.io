@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     note.classList.remove('inline-tech-note--open');
-    const button = note.querySelector('.inline-tech-note__button');
+    const button = note.querySelector('.inline-tech-note__link');
     if (button) {
       button.setAttribute('aria-expanded', 'false');
     }
@@ -121,17 +121,15 @@ document.addEventListener('DOMContentLoaded', function () {
     note.dataset.popupBound = 'true';
     note.classList.add('inline-tech-note--ready');
 
-    const labelText = note.getAttribute('data-tech-note-label') || 'Read more...';
+    const labelText = String(index + 1);
     const panelId = 'inline-tech-note-panel-' + index;
 
     note.innerHTML = `
-      <button class="inline-tech-note__button" type="button" aria-expanded="false" aria-controls="${panelId}">
-        ${labelText}
-      </button>
+      <sup class="inline-tech-note__marker"><a class="inline-tech-note__link" href="#${panelId}" aria-expanded="false" aria-controls="${panelId}">${labelText}</a></sup>
       <span class="inline-tech-note__panel" id="${panelId}" hidden>${content}</span>
     `;
 
-    const button = note.querySelector('.inline-tech-note__button');
+    const button = note.querySelector('.inline-tech-note__link');
     const panel = note.querySelector('.inline-tech-note__panel');
     panel.hidden = false;
 

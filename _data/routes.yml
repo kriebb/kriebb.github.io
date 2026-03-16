@@ -11,6 +11,8 @@ routes:
   cookies:
     en: "/cookies/"
     nl: "/nl/cookies/"
+  dictation-lab:
+    en: "/dictation-lab/"
   index:
     en: "/"
     nl: "/nl/"

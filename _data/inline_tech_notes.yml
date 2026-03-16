@@ -1,17 +1,17 @@
 post1_infisical: |
-  <strong>Infisical</strong> is the self-hosted secret control plane in this series. I use it because imports, references, machine identities, and the CLI fit GitOps far better than a pile of copied <code>.env</code> files ever could.
+  In this setup I use Infisical as a self-hosted secret control plane because imports, references, machine identities, and the CLI fit my GitOps flow better than copied <code>.env</code> files.
 
 post1_synology_nas: |
-  This is the physical HomeLab anchor: a Synology DS220+ with an Intel Celeron and the RAM upgraded to 6 GB. It carries the boring, durable part of the platform really well, which is exactly why it became the natural home for persistent services and state.
+  A Synology DS220+ with 6 GB RAM, used here for the durable side: storage, databases, and persistent services.
 
 post1_compute_vm: |
   The compute side runs on an old laptop with Proxmox. One small Linux VM there carries the Docker workloads I want to isolate from the NAS or move around more freely later.
 
 post1_dockge: |
-  <strong>Dockge</strong> is the lightweight stack manager I use for Compose files. For this kind of LLM-assisted maintenance I find it cleaner than Portainer because the files stay plain, close to the real Compose shape, and easy to diff.
+  I use Dockge as a lightweight Compose manager because the files stay plain and easy to diff, which I prefer over Portainer for this setup.
 
 post1_bitwarden: |
-  This is Bitwarden's machine-facing secret product, not the personal password vault. I mention it because I already pay for Bitwarden for passwords, so it was the first serious comparison before I chose a self-hosted local control plane instead.
+  This is Bitwarden’s machine-facing secret product, not the personal password vault I already use.
 
 post2_infisical_modeling: |
   On this page I am using Infisical less as an installation target and more as a modeling tool. Its value here is that folders, imports, and references let me describe ownership honestly instead of mirroring old <code>.env</code> files into a nicer UI.

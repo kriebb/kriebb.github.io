@@ -343,34 +343,39 @@
   }
 
   .inline-tech-note {
-    display: inline-flex;
+    display: inline;
     position: relative;
-    margin: 0 0.18rem;
+    margin: 0 0.02rem;
     vertical-align: baseline;
     white-space: normal;
   }
 
-  .inline-tech-note__button {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 0.08rem 0.6rem;
-    border: 1px solid var(--border-color);
-    border-radius: 999px;
-    background: var(--card-bg);
-    color: var(--heading-color);
-    font-size: 0.82rem;
-    font-weight: 700;
-    line-height: 1.3;
-    font-family: inherit;
-    white-space: nowrap;
+  .inline-tech-note__marker {
+    font-size: 0.72em;
+    line-height: 0;
+    vertical-align: super;
   }
 
-  .inline-tech-note__button:hover,
-  .inline-tech-note__button:focus-visible,
-  .inline-tech-note--open .inline-tech-note__button {
+  .inline-tech-note__link {
+    display: inline;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--primary-color, var(--accent-color));
+    font-size: 1em;
+    font-weight: 500;
+    line-height: inherit;
+    font-family: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .inline-tech-note__link:hover,
+  .inline-tech-note__link:focus-visible,
+  .inline-tech-note--open .inline-tech-note__link {
     outline: none;
-    border-color: var(--accent-color);
+    color: var(--accent-color);
   }
 
   .inline-tech-note__panel {
@@ -406,8 +411,8 @@
 
   @media (max-width: 640px) {
     .inline-tech-note {
-      display: inline-flex;
-      margin: 0 0.12rem;
+      display: inline;
+      margin: 0 0.02rem;
     }
 
     .inline-tech-note__panel {
