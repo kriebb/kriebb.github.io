@@ -18,9 +18,10 @@ services:
       --livereload
       --livereload-port 35729
       --watch
+      --force_polling
       --future"
     ports:
-      - "${JEKYLL_PORT:-4000}:4000"
+      - "4001:4000"
       - "${LIVERELOAD_PORT:-35729}:35729"
     volumes:
       - .:/srv/jekyll

@@ -1,5 +1,7 @@
 ---
-date: 2026-03-25
+published: false
+date: 2026-03-11
+
 datePublished: 2026-03-25T09:30:00+01:00
 title: "Infisical, Gitea Actions, and the Secret Zero Problem"
 seoTitle: "Infisical, Gitea Actions, and the Secret Zero Problem"

@@ -1,5 +1,7 @@
 ---
-date: 2026-03-18
+published: false
+date: 2026-03-10
+
 datePublished: 2026-03-18T09:30:00+01:00
 title: "How I Designed My Infisical Secret Architecture"
 seoTitle: "How I Designed My Infisical Secret Architecture"
