@@ -4,7 +4,7 @@ This document describes the bridge between the **Private Source of Truth** (Gite
 
 ## Architecture
 
-The homelab environment treats Gitea as the primary authority. However, because the repository contains internal tooling and experimental pages (like `dictation-lab`) that are not intended for the public eye, we use a "Sanitize & Sync" workflow.
+The homelab environment treats Gitea as the primary authority. However, because the repository contains internal tooling and experimental pages that are not intended for the public eye, we use a "Sanitize & Sync" workflow.
 
 ```mermaid
 graph TD
@@ -30,8 +30,6 @@ The process is managed by a specialized script located at:
 
 1.  **Worktree Isolation:** The script uses `git worktree` to maintain a clean `public-main` branch without interfering with the active development in the `main` branch.
 2.  **Explicit Sanitization:** It uses `rsync` with a hardcoded exclusion list to strip away private components:
-    *   `content/pages/dictation-lab.en.md`: Private AI voice-note bridge.
-    *   `assets/js/dictation-lab.js` & `_sass/components/_dictation-lab.scss`: Supporting assets for private tools.
     *   `docs/`: Usually contains private operator notes.
     *   `.jekyll-cache/` & `_site/`: Ephemeral build artifacts.
 3.  **Destructive Mirroring:** It uses `rsync -a --delete`. This is critical: if a file is deleted in the private repo, it is automatically removed from the public export. This prevents "secret leakage" via abandoned files.
