@@ -49,13 +49,13 @@ But then there are one or two sensitive values in the same file:
 CLOUDFLARE_API_TOKEN=cf_v1_abcd***
 ```
 
-Adding secrets starts to feel normal because the file looks normal, and you think by yourself: *Whats the harm anyway in a HomeLab without a VPM?*. Those secret values ends up on the NAS, on the VM, in a local repo checkout, in a backup copy, and sometimes even in another stack that needs it right away.
+Adding secrets starts to feel normal because you make a mistake in the thinking process. <think> *Whats the harm anyway in a HomeLab without a VPM?* </think>. Those secret values ends up on the NAS, on the VM, in a local repo checkout, in a backup copy, and sometimes even in another stack that needs it right away.
 
-After rotating a value, I had to figure out which machine and service were still using the old one. One stack came back fine, but the other did not. I had to go through env files by hand to find the stale copy. But the fact that it was not annoying enough, is actually quite strange for a senior developer that explains to others how to store they secrets safely... My *Say what you do and do what you say* mantra is not applicable here... but then again, it is only a HomeLab? 
+After rotating a value, I had to figure out which machine and service were still using the old one. One stack came back fine, but the other did not. I had to go through env files by hand to find the stale copy. But the fact that it was not annoying enough, is actually quite strange for a senior developer that explains to others how to store they secrets safely... My *Say what you do and do what you say* mantra is not applicable here... but then again, it is only a HomeLab? Shouldn't we be more pragmatic anyway? 
 
 ![A cleaner Infisical overview after the initial instance banners were dismissed](/assets/images/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files/infisical-org-overview-clean.png)
 
-I asked an LLM a free dockerized keyvault and it suggested Infisical.
+I asked an LLM a free dockerized keyvault and it suggested Infisical. I did not put anymore tought into it. 
 
 ## AI Tooling Made It More Obvious
 
@@ -69,8 +69,6 @@ I do want to use LLMs for real work: comparing approaches, helping with refactor
 
 I did not want to get rid of `.env` files completely. Docker Compose still needs flat environment values, and I am not interested in pretending otherwise. Not everything in an env file is secret either. Ports, project names, feature flags, and non-sensitive defaults can still live as normal config.
 
-What I wanted to avoid was using `.env` files as the long-term source of truth for secrets.
-
 The first diagram below shows the old pattern. The same secret starts in a repo-local env file, gets copied again, and then ends up spread across the NAS, the VM, the runner, and local working copies.
 
 ```mermaid
@@ -79,41 +77,37 @@ flowchart LR
   B2 --> B3["NAS, VM, runner, and local working copies"]
 ```
 
-The second diagram shows the shape I was trying to move toward. Infisical keeps the sensitive values, the deploy step asks for them when it needs them, and Docker Compose still gets the flat env values it expects, but only at the last handoff.
+The second diagram shows the shape I was trying to move toward. Infisical keeps the sensitive values, the deploy step asks for them when it needs them, and Docker Compose still must not get flat env values it expects. LLMs will exploit that weakness.
 
 ```mermaid
 flowchart LR
   A1["Infisical owns the secret truth"] --> A2["deploy step asks Infisical Run"]
-  A3["stack.env.template<br/>keeps only non-secret settings"] --> A2
+  A3["stack.env<br/>keeps only non-secret settings"] --> A2
   A2 --> A4["Infisical injects values"]
   A4 --> A5["running container gets secrets trough temporary process environment variables, stored under secrets in docker compose yml"]
 ```
 
-I wanted the sensitive data in one place, the boring settings in the repositories, and Docker Compose to see a temporary flat env file only at handoff.
+I wanted the sensitive data in one place, the non secrets settings in the repositories, and Docker Compose to see a a section secrets in the dockercompose file.
 
 ## Why Infisical?
 
-Bitwarden Secrets Manager<sup><a href="#fn-bitwarden" id="ref-bitwarden">4</a></sup> was the first obvious thing I looked at because I already had Bitwarden and noticed that Secrets Manager came with it. That path could have worked too.
+Bitwarden Secrets Manager<sup><a href="#fn-bitwarden" id="ref-bitwarden">4</a></sup> was the first thing I tought off. I noticed when renewing my subscription, Bitwarden offers a free Secrets Manager. If I had only needed a place to hide a couple of secrets, Bitwarden would probably have been fine. But I needed something that worked with self-hosting, local-first workflows, machine identities, CLI use, shared provider credentials, and a deploy flow that did not drag secret values through every repository. Even tough Bitwarden offers Vaultwarden as a selfhost solution, I just went with the LLMs suggestion. Gemini suggested me it can do all those things. <sarcasm> If the LLM knows how it works, how dangerous can this way of thinking be? </sarcasm>
 
-Even though I use American software and try to lean toward European tools where I can, I also try to stay honest about what that looks like in practice. Some people make it sound easy to do everything the European way, but it is not, and it takes a bit of stubbornness to keep pushing in that direction all the time.
-
-If I had only needed a place to hide a couple of secrets, Bitwarden would probably have been fine. But I needed something that worked with self-hosting, local-first workflows, machine identities, CLI use, shared provider credentials, and a deploy flow that did not drag secret values through every repository. Gemini suggested me it can do all those things. So, why investigate and especially experiment.<sarcasm> If the LLM knows how it works, how dangerous can this way of thinking be? </sarcasm>
-
-Infisical does make more sense in that setup because of the model around it: imports, references, machine identities, CLI support, and the fact that I could keep the control plane close to the environment it serves, so even when the Internet goes down, we still have a homelab.
+Infisical does make more sense in that setup because of the model around it: imports, references, machine identities, CLI support, and the fact that I could keep the control plane close to the environment it serves, so even when the Internet goes down, we still have a homelab. So, first priority was, migrating the secrets, later I can investigate what other solutions serve my purposes better, but that is another story.
 
 ## What Changed First
 
-Dumping everything into a vault really was the first step in the move. Codex refused, Gemini came to the rescue! When a job is to dirty for Codex, Gemini will always be the one that does the dirty work. But yes, we are playing with secrets. And the secrets it read, are exposed. <sarcasm> No worries, because they are all now in Infisical anyway, I should be able to rotate them easily...  </sarcasm> This is the beauty part of a HomeLab. I just do not care.
+Dumping everything into a vault really was the first step in the move. Codex refused, Gemini came to the rescue! When a job is to dirty for Codex, Gemini will always be the one that does the dirty work. But yes, we are playing with secrets. And the secrets it has read, are exposed now. Altough, I pay for the subscription.... <sarcasm> No worries, Google wouldnt use it right? And because all the secrets are all now in Infisical anyway, I should be able to rotate them easily...  </sarcasm> This is the beauty part of a HomeLab. I just do not care, it is fake. No services that I depend on, that are mission critical.
 
-That part is worth saying honestly, because it did not start with a clean product model. Gemini scanned the files, push the values into Infisical using `playwright MCP`, and organise them per stack (repository). That got the move started quickly, but it also recreated the same problem in a different place: the copies were still there, only now they lived in a vault. So duplication was more easily to mitigate, but still, there was duplication. As a good developer, I use the DRY-principle.
+So how did I start to put the secrets in the vault? I gave the order to Gemini. That LLM scanned the files, push the values into Infisical using `playwright MCP`, and organise them per stack (repository). That got the move started quickly, but it also recreated the same problem in a different place: the copies were still there, only now they lived in a vault. So duplication was more easily to mitigate, but still, there was duplication. As a good developer, I always want to use the DRY-principle unless it really needs to be duplicated due to safety reaons.
 
-Next, I let Gemini refactor the structure from a stack-based model into a product-based one using the `playwright`-browser from my laptop. That was the point where the migration stopped being "put everything somewhere central" and started becoming an actual design cleanup.
+Once I inspected the result, I was not happy with the repository-mirroring setup towards the keyvault. I let Gemini refactor the structure from a stack-based model into a product-based one using the `playwright`-browser from my laptop. That was the point where the migration stopped being "put everything somewhere central" and started becoming an actual design cleanup.
 
-After that, Gemini started separating what was really secret from what was just configuration. I put the non-sensitive values into `stack.env` files and left them in the repos. Names, ports, and regular defaults could stay where they were. The sensitive values stayed in Infisical, and the deploy flow changed so the runner could fetch them when needed.
+After that, Gemini started separating what was really secret from what was just configuration. I kept the non-sensitive values into `stack.env` files and left them in the repos: names, ports, defaults, environment variables, volume mappings, etc... The sensitive values stayed in Infisical, and the deploy flow changed so the runner could fetch them when needed.
 
 Before I settled on Gitea runners, I tried webhooks. The LLMs kept getting stuck on that setup, which told me pretty quickly that I was pushing them into a construction they were not very good at reasoning about. That slowed me down instead of speeding me up. In the end, I moved to runners because it is the more standard way to do this and because it gave the LLMs something it could reason about much more reliably.
 
-That touched more of the homelab than I expected: `paperless-private`, `traefik`, `immich` on the NAS, `litellm` , `gk-shield`, `gk-mailfence`, `gk-fixtures`, `compute-traefik`, and other stacks on the NAS. (Note: The `gk-` prefix is short for Gatekeeper, a project family that I have). 
+That touched more of the homelab than I expected: `paperless-private`, `traefik`, `immich-db`, etc... on the NAS, `litellm` , `gk-shield`, `gk-mailfence`, `gk-fixtures`, `compute-traefik`, and other stacks on the NAS. (Note: The `gk-` prefix is short for Gatekeeper, a project family that I have). 
 
 The physical split stayed the same:
 
@@ -147,7 +141,7 @@ I did not redesign the whole homelab. I changed how secrets moved through it.
 
 ## The Tradeoff Is Real
 
-For basic containers, the old way felt easier, faster, more humanoid, less *enterprisy* : Open the `.env` file, paste the value, restart the stack, done. Infisical adds more machinery: bootstrap work, machine identity setup, Secret Zero, and more structure to maintain.
+For basic containers, the old way felt easier, faster, more humanoid, less *enterprisy* : Open the `.env` file, paste the value, restart the stack, done. Infisical adds more machinery: bootstrap work, machine identity setup, and more structure to maintain.
 
 Because of that, debugging changes too. In a plain env file, the value is right there. With a vault-based flow, I sometimes have to check the identity, the fetch step, the export step, and the runtime handoff before I know what is actually wrong.
 
@@ -166,27 +160,23 @@ That saved fragment tells you that I do use spelling mistakes: except instead of
 
 ## Why I Wanted It To Be Local
 
-I wanted this to still make sense even when public internet was not part of the path. Not because I expect the connection to fail every week, but because I do not want basic internal secret discipline to depend on some public service being available. If the homelab keeps working when the outside world gets noisy, I learn better habits from it. If public SaaS solves every local problem on day one, I end up practising a narrower kind of infrastructure than the one I actually want to get better at.
+I wanted this to still make sense even when public internet was not available. Not because I expect not to have internet every week, but because I do not want basic internal secret discipline to depend on some public service being available. If public SaaS solves every local problem on day one, I end up practising a narrower kind of infrastructure than the one I actually want to get better at. You learn from getting problems, experimenting, using... And sometimes, using SaaS from the beginning, means skipping a step or two that could give you more insights in networking, hosting, docker, artifacts, etc...
 
 ## Why Privacy Became Part Of It
 
 The LLMs kept complaining that files, values, and leftovers looked too much like secrets, and that started bothering me more and more. At first, it was just annoying. After a while, with all the terminal hacks, helper scripts, and agent workflows around them, it became harder to ignore what was really going on.
 
-Those tools keep trying to get where they need to go. If a token is sitting around in a repo, a leftover file, or some other working copy, they will eventually run into it or try to use it because that is the shortest path to the goal they were given.
-
-That changed how I looked at the homelab. I was leaving too much sensitive information lying around while working with LLMs, and those tools are very good at following whatever path looks useful.
-
-I still use cloud LLMs because they are useful. I just care a lot more now about what they get to see by default.
+Those tools keep trying to get where they need to go. If a token is sitting around in a repository, a leftover file, or some other working copy, they will eventually run into it  and use it. Codex has at least the decency not to show the secret on screen. Gemini just does not care, even with instructions, guard railes, sometimes it forgets them. That is something I want to investigate. I still use cloud LLMs because they are useful. But I use one tool for some set of operations, and another LLM for another set of operations. THere is not one that just can do it all, IMHO. Now, I care a lot more about what they get to see by default and really have respect towards the cybersecurity specialists trying to mitigate this danger.
 
 ![One HomeLab seen from several sides at once: secrets, GitOps, local infrastructure, tooling, and AI workflows all pulling on the same setup](/assets/images/blog/why-i-finally-moved-my-homelab-secrets-out-of-env-files/one-homelab-many-concerns.png)
 
-By then, this was no longer just one problem about secret management. The vault, the runners, the local workflows, and the AI tooling were all pulling on the same setup. Halfway through the migration, I could see it touching the rest of the environment too. GitOps got involved because the repos, deploy flows, and runner jobs all had to stop assuming the secret was already sitting beside the stack. Shared credentials were part of it too, because once the same provider token shows up in several places, ownership gets vague very quickly. The noise in AI-assisted work was tied to that same mess. I should probably have done it earlier.
+For me, this was no longer just one problem about secret management. The vault, the runners, the local workflows, and the AI tooling were all pulling on the same setup. Halfway through the migration, I could see it touching the rest of the environment too. GitOps got involved because the repos, deploy flows, and runner jobs all had to stop assuming the secret was already sitting beside the stack. I wanted to push the LLMs in working in a process, limiting and using there reasoning... . I should probably have done it earlier, bt by doing, we learn.
 
 ## What Comes Next
 
-The next piece gets into the secret structure itself: why I grouped secrets by product or provider instead of by stack, and how imports and references changed the model.
+The next piece gets into the secret structure itself, bootstrapping, chicken or egg problem and after that, I want to explore the machine identities, Universal Auth, `infisical run`, `infisical export --expand`, and the networking details between the NAS and the compute VM.
 
-After that, I want to get into the runner side: machine identities, Universal Auth, `infisical run`, `infisical export --expand`, and the networking details between the NAS and the compute VM.
+And after that, I have some other ideas to write about as well.
 
 ## Footnotes
 

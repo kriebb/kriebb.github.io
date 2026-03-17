@@ -1,0 +1,60 @@
+name: Sanitize and Publish to GitHub
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Private Source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare Sanitized Export
+        run: |
+          # Create a clean temporary directory for the public version
+          EXPORT_DIR="/tmp/kriebb-public-export"
+          rm -rf "$EXPORT_DIR"
+          mkdir -p "$EXPORT_DIR"
+
+          # Use rsync to mirror the repo while excluding private paths
+          # This ensures the public version is a clean subset of the private one
+          rsync -av --delete \
+            --exclude '.git' \
+            --exclude 'docs' \
+            --exclude '.jekyll-cache' \
+            --exclude '_site' \
+            ./ "$EXPORT_DIR"/
+
+      - name: Deploy to GitHub
+        env:
+          # This secret must be added to Gitea Repo Settings -> Actions -> Secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_PUBLISH }}
+        run: |
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "Error: GITHUB_TOKEN_PUBLISH secret is not set in Gitea Actions Secrets."
+            exit 1
+          fi
+
+          cd /tmp/kriebb-public-export
+          
+          # Initialize a fresh git repo for the public export
+          git init
+          git config user.name "Gitea Public Sync"
+          git config user.email "kristof@itkriebbels.be"
+          
+          git add -A
+          
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: automated public sync [skip ci]"
+            
+            # Force push to GitHub main to ensure it exactly matches the sanitized state
+            # This uses the GITHUB_TOKEN_PUBLISH secret for authentication
+            git push --force "https://kriebb:${GITHUB_TOKEN}@github.com/kriebb/kriebb.github.io.git" master:main
+          else
+            echo "No changes to sync."
+          fi
