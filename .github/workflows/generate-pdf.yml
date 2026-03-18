@@ -1,0 +1,140 @@
+# .github/workflows/generate-pdf.yml
+name: Jekyll Site CI/CD with Searchable Multilingual PDFs
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      
+      - name: Unfreeze bundle
+        run: bundle config set frozen false
+
+      - name: Install dependencies
+        run: bundle install
+      
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+      
+      - name: Start Jekyll server
+        run: bundle exec jekyll serve --detach
+        
+      - name: Give Jekyll server time to start
+        run: sleep 5
+      
+      # Set up Puppeteer PDF generation
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Playwright Dependencies
+        run: |
+          npm init -y
+          npm ci
+          npx playwright install chromium --with-deps
+
+      - name: Generate PDFs with Playwright
+        run: |
+          npm run pdf
+          # Verify PDFs were created
+          ls -la ./_site/*.pdf || true
+          ls -la ./_site/nl/*.pdf || true
+      
+      # Also generate using wkhtmltopdf as backup/alternative
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget xfonts-75dpi xfonts-base fontconfig libfontconfig1 libxrender1
+          
+          # Install libssl1.1 from older Ubuntu repository
+          wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+          
+          # Now install wkhtmltopdf
+          wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+          sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
+          
+          # Check if wkhtmltopdf is installed correctly
+          wkhtmltopdf --version
+      
+      - name: Generate PDFs with wkhtmltopdf
+        run: |
+          # Generate English PDF with text searchability
+          wkhtmltopdf \
+            --enable-local-file-access \
+            --javascript-delay 2000 \
+            --no-stop-slow-scripts \
+            --enable-javascript \
+            --enable-external-links \
+            --print-media-type \
+            --encoding utf-8 \
+            --enable-smart-shrinking \
+            --dpi 300 \
+            --page-size A4 \
+            --margin-top 10mm \
+            --margin-right 10mm \
+            --margin-bottom 10mm \
+            --margin-left 10mm \
+            http://localhost:4000/print-resume/ \
+            ./_site/kristof-riebbels-resume-en-wkhtmltopdf.pdf
+          
+          # Generate Dutch PDF with text searchability
+          wkhtmltopdf \
+            --enable-local-file-access \
+            --javascript-delay 2000 \
+            --no-stop-slow-scripts \
+            --enable-javascript \
+            --enable-external-links \
+            --print-media-type \
+            --encoding utf-8 \
+            --enable-smart-shrinking \
+            --dpi 300 \
+            --page-size A4 \
+            --margin-top 10mm \
+            --margin-right 10mm \
+            --margin-bottom 10mm \
+            --margin-left 10mm \
+            http://localhost:4000/nl/print-resume/ \
+            ./_site/nl/kristof-riebbels-resume-nl-wkhtmltopdf.pdf
+      
+      - name: Stop Jekyll server
+        run: pkill -f "jekyll serve" || true
+      
+      - name: Verify all PDFs 
+        run: |
+          echo "Checking PDF files:"
+          ls -la ./_site/*.pdf || true
+          ls -la ./_site/nl/*.pdf || true
+      
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+  
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Cover Image Generator</title>
+  <style>
+    :root {
+      --primary-color: #004c8c;
+      --secondary-color: #00b386;
+      --background-color: #f8f9fa;
+      --text-color: #212529;
+      --light-gray: #e9ecef;
+      --dark-gray: #343a40;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      background-color: var(--background-color);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .title {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .controls-panel, .theme-panel, .preview-panel {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .preview-panel {
+      text-align: center;
+    }
+    
+    h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+      border-bottom: 2px solid var(--light-gray);
+      padding-bottom: 10px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    input[type="text"], 
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--light-gray);
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    textarea {
+      min-height: 80px;
+    }
+    
+    select {
+      height: 40px;
+    }
+    
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #003b6f;
+    }
+    
+    .color-input-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .color-input-group input[type="color"] {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .canvas-container {
+      margin: 20px auto;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+    
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .theme-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .theme-preset {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 2px solid white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .theme-preset:hover {
+      transform: scale(1.1);
+    }
+    
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .icon-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .icon-option:hover {
+      background-color: var(--light-gray);
+    }
+    
+    .icon-option i {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    
+    .icon-option span {
+      font-size: 12px;
+      text-align: center;
+    }
+    
+    .icon-option.selected {
+      background-color: var(--light-gray);
+      font-weight: bold;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    /* Two-column layout for desktop */
+    @media (min-width: 992px) {
+      .layout-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .preview-panel {
+        grid-column: span 2;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Blog Cover Image Generator</h1>
+    
+    <div class="layout-grid">
+      <div class="controls-panel">
+        <h2>Cover Content</h2>
+        
+        <div class="form-group">
+          <label for="postTitle">Post Title</label>
+          <input type="text" id="postTitle" placeholder="Enter the post title" value="Understanding Security in Modern Applications">
+        </div>
+        
+        <div class="form-group">
+          <label for="postSubtitle">Subtitle (optional)</label>
+          <input type="text" id="postSubtitle" placeholder="Enter a subtitle or tagline">
+        </div>
+        
+        <div class="form-group">
+          <label for="postTags">Tags (comma separated)</label>
+          <input type="text" id="postTags" placeholder="security, dotnet, azure" value="security, dotnet">
+        </div>
+        
+        <div class="form-group">
+          <label for="iconSelect">Icon</label>
+          <select id="iconSelect">
+            <option value="shield-alt">Shield (Security)</option>
+            <option value="code">Code (Development)</option>
+            <option value="cloud">Cloud (Azure)</option>
+            <option value="database">Database</option>
+            <option value="key">Key (Authentication)</option>
+            <option value="cogs">Cogs (Configuration)</option>
+            <option value="exchange-alt">Exchange (HTTP)</option>
+            <option value="id-badge">ID Badge (Tokens)</option>
+            <option value="user-shield">User Shield (Privacy)</option>
+            <option value="server">Server (DevOps)</option>
+            <option value="exclamation-triangle">Error</option>
+            <option value="newspaper">Article</option>
+          </select>
+        </div>
+        
+        <div class="icons-grid">
+          <div class="icon-option" data-icon="shield-alt">
+            <i class="fas fa-shield-alt"></i>
+            <span>Security</span>
+          </div>
+          <div class="icon-option" data-icon="code">
+            <i class="fas fa-code"></i>
+            <span>Code</span>
+          </div>
+          <div class="icon-option" data-icon="cloud">
+            <i class="fas fa-cloud"></i>
+            <span>Cloud</span>
+          </div>
+          <div class="icon-option" data-icon="database">
+            <i class="fas fa-database"></i>
+            <span>Database</span>
+          </div>
+          <div class="icon-option" data-icon="key">
+            <i class="fas fa-key"></i>
+            <span>Auth</span>
+          </div>
+          <div class="icon-option" data-icon="cogs">
+            <i class="fas fa-cogs"></i>
+            <span>Config</span>
+          </div>
+          <div class="icon-option" data-icon="exchange-alt">
+            <i class="fas fa-exchange-alt"></i>
+            <span>HTTP</span>
+          </div>
+          <div class="icon-option" data-icon="id-badge">
+            <i class="fas fa-id-badge"></i>
+            <span>Tokens</span>
+          </div>
+          <div class="icon-option" data-icon="user-shield">
+            <i class="fas fa-user-shield"></i>
+            <span>Privacy</span>
+          </div>
+          <div class="icon-option" data-icon="server">
+            <i class="fas fa-server"></i>
+            <span>DevOps</span>
+          </div>
+          <div class="icon-option" data-icon="exclamation-triangle">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Error</span>
+          </div>
+          <div class="icon-option" data-icon="newspaper">
+            <i class="fas fa-newspaper"></i>
+            <span>Article</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="theme-panel">
+        <h2>Cover Styling</h2>
+        
+        <div class="form-group">
+          <label>Theme Presets</label>
+          <div class="theme-presets">
+            <div class="theme-preset" style="background: linear-gradient(135deg, #004c8c, #00b386);" data-primary="#004c8c" data-secondary="#00b386" data-bg="#f5f5f5" title="Default"></div>
+            <div class="theme-preset" style="background: linear-gradient(135deg, #b32100, #ff7b57);" data-primary="#b32100" data-secondary="#ff7b57" data-bg="#fff5f2" title="Security"></div>
+            <div class="theme-preset" style="background: linear-gradient(135deg, #5c2d91, #68217a);" data-primary="#5c2d91" data-secondary="#68217a" data-bg="#f5f2ff" title=".NET"></div>
+            <div class="theme-preset" style="background: linear-gradient(135deg, #0072c6, #00abec);" data-primary="#0072c6" data-secondary="#00abec" data-bg="#f0f8ff" title="Azure"></div>
+            <div class="theme-preset" style="background: linear-gradient(135deg, #107c10, #2d7d9a);" data-primary="#107c10" data-secondary="#2d7d9a" data-bg="#f2fff2" title="Career"></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Custom Colors</label>
+          <div class="color-input-group">
+            <input type="color" id="primaryColor" value="#004c8c">
+            <input type="text" id="primaryColorText" value="#004c8c" placeholder="Primary color">
+          </div>
+          <div class="color-input-group">
+            <input type="color" id="secondaryColor" value="#00b386">
+            <input type="text" id="secondaryColorText" value="#00b386" placeholder="Secondary color">
+          </div>
+          <div class="color-input-group">
+            <input type="color" id="backgroundColor" value="#f5f5f5">
+            <input type="text" id="backgroundColorText" value="#f5f5f5" placeholder="Background color">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="dimensions">Image Dimensions</label>
+          <div style="display: flex; gap: 10px;">
+            <input type="number" id="imageWidth" value="1200" min="600" max="2400" style="width: 48%;">
+            <input type="number" id="imageHeight" value="630" min="300" max="1600" style="width: 48%;">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="layoutStyle">Layout Style</label>
+          <select id="layoutStyle">
+            <option value="gradient">Gradient Background</option>
+            <option value="blocks">Block Pattern</option>
+            <option value="simple">Simple Solid</option>
+            <option value="waves">Wave Pattern</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <div class="preview-panel">
+      <h2>Preview</h2>
+      
+      <div class="canvas-container">
+        <canvas id="coverCanvas" width="1200" height="630"></canvas>
+      </div>
+      
+      <div class="button-group">
+        <button id="regenerateBtn">Regenerate</button>
+        <button id="downloadBtn">Download</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const canvas = document.getElementById('coverCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      const postTitleInput = document.getElementById('postTitle');
+      const postSubtitleInput = document.getElementById('postSubtitle');
+      const postTagsInput = document.getElementById('postTags');
+      const iconSelect = document.getElementById('iconSelect');
+      const iconOptions = document.querySelectorAll('.icon-option');
+      
+      const primaryColorInput = document.getElementById('primaryColor');
+      const secondaryColorInput = document.getElementById('secondaryColor');
+      const backgroundColorInput = document.getElementById('backgroundColor');
+      const primaryColorText = document.getElementById('primaryColorText');
+      const secondaryColorText = document.getElementById('secondaryColorText');
+      const backgroundColorText = document.getElementById('backgroundColorText');
+      
+      const imageWidthInput = document.getElementById('imageWidth');
+      const imageHeightInput = document.getElementById('imageHeight');
+      const layoutStyleSelect = document.getElementById('layoutStyle');
+      const themePresets = document.querySelectorAll('.theme-preset');
+      
+      const regenerateBtn = document.getElementById('regenerateBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      
+      // Initialize
+      let selectedIcon = iconSelect.value;
+      updateCanvas();
+      
+      // Event listeners
+      postTitleInput.addEventListener('input', updateCanvas);
+      postSubtitleInput.addEventListener('input', updateCanvas);
+      postTagsInput.addEventListener('input', updateCanvas);
+      iconSelect.addEventListener('change', function() {
+        selectedIcon = this.value;
+        updateIconSelection();
+        updateCanvas();
+      });
+      
+      primaryColorInput.addEventListener('input', function() {
+        primaryColorText.value = this.value;
+        updateCanvas();
+      });
+      
+      secondaryColorInput.addEventListener('input', function() {
+        secondaryColorText.value = this.value;
+        updateCanvas();
+      });
+      
+      backgroundColorInput.addEventListener('input', function() {
+        backgroundColorText.value = this.value;
+        updateCanvas();
+      });
+      
+      primaryColorText.addEventListener('input', function() {
+        primaryColorInput.value = this.value;
+        updateCanvas();
+      });
+      
+      secondaryColorText.addEventListener('input', function() {
+        secondaryColorInput.value = this.value;
+        updateCanvas();
+      });
+      
+      backgroundColorText.addEventListener('input', function() {
+        backgroundColorInput.value = this.value;
+        updateCanvas();
+      });
+      
+      imageWidthInput.addEventListener('change', function() {
+        canvas.width = parseInt(this.value, 10);
+        updateCanvas();
+      });
+      
+      imageHeightInput.addEventListener('change', function() {
+        canvas.height = parseInt(this.value, 10);
+        updateCanvas();
+      });
+      
+      layoutStyleSelect.addEventListener('change', updateCanvas);
+      
+      // Theme presets
+      themePresets.forEach(preset => {
+        preset.addEventListener('click', function() {
+          primaryColorInput.value = this.dataset.primary;
+          secondaryColorInput.value = this.dataset.secondary;
+          backgroundColorInput.value = this.dataset.bg;
+          
+          primaryColorText.value = this.dataset.primary;
+          secondaryColorText.value = this.dataset.secondary;
+          backgroundColorText.value = this.dataset.bg;
+          
+          updateCanvas();
+        });
+      });
+      
+      // Icon options
+      iconOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          selectedIcon = this.dataset.icon;
+          iconSelect.value = selectedIcon;
+          updateIconSelection();
+          updateCanvas();
+        });
+      });
+      
+      function updateIconSelection() {
+        iconOptions.forEach(option => {
+          option.classList.remove('selected');
+          if (option.dataset.icon === selectedIcon) {
+            option.classList.add('selected');
+          }
+        });
+      }
+      
+      regenerateBtn.addEventListener('click', updateCanvas);
+      
+      downloadBtn.addEventListener('click', function() {
+        const link = document.createElement('a');
+        const filename = postTitleInput.value.toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .trim();
+          
+        link.download = `${filename}-cover.jpeg`;
+        link.href = canvas.toDataURL('image/jpeg', 1.0);
+        link.click();
+      });
+      
+      // Canvas drawing functions
+      function updateCanvas() {
+        const width = canvas.width;
+        const height = canvas.height;
+        const primaryColor = primaryColorInput.value;
+        const secondaryColor = secondaryColorInput.value;
+        const backgroundColor = backgroundColorInput.value;
+        const layoutStyle = layoutStyleSelect.value;
+        const title = postTitleInput.value;
+        const subtitle = postSubtitleInput.value;
+        const tags = postTagsInput.value.split(',').map(tag => tag.trim());
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, width, height);
+        
+        // Draw background
+        drawBackground(layoutStyle, backgroundColor, primaryColor, secondaryColor);
+        
+        // Draw content
+        drawContent(title, subtitle, tags, selectedIcon);
+      }
+      
+      function drawBackground(style, bgColor, primary, secondary) {
+        const width = canvas.width;
+        const height = canvas.height;
+        
+        switch(style) {
+          case 'gradient':
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, primary);
+            gradient.addColorStop(1, secondary);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+            break;
+            
+          case 'blocks':
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Draw decorative blocks
+            ctx.globalAlpha = 0.1;
+            for (let i = 0; i < 8; i++) {
+              const size = Math.random() * 200 + 100;
+              const x = Math.random() * width;
+              const y = Math.random() * height;
+              const angle = Math.random() * Math.PI * 2;
+              
+              ctx.save();
+              ctx.translate(x, y);
+              ctx.rotate(angle);
+              ctx.fillStyle = i % 2 === 0 ? primary : secondary;
+              ctx.fillRect(-size/2, -size/2, size, size);
+              ctx.restore();
+            }
+            ctx.globalAlpha = 1;
+            break;
+            
+          case 'simple':
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Draw border
+            ctx.strokeStyle = primary;
+            ctx.lineWidth = 20;
+            ctx.strokeRect(10, 10, width - 20, height - 20);
+            
+            // Draw accent line
+            ctx.strokeStyle = secondary;
+            ctx.lineWidth = 10;
+            ctx.beginPath();
+            ctx.moveTo(40, 40);
+            ctx.lineTo(width - 40, 40);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(40, height - 40);
+            ctx.lineTo(width - 40, height - 40);
+            ctx.stroke();
+            break;
+            
+          case 'waves':
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Draw waves
+            ctx.globalAlpha = 0.15;
+            for (let i = 0; i < 3; i++) {
+              drawWave(primary, 100 + i * 120, 80 + i * 20);
+              drawWave(secondary, 160 + i * 120, 60 + i * 20);
+            }
+            ctx.globalAlpha = 1;
+            break;
+        }
+        
+        // Add subtle vignette
+        const vignette = ctx.createRadialGradient(
+          width/2, height/2, 0,
+          width/2, height/2, width * 0.8
+        );
+        vignette.addColorStop(0, 'rgba(0,0,0,0)');
+        vignette.addColorStop(1, 'rgba(0,0,0,0.3)');
+        
+        ctx.fillStyle = vignette;
+        ctx.fillRect(0, 0, width, height);
+      }
+      
+      function drawWave(color, yOffset, amplitude) {
+        const width = canvas.width;
+        const height = canvas.height;
+        
+        ctx.beginPath();
+        ctx.moveTo(0, yOffset);
+        
+        for (let x = 0; x < width; x += 10) {
+          const y = yOffset + Math.sin(x / 200) * amplitude;
+          ctx.lineTo(x, y);
+        }
+        
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+        
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+      
+      function drawContent(title, subtitle, tags, icon) {
+        const width = canvas.width;
+        const height = canvas.height;
+        const padding = width * 0.08;
+        
+        // Draw icon
+        if (icon) {
+          const iconSize = width * 0.15;
+          const iconX = width / 2;
+          const iconY = height * 0.3;
+          
+          ctx.save();
+          ctx.fillStyle = 'white';
+          ctx.shadowColor = 'rgba(0,0,0,0.3)';
+          ctx.shadowBlur = 20;
+          ctx.shadowOffsetX = 0;
+          ctx.shadowOffsetY = 0;
+          
+          // Draw icon background circle
+          ctx.beginPath();
+          ctx.arc(iconX, iconY, iconSize / 1.6, 0, Math.PI * 2);
+          ctx.fill();
+          
+          ctx.restore();
+          
+          // Load FontAwesome icon
+          const tempCanvas = document.createElement('canvas');
+          const tempCtx = tempCanvas.getContext('2d');
+          tempCanvas.width = iconSize;
+          tempCanvas.height = iconSize;
+          
+          tempCtx.fillStyle = primaryColorInput.value;
+          tempCtx.font = `${iconSize}px "Font Awesome 5 Free"`;
+          tempCtx.textAlign = 'center';
+          tempCtx.textBaseline = 'middle';
+          
+          // Map icon name to Unicode character
+          const iconMap = {
+            'shield-alt': '\uf3ed',
+            'code': '\uf121',
+            'cloud': '\uf0c2',
+            'database': '\uf1c0',
+            'key': '\uf084',
+            'cogs': '\uf085',
+            'exchange-alt': '\uf362',
+            'id-badge': '\uf2c1',
+            'user-shield': '\uf505',
+            'server': '\uf233',
+            'exclamation-triangle': '\uf071',
+            'newspaper': '\uf1ea'
+          };
+          
+          const iconChar = iconMap[icon] || '\uf15b'; // default to file icon
+          tempCtx.fillText(iconChar, iconSize / 2, iconSize / 2);
+          
+          // Draw icon on main canvas
+          ctx.drawImage(tempCanvas, iconX - iconSize / 2, iconY - iconSize / 2, iconSize, iconSize);
+        }
+        
+        // Draw title
+        ctx.font = `bold ${width * 0.056}px 'Segoe UI', Arial, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = 'white';
+        
+        // Add text shadow
+        ctx.shadowColor = 'rgba(0,0,0,0.4)';
+        ctx.shadowBlur = 15;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        
+        // Draw multi-line title if needed
+        const titleLines = getLines(ctx, title, width - padding * 2);
+        const titleY = icon ? height * 0.5 : height * 0.4;
+        const lineHeight = width * 0.056 * 1.3;
+        
+        titleLines.forEach((line, index) => {
+          ctx.fillText(line, width / 2, titleY + (index - titleLines.length / 2) * lineHeight);
+        });
+        
+        // Draw subtitle if provided
+        if (subtitle) {
+          ctx.shadowBlur = 10;
+          ctx.font = `${width * 0.035}px 'Segoe UI', Arial, sans-serif`;
+          const subtitleY = titleY + (titleLines.length / 2) * lineHeight + 40;
+          
+          ctx.fillText(subtitle, width / 2, subtitleY);
+        }
+        
+        // Reset shadow
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        
+        // Draw tags
+        if (tags.length > 0 && tags[0] !== '') {
+          const tagY = height * 0.85;
+          const tagSize = width * 0.016;
+          
+          ctx.font = `${tagSize}px 'Segoe UI', Arial, sans-serif`;
+          ctx.textAlign = 'center';
+          
+          // Create tag badges
+          const tagPadding = 12;
+          const tagSpacing = 15;
+          let totalTagWidth = 0;
+          const tagMetrics = tags.map(tag => {
+            const measure = ctx.measureText(tag);
+            const tagWidth = measure.width + tagPadding * 2;
+            totalTagWidth += tagWidth + tagSpacing;
+            return { tag, width: tagWidth };
+          });
+          
+          // Draw tag backgrounds
+          let tagX = (width - totalTagWidth + tagSpacing) / 2;
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+          
+          tagMetrics.forEach(({tag, width}) => {
+            const tagHeight = tagSize * 1.8;
+            roundRect(ctx, tagX, tagY - tagHeight / 2, width, tagHeight, 4, true, false);
+            tagX += width + tagSpacing;
+          });
+          
+          // Draw tag text
+          tagX = (width - totalTagWidth + tagSpacing) / 2;
+          ctx.fillStyle = primaryColorInput.value;
+          
+          tagMetrics.forEach(({tag, width}) => {
+            ctx.fillText(tag, tagX + width / 2, tagY);
+            tagX += width + tagSpacing;
+          });
+        }
+        
+        // Draw branding
+        ctx.font = `${width * 0.014}px 'Segoe UI', Arial, sans-serif`;
+        ctx.textAlign = 'right';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.fillText('IT KRIEBBELS', width - padding / 2, height - padding / 4);
+      }
+      
+      // Helper for multi-line text
+      function getLines(ctx, text, maxWidth) {
+        const words = text.split(' ');
+        const lines = [];
+        let currentLine = words[0];
+        
+        for (let i = 1; i < words.length; i++) {
+          const word = words[i];
+          const width = ctx.measureText(currentLine + ' ' + word).width;
+          
+          if (width < maxWidth) {
+            currentLine += ' ' + word;
+          } else {
+            lines.push(currentLine);
+            currentLine = word;
+          }
+        }
+        
+        lines.push(currentLine);
+        return lines;
+      }
+      
+      // Helper for rounded rectangles
+      function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
+        
+        if (fill) {
+          ctx.fill();
+        }
+        
+        if (stroke) {
+          ctx.stroke();
+        }
+      }
+      
+      // Initialize the icon selection
+      updateIconSelection();
+    });
+  </script>
+</body>
+</html>

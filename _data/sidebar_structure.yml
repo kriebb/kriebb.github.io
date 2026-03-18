@@ -1,0 +1,34 @@
+- section: main_nav
+  items:
+    - id: home
+      urls:
+        en: "/"
+        nl: "/nl/"
+    - id: about
+      urls:
+        en: "/about/"
+        nl: "/nl/over-mij/"
+    - title:
+        en: Work Experience
+        nl: Werkervaring
+      id: work-experience
+      icon: fa-briefcase
+    - id: contact
+      urls:
+        en: "/contact/"
+        nl: "/nl/contact/"
+
+- section: resources
+  items:
+    - id: resume
+      urls:
+        en: "/resume/"
+        nl: "/nl/cv/"
+    - id: services
+      urls:
+        en: "/services/"
+        nl: "/nl/diensten/"
+    - id: blog
+      urls:
+        en: "/blog/"
+        nl: "/nl/blog/"

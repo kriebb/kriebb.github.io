@@ -1,0 +1,163 @@
+/* Tags Page Styles */
+.tags-page {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .tag-categories-container {
+    margin: 2rem 0;
+  }
+  
+  .tag-category-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .tag-category-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+    position: relative;
+    padding-left: 1rem;
+  }
+  
+  .tag-category-section h2:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 4px;
+    background-color: var(--accent-color);
+    border-radius: 4px;
+  }
+  
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  
+  .tag-item:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .tag-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: inherit;
+    border-radius: 50px;
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+    padding: 0 0.25rem;
+  }
+  
+  .all-tags-section {
+    margin-bottom: 2rem;
+  }
+  
+  .all-tags-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+  }
+  
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+  }
+  
+  .recent-tags-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+  }
+  
+  .recent-tagged-posts {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .recent-tagged-posts li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .recent-tagged-posts li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    flex: 1;
+  }
+  
+  .recent-tagged-posts li a:hover {
+    color: var(--accent-color);
+  }
+  
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-left: 1rem;
+  }
+  
+  .post-tag {
+    font-size: 0.75rem;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .post-tag:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  /* Dark mode adjustments */
+  .dark-mode {
+    .tag-item {
+      background-color: #333;
+    }
+    
+    .tag-cloud {
+      background-color: #2a2a2a;
+    }
+    
+    .post-tag {
+      background-color: #333;
+    }
+    
+    .recent-tagged-posts li {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }

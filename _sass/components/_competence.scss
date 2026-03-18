@@ -1,0 +1,153 @@
+/* Competency Cards */
+.competency-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.competency-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.competency-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.competency-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--heading-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.competency-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.competency-badge {
+  display: inline-block;
+  padding: 0.4rem 0.6rem;
+  background-color: var(--badge-bg);
+  border-radius: 4px;
+  color: var(--badge-color);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.competency-badge:hover {
+  background-color: var(--badge-bg-hover);
+}
+
+/* Also include competence class names for backward compatibility */
+.competence-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.competence-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.competence-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.competence-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--heading-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Competence Items as Chips */
+.competence-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.competence-item {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--badge-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px; /* Pill shape */
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.competence-item:hover {
+  background-color: var(--badge-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tech-icon {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.competence-text {
+  font-weight: 500;
+}
+
+/* Specific icon coloring overrides if needed (though colored class handles most) */
+.tech-icon i {
+  vertical-align: middle;
+}
+
+/* Backward compatibility / Fallback */
+.competence-badge {
+  /* Kept just in case, but essentially replaced by .competence-item */
+  display: inline-block;
+  padding: 0.4rem 0.6rem;
+  background-color: var(--badge-bg);
+  border-radius: 4px;
+  color: var(--badge-color);
+  font-size: 0.9rem;
+}
+
+/* New styles for resume lists */
+.resume-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0;
+  list-style: none; /* Remove bullets */
+  margin: 1rem 0;
+}
+
+.resume-list-item {
+  background-color: var(--badge-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px; /* Slightly rounded corners for list items */
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  line-height: 1.3;
+}

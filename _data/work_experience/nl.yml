@@ -1,0 +1,157 @@
+- date: "01/2026 – Heden"
+  company: "AXA Belgium (Freelance via Solvus)"
+  role: ".NET Developer Engineer"
+  core_skills: ["ASP.NET Core Delivery", "Ondersteuning System Analysis", "DevOps Samenwerking", "Modernisatie"]
+  technologies: [".NET", "ASP.NET Core MVC", "Angular", "Azure DevOps", "YAML", "TypeScript"]
+  bullets:
+    - "Opnieuw gestart bij AXA Belgium om te werken over .NET delivery, ondersteuning rond system analysis en implementatiewerk in bestaande businesskritische applicaties"
+    - "Delivery teams ondersteunen door featurewerk, analyse-opvolging en praktische DevOps-taken op te nemen waar dat echt ruimte schept"
+    - "Verder groeien in Angular, AI-assisted workflows en meer platformgerichte engineeringgewoonten naast het dagelijkse leveringswerk"
+
+- date: "09/2025 – 12/2025"
+  company: "Liantis (Freelance via EnzoTech)"
+  role: "Integration Consultant (Platform System Engineer)"
+  core_skills: ["DevOps Cultuur", "Workflow Orchestration", "Platform Engineering", "Technische Verantwoordelijkheid"]
+  technologies: ["Github Actions", "Kubernetes", "SemVer", "K9s", "WSL", "act (lokale workflows)"]
+  bullets:
+    - "Droeg de eindverantwoordelijkheid voor het ontwerp en de implementatie van de workflows voor het nieuwe ontwikkelaarsplatform"
+    - "Herontwerpen van Github Actions en Github workflows voor gebruik in een nieuw platform ter ondersteuning van ontwikkelaars, gebruikmakend van SemVer, orchestratie flows, bouwblokken en om de ontwikkelaars te helpen de DevOps-cultuur bij Liantis echt uit te dragen."
+    - "Creëren van Technische Deliverables en Documentatie voor software releases, workflows en platformstandaarden"
+    - "Voorstellen, overtuigen en implementeren van orchestratie workflows met bouwblokken"
+    - "Inspireren tot gebruik van SemVer, Conventional Commits"
+    - "Opleiden van mede-engineers / ontwikkelaars"
+    - "Ondersteunen van developer teams in een hackathon en feedback noteren"
+    - "Oplijsten van alle items die moeten veranderen voor een migratie van bestaande applicaties en deze bespreken"
+    - "Gebruik van WSL, K9s en andere ontwikkelaars helpen dit te begrijpen"
+  extra_details:
+    - "Leren en begrijpen van Kubernetes"
+
+- date: "04/2022 – 08/2025"
+  company: "Xebia XMS BE"
+  role: "Coding Architect / Team Lead / Azure Developer"
+  core_skills: ["Security Architecture", "Identity & Access Management (IAM)", "Cloud Modernization", "Performantie Optimalisatie"]
+  technologies: ["Azure", ".NET 8", "Auth0", "Itsme", "Azure DevOps", "APIM", "KeyVault", "SQL", "Blob Storage", "Private Link", "TypeScript", "Webpack", "BFF"]
+  bullets:
+    - "Leveren van hulp en met een consultancy-mindset voor beveiligde identiteitsoplossingen en .NET ecosysteem modernisering"
+    - "Toepassen van kritisch denken en challengen waar het kan, ( met als doel meerwaarde te geven. )"
+    - "Ontwikkelen met .NET 8 (C# 12), inclusief migratie van .NET 6 (C# 10) omgevingen"
+    - "Implementatie van Auth0 (met Itsme integratie) in zakelijke omgevingen, customer-driven, migratie van LDAP"
+    - "Beheren van Azure DevOps omgeving met YAML pipelines, Agent Pools, en Artifacts"
+    - "Schrijven van technische autoriteit-opbouwende blogposts over beveiliging en architectuur"
+    - "Spreker op branche-evenementen waaronder [Techorama 2024](https://techorama-2024-belgium.sessionize.com/session/596350), [Update Conference 2023](http://www.updateconference.net/cz/2023/schedule/mock-your-openid-connect-provider), [VISUG](https://www.visug.be/Events/92), en [Dotnet Friday](https://dotnetfriday.nl/blogs/2024-02-dotnetfriday/)"
+    - "Microsoft Certified: Azure Developer Associate (AZ-204)"
+  client_projects:
+    - name: "AXA Belgium"
+      details: "Leidde implementatie van Auth0 (met Itsme integratie) over 4 domeinen: Intern Gebruikersbeheer, Retail Zelfregistratie, Brokers en Corporate Users. Droeg eindverantwoordelijkheid voor de technische oplossing en ontwierp veilige ASP.NET Core MVC (.NET 8) oplossingen met BFF-pattern, Webpack en TypeScript ter vervanging van legacy jQuery. Werkte nauw samen met Functioneel Analisten, IAM, Cloudification en Standaardisatie teams als brug naar Enterprise Architectuur. Begeleidde een junior Technisch Analist en zorgde voor uitgebreide documentatie. Focus op schaalbaarheid (ASEv3), Private Link beveiliging en Auth0 optimalisatie (voorkomen 429 errors)."
+    - name: "Outdoor Group"
+      details: "Verbeterde ASP.NET MVC schermen em integratie van nieuwe velden en functionaliteit binnen een bestaand project"
+    - name: "KBC"
+      details: "Bood ondersteuning en stand-by assistentie tijdens hun migratie van RecoMatics' product naar een nieuwe oplossing"
+  extra_details:
+    - "Organisatie van [cupcakes maken](/assets/images/work-experience/cupcakes2024.jpeg) voor rebranding van Xpirit naar Xebia"
+    - "Faciliteerde team chocolade workshop voor cross-team samenwerking"
+    - "Creëerde een [Epic Paaseieren Zoektocht](/assets/images/work-experience/easter2024.jpeg) uitdaging met .NET en Azure"
+
+- date: "04/2017 – 04/2022"
+  company: "RecoMatics"
+  role: "Solution Engineer"
+  core_skills: ["SaaS Product Ontwikkeling", "DevOps Implementatie", "Technische Coaching", "SOLID Principes", "Schaalbaarheid"]
+  technologies: [".NET Core", "ASP.NET Core", "Azure (Functions, Service Bus, Blob Storage)", "Docker", "Kubernetes", "TypeScript", "React", "EF Core", "Dapper", "SQL"]
+  bullets:
+    - "Requirements Analysis & User Story Definition (agile & waterfall)"
+    - "Onderhouden van een SaaS-product in Azure (Cloud Services, WebAPI, Service Bus) gericht op schaalbare oplossingen"
+    - "Creëren van schaalbare testoplossingen en beheren van release documentatie"
+    - "Performantie optimalisatie: SQL query plan analyse, IO optimalisatie, en gebruik van Lease/REST operaties voor blob storage nummergeneratie om database belasting te verminderen"
+    - "Coaching van product- en projectteams om samenwerking te verbeteren"
+    - "Beheren van DevOps-taken: Azure DevOps, build pipelines, deployment automatisering"
+    - "Tech stack: .NET Core, TypeScript, React (beperkt), EF, Dapper, Azure Functions"
+  client_projects:
+    - name: "KBC Verzekeringen (Gent)"
+      details: "Onderhoud en ondersteuning van webgebaseerde documenttagging en SharePoint/Dynamics integratie voor Vycunia product"
+    - name: "KBC Bank"
+      details: "Verzorgde onderhoud en bood doorlopende ondersteuning voor een documentbeheersystemen dat later Vycunia geworden is."
+  extra_details:
+    - "Implementeren van beveiligde data-integraties (SharePoint & Dynamics)"
+    - "Opzetten van CI/CD pipelines met Azure, GitVersion, GitHub"
+    - "Functioneren als technisch interviewer en coach"
+
+- date: "08/2014 – 04/2017"
+  company: "Qite"
+  role: "Senior Software Developer"
+  core_skills: ["Full Stack Development", "Agile Methodieken", "TDD", "CI/CD Pijplijn Opzet", "Code Kwaliteit (SOLID)"]
+  technologies: ["WebAPI", "AngularJS", "TypeScript", "Bootstrap", "Azure (Blob, SQL)", "WinForms", "Entity Framework 6", "TFS/Git", "PowerShell", "MSBuild", "NSubstitute"]
+  bullets:
+    - "Ontwikkelen & onderhouden van WebAPI, TypeScript, AngularJS, EF 6.1 oplossingen"
+    - "Werken op een agile manier, met focus op user stories en continue feedback"
+    - "Azure deployments (database, blob storage) & TFS → TFS Git migratie"
+    - "Promoten van SOLID, TDD, mocking, en best practices binnen het team"
+  client_projects:
+    - name: "Plan! (Automotive Sector)"
+      details: "Onderhoud en verbetering van legacy WinForms planningssoftware met SQL Server backend"
+    - name: "Fero Group"
+      details: "Ontwikkelde aangepaste planningssoftware met AngularJS v1"
+    - name: "Interrenoo"
+      details: "Ontwikkelde materiaalfactureringssoftware met AngularJS voor iPad (server-based), waarmee ter plekke foto's kunnen worden gemaakt als bewijs van gebruikte materialen voor facturering"
+  extra_details:
+    - "Implementeren van CI/CD pipelines"
+    - "Verzorgen van team trainingen (SOLID, TDD, DI)"
+
+- date: "05/2014 – 08/2014"
+  company: "Adam Software"
+  role: "Senior Software Developer"
+  core_skills: ["Backend Architectuur", "Proof of Concepts", "High Performance Computing"]
+  technologies: [".NET", "WebAPI", "CQRS", "EventStore", "Unity DI", "NuGet"]
+  bullets:
+    - "Proof of concept: WebAPI in a legacy applicatie"
+    - "Introduceren van NuGet packaging naar de build server"
+    - "Ontwikkelen van een CQRS POC voor grote data/video uploads naar de cloud"
+    - "Tech: CQRS, EventStore, Unity DI, WebAPI"
+
+- date: "05/2010 – 05/2014"
+  company: "Febelco"
+  role: "Senior Software Developer"
+  core_skills: ["Legacy Modernisatie", "Domain Driven Design (DDD)", "TDD", "Database Optimalisatie (SQL)"]
+  technologies: ["C#", ".NET", "WCF", "SQL Server", "NHibernate", "WinForms", "MSMQ", "TeamCity", "Octopus Deploy", "Mercurial", "RhinoMocks"]
+  bullets:
+    - "Herontwikkelen van een ERP-systeem (DB2/COBOL/FORTRAN → SQL Server/WCF/.NET)"
+    - "Toepassen van Domain Driven Design, NHibernate, repository/unit-of-work patterns"
+    - "State machine aanpak voor orderverwerking, MSMQ integratie"
+    - "Opzetten van CI met TeamCity, introduceren van NuGet packaging"
+  extra_details:
+    - "Ontwikkelen van performante WinForms applicaties (met NHibernate & SQL optimalisatie)"
+    - "Faciliteren van migratie naar moderne versiebeheersystemen en automatisering (TeamCity, Octopus Deploy)"
+
+- date: "12/2008 – 05/2010"
+  company: "Ferranti"
+  role: "Implementation Consultant"
+  core_skills: ["Functionele Analyse", "Business Intelligence", "Technische Testing", "Training"]
+  technologies: ["C#", "LINQ", "WebServices", "SQL Server", "TimeXtender", "InterGraph I/Dispatcher"]
+  bullets:
+    - "Werken aan projecten voor belangrijke klanten waaronder Essent BE, Essent NL, en Brandweer Antwerpen"
+    - "Vertalen van blueprints naar functionele documenten, bespreken van analyses met klanten"
+    - "Toezicht houden op ontwikkeling, testen en oplevering van BI-projecten"
+    - "Testen en bouwen van externe interfaces (C#, LINQ, Webservices, DB-verbindingen)"
+  client_projects:
+    - name: "Brandweer Antwerpen"
+      details: "Ontwikkelde informatiebeheersysteem om noodhulpcoördinatie te stroomlijnen"
+    - name: "Essent NL"
+      details: "Implementeerde TimeXtender en rapportage-oplossingen voor business intelligence vereisten"
+
+- date: "01/2008 – 12/2008"
+  company: "Ferranti"
+  role: "SQL/X++ Developer"
+  core_skills: ["ERP Ontwikkeling", "On-site Consulting"]
+  technologies: ["Dynamics AX (X++)", "SQL Server"]
+  bullets:
+    - "Werken aan Ferranti's ERP-systeem en Datawarehouse"
+    - "Ontwikkelen voor Essent MDB in Nederland als on-site developer"
+    - "Leren van klantgerichte implementatievaardigheden in internationale omgeving"
+
+- date: "07/2007 – 12/2007"
+  company: "Fortis Bank"
+  role: "Business Intelligence Consultant"
+  core_skills: ["Business Intelligence", "Data Analyse"]
+  technologies: ["SQL", "BI Tools"]
+  bullets:
+    - "Kortlopend project gericht op business intelligence voor Pay Management"
+    - "Samenwerken met stakeholders voor data-analyse en rapportagebehoeften"

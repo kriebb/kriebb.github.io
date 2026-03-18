@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.active_lang | default: 'en' }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristof Riebbels - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Base styling */
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.3;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.75rem;
+      background: #f8f8f8;
+      font-size: 10pt;
+      /* Base font size for better printing */
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a {
+      color: #00b386;
+      text-decoration: none;
+    }
+
+    /* Header styling - more compact */
+    .header {
+      background: #ffffff;
+      padding: 0.75rem;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+      color: #004c8c;
+    }
+
+    /* Avoid page-breaks on headings */
+    h2,
+    h3 {
+      page-break-after: avoid;
+      break-after: avoid-page;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #004c8c;
+      border-bottom: 2px solid #00b386;
+      padding-bottom: 0.25rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #00b386;
+      font-weight: 600;
+    }
+
+    .contact-info {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    /* Section styling - more compact */
+    .section {
+      background: #ffffff;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Two-column layout */
+    .two-column-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Projects styling - single column */
+    .projects {
+      padding: 0.5rem;
+      margin-bottom: 0.75rem;
+      border-radius: 3px;
+      background: #fafafa;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .projects h3 {
+      margin-top: 0.1rem;
+      margin-bottom: 0.15rem;
+      font-size: 0.9rem;
+    }
+
+    .projects p {
+      margin: 0 0 0.2rem 0;
+      font-size: 0.8rem;
+    }
+    
+    .project-links {
+      text-align: right;
+      margin-top: 0.3rem;
+      font-size: 0.75rem;
+    }
+    
+    .read-more-link {
+      color: #00b386;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    /* Condensed Experience Section */
+    .experience-container {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .experience-item {
+      margin-bottom: 1rem;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dotted #e0e0e0;
+      clear: both;
+      overflow: hidden;
+    }
+
+    .experience-date {
+      color: #00b386;
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      float: right;
+    }
+
+    .experience-company {
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0.15rem 0;
+    }
+
+    .experience-item ul {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
+      list-style: none;
+      position: relative;
+    }
+
+    .experience-item ul li {
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .experience-item ul li::before {
+      content: "•";
+      color: #00b386;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Client projects styling - more compact */
+    .client-projects {
+      margin: 0.5rem 0 0.5rem 1rem;
+      border-left: 2px solid #00b386;
+      padding-left: 0.5rem;
+    }
+
+    .client-projects-heading {
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      color: #004c8c;
+    }
+
+    .client-name {
+      font-weight: 600;
+      color: #00b386;
+      font-size: 0.85rem;
+    }
+
+    .client-details {
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .more-details-note {
+      font-style: italic;
+      font-size: 0.75rem;
+      color: #666;
+      margin-top: 0.5rem;
+      text-align: right;
+      padding: 0.2rem 0.4rem;
+      background-color: #f0f9f6;
+      border-radius: 3px;
+      border-left: 2px solid #00b386;
+    }
+
+    /* Education & Certifications styling */
+    .education-list {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      font-size: 0.85rem;
+      list-style-type: disc;
+    }
+
+    /* Certifications: Improved horizontal layout */
+    .certification-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      page-break-inside: avoid;
+    }
+
+    .cert-logo-container {
+      display: block;
+      margin: 0 auto 5px auto;
+      height: 35px;
+      text-align: center;
+    }
+
+    .cert-logo-print {
+      max-height: 30px;
+      max-width: 30px;
+      object-fit: contain;
+    }
+
+    .cert-name-print {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* Core Competencies & Technical Skills - Two Columns */
+    .skill-category {
+      margin-bottom: 0.5rem;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .skill-category h3 {
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+      color: #00b386;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.1rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      page-break-inside: avoid;
+    }
+
+    .skill-list li {
+      background-color: #e0f5f0;
+      color: #000;
+      padding: 0.15rem 0.3rem;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      border: 1px solid #d0e8e0;
+    }
+
+    /* Two column skills section */
+    .all-skills-container {
+      column-count: 2;
+      column-gap: 1rem;
+    }
+
+    /* Footer styling */
+    .footer {
+      margin-top: 0.75rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 0.5rem;
+    }
+
+    /* Print specific settings */
+    @media print {
+      @page {
+        margin: 10mm;
+        size: A4;
+        orphans: 2;
+        widows: 2;
+      }
+
+      body {
+        padding: 0;
+        font-size: 9pt;
+        background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .all-skills-container {
+        column-count: 2;
+        /* Two columns when printed */
+      }
+
+      .projects {
+        margin-bottom: 0.75rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none;
+        color: #00b386;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      h2,
+      h3 {
+        page-break-after: avoid;
+      }
+
+      .certification-table {
+        width: 100%;
+      }
+        
+      .certification-table td {
+        text-align: center !important;
+      }
+        
+      .section,
+      .experience-item,
+      .certification-item-print,
+      .two-column-grid,
+      .skill-category {
+        page-break-inside: avoid;
+      }
+
+      /* Optimize space for printing */
+      .section {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-list {
+        border: 1px solid #e0e0e0;
+        padding: 0.4rem;
+        border-radius: 4px;
+      }
+
+      .skill-list li {
+        border: 1px solid #ddd;
+        padding: 0.2rem 0.4rem;
+        border-radius: 9999px;
+        background-color: #fff;
+      }
+    }
+  </style>
+
+  <!-- Meta tags for better PDF generation -->
+  <meta name="pdfkit-page-size" content="A4" />
+  <meta name="pdfkit-margin-top" content="10mm" />
+  <meta name="pdfkit-margin-right" content="10mm" />
+  <meta name="pdfkit-margin-bottom" content="10mm" />
+  <meta name="pdfkit-margin-left" content="10mm" />
+  <meta name="pdfkit-disable-javascript" content="false" />
+  <meta name="pdfkit-disable-external-links" content="false" />
+  <meta name="pdfkit-disable-internal-links" content="false" />
+  <meta name="pdfkit-encoding" content="UTF-8" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>Kristof Riebbels</h1>
+    <p>Freelance .NET Developer | Azure Developer Associate | Security-minded | Certified Scrum Master</p>
+    <div class="contact-info">
+      Belgium (Antwerp/Ghent region) |
+      {% include protected-email.html %}
+    </div>
+  </div>
+
+  <!-- Projects Section - Single column -->
+  <div class="section">
+    <h2>Projects</h2>
+    {% for project in site.data.projects[site.active_lang] limit:5 %}
+    <div class="projects">
+      <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
+      <p>{{ project.description }}</p>
+      <p class="project-links"><a href="{{ project.link }}" class="read-more-link">View Project Details</a></p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Skills Section - Two columns -->
+  <div class="section">
+    <h2>Skills & Expertise</h2>
+    <div class="all-skills-container">
+      {% for category_obj in site.data.resume[site.active_lang].skills.development_and_programming %}
+      <div class="skill-category">
+        <h3>{{ category_obj.category }}</h3>
+        <ul class="skill-list">
+          {% for item in category_obj.items %}
+          <li class="skill-item">{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Core Competencies Section - Two columns -->
+  <div class="section">
+    <h2>Core Competencies</h2>
+    <div class="all-skills-container">
+      {% for competence_group in site.data.resume[site.active_lang].core_competencies %}
+      <div class="skill-category">
+        <h3>{{ competence_group.category }}</h3>
+        <ul class="skill-list">
+          {% for item in competence_group.items %}
+          <li class="skill-item">{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Education & Certifications Section - More compact -->
+  <div class="section">
+    <h2>Education & Certifications</h2>
+    <div class="two-column-grid">
+      <div>
+        <!-- Education list -->
+        <ul class="education-list">
+          {% for edu_item in site.data.resume[site.active_lang].education %}
+          <li>{{ edu_item }}</li>
+          {% endfor %}
+        </ul>
+                <!-- Languages list -->
+        <h3>{{ site.data.i18n[site.active_lang].resume.languages }}</h3>
+        <ul class="education-list">
+          {% for lang_item in site.data.resume[site.active_lang].languages %}
+          <li class="language-item">{{ lang_item | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h3>Certifications</h3>
+        <table class="certification-table">
+          <tr>
+            {% for cert_item in site.data.resume[site.active_lang].certifications %}
+            {% assign cert_key = cert_item[0] %}
+            {% assign cert_name = cert_item[1] %}
+            <td style="width: 33%; text-align: center; vertical-align: middle; padding: 5px;">
+              <div class="cert-logo-container">
+                {% if cert_key == "azure-developer" %}
+                <img src="{{ '/assets/images/certifications/azure-developer-associate.jpg' | relative_url }}"
+                  alt="{{ cert_name }}" class="cert-logo-print" />
+                {% elsif cert_key == "scrum-master" %}
+                <img src="{{ '/assets/images/certifications/certified-scrum-master.png' | relative_url }}"
+                  alt="{{ cert_name }}" class="cert-logo-print" />
+                {% elsif cert_key == "bachelor" %}
+                <img src="{{ '/assets/images/certifications/hogent-logo.jpg' | relative_url }}" alt="{{ cert_name }}"
+                  class="cert-logo-print" />
+                {% endif %}
+              </div>
+              <div class="cert-name-print">{{ cert_name }}</div>
+            </td>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Experience Section - Single column for print -->
+  <div class="section">
+    <h2>Professional Experience</h2>
+    <div class="experience-container">
+      {% for item in site.data.work_experience[site.active_lang] %}
+      <div class="experience-item">
+        <div class="experience-date">{{ item.date }}</div>
+        <h3 class="experience-company">{{ item.company }}</h3>
+        {% if item.role %}
+        <div class="experience-role" style="color: #666; font-style: italic; margin-bottom: 0.2rem; font-weight: 500;">{{ item.role }}</div>
+        {% endif %}
+        
+        {% if item.core_skills or item.technologies %}
+        <div style="display: flex; gap: 1rem; margin: 0.3rem 0; padding: 0.3rem; background: #f9f9f9; border-left: 2px solid #00b386; border-radius: 2px;">
+          {% if item.core_skills %}
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 0.75rem; color: #004c8c; margin-bottom: 0.1rem;">Core Skills</div>
+            <div style="font-size: 0.75rem;">{{ item.core_skills | join: ", " }}</div>
+          </div>
+          {% endif %}
+          {% if item.technologies %}
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 0.75rem; color: #004c8c; margin-bottom: 0.1rem;">Used Technologies</div>
+            <div style="font-size: 0.75rem;">{{ item.technologies | join: ", " }}</div>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        <ul>
+          {% for bullet in item.bullets limit:3 %}
+          <li>{{ bullet | markdownify }}</li>
+          {% endfor %}
+        </ul>
+        {% if item.client_projects %}
+        <div class="client-projects">
+          <div class="client-projects-heading">Client Projects:</div>
+          {% for client in item.client_projects limit:2 %}
+          <div class="client-name">{{ client.name }}</div>
+          <div class="client-details">{{ client.details | markdownify }}</div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if item.extra_details %}
+        <div class="more-details-note">
+          {% if site.active_lang == "en" %}
+          For more details, visit <a href="https://www.itkriebbels.be/work-experience/{{ item.slug }}">www.itkriebbels.be/experience/{{ item.slug }}</a>
+          {% else %}
+          Voor meer details, bezoek <a href="https://www.itkriebbels.be/nl/werkervaring/{{ item.slug }}">www.itkriebbels.be/nl/ervaring/{{ item.slug }}</a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Generated on {{ site.time | date: "%d-%m-%Y" }} | Full interactive resume at <a href="https://www.itkriebbels.be/resume">www.itkriebbels.be/interactive-resume</a></p>
+    <p class="qr-container">
+      <img src="{{ '/assets/images/resume-qr.png' | relative_url }}" alt="QR Code to Interactive Resume" class="resume-qr" />
+      <span class="qr-text">Scan for detailed resume</span>
+    </p>
+  </div>
+  
+  <style>
+    .resume-qr {
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 0.5rem auto 0.25rem auto;
+    }
+    
+    .qr-container {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    
+    .qr-text {
+      display: block;
+      font-size: 0.7rem;
+      color: #666;
+    }
+  </style>
+
+  <!-- Script to process the protected email -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elements = document.getElementsByClassName('protected-email');
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var name = element.getAttribute('data-name');
+        var domain = element.getAttribute('data-domain');
+        if (name && domain) {
+          element.innerHTML = '<a href="mailto:' + name + '@' + domain + '">' +
+            name + '@' + domain + '</a>';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

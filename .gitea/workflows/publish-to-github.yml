@@ -1,0 +1,77 @@
+name: Sanitize and Publish to GitHub
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Private Source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Required Secrets
+        run: ./scripts/validate-secrets.sh
+        env:
+          # Gitea secrets required for this workflow
+          SECRETS_REQUIRED: "GITHUBTOKEN_PUBLISH"
+          # Pass the actual secret values for validation
+          GITHUBTOKEN_PUBLISH: ${{ secrets.GITHUBTOKEN_PUBLISH }}
+          # This workflow doesn't use Infisical, skip that validation
+          SKIP_INFISICAL: "true"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+
+      - name: Prepare Sanitized Export
+        run: |
+          # Create a clean temporary directory for the public version
+          EXPORT_DIR="/tmp/kriebb-public-export"
+          rm -rf "$EXPORT_DIR"
+          mkdir -p "$EXPORT_DIR"
+
+          # Use rsync to mirror the repo while excluding private paths
+          # This ensures the public version is a clean subset of the private one
+          rsync -av --delete \
+            --exclude '.git' \
+            --exclude 'docs' \
+            --exclude '.jekyll-cache' \
+            --exclude '_site' \
+            ./ "$EXPORT_DIR"/
+
+      - name: Deploy to GitHub
+        env:
+          # This secret must be added to Gitea Repo Settings -> Actions -> Secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN_PUBLISH }}
+        run: |
+          # Note: Secret validation already happened in the "Validate Required Secrets" step
+          # This is a defensive check in case the secret was removed mid-workflow
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "Error: GITHUBTOKEN_PUBLISH secret is not set in Gitea Actions Secrets."
+            exit 1
+          fi
+
+          cd /tmp/kriebb-public-export
+          
+          # Initialize a fresh git repo for the public export
+          git init
+          git config user.name "Gitea Public Sync"
+          git config user.email "kristof@itkriebbels.be"
+          
+          git add -A
+          
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: automated public sync [skip ci]"
+            
+            # Force push to GitHub main to ensure it exactly matches the sanitized state
+            # This uses the GITHUB_TOKEN_PUBLISH secret for authentication
+            git push --force "https://kriebb:${GITHUB_TOKEN}@github.com/kriebb/kriebb.github.io.git" master:main
+          else
+            echo "No changes to sync."
+          fi

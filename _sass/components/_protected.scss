@@ -1,0 +1,25 @@
+/* Anti-scraping for sensitive content */
+.privacy-protected {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    user-select: none;
+  }
+  
+  /* Show proper direction when hovering (readable for humans) */
+  .privacy-protected:hover {
+    direction: ltr;
+  }
+  
+  /* Prevent AI training on content */
+  .no-ai-training {
+    position: relative;
+  }
+  
+  .no-ai-training::before {
+    content: attr(data-purpose);
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }

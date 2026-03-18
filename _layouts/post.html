@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<article class="single-post">
+  <!-- Hero section with cover image as background -->
+  <div class="post-hero" {% if page.cover %}style="background-image: url('{{ page.cover | relative_url }}');"{% endif %}>
+    <div class="post-hero-content">
+      <h1 class="post-title">{{ page.title }}</h1>
+      
+      <div class="post-meta">
+        <span class="post-date">
+          <i class="far fa-calendar-alt"></i> {{ page.date | date: "%B %d, %Y" }}
+        </span>
+        
+        <!-- Reading time indicator -->
+        <span class="reading-time">
+          {% assign words = content | number_of_words %}
+          {% assign reading_time = words | divided_by: 180 | plus: 1 %}
+          <i class="far fa-clock"></i> {{ reading_time }} min read
+        </span>
+        
+        {% if page.tags.size > 0 %}
+          <div class="post-tags">
+            {% for tag in page.tags %}
+              <a href="/tag/{{ tag | slugify }}/" class="post-tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="single-post-content">
+    {{ content }}
+  </div>
+  
+  {% unless page.show_post_navigation == false %}
+    <div class="post-navigation">
+      <div class="post-nav-links">
+        {% if page.previous.url %}
+          <a class="prev-post" href="{{ page.previous.url | relative_url }}">
+            <i class="fas fa-arrow-left"></i> Previous: {{ page.previous.title }}
+          </a>
+        {% endif %}
+        
+        {% if page.next.url %}
+          <a class="next-post" href="{{ page.next.url | relative_url }}">
+            Next: {{ page.next.title }} <i class="fas fa-arrow-right"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endunless %}
+  
+  <div class="related-posts">
+    <h3>Related Posts</h3>
+    <div class="related-posts-grid">
+      {% assign related_posts = site.posts | where_exp:"post", "post.url != page.url" | sample:3 %}
+      {% for post in related_posts %}
+        <a href="{{ post.url | relative_url }}" class="related-post-card">
+          <div class="related-post-image">
+            <img src="{{ post.cover | default: '/assets/images/blog/default-cover.jpg' | relative_url }}" alt="{{ post.title }}">
+          </div>
+          <div class="related-post-content">
+            <h4>{{ post.title }}</h4>
+            <span class="related-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</article>

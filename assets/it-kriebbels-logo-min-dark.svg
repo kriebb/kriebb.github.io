@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004c8c" />
+      <stop offset="100%" stop-color="#00b386" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hexagon background -->
+  <path d="M20,4 L33,12 L33,28 L20,36 L7,28 L7,12 Z" 
+        fill="url(#logoGradient)" 
+        stroke="rgba(0,0,0,0.2)" 
+        stroke-width="1" />
+  
+  <!-- IK text -->
+  <text x="13" y="26" 
+        font-family="Arial, sans-serif" 
+        font-size="16" 
+        font-weight="bold" 
+        fill="#FFFFFF">
+    IK
+  </text>
+</svg>

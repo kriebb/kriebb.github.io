@@ -1,0 +1,143 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+---
+
+<section class="error-page">
+  <div class="error-container">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    
+    <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+    
+    <div class="error-options">
+      <a href="/" class="btn-primary">Go to Homepage</a>
+      <a href="/contact/" class="btn-secondary">Contact Me</a>
+    </div>
+    
+    <div class="error-language-options">
+      <p>Or try viewing this page in another language:</p>
+      <div class="language-buttons">
+        <a href="/" class="language-button">🇬🇧 English</a>
+        <a href="/nl/" class="language-button">🇳🇱 Nederlands</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .error-page {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .error-container {
+    background-color: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    border-top: 4px solid var(--accent-color);
+  }
+  
+  .error-page h1 {
+    font-size: 6rem;
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1;
+  }
+  
+  .error-page h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    color: var(--heading-color);
+  }
+  
+  .error-page p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .error-options {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+  }
+  
+  .error-language-options {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .language-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .language-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.2s ease;
+  }
+  
+  .language-button:hover {
+    background-color: var(--light-gray);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .error-page h1 {
+      font-size: 4rem;
+    }
+    
+    .error-page h2 {
+      font-size: 1.5rem;
+    }
+    
+    .error-options {
+      flex-direction: column;
+    }
+  }
+</style>

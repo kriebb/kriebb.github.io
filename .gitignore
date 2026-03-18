@@ -1,0 +1,35 @@
+# Jekyll ignores
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.jekyll
+vendor/
+.bundle/
+
+# Ruby/Bundler ignores
+.ruby-version
+.ruby-gemset
+Gemfile.lock  # For GitHub Pages compatibility
+node_modules/
+bin/
+
+# Editor ignores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# OS ignores
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Gemfile.lock
+learning-resources/

@@ -1,0 +1,21 @@
+/* Initial theme styles to prevent FOUC */
+.dark-mode {
+    /* Essential dark mode properties that prevent flickering */
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    
+    /* Header must be styled immediately to prevent flash */
+    header {
+      background-color: #1a1a1a;
+    }
+    
+    /* Logos - ensure immediate correct display */
+    .logo-light {
+      display: none !important;
+    }
+    
+    /* Minimal light override for dark mode navigation */
+    .nav-links a {
+      color: #ffffff;
+    }
+  }
