@@ -1,0 +1,144 @@
+<meta charset="UTF-8">
+<meta name="page-ref" content="{{ page.ref }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="robots" content="noai, noimageai">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="robots" content="noarchive">
+<meta name="googlebot" content="noindex-profile">
+<style>
+  /* Force initial header styles to prevent flicker */
+  header {
+    background-color: #004c8c !important; /* Light mode header */
+    transition: none !important;
+  }
+  
+  /* Specific dark mode overrides applied immediately */
+  .dark-mode { 
+    background-color: #1e1e1e; 
+    color: #e0e0e0; 
+  }
+  
+  .dark-mode header { 
+    background-color: #1a1a1a !important;
+  }
+  
+  /* Prevent logo flickering */
+  .logo-full, .logo-mini {
+    transition: none !important;
+  }
+  
+  /* Hide all transitions during load */
+  .navbar, .nav-links, .nav-links a {
+    transition: none !important;
+  }
+</style>
+
+<!-- Dark Mode Flash Prevention -->
+<script>
+  (function() {
+    // Apply theme immediately before any rendering
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    } else if (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark-mode');
+    }
+    
+    // Re-enable transitions after page loads
+    window.addEventListener('load', function() {
+      document.getElementById('enableTransitions').disabled = true;
+    });
+  })();
+</script>
+
+<!-- Disable transitions during page load -->
+<style id="enableTransitions">
+  *, *::before, *::after {
+    transition: none !important;
+  }
+</style>
+
+<!-- Collect unique preconnect domains -->
+{% assign preconnect_domains = '' | split: '' %}
+
+{% for font in site.data.fonts %}
+  {% if font.preconnect %}
+    {% for preconnect in font.preconnect %}
+      {% assign domain_info = preconnect.domain | append: '|' | append: preconnect.crossorigin %}
+      {% assign preconnect_domains = preconnect_domains | push: domain_info %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+<!-- Remove duplicates -->
+{% assign unique_domains = '' | split: '' %}
+{% for domain_info in preconnect_domains %}
+  {% unless unique_domains contains domain_info %}
+    {% assign unique_domains = unique_domains | push: domain_info %}
+  {% endunless %}
+{% endfor %}
+
+<!-- Output optimized preconnect tags -->
+{% for domain_info in unique_domains %}
+  {% assign parts = domain_info | split: '|' %}
+  {% assign domain = parts[0] %}
+  {% assign crossorigin = parts[1] %}
+  
+  <link rel="preconnect" href="https://{{ domain }}" {% if crossorigin == 'true' %}crossorigin{% endif %}>
+  {% if crossorigin == 'true' %}
+    <link rel="dns-prefetch" href="https://{{ domain }}">
+  {% endif %}
+{% endfor %}
+
+<!-- Font stylesheets with optimized loading -->
+{% for font in site.data.fonts %}
+  <!-- Preload critical fonts -->
+  {% if font.critical %}
+    <link rel="preload" href="{{ font.url }}" as="style">
+  {% endif %}
+  
+  <!-- Load font stylesheet with fallback -->
+  <link rel="stylesheet" href="{{ font.url }}" 
+        {% if font.critical %}media="print" onload="this.media='all'"{% endif %}
+        onerror="this.onerror=null;this.href='{{ font.local }}';">
+  
+  <!-- Noscript fallback for critical fonts -->
+  {% if font.critical %}
+    <noscript>
+      <link rel="stylesheet" href="{{ font.url }}">
+    </noscript>
+  {% endif %}
+{% endfor %}
+
+<title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+
+{% include seo-meta.html %}
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+
+<!-- Preconnect to Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- External libraries -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+{% for font in site.data.fonts %}
+  <link rel="stylesheet" href="{{ font.url }}" onerror="this.onerror=null;this.href='{{ font.url }}';">
+{% endfor %}
+
+<!-- Preload critical assets -->
+<link rel="preload" as="image" href="/assets/it-kriebbels-logo-full-light.svg">
+<link rel="preload" as="image" href="/assets/it-kriebbels-logo-full-dark.svg">
+
+<!-- Favicons -->
+<link rel="icon" href="/assets/favicon-light.svg" media="(prefers-color-scheme: light)" type="image/svg" />
+<link rel="icon" href="/assets/favicon-dark.svg" media="(prefers-color-scheme: dark)" type="image/svg" />
+
+<!-- Simple Analytics -->
+<script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript>
+  <img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade" />
+</noscript>
+{% seo title=false %}

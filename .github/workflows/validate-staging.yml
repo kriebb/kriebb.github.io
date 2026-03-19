@@ -1,0 +1,90 @@
+name: Staging Validation
+
+on:
+  push:
+    branches: [ public-staging ]
+  workflow_dispatch:
+
+jobs:
+  validate-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        run: |
+          echo "Building site with Jekyll..."
+          bundle exec jekyll build --verbose
+        env:
+          JEKYLL_ENV: production
+
+      - name: Verify Build Output
+        run: |
+          echo "Verifying build output..."
+          
+          # Check _site directory exists and has content
+          if [ ! -d "_site" ]; then
+            echo "❌ _site directory not found"
+            exit 1
+          fi
+          
+          # Check for index.html
+          if [ ! -f "_site/index.html" ]; then
+            echo "❌ _site/index.html not found"
+            exit 1
+          fi
+          
+          # Check for assets
+          if [ ! -d "_site/assets" ]; then
+            echo "❌ _site/assets directory not found"
+            exit 1
+          fi
+          
+          # Count generated files
+          file_count=$(find _site -type f | wc -l)
+          echo "✓ Generated $file_count files"
+          
+          if [ "$file_count" -lt 10 ]; then
+            echo "❌ Warning: Only $file_count files generated (expected more)"
+            exit 1
+          fi
+          
+          echo "✓ Build validation passed"
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy-pages:
+    needs: validate-staging
+    if: success()
+    
+    # Grant GITHUB_TOKEN the required permissions for GitHub Pages
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment's source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          preview: true
+
+      - name: Verify Deployment
+        run: |
+          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
+          echo "Note: This is a staging deployment for validation"

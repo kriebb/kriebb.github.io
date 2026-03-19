@@ -1,0 +1,127 @@
+## English translations
+
+# General
+site_title: "IT KRIEBBELS"
+site_description: "Freelance .NET Technical Lead | Azure Developer Associate – Building secure, clear, and reliable solutions"
+switch_lang: "Switch to Dutch"
+
+
+# Navigation
+index:
+  home: "Home"
+
+# Navigation
+nav:
+  home: "Home"
+  resume: "Resume"
+  blog: "Blog"
+  contact: "Contact"
+  about: "About"
+  mission: "Mission & Vision"
+  services: "Services"
+  work_experience: "Work Experience"
+
+# Homepage
+hero:
+  title: "Kristof Riebbels | .NET Technical Lead"
+  subtitle: "I build software and try to understand systems properly"
+  description: "Freelance .NET developer. I write about architecture, DevOps, security, and the way AI changes how I work."
+  expertise: "Most of the time that means .NET delivery, some Angular, system analysis support, and a lot of practical work around infrastructure and local-first tooling."
+  cta: "Check my Resume"
+  blog_cta: "Read the blog"
+  resume_cta: "Check my resume"
+
+home:
+  latest_posts_title: "Latest blog posts"
+  latest_posts_intro: "The blog is the best place to see what I am actively learning, building, and trying to understand properly."
+  all_posts_cta: "View all blog posts"
+
+# Resume page
+resume:
+  title: "Resume"
+  download: "Download Resume as PDF"
+  summary: "Senior .NET Developer with 17+ years of experience with secure and maintainable solutions. Passionate about clean code, SOLID principles, and test-driven development. Experienced in architecting and implementing cloud-based (Azure) systems."
+  key_strengths: "Key strengths include:"
+  professional_summary: "Professional Summary"
+  core_competences: "Core Competences"
+  projects: "Projects and Examples"
+  skills: "Skills and Expertise"
+  education: "Education and Graduation Project"
+  certifications: "Certifications"
+  interests: "Interests and Hobbies"
+  talk_about: "Talk to Me About"
+  languages: "Languages"
+
+# About page
+about:
+  title: "About"
+  intro: "I'm Kristof Riebbels, a .NET developer passionate about secure and maintainable code."
+  experimenting: "Experimenting with:"
+  github: "Look at my GitHub page:"
+  mission_link: "Curious about my mission and vision? Check out Mission & Vision."
+  senior_title: "Senior .NET Developer"
+  senior_desc: "dedicated to clean code, SOLID principles, and comprehensive testing. I value simplicity and clarity in every solution."
+  security_title: "Security-minded"
+  security_desc: "embedding security practices (OIDC, token handling, supply-chain security) directly into development to build reliable and thus trustworthy software."
+  coaching_title: "Coaching & Teaching"
+  coaching_desc: "I genuinely enjoy guiding colleagues and clients, breaking down complex challenges into understandable baby steps, and helping others become independently successful."
+  growth_title: "Growth & Learning"
+  growth_desc: "Driven by curiosity (and a bit of ADHD-energy), I'm continuously exploring new technologies and ideas—always aiming to stay ahead and deliver solutions that last."
+
+# Contact page
+contact:
+  title: "Contact Me"
+  intro: "If you need more information or want to work together, feel free to reach out:"
+  location: "Location"
+  location_value: "Belgium (Antwerp/Ghent region)"
+  form_intro: "If you have any questions or want to work together, please fill out the form below. I'll get back to you as soon as possible."
+  form:
+    name: "Name (min 2 chars)"
+    email: "Email (Required)"
+    phone: "Phone (Required)"
+    subject: "Subject (min 2 chars)"
+    message: "Message (min 5 words)"
+    submit: "Submit"
+    note: "Note: This form uses hCaptcha. Your data is sent securely and complies with GDPR regulations."
+  thank_you: "Thank You!"
+  message_sent: "Your message has been sent. I'll get back to you as soon as possible."
+
+# Footer
+footer:
+  copyright: "All rights reserved."
+  privacy: "Privacy Policy"
+  terms: "Terms of Service"
+  cookies: "Cookies"
+# Legal pages
+legal:
+  privacy_title: "Privacy Policy"
+  terms_title: "Terms of Service"
+  cookies_title: "Cookie Policy"
+  last_updated: "Last Updated"
+
+sidebar:
+  sections:
+    main_nav: "Main Navigation"
+    resources: "Resources"
+    on_this_page: "On This Page"
+  
+  links:
+    home: "Home"
+    index: "Home"
+    about: "About"
+    work-experience: "Work Experience"
+    contact: "Contact"
+    resume: "Resume"
+    services: "Services"
+    blog: "Blog"
+
+social:
+  linkedin: "LinkedIn Profile"
+  github: "GitHub Projects"
+  bluesky: "Follow me on Bluesky"
+  mastodon: "Follow me on Mastodon"
+
+blog:
+  search_placeholder: "Search posts..."
+  all: "All"
+  read_more: "Read more"

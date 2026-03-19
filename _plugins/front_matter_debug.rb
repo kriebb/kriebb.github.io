@@ -1,0 +1,1 @@
+require_relative '../lib/jekyll/front_matter_debug'

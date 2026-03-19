@@ -1,0 +1,19 @@
+<!-- Certifications - vertical layout -->
+<div class="certification-container-print">
+  {% for cert_item in site.data.resume[site.active_lang].certifications %}
+    {% assign cert_key = cert_item[0] %}
+    {% assign cert_name = cert_item[1] %}
+    <div class="certification-item-print">
+      <div class="cert-logo-container">
+        {% if cert_key == "azure-developer" %}
+          <img src="{{ '/assets/images/certifications/azure-developer-associate.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+        {% elsif cert_key == "scrum-master" %}
+          <img src="{{ '/assets/images/certifications/certified-scrum-master.png' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+        {% elsif cert_key == "bachelor" %}
+          <img src="{{ '/assets/images/certifications/hogent-logo.jpg' | relative_url }}" alt="{{ cert_name }}" class="cert-logo-print" />
+        {% endif %}
+      </div>
+      <div class="cert-name-print">{{ cert_name }}</div>
+    </div>
+  {% endfor %}
+</div>

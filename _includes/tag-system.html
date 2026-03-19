@@ -1,0 +1,57 @@
+<!-- _includes/tag-system.html -->
+<div class="tag-system">
+  <!-- Main Tag Categories Accordion -->
+  <div class="tag-categories">
+    {% for category in site.data.tag_categories %}
+      <div class="tag-category">
+        <button class="category-toggle" data-target="{{ category.id }}">
+          {{ category.name }} <span class="toggle-icon">+</span>
+        </button>
+        <div id="{{ category.id }}" class="category-tags collapsed">
+          {% for tag in category.tags %}
+            {% assign tag_slug = tag | slugify %}
+            {% assign posts_with_tag = site.posts | where_exp: "post", "post.tags contains tag" %}
+            {% assign tag_count = posts_with_tag | size %}
+            {% if tag_count > 0 %}
+              <a href="/tag/{{ tag_slug }}/" class="tag-item">
+                #{{ tag }} <span class="tag-count">{{ tag_count }}</span>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <!-- Tag Cloud Toggle -->
+  <button id="tag-cloud-toggle" class="tag-cloud-toggle">Show Tag Cloud</button>
+  
+  <!-- Tag Cloud (Initially Hidden) -->
+  <div id="tag-cloud" class="tag-cloud hidden">
+    {% assign max_count = 1 %}
+    {% assign all_tags = site.posts | map: "tags" | flatten | uniq %}
+    
+    {% for tag in all_tags %}
+      {% assign posts_with_tag = site.posts | where_exp: "post", "post.tags contains tag" %}
+      {% assign tag_count = posts_with_tag | size %}
+      {% if tag_count > max_count %}
+        {% assign max_count = tag_count %}
+      {% endif %}
+    {% endfor %}
+    
+    {% for tag in all_tags %}
+      {% assign tag_slug = tag | slugify %}
+      {% assign posts_with_tag = site.posts | where_exp: "post", "post.tags contains tag" %}
+      {% assign tag_count = posts_with_tag | size %}
+      
+      {% assign weight = tag_count | times: 100 | divided_by: max_count | plus: 70 %}
+      {% if weight > 170 %}{% assign weight = 170 %}{% endif %}
+      
+      <a href="/tag/{{ tag_slug }}/" class="cloud-tag" 
+         style="font-size: {{ weight }}%;">
+        #{{ tag }}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+

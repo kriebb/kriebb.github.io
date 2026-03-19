@@ -1,0 +1,129 @@
+## Nederlandse vertalingen
+
+# Algemeen
+site_title: "IT KRIEBBELS"
+site_description: "Freelance .NET Technical Lead | Azure Developer Associate – Bouw van veilige, duidelijke en betrouwbare oplossingen"
+switch_lang: "Switch to English"
+
+# Navigatie
+index:
+  home: "Home"
+
+# Navigatie
+nav:
+  home: "Home"
+  resume: "CV"
+  blog: "Blog"
+  contact: "Contact"
+  about: "Over Mij"
+  mission: "Missie & Visie"
+  services: "Diensten"
+  work_experience: "Werkervaring"
+
+# Homepage
+hero:
+  title: "Kristof Riebbels | .NET Technical Lead"
+  subtitle: "Ik bouw software en probeer systemen echt te begrijpen"
+  description: "Freelance .NET developer. Ik schrijf over architectuur, DevOps, security en de manier waarop AI mijn werk verandert."
+  expertise: "Meestal betekent dat .NET delivery, wat Angular, ondersteuning rond system analysis en veel praktisch werk rond infrastructuur en local-first tooling."
+  cta: "Bekijk mijn CV"
+  blog_cta: "Lees de blog"
+  resume_cta: "Bekijk mijn CV"
+
+home:
+  latest_posts_title: "Laatste blogposts"
+  latest_posts_intro: "De blog is de beste plaats om te zien waar ik actief aan leer, bouw en probeer echt te begrijpen."
+  all_posts_cta: "Bekijk alle blogposts"
+
+# CV pagina
+resume:
+  title: "CV"
+  download: "Download CV als PDF"
+  summary: "Senior .NET Developer met meer dan 17 jaar ervaring in veilige en onderhoudbare oplossingen. Gepassioneerd door clean code, SOLID principes en test-driven development. Ervaring in het ontwerpen en implementeren van cloudgebaseerde (Azure) systemen."
+  key_strengths: "Belangrijkste sterke punten:"
+  professional_summary: "Professionele Samenvatting"
+  core_competences: "Kerncompetenties"
+  projects: "Projecten en Voorbeelden"
+  skills: "Vaardigheden en Expertise"
+  education: "Opleiding en Afstudeeropdracht"
+  certifications: "Certificeringen"
+  interests: "Interesses en Hobby's"
+  talk_about: "Praat Met Mij Over"
+  languages: "Talen"
+  
+# Over mij pagina
+about:
+  title: "Over Mij"
+  intro: "Ik ben Kristof Riebbels, een .NET developer met passie voor veilige en onderhoudbare code."
+  experimenting: "Experimenterend met:"
+  github: "Bekijk mijn GitHub pagina:"
+  mission_link: "Benieuwd naar mijn missie en visie? Bekijk Missie & Visie."
+  senior_title: "Senior .NET Developer"
+  senior_desc: "toegewijd aan clean code, SOLID principes en uitgebreide testing. Ik waardeer eenvoud en duidelijkheid in elke oplossing."
+  security_title: "Beveiligingsgericht"
+  security_desc: "integreert beveiligingspraktijken (OIDC, tokenbeheer, supply-chain beveiliging) direct in de ontwikkeling om betrouwbare en dus vertrouwenswaardige software te bouwen."
+  coaching_title: "Coaching & Lesgeven"
+  coaching_desc: "Ik geniet ervan om collega's en klanten te begeleiden, complexe uitdagingen op te delen in begrijpelijke stappen, en anderen te helpen zelfstandig succesvol te worden."
+  growth_title: "Groei & Leren"
+  growth_desc: "Gedreven door nieuwsgierigheid (en wat ADHD-energie), verken ik voortdurend nieuwe technologieën en ideeën—altijd met het doel om voorop te blijven en duurzame oplossingen te leveren."
+
+# Contact pagina
+contact:
+  title: "Contact"
+  intro: "Als u meer informatie nodig heeft of wilt samenwerken, neem dan gerust contact op:"
+  location: "Locatie"
+  location_value: "België (regio Antwerpen/Gent)"
+  form_intro: "Als u vragen heeft of wilt samenwerken, vul dan onderstaand formulier in. Ik neem zo snel mogelijk contact met u op."
+  form:
+    name: "Naam (min 2 tekens)"
+    email: "E-mail (Verplicht)"
+    phone: "Telefoon (Verplicht)"
+    subject: "Onderwerp (min 2 tekens)"
+    message: "Bericht (min 5 woorden)"
+    submit: "Versturen"
+    note: "Opmerking: Dit formulier gebruikt hCaptcha. Uw gegevens worden veilig verzonden en voldoen aan de AVG-regelgeving."
+  thank_you: "Dank U!"
+  message_sent: "Uw bericht is verzonden. Ik neem zo snel mogelijk contact met u op."
+
+# Footer
+footer:
+  copyright: "Alle rechten voorbehouden."
+  privacy: "Privacybeleid"
+  terms: "Gebruiksvoorwaarden"
+  cookies: "Cookies"
+
+# Juridische pagina's
+legal:
+  privacy_title: "Privacybeleid"
+  terms_title: "Gebruiksvoorwaarden"
+  cookies_title: "Cookiebeleid"
+  last_updated: "Laatst Bijgewerkt"
+
+# Zijbalk
+sidebar:
+  sections:
+    main_nav: "Hoofdnavigatie"
+    resources: "Hulpbronnen"
+    on_this_page: "Op Deze Pagina"
+  
+  links:
+    home: "Home"
+    index: "Home"
+    about: "Over Mij"
+    work-experience: "Werkervaring"
+    contact: "Contact"
+    resume: "CV"
+    services: "Diensten"
+    blog: "Blog"
+
+# Sociale media
+social:
+  linkedin: "LinkedIn Profiel"
+  github: "GitHub Projecten"
+  bluesky: "Volg me op Bluesky"
+  mastodon: "Volg me op Mastodon"
+
+blog:
+  search_placeholder: "Zoek berichten..."
+  all: "Alle"
+  read_more: "Lees meer"

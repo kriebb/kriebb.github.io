@@ -1,0 +1,29 @@
+services:
+  jekyll-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kriebbgithubio-jekyll-dev:local
+    working_dir: /srv/jekyll
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    environment:
+      HOME: /tmp
+      BUNDLE_APP_CONFIG: /usr/local/bundle
+    command: >
+      bash -lc "bundle exec jekyll serve
+      --disable-disk-cache
+      --destination /tmp/jekyll-site
+      --host 0.0.0.0
+      --port 4000
+      --livereload
+      --livereload-port 35729
+      --watch
+      --force_polling
+      --future"
+    ports:
+      - "4001:4000"
+      - "${LIVERELOAD_PORT:-35729}:35729"
+    volumes:
+      - .:/srv/jekyll
+    stdin_open: true
+    tty: true

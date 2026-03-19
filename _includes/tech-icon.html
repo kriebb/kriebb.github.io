@@ -1,0 +1,9 @@
+{% assign icon_class = site.data.icons[include.tech] %}
+<span class="tech-icon">
+  {% if icon_class %}
+    <i class="{{ icon_class }}" title="{{ include.tech }}"></i>
+  {% else %}
+    <!-- Fallback for unmapped items -->
+    <i class="fas fa-code" title="{{ include.tech }}"></i>
+  {% endif %}
+</span>

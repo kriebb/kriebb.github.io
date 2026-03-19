@@ -1,0 +1,8 @@
+{% if include.cover %}
+<div class="cover-banner">
+  <img 
+    src="{{ include.cover | relative_url }}" 
+    alt="Cover image for {{ include.title | default: page.title }}"
+    class="cover-image">
+</div>
+{% endif %}

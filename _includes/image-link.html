@@ -1,0 +1,5 @@
+{% assign parts = include.content | split: '](' %}
+{% assign link_text = parts[0] | remove_first: '[' %}
+{% assign image_url = parts[1] | remove_first: ')' %}
+
+<a href="#" class="image-popup" data-image="{{ image_url }}">{{ link_text }}</a>

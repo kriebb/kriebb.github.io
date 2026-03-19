@@ -1,0 +1,81 @@
+﻿param(
+    [string]$sourceFolder = "backup-articles",
+    [string]$targetFolder = "_posts"
+)
+
+# Create target directory if it doesn't exist
+New-Item -ItemType Directory -Force -Path $targetFolder | Out-Null
+
+# Function to sanitize filenames
+function Get-SanitizedFilename {
+    param([string]$title)
+    
+    # Remove special characters and replace spaces with hyphens
+    $cleanTitle = $title -replace '[^\w\s-]', '' -replace '\s+', '-' -replace '-+', '-' -replace '^-|-$', ''
+    return $cleanTitle.ToLower()
+}
+
+# Process each markdown file in the source folder
+Get-ChildItem -Path $sourceFolder -Filter "*.md" -Recurse | ForEach-Object {
+    $sourceFile = $_
+    Write-Host "Processing $($sourceFile.Name)..." -ForegroundColor Cyan
+    
+    $content = Get-Content $sourceFile.FullName -Raw -Encoding UTF8
+    
+    # Extract front matter
+    if ($content -match "---\s*\n([\s\S]*?)\n---") {
+        $frontMatter = $matches[1]
+        
+        # Extract date and title from frontmatter
+        $date = if ($frontMatter -match "date:\s*([\d]{4}-[\d]{2}-[\d]{2})") {
+            $matches[1]
+        } elseif ($frontMatter -match "date:\s*([\d]{4}-[\d]{2}-[\d]{2}\s+[\d:]+)") {
+            [DateTime]::Parse($matches[1]).ToString("yyyy-MM-dd")
+        } else {
+            $sourceFile.CreationTime.ToString("yyyy-MM-dd")
+        }
+        
+        $title = if ($frontMatter -match "title:\s*[""'](.*?)[""']" -or $frontMatter -match "title:\s*(.+?)(\r?\n)") {
+            $matches[1].Trim()
+        } else {
+            $sourceFile.BaseName
+        }
+        
+        # Create clean title for filename
+        $cleanTitle = Get-SanitizedFilename -title $title
+        
+        # Extract year and month for folder structure
+        $year = $date.Substring(0, 4)
+        $month = $date.Substring(5, 2)
+        
+        # Create year/month directories
+        $yearMonthFolder = Join-Path -Path $targetFolder -ChildPath "$year/$month"
+        New-Item -ItemType Directory -Force -Path $yearMonthFolder | Out-Null
+        
+        # Create target filename
+        $newFilename = "$date-$cleanTitle.md"
+        $targetPath = Join-Path -Path $yearMonthFolder -ChildPath $newFilename
+        
+        # Update image references in content - keep same URLs but update the markdown format if needed
+        $imagePattern = '!\[([^\]]*)\]\(([^)]+)\)'
+        $processedContent = $content -replace $imagePattern, {
+            param($match)
+            $altText = $match.Groups[1].Value
+            $imagePath = $match.Groups[2].Value
+            
+            # Keep the image path exactly as it is - we're not moving images
+            return "![$altText]($imagePath)"
+        }
+        
+        # Save the processed content
+        $processedContent | Out-File -FilePath $targetPath -Encoding UTF8
+        
+        Write-Host "  ✓ Saved to $targetPath" -ForegroundColor Green
+    } else {
+        Write-Warning "No front matter found in $($sourceFile.Name), skipping..."
+    }
+}
+
+Write-Host "`nMigration complete!" -ForegroundColor Green
+Write-Host "Posts have been organized into year/month folders with meaningful names."
+Write-Host "NOTE: Image references have been kept intact. Make sure to update domain references if needed."

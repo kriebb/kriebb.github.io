@@ -1,0 +1,33 @@
+<!-- _includes/featured-post.html -->
+{% assign featured_posts = site.posts | where_exp: "post", "post.featured == true" %}
+{% if featured_posts.size > 0 %}
+  {% assign featured = featured_posts.first %}
+{% else %}
+  {% assign featured = site.posts.first %}
+{% endif %}
+
+<article class="blog-card featured-card">
+  <div class="featured-badge">Featured</div>
+  <div class="blog-card-image">
+    {% if featured.cover %}
+      <img src="{{ featured.cover | relative_url }}" alt="{{ featured.title }}">
+    {% else %}
+      <img src="/assets/images/blog/default-cover.jpg" alt="{{ featured.title }}">
+    {% endif %}
+    <span class="blog-date">{{ featured.date | date: "%b %d, %Y" }}</span>
+    
+    {% if featured.tags.size > 0 %}
+    <div class="image-overlay-tags">
+      {% for tag in featured.tags limit:3 %}
+        {% assign tagSlugified = tag | slugify %}
+        <a href="/tag/{{ tagSlugified }}/" class="blog-tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="blog-card-content">
+    <h2 class="blog-card-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+    <div class="blog-card-excerpt">{{ featured.excerpt | strip_html | truncatewords: 30 }}</div>
+    <a href="{{ featured.url | relative_url }}" class="read-more">Read Full Article</a>
+  </div>
+</article>

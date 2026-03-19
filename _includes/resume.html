@@ -1,0 +1,46 @@
+{% comment %}
+  _includes/resume.html
+
+  A generic snippet that loops over site.data.resume.<section>, 
+  building a card-based layout with flexbox. 
+  For instance, "core_competencies" or "development_and_programming."
+{% endcomment %}
+
+{% if include.section == "core_competences" %}
+  <div class="competence-container">
+    {% for competence_group in site.data.resume[site.active_lang].core_competencies %}
+      <div class="competence-card">
+        <h3 class="competence-title">{{ competence_group.category }}</h3>
+        <div class="competence-items">
+          {% for item in competence_group.items %}
+            <div class="competence-item">
+              {% include tech-icon.html tech=item %}
+              <span class="competence-text">{{ item }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <br/>
+
+{% elsif include.section == "development_and_programming" %}
+  <div class="competence-container">
+    {% for category_obj in site.data.resume[site.active_lang].skills.development_and_programming %}
+      <div class="competence-card">
+        <h3 class="competence-title">{{ category_obj.category }}</h3>
+        <div class="competence-items">
+          {% for item in category_obj.items %}
+            <div class="competence-item">
+              {% include tech-icon.html tech=item %}
+              <span class="competence-text">{{ item }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<br/>

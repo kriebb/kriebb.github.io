@@ -1,0 +1,122 @@
+# Basic site settings
+title: "IT KRIEBBELS"
+description: "Freelance .NET Developer – Building secure, clear, and reliable solutions"
+author: "Kristof Riebbels"
+baseurl: ""
+url: "http://www.itkriebbels.be" #for polygot
+github_username: kriebb
+
+# Build settings
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+# Syntax highlighting settings
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+# Custom code highlighting
+prism_highlight:
+  enabled: true
+  line_numbers: true
+  languages:
+    - razor
+    - cshtml
+    - csharp
+    - javascript
+    - html
+    - css
+    - json
+    - yaml
+
+# Source directory
+source: .
+include:
+  - content/pages
+keep_files:
+  - content/index.html
+
+# Jekyll build settings
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+destination: _site
+parallel: false
+
+# Multilingual settings - SIMPLIFIED
+languages: ["en", "nl"]
+default_lang: "en"
+exclude_from_localization: ["assets", "images", "css", "js", "fonts", "favicon.ico"]
+locale_from_file_extension: true
+lang_from_path: true
+
+# Language details
+language_data:
+  en:
+    name: "English"
+    icon: "🇬🇧"
+    locale: "en_US"
+  nl:
+    name: "Nederlands"
+    icon: "🇳🇱"
+    locale: "nl_NL"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-polyglot
+  - jekyll-redirect-from
+
+# Polyglot settings
+polyglot:
+  languages: ["en", "nl"]
+  default_lang: "en"
+  exclude: ["assets", "images", "css", "js", "fonts", "favicon.ico", "lib"]  # Add "lib"  
+  permalink: pretty
+  parallel_processing: false #windows compatibility
+  lang_from_path: true
+# Sass processing
+sass:
+  sass_dir: _sass
+  style: compressed
+  sourcemap: never
+# Exclude these files from production site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - CNAME
+  - node_modules
+  - .git
+  - .github
+  - vendor
+
+# Default front matter for pages
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      permalink: /blog/:title
+
+permalink: pretty
+
+collections:
+  pages:
+    output: true

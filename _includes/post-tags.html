@@ -1,0 +1,9 @@
+<!-- _includes/post-tags.html -->
+{% if page.tags.size > 0 %}
+<div class="post-tags">
+  <span class="tags-label">Tags:</span>
+  {% for tag in page.tags %}
+    <a href="/tag/{{ tag | slugify }}/" class="post-tag">#{{ tag }}</a>
+  {% endfor %}
+</div>
+{% endif %}

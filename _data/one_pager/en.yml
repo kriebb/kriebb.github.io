@@ -1,0 +1,92 @@
+## English one-pager data
+
+# Main titles
+profile_title: "Professional Profile"
+key_technologies_title: "Key Technologies"
+focus_areas_title: "Focus Areas"
+services_title: "How I Can Help You"
+highlights_title: "Career Highlights"
+scan_resume: "Scan for detailed resume"
+github_title: "Projects & Code Samples"
+github_url: "https://github.com/kriebb"
+github_text: "github.com/kriebb"
+
+# Profile text
+profile_text: "Senior .NET Developer with 17+ years of experience delivering secure and maintainable solutions. I specialize in creating clear, robust software that handles complex business requirements with elegance. Passionate about clean code, SOLID principles, and test-driven development, I bring a security-first mindset and a collaborative approach to every project."
+
+# List key technologies
+key_technologies:
+  - "C#"
+  - ".NET 8"
+  - "ASP.NET Core"
+  - "Azure"
+  - "OIDC"
+  - "SQL Server"
+  - "JWT"
+  - "EF Core"
+  - "TypeScript"
+  - "CI/CD"
+
+# List focus areas
+focus_areas:
+  - "Clean Code"
+  - "SOLID"
+  - "TDD"
+  - "Security"
+  - "Architecture"
+  - "Mentoring"
+  - "Scrum"
+
+# Services offered
+services:
+  - title: ".NET Development"
+    description: "Building clean, secure solutions with C#, ASP.NET Core, and Azure"
+  - title: "Security Implementation"
+    description: "OIDC, secure token management, vulnerability scanning"
+  - title: "Technical Coaching"
+    description: "Code reviews, SOLID principles, TDD, and best practices"
+  - title: "Agile Facilitation"
+    description: "Scrum ceremonies, team collaboration, Agile transformation"
+
+# Career highlights
+highlights:
+  - "Led implementation of Auth0 with Itsme integration at AXA Belgium, strengthening customer authentication security"
+  - "Speaker at industry events including Techorama 2024, Update Conference 2023, VISUG, and Dotnet Friday"
+  - "Maintained SaaS product in Azure (Cloud Services, WebAPI, Service Bus) while coaching project teams"
+  - "Redeveloped an ERP system from DB2/COBOL/FORTRAN to SQL Server/WCF/.NET using Domain Driven Design"
+
+# Core competencies
+competencies:
+  - title: "Architecture & Development"
+    items:
+      - "Clean Architecture implementation"
+      - "Full-stack .NET development"
+      - "Microservices & API design"
+      - "Azure cloud infrastructure"
+  - title: "Security & Quality"
+    items:
+      - "OIDC implementation & token management"
+      - "Secure software supply chains"
+      - "Vulnerability scanning integration"
+      - "Test-Driven Development"
+  - title: "Leadership & Coaching"
+    items:
+      - "Team mentoring & knowledge sharing"
+      - "Certified Scrum Master"
+      - "Code review facilitation"
+      - "Process improvement"
+  - title: "Business Value"
+    items:
+      - "Solution engineering & consulting"
+      - "Legacy system modernization"
+      - "Customer-focused problem solving"
+      - "Technical authority building"
+
+# Certifications
+certifications:
+  - icon: "fas fa-users-cog"
+    name: "Certified Scrum Master"
+  - icon: "fab fa-microsoft"
+    name: "Azure Developer Associate"
+  - icon: "fas fa-graduation-cap"
+    name: "Bachelor in Informatics"

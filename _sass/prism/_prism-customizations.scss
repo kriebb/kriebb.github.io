@@ -1,0 +1,185 @@
+// Custom Prism.js theme overrides for CSHTML/Razor syntax highlighting
+
+// Color variables
+$razor-at-symbol: #df8c1d;         // Orange for @ symbol
+$razor-directive: #569cd6;         // Blue for directives
+$razor-block: #c586c0;             // Purple for razor blocks
+$razor-expression: #4ec9b0;        // Teal for expressions
+$razor-comment: #6a9955;           // Green for comments
+$tag-helper-attribute: #9cdcfe;    // Light blue for tag helpers
+$html-tag: #808080;                // Gray for HTML tags
+$csharp-keyword: #569cd6;          // Blue for C# keywords
+$csharp-string: #ce9178;           // Orange-red for strings
+$csharp-function: #dcdcaa;         // Yellow for functions
+
+// Basic overrides for Prism
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none;
+  background: #f5f5f5;
+  color: #333;
+}
+
+// Razor specific styling
+.language-razor, .language-cshtml {
+  .razor-punctuation {
+    color: $razor-at-symbol;
+    font-weight: bold;
+  }
+  
+  .razor-comment {
+    color: $razor-comment;
+    font-style: italic;
+  }
+  
+  .razor-block {
+    color: $razor-block;
+    
+    .razor-punctuation {
+      color: $razor-block;
+    }
+  }
+  
+  .razor-directive {
+    color: $razor-directive;
+    font-weight: bold;
+    
+    .directive-name {
+      color: $razor-directive;
+    }
+  }
+  
+  .razor-expression {
+    color: $razor-expression;
+    
+    .expression {
+      color: $razor-expression;
+    }
+  }
+  
+  // ASP.NET Tag Helpers styling
+  .tag-helper-attribute {
+    .tag-helper-name {
+      color: $tag-helper-attribute;
+      font-weight: bold;
+    }
+    
+    .value {
+      color: $csharp-string;
+    }
+  }
+  
+  // HTML and XML markup styling
+  .tag {
+    color: $html-tag;
+  }
+  
+  // C# within Razor
+  .keyword {
+    color: $csharp-keyword;
+    font-weight: bold;
+  }
+  
+  .function {
+    color: $csharp-function;
+  }
+  
+  .string {
+    color: $csharp-string;
+  }
+}
+
+// Additional styling for code blocks
+pre[class*="language-razor"],
+pre[class*="language-cshtml"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+// Line numbers
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+
+  > code {
+    position: relative;
+    white-space: inherit;
+  }
+  
+  .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em;
+    letter-spacing: -1px;
+    border-right: 1px solid #ddd;
+    user-select: none;
+    
+    > span {
+      pointer-events: none;
+      display: block;
+      counter-increment: linenumber;
+      
+      &:before {
+        content: counter(linenumber);
+        color: #999;
+        display: block;
+        padding-right: 0.8em;
+        text-align: right;
+      }
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    background: #1e1e1e;
+    color: #dcdcdc;
+  }
+  
+  pre[class*="language-razor"],
+  pre[class*="language-cshtml"] {
+    background: #1e1e1e;
+    border-color: #333;
+  }
+  
+  .language-razor, .language-cshtml {
+    .razor-comment {
+      color: #608b4e;
+    }
+    
+    .tag-helper-attribute {
+      .value {
+        color: #ce9178;
+      }
+    }
+    
+    .line-numbers-rows {
+      border-right-color: #333;
+      
+      > span:before {
+        color: #666;
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+<style>
+  /* Critical CSS to prevent FOUC and flickering */
+  html, body {
+    transition: background-color 0s, color 0s !important;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html.dark-mode, body.dark-mode {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+  }
+  
+  html.dark-mode header, body.dark-mode header {
+    background-color: #1a1a1a !important;
+  }
+  
+  :root:not(.dark-mode) header {
+    background-color: #004c8c !important;
+  }
+  
+  /* Ensure logos display correctly immediately */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 170px;
+  }
+  
+  .logo-full, .logo-mini {
+    display: none;
+    height: 36px;
+    width: auto;
+  }
+  
+  :root:not(.dark-mode) .logo-full.logo-light {
+    display: block;
+  }
+  
+  :root:not(.dark-mode) .logo-mini.logo-light {
+    display: none;
+  }
+  
+  .dark-mode .logo-full.logo-dark {
+    display: block;
+  }
+  
+  .dark-mode .logo-mini.logo-dark {
+    display: none;
+  }
+  
+  @media (max-width: 767px) {
+    :root:not(.dark-mode) .logo-full.logo-light {
+      display: none;
+    }
+    
+    :root:not(.dark-mode) .logo-mini.logo-light {
+      display: block;
+    }
+    
+    .dark-mode .logo-full.logo-dark {
+      display: none;
+    }
+    
+    .dark-mode .logo-mini.logo-dark {
+      display: block;
+    }
+  }
+  
+  /* Fixed header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Fixed navigation */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 60px;
+    position: relative;
+  }
+  
+  /* Centered navigation links */
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Fixed elements widths */
+  .nav-toggle {
+    width: 40px;
+  }
+  
+  .nav-actions {
+    width: 50px;
+    margin-left: auto;
+  }
+  </style>

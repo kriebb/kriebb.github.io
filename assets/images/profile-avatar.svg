@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004c8c" />
+      <stop offset="100%" stop-color="#00b386" />
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="150" cy="150" r="135" />
+    </clipPath>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="150" cy="150" r="140" fill="url(#avatarGradient)" />
+  
+  <!-- Abstract geometric pattern in background -->
+  <g opacity="0.15" fill="#ffffff" clip-path="url(#circleClip)">
+    <polygon points="0,150 150,0 300,150 150,300" />
+    <polygon points="150,50 250,150 150,250 50,150" />
+    <circle cx="150" cy="150" r="60" />
+  </g>
+  
+  <!-- Simple avatar silhouette -->
+  <g transform="translate(85, 70)">
+    <!-- Head -->
+    <circle cx="70" cy="60" r="50" fill="#ffffff" />
+    
+    <!-- Body -->
+    <path d="M20,120 C20,90 120,90 120,120 L120,190 C120,200 20,200 20,190 Z" fill="#ffffff" />
+    
+    <!-- Code bracket symbol -->
+    <g transform="translate(45, 50)">
+      <text font-family="monospace" font-size="45" fill="#004c8c" font-weight="bold">{}</text>
+    </g>
+  </g>
+</svg>

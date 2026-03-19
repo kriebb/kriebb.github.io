@@ -1,0 +1,146 @@
+name: Sanitize and Publish to GitHub
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  # Deployment configuration
+  GITHUB_TARGET_REPO: kriebb/kriebb.github.io
+  STAGING_BRANCH: public-staging
+  PRODUCTION_BRANCH: public-main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Private Source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Required Secrets
+        run: ./scripts/validate-secrets.sh
+        env:
+          # Gitea secrets required for this workflow
+          SECRETS_REQUIRED: "GITHUBTOKEN_PUBLISH"
+          # Pass the actual secret values for validation
+          GITHUBTOKEN_PUBLISH: ${{ secrets.GITHUBTOKEN_PUBLISH }}
+          # This workflow doesn't use Infisical, skip that validation
+          SKIP_INFISICAL: "true"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync curl
+
+      - name: Prepare Sanitized Export
+        run: |
+          # Create a clean temporary directory for the public version
+          EXPORT_DIR="/tmp/kriebb-public-export"
+          rm -rf "$EXPORT_DIR"
+          mkdir -p "$EXPORT_DIR"
+
+          # Use rsync to mirror the repo while excluding private paths
+          # This ensures the public version is a clean subset of the private one
+          rsync -av --delete \
+            --exclude '.git' \
+            --exclude 'docs' \
+            --exclude '.jekyll-cache' \
+            --exclude '_site' \
+            --exclude 'scripts/health-check.sh' \
+            ./ "$EXPORT_DIR"/
+
+      - name: Deploy to Staging Branch
+        env:
+          # This secret must be added to Gitea Repo Settings -> Actions -> Secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN_PUBLISH }}
+        run: |
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "Error: GITHUBTOKEN_PUBLISH secret is not set in Gitea Actions Secrets."
+            exit 1
+          fi
+
+          cd /tmp/kriebb-public-export
+
+          # Initialize a fresh git repo for the public export
+          git init
+          git config user.name "Gitea Public Sync"
+          git config user.email "kristof@itkriebbels.be"
+
+          git add -A
+
+          # Only commit if there are changes
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: staged deployment [skip ci]"
+
+            # Push to staging branch first (not production!)
+            # Using --force to ensure staging exactly matches current state
+            git push --force "https://kriebb:${GITHUB_TOKEN}@github.com/${{ env.GITHUB_TARGET_REPO }}.git" master:${{ env.STAGING_BRANCH }}
+            
+            echo "Deployed to staging branch: ${{ env.STAGING_BRANCH }}"
+          else
+            echo "No changes to sync."
+            # Still push to staging to trigger validation even if no content changes
+            git push "https://kriebb:${GITHUB_TOKEN}@github.com/${{ env.GITHUB_TARGET_REPO }}.git" master:${{ env.STAGING_BRANCH }} || true
+          fi
+
+      - name: Wait for GitHub Pages Deployment
+        run: |
+          echo "Waiting 60 seconds for GitHub Pages to deploy..."
+          sleep 60
+          echo "GitHub Pages should now be updated"
+
+      - name: Run Health Checks
+        run: |
+          # Copy health check script to export dir for execution
+          cp ./scripts/health-check.sh /tmp/kriebb-public-export/
+          cd /tmp/kriebb-public-export
+          
+          # Run health checks against the live site
+          ./health-check.sh --url "https://kriebb.github.io" --timeout 30 --retries 3
+
+      - name: Promote to Production
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN_PUBLISH }}
+        run: |
+          cd /tmp/kriebb-public-export
+          
+          # Health checks passed - promote staging to production
+          git fetch origin ${{ env.PRODUCTION_BRANCH }}:${{ env.PRODUCTION_BRANCH }} || git checkout --orphan ${{ env.PRODUCTION_BRANCH }}
+          git checkout ${{ env.PRODUCTION_BRANCH }}
+          
+          # Copy all files from staging
+          git checkout ${{ env.STAGING_BRANCH }} -- .
+          
+          git add -A
+          git commit -m "chore: production deployment (auto-promoted from ${{ env.STAGING_BRANCH }}) [skip ci]" || echo "No changes to commit"
+          
+          # Push to production
+          git push "https://kriebb:${GITHUB_TOKEN}@github.com/${{ env.GITHUB_TARGET_REPO }}.git" ${{ env.PRODUCTION_BRANCH }}:${{ env.PRODUCTION_BRANCH }}
+          
+          echo "✓ Successfully promoted to production branch: ${{ env.PRODUCTION_BRANCH }}"
+
+      - name: Notify Deployment Failure
+        if: failure()
+        run: |
+          echo "=========================================="
+          echo "❌ DEPLOYMENT FAILED"
+          echo "=========================================="
+          echo ""
+          echo "Staging branch: ${{ env.STAGING_BRANCH }}"
+          echo "Production branch: ${{ env.PRODUCTION_BRANCH }}"
+          echo ""
+          echo "The deployment was stopped due to failed health checks."
+          echo "Production remains unchanged."
+          echo ""
+          echo "Next steps:"
+          echo "  1. Check the workflow logs above for specific errors"
+          echo "  2. Review health check output for failed endpoints"
+          echo "  3. Fix issues and push a new commit to retry"
+          echo ""
+          echo "To manually rollback staging:"
+          echo "  git push origin --delete ${{ env.STAGING_BRANCH }}"
+          echo "=========================================="
+          exit 1
